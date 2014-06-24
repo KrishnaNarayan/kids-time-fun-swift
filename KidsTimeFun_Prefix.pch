@@ -1,0 +1,9 @@
+//
+// Prefix header for all source files of the 'KidsTimeFun' target in the 'KidsTimeFun' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+	#import "AudioPlayer.h"
+#endif
