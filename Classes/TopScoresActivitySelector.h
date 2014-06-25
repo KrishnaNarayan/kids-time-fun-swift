@@ -7,7 +7,7 @@
 //		--Updated graphics
 //		--Added tell a friend
 //		--Changed app name to Kids Learn To Tell Time
-//  Copyright 2009-2013 NSC Partners LLC. All rights reserved.
+//  Copyright 2009-2013 NSC Partners LLC. Copyright 2014 One Step Ahead Apps, LLC. All rights reserved.
 //
 
 @interface TopScoresActivitySelector : UIViewController <UITableViewDelegate, UITableViewDataSource> {

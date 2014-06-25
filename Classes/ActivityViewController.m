@@ -8,7 +8,7 @@
 //		--Added tell a friend
 //		--Changed app name to Kids Learn To Tell Time
 //  Modified by SVV Satyanarayana, under contract to NSC Partners LLC on 28/04/10.
-//  Copyright 2009-2013 NSC Partners LLC. All rights reserved.
+//  Copyright 2009-2013 NSC Partners LLC. Copyright 2014 One Step Ahead Apps, LLC. All rights reserved.
 //
 
 #import "ActivityViewController.h"

@@ -7,7 +7,7 @@
 //		--Updated graphics
 //		--Added tell a friend
 //		--Changed app name to Kids Learn To Tell Time
-//  Copyright 2009-2013 NSC Partners LLC. All rights reserved.d.
+//  Copyright 2009-2013 NSC Partners LLC. Copyright 2014 One Step Ahead Apps, LLC. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

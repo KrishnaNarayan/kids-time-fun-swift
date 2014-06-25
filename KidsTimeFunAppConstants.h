@@ -19,7 +19,7 @@
  //  Revised by Krishna Narayan on 1/22/11--Revised graphics, fixed SET TIME smoother movement of hands, detects touches closer to the hand now.
  //  Revised by Krishna Narayan on 3/9/12--Added sound files and kids voice files
  //  Revised by Krishna Narayan on 12/14/12--Tested new sound files, revised text, copyright, released as universal version. Satyam debugged memory leaks
- //  Copyright 2009-2013 NSC Partners LLC. All rights reserved.
+ //  Copyright 2009-2013 NSC Partners LLC. Copyright 2014 One Step Ahead Apps, LLC. All rights reserved.
  */
 
 

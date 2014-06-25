@@ -7,7 +7,7 @@
 //		--Updated graphics
 //		--Added tell a friend
 //		--Changed app name to Kids Learn To Tell Time
-//  Copyright 2009-2013 NSC Partners LLC. All rights reserved.
+//  Copyright 2009-2013 NSC Partners LLC. Copyright 2014 One Step Ahead Apps, LLC. All rights reserved.
 //
 
 #import "TopScoresSingleDetailViewController.h"
@@ -92,7 +92,7 @@
 		if ([scoresArray count] > 0) {
 			NSDictionary *score = [scoresArray objectAtIndex:indexPath.row];
 			NSMutableString *cellText = [[NSMutableString alloc] init];
-			[cellText appendFormat:@"%li", (indexPath.row+1)];
+			[cellText appendFormat:@"%i",(int) (indexPath.row+1)];
 			[cellText appendString:@". "];
 			[cellText appendString:[score valueForKey:kPlayerName]];
 			[cellText appendString:@", "];

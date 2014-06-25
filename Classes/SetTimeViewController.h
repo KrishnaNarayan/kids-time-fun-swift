@@ -4,7 +4,7 @@
 //
 //  Created by Jagmeet Chawla on 4/30/09.
 //
-//  Copyright 2009-2013 NSC Partners LLC. All rights reserved.
+//  Copyright 2009-2013 NSC Partners LLC. Copyright 2014 One Step Ahead Apps, LLC. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

@@ -112,20 +112,6 @@
 		456321A91655129700A12AD3 /* Mail copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 456321A71655129700A12AD3 /* Mail copy.png */; };
 		45ECD97D165794A1000297DA /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45ECD97C165794A1000297DA /* Icon-72@2x.png */; };
 		4AA483ED11A8E16400BDAEDB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AA483EC11A8E16400BDAEDB /* MessageUI.framework */; };
-		520DD13811AE30110040335E /* Big_Stuff_Dinosaurs.png in Resources */ = {isa = PBXBuildFile; fileRef = 520DD12911AE30110040335E /* Big_Stuff_Dinosaurs.png */; };
-		520DD13911AE30110040335E /* BlueBearyicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 520DD12A11AE30110040335E /* BlueBearyicon.png */; };
-		520DD13A11AE30110040335E /* I_Can_Do_It_Too.png in Resources */ = {isa = PBXBuildFile; fileRef = 520DD12B11AE30110040335E /* I_Can_Do_It_Too.png */; };
-		520DD13B11AE30110040335E /* KMFAdButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 520DD12C11AE30110040335E /* KMFAdButton.png */; };
-		520DD13D11AE30110040335E /* Mooncake_icon_SMALL.png in Resources */ = {isa = PBXBuildFile; fileRef = 520DD12E11AE30110040335E /* Mooncake_icon_SMALL.png */; };
-		520DD13E11AE30110040335E /* My_Name_is_Andrew.png in Resources */ = {isa = PBXBuildFile; fileRef = 520DD12F11AE30110040335E /* My_Name_is_Andrew.png */; };
-		520DD13F11AE30110040335E /* papa_gatto_button_small_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 520DD13011AE30110040335E /* papa_gatto_button_small_4.png */; };
-		520DD14011AE30110040335E /* peterkin_icon_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 520DD13111AE30110040335E /* peterkin_icon_small.png */; };
-		520DD14111AE30110040335E /* PPBAdButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 520DD13211AE30110040335E /* PPBAdButton.png */; };
-		520DD14211AE30110040335E /* Sleeping_Beauty.png in Resources */ = {isa = PBXBuildFile; fileRef = 520DD13311AE30110040335E /* Sleeping_Beauty.png */; };
-		520DD14311AE30110040335E /* Tire_Mountain.png in Resources */ = {isa = PBXBuildFile; fileRef = 520DD13411AE30110040335E /* Tire_Mountain.png */; };
-		520DD14411AE30110040335E /* Tractors.png in Resources */ = {isa = PBXBuildFile; fileRef = 520DD13511AE30110040335E /* Tractors.png */; };
-		520DD14511AE30110040335E /* Well_Paint_the_Octopus_Red.png in Resources */ = {isa = PBXBuildFile; fileRef = 520DD13611AE30110040335E /* Well_Paint_the_Octopus_Red.png */; };
-		520DD14611AE30110040335E /* What_a_Pest.png in Resources */ = {isa = PBXBuildFile; fileRef = 520DD13711AE30110040335E /* What_a_Pest.png */; };
 		5210D9DE13484F3500B54AB2 /* HelpView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5210D9DD13484F3500B54AB2 /* HelpView-iPad.xib */; };
 		524F3795135197A8005905D1 /* ResultView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524F3794135197A8005905D1 /* ResultView-iPad.xib */; };
 		52781BD6133DC23D009AD503 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52781BD5133DC23D009AD503 /* BaseViewController.m */; };
@@ -163,7 +149,6 @@
 		6B085A66127A045700403612 /* KCF_icon_57px.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B085A65127A045700403612 /* KCF_icon_57px.png */; };
 		6B085A7C127A04F400403612 /* bkg4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B085A7B127A04F400403612 /* bkg4.jpg */; };
 		6B085D94127A2F7C00403612 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6B085D93127A2F7C00403612 /* Entitlements.plist */; };
-		6B51AB1F1220D1AB006CDC38 /* Monster_Trucks.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B51AB1E1220D1AB006CDC38 /* Monster_Trucks.png */; };
 		6B5F18B5127AB7950020F935 /* Set Time.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B5F18B4127AB7950020F935 /* Set Time.png */; };
 		6B5F18BC127AB7A70020F935 /* tell_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B5F18B6127AB7A70020F935 /* tell_time.png */; };
 		6B5F18BD127AB7A70020F935 /* elapsed_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B5F18B7127AB7A70020F935 /* elapsed_time.png */; };
@@ -482,20 +467,6 @@
 		456321A71655129700A12AD3 /* Mail copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Mail copy.png"; sourceTree = "<group>"; };
 		45ECD97C165794A1000297DA /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
 		4AA483EC11A8E16400BDAEDB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		520DD12911AE30110040335E /* Big_Stuff_Dinosaurs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Big_Stuff_Dinosaurs.png; sourceTree = "<group>"; };
-		520DD12A11AE30110040335E /* BlueBearyicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlueBearyicon.png; sourceTree = "<group>"; };
-		520DD12B11AE30110040335E /* I_Can_Do_It_Too.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = I_Can_Do_It_Too.png; sourceTree = "<group>"; };
-		520DD12C11AE30110040335E /* KMFAdButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KMFAdButton.png; sourceTree = "<group>"; };
-		520DD12E11AE30110040335E /* Mooncake_icon_SMALL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mooncake_icon_SMALL.png; sourceTree = "<group>"; };
-		520DD12F11AE30110040335E /* My_Name_is_Andrew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = My_Name_is_Andrew.png; sourceTree = "<group>"; };
-		520DD13011AE30110040335E /* papa_gatto_button_small_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = papa_gatto_button_small_4.png; sourceTree = "<group>"; };
-		520DD13111AE30110040335E /* peterkin_icon_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = peterkin_icon_small.png; sourceTree = "<group>"; };
-		520DD13211AE30110040335E /* PPBAdButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PPBAdButton.png; sourceTree = "<group>"; };
-		520DD13311AE30110040335E /* Sleeping_Beauty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sleeping_Beauty.png; sourceTree = "<group>"; };
-		520DD13411AE30110040335E /* Tire_Mountain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tire_Mountain.png; sourceTree = "<group>"; };
-		520DD13511AE30110040335E /* Tractors.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tractors.png; sourceTree = "<group>"; };
-		520DD13611AE30110040335E /* Well_Paint_the_Octopus_Red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Well_Paint_the_Octopus_Red.png; sourceTree = "<group>"; };
-		520DD13711AE30110040335E /* What_a_Pest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = What_a_Pest.png; sourceTree = "<group>"; };
 		5210D9DD13484F3500B54AB2 /* HelpView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "HelpView-iPad.xib"; path = "Resources-iPad/HelpView-iPad.xib"; sourceTree = "<group>"; };
 		524F3794135197A8005905D1 /* ResultView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "ResultView-iPad.xib"; path = "Resources-iPad/ResultView-iPad.xib"; sourceTree = "<group>"; };
 		52781BD4133DC23D009AD503 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -535,7 +506,6 @@
 		6B085A65127A045700403612 /* KCF_icon_57px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KCF_icon_57px.png; sourceTree = "<group>"; };
 		6B085A7B127A04F400403612 /* bkg4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bkg4.jpg; sourceTree = "<group>"; };
 		6B085D93127A2F7C00403612 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
-		6B51AB1E1220D1AB006CDC38 /* Monster_Trucks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Monster_Trucks.png; sourceTree = "<group>"; };
 		6B5F18B4127AB7950020F935 /* Set Time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Set Time.png"; sourceTree = "<group>"; };
 		6B5F18B6127AB7A70020F935 /* tell_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tell_time.png; sourceTree = "<group>"; };
 		6B5F18B7127AB7A70020F935 /* elapsed_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = elapsed_time.png; sourceTree = "<group>"; };
@@ -1007,21 +977,6 @@
 		520DD12711AE2FF80040335E /* OtherApps */ = {
 			isa = PBXGroup;
 			children = (
-				520DD12911AE30110040335E /* Big_Stuff_Dinosaurs.png */,
-				520DD12A11AE30110040335E /* BlueBearyicon.png */,
-				6B51AB1E1220D1AB006CDC38 /* Monster_Trucks.png */,
-				520DD12B11AE30110040335E /* I_Can_Do_It_Too.png */,
-				520DD12C11AE30110040335E /* KMFAdButton.png */,
-				520DD12E11AE30110040335E /* Mooncake_icon_SMALL.png */,
-				520DD12F11AE30110040335E /* My_Name_is_Andrew.png */,
-				520DD13011AE30110040335E /* papa_gatto_button_small_4.png */,
-				520DD13111AE30110040335E /* peterkin_icon_small.png */,
-				520DD13211AE30110040335E /* PPBAdButton.png */,
-				520DD13311AE30110040335E /* Sleeping_Beauty.png */,
-				520DD13411AE30110040335E /* Tire_Mountain.png */,
-				520DD13511AE30110040335E /* Tractors.png */,
-				520DD13611AE30110040335E /* Well_Paint_the_Octopus_Red.png */,
-				520DD13711AE30110040335E /* What_a_Pest.png */,
 			);
 			name = OtherApps;
 			sourceTree = "<group>";
@@ -1397,7 +1352,7 @@
 				LastUpgradeCheck = 0500;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
-						DevelopmentTeam = T72S3AGZX3;
+						DevelopmentTeam = CW985P4WQJ;
 					};
 				};
 			};
@@ -1503,22 +1458,7 @@
 				6BADED9010637B9F00AE8AFB /* Penguin1.png in Resources */,
 				6B9BBAC5109A5FF30075FDDC /* dot.blue.png in Resources */,
 				6B9BBAC6109A5FF30075FDDC /* dot.red.png in Resources */,
-				520DD13811AE30110040335E /* Big_Stuff_Dinosaurs.png in Resources */,
-				520DD13911AE30110040335E /* BlueBearyicon.png in Resources */,
-				520DD13A11AE30110040335E /* I_Can_Do_It_Too.png in Resources */,
-				520DD13B11AE30110040335E /* KMFAdButton.png in Resources */,
-				520DD13D11AE30110040335E /* Mooncake_icon_SMALL.png in Resources */,
-				520DD13E11AE30110040335E /* My_Name_is_Andrew.png in Resources */,
-				520DD13F11AE30110040335E /* papa_gatto_button_small_4.png in Resources */,
-				520DD14011AE30110040335E /* peterkin_icon_small.png in Resources */,
-				520DD14111AE30110040335E /* PPBAdButton.png in Resources */,
-				520DD14211AE30110040335E /* Sleeping_Beauty.png in Resources */,
-				520DD14311AE30110040335E /* Tire_Mountain.png in Resources */,
-				520DD14411AE30110040335E /* Tractors.png in Resources */,
-				520DD14511AE30110040335E /* Well_Paint_the_Octopus_Red.png in Resources */,
-				520DD14611AE30110040335E /* What_a_Pest.png in Resources */,
 				6B69804F1220564E0032164E /* K%F_icon_EN_57.png in Resources */,
-				6B51AB1F1220D1AB006CDC38 /* Monster_Trucks.png in Resources */,
 				6B085A4D127A00D500403612 /* splash.jpg in Resources */,
 				6B085A66127A045700403612 /* KCF_icon_57px.png in Resources */,
 				6B085A7C127A04F400403612 /* bkg4.jpg in Resources */,
@@ -1803,8 +1743,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: NSC Partners LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: NSC Partners LLC";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: ONE STEP AHEAD APPS, LLC (CW985P4WQJ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ONE STEP AHEAD APPS, LLC (CW985P4WQJ)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1813,8 +1753,8 @@
 				INFOPLIST_FILE = "KidsTimeFun-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = KidsTimeFun;
-				PROVISIONING_PROFILE = "B6C60198-DBA9-4965-8FA2-D9296D0DE26D";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B6C60198-DBA9-4965-8FA2-D9296D0DE26D";
+				PROVISIONING_PROFILE = "B459E8D1-2725-46FD-83C3-6C13165544C3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B459E8D1-2725-46FD-83C3-6C13165544C3";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1824,16 +1764,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: NSC Partners LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: NSC Partners LLC";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: ONE STEP AHEAD APPS, LLC (CW985P4WQJ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ONE STEP AHEAD APPS, LLC (CW985P4WQJ)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = KidsTimeFun_Prefix.pch;
 				INFOPLIST_FILE = "KidsTimeFun-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = KidsTimeFun;
-				PROVISIONING_PROFILE = "B6C60198-DBA9-4965-8FA2-D9296D0DE26D";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B6C60198-DBA9-4965-8FA2-D9296D0DE26D";
+				PROVISIONING_PROFILE = "B459E8D1-2725-46FD-83C3-6C13165544C3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B459E8D1-2725-46FD-83C3-6C13165544C3";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1857,16 +1797,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: NSC Partners LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: NSC Partners LLC";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: ONE STEP AHEAD APPS, LLC (CW985P4WQJ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ONE STEP AHEAD APPS, LLC (CW985P4WQJ)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = KidsTimeFun_Prefix.pch;
 				INFOPLIST_FILE = "KidsTimeFun-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = KidsTimeFun;
-				PROVISIONING_PROFILE = "B6C60198-DBA9-4965-8FA2-D9296D0DE26D";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B6C60198-DBA9-4965-8FA2-D9296D0DE26D";
+				PROVISIONING_PROFILE = "B459E8D1-2725-46FD-83C3-6C13165544C3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B459E8D1-2725-46FD-83C3-6C13165544C3";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
