@@ -124,7 +124,7 @@
 
 // Override to support row selection in the table view.
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	self.activityLevel = indexPath.row;
+	self.activityLevel = (int) indexPath.row;
 	TopScoresDetailViewController *topScoreDetailViewController = nil;
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) 
 	{

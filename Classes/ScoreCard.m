@@ -59,7 +59,7 @@
 		//Now Loop throgh the sorted array and see if the score is greater than any other score in the array
 		if ([scoresArray count] <= [KidsTimeFunAppState sharedState].sizeOfTopScoreList) {
 			isTopScore = YES;
-			scoreRank = [scoresArray count]+1;
+			scoreRank = (int) [scoresArray count]+1;
 		}
 		for (int i=0; i < [scoresArray count]; i++) {
 			//if first - just add is as top score #1
@@ -133,7 +133,7 @@
 		[newScoresArray addObject:[scoresArray objectAtIndex:i]];
 	}
 	[newScoresArray addObject:self.scoreCard];
-	int newArraySize = ([scoresArray count]<[KidsTimeFunAppState sharedState].sizeOfTopScoreList)?[scoresArray count]+1:[KidsTimeFunAppState sharedState].sizeOfTopScoreList;
+	int newArraySize = ([scoresArray count]<[KidsTimeFunAppState sharedState].sizeOfTopScoreList)?(int)[scoresArray count]+1:[KidsTimeFunAppState sharedState].sizeOfTopScoreList;
 	for (int i=self.scoreRank; i<newArraySize; i++) {
 		[newScoresArray addObject:[scoresArray objectAtIndex:i-1]];
 	}

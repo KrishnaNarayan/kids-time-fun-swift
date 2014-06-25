@@ -175,7 +175,7 @@
 
 - (IBAction) activityLevelChoiceChanged: (id) sender {
 	isDirty = YES;
-	activityLevel = activityLevelChoiceControl.selectedSegmentIndex;
+	activityLevel = (int)activityLevelChoiceControl.selectedSegmentIndex;
 	switch (activityLevel) {
 		case kActLevelYellowBelt:
 			activityLevelLabel.text = kStrActTypeYellowBelt;

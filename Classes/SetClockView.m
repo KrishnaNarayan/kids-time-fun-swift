@@ -163,7 +163,7 @@
 	//self.hours = round(self.hours);
     self.minutes = (round(self.minutes) == 60 ? 00 : round(self.minutes));
 	
-		//NSLog(@"Time is %f:%f",self.hours,self.minutes);
+		NSLog(@"Time is %f:%f",self.hours,self.minutes);
 	//Now draw a line 3 pixels wide from center (x_c, y_c) to the above point (x, y)
 	CGContextSetLineWidth (context, 5.0f);
 	CGContextSetLineCap(context, kCGLineCapRound);
@@ -210,7 +210,7 @@
     if (self.hours == 12.0) {
         self.hours = 0;
     }
-    NSLog(@"%f",self.hours);
+    //NSLog(@"-->>>>>%f",self.hours);
 
 }
 

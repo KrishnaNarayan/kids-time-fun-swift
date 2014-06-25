@@ -92,7 +92,7 @@
 		if ([scoresArray count] > 0) {
 			NSDictionary *score = [scoresArray objectAtIndex:indexPath.row];
 			NSMutableString *cellText = [[NSMutableString alloc] init];
-			[cellText appendFormat:@"%i", (indexPath.row+1)];
+			[cellText appendFormat:@"%li", (indexPath.row+1)];
 			[cellText appendString:@". "];
 			[cellText appendString:[score valueForKey:kPlayerName]];
 			[cellText appendString:@", "];

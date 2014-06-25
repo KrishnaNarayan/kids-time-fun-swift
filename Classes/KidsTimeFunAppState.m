@@ -83,7 +83,7 @@ static KidsTimeFunAppState *sharedState = nil;
 }
 
 
--(unsigned)retainCount {
+-(NSUInteger)retainCount {
     return UINT_MAX;  //denotes an object that cannot be release
 }
 

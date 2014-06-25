@@ -215,7 +215,7 @@
 	}
 	//load answer in a random index, but remember where it is
 	randomNumber.rangeLow = 0;
-	randomNumber.rangeHigh = choices.numberOfSegments-1;
+	randomNumber.rangeHigh =(int) choices.numberOfSegments-1;
 	self.answerIndex = randomNumber.randomInteger;
 //	if (answerHours == 0) [choices setTitle:[NSString stringWithFormat:@"%02i min", answerMinutes] forSegmentAtIndex:self.answerIndex];
 //		else [choices setTitle:[NSString stringWithFormat:@"%i:%02i", answerHours, answerMinutes] forSegmentAtIndex:self.answerIndex];

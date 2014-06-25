@@ -236,6 +236,11 @@ static AudioPlayer* audioPlayer = nil;
 		audioFilePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%d_m",[[timeComponents objectAtIndex:1] intValue]] ofType:@"mp3"];
 		[filesToPlay addObject:[NSURL fileURLWithPath:audioFilePath]];		
 	}
+    else
+    {
+        audioFilePath = [[NSBundle mainBundle] pathForResource:@"oclock_m" ofType:@"mp3"];
+        [filesToPlay addObject:[NSURL fileURLWithPath:audioFilePath]];
+    }
 
 	[self playQueuedFiles:filesToPlay];	
 }

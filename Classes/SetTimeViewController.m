@@ -81,7 +81,7 @@
 	
 	//Set the time string in view
 	NSString* sTime;
-    sTime = [NSString stringWithFormat:@"%.2d:%.2d",setHours,setMinutes];
+    sTime = [NSString stringWithFormat:@"%d:%.2d",setHours,setMinutes];
     
 //	if(setMinutes == 0)
 //	{

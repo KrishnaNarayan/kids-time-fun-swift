@@ -92,7 +92,7 @@
 //        cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 		}
-	NSLog(@"Index path is %d",indexPath.row);
+	NSLog(@"Index path is %ld",(long)indexPath.row);
 	// Configure the cell.
 	switch (indexPath.row) {
 		case kActTellTime:
@@ -137,7 +137,7 @@
 
 // Override to support row selection in the table view.
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	self.activity = indexPath.row;
+	self.activity = (int) indexPath.row;
 	TopScoresActivityLevelSelector *topScoresActivityLevelSelector = nil;
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) 
 	{

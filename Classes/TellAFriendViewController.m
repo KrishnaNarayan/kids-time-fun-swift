@@ -84,7 +84,7 @@
 	NSString *emailBody = @"Please try this really cool app:  http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=318350766";
 	[picker setMessageBody:emailBody isHTML:NO];
 	
-	[self presentModalViewController:picker animated:YES];
+	[self presentViewController:picker animated:YES completion:nil];
     [picker release];
 }
 
@@ -110,7 +110,7 @@
 			message = @"Result: not sent";
 			break;
 	}
-	[self dismissModalViewControllerAnimated:YES];
+	[self dismissViewControllerAnimated:YES completion:nil];
 	UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"Tell A Friend" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
 	[av show];
 	[av release];
