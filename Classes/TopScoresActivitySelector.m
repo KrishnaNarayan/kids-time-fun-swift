@@ -27,15 +27,10 @@
 }
 
 - (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
 }
 
 - (void)viewDidUnload {
-	// Release anything that can be recreated in viewDidLoad or on demand.
-	// e.g. self.myOutlet = nil;
 }
 
 
@@ -89,13 +84,13 @@
 		default:
 			break;
 	}
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 // Override to support row selection in the table view.
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    [[tableView cellForRowAtIndexPath:indexPath] setSelectionStyle:UITableViewCellSelectionStyleNone];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
 	self.activity = (int) indexPath.row;
 	TopScoresActivityLevelSelector *topScoresActivityLevelSelector = nil;

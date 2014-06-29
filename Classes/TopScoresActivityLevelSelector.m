@@ -20,7 +20,31 @@
 @synthesize activityLevel;
 
 - (void)viewDidLoad {
-	self.title = kStrTopScores;
+    NSString *activityName;
+    switch (self.activity) {
+        case kActTellTime:
+            activityName = kStrTellTime;
+            break;
+        case kActElapsedTime:
+            activityName = kStrElapsedTime;
+            break;
+        case kActTimeAfter:
+            activityName = kStrTimeAfter;
+            break;
+        case kActTimeBefore:
+            activityName = kStrTimeBefore;
+            break;
+        case kActSetTime:
+            activityName = kStrSetTime;
+            break;
+        case kActMixed:
+            activityName = kStrMixed;
+            break;
+        default:
+            activityName = @"";
+            break;
+    }
+	self.title = [NSString stringWithFormat:@"%@ - %@",kStrTopScores,activityName];
 	UIBarButtonItem *homeBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Top Scores"] style:UIBarButtonItemStyleBordered target:self action:nil];
 	self.navigationItem.backBarButtonItem = homeBarButton;
 	[homeBarButton release];	
@@ -104,7 +128,8 @@
 		default:
 			break;
 	}
-	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	//cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

@@ -105,8 +105,8 @@
 	header.showTimer = ([KidsTimeFunAppState sharedState].activityType == kActTypeTimed);
 	header.activityLevel = self.activityLevel;
 	header.showTotal = YES;
+    [header setNeedsDisplay];
 	[self loadActivity:self.activity];
-	
 	[super viewWillAppear:animated];
 }
 /*

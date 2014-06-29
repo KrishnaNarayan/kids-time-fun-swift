@@ -140,6 +140,8 @@
 		51A07C361960A9A5005577F4 /* GoodJob@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A07C331960A9A5005577F4 /* GoodJob@2x.png */; };
 		51A07C371960A9A5005577F4 /* TryAgain.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A07C341960A9A5005577F4 /* TryAgain.png */; };
 		51A07C391960A9C7005577F4 /* GoodJob.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A07C381960A9C7005577F4 /* GoodJob.png */; };
+		51A07C3E1960D63F005577F4 /* Timed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A07C3C1960D63F005577F4 /* Timed@2x.png */; };
+		51A07C3F1960D63F005577F4 /* Numbered@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A07C3D1960D63F005577F4 /* Numbered@2x.png */; };
 		51F37001195E0E0A006797B2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51F37000195E0E0A006797B2 /* Images.xcassets */; };
 		51F37005195E1B76006797B2 /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 51F37003195E1B76006797B2 /* Settings.png */; };
 		51F37006195E1B76006797B2 /* Settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51F37004195E1B76006797B2 /* Settings@2x.png */; };
@@ -465,6 +467,8 @@
 		51A07C331960A9A5005577F4 /* GoodJob@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GoodJob@2x.png"; sourceTree = "<group>"; };
 		51A07C341960A9A5005577F4 /* TryAgain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TryAgain.png; sourceTree = "<group>"; };
 		51A07C381960A9C7005577F4 /* GoodJob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoodJob.png; sourceTree = "<group>"; };
+		51A07C3C1960D63F005577F4 /* Timed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Timed@2x.png"; sourceTree = "<group>"; };
+		51A07C3D1960D63F005577F4 /* Numbered@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Numbered@2x.png"; sourceTree = "<group>"; };
 		51F37000195E0E0A006797B2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = KidsTimeFun/Images.xcassets; sourceTree = "<group>"; };
 		51F37003195E1B76006797B2 /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
 		51F37004195E1B76006797B2 /* Settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings@2x.png"; sourceTree = "<group>"; };
@@ -1160,6 +1164,8 @@
 				51F37008195E1F10006797B2 /* Top Scores.png */,
 				51F37003195E1B76006797B2 /* Settings.png */,
 				51F37004195E1B76006797B2 /* Settings@2x.png */,
+				51A07C3C1960D63F005577F4 /* Timed@2x.png */,
+				51A07C3D1960D63F005577F4 /* Numbered@2x.png */,
 				9BA561D50FBE65CC004A7C2F /* Timed.png */,
 				9BA561D30FBE6543004A7C2F /* Numbered.png */,
 				5164FDAC195F7E8800DD87DE /* Timerbox.png */,
@@ -1254,6 +1260,7 @@
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				9BA3E0B20F92E8E200E7ED9C /* MenuView.xib in Resources */,
 				9B90EE8F0F96C8E8002839FA /* HelpView.xib in Resources */,
+				51A07C3E1960D63F005577F4 /* Timed@2x.png in Resources */,
 				9B90EE930F96C920002839FA /* TellTimeView.xib in Resources */,
 				9BB3DB430F9BBE3500877016 /* ClockView.xib in Resources */,
 				9B1DE2010FA78A5000DB7E9A /* SetTimeView.xib in Resources */,
@@ -1298,6 +1305,7 @@
 				6BE410C612EBC098001D7376 /* 1KCF72A.png in Resources */,
 				6BE410C712EBC098001D7376 /* 20KCF72A.png in Resources */,
 				51A07C371960A9A5005577F4 /* TryAgain.png in Resources */,
+				51A07C3F1960D63F005577F4 /* Numbered@2x.png in Resources */,
 				51F3701D195E4CA7006797B2 /* Home.png in Resources */,
 				5183D43B195D0E85003E3156 /* Menu-PinkButton@2x.png in Resources */,
 				6BE410C812EBC098001D7376 /* 21KCF72A.png in Resources */,

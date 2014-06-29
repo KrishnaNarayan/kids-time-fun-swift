@@ -45,9 +45,53 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-	self.title = kStrTopScores;
-	UIBarButtonItem *homeBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TopScores20.png"] style:UIBarButtonItemStyleBordered target:self action:nil];
-	self.navigationItem.backBarButtonItem = homeBarButton;
+    
+    NSString *activityName;
+    NSString *activityLevelName;
+    switch (self.activity) {
+        case kActTellTime:
+            activityName = kStrTellTime;
+            break;
+        case kActElapsedTime:
+            activityName = kStrElapsedTime;
+            break;
+        case kActTimeAfter:
+            activityName = kStrTimeAfter;
+            break;
+        case kActTimeBefore:
+            activityName = kStrTimeBefore;
+            break;
+        case kActSetTime:
+            activityName = kStrSetTime;
+            break;
+        case kActMixed:
+            activityName = kStrMixed;
+            break;
+        default:
+            activityName = @"";
+            break;
+    }
+    switch (self.activityLevel) {
+        case kActLevelYellowBelt:
+            activityLevelName = @"Yellow Belt";
+            break;
+        case kActLevelGreenBelt:
+            activityLevelName = @"Green Belt";
+            break;
+        case kActLevelRedBelt:
+            activityLevelName = @"Red Belt";
+            break;
+        case kActLevelBlackBelt:
+            activityLevelName = @"Black Belt";
+            break;
+        default:
+            activityLevelName = @"";
+            break;
+    }
+
+	self.title = [NSString stringWithFormat:@"%@ - %@", activityName, activityLevelName];
+	UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Top Score"] style:UIBarButtonItemStyleBordered target:self action:nil];
+	self.navigationItem.backBarButtonItem = backBarButton;
 	//create two views - one for numbered, one for timed quiz
 	TopScoresSingleDetailViewController *numberedVC = [[TopScoresSingleDetailViewController alloc] initWithActivity:self.activity andType:kActTypeNumbered andLevel:self.activityLevel withNibName:@"TopScoresSingleDetailView" bundle:nil];
 	TopScoresSingleDetailViewController *timedVC = [[TopScoresSingleDetailViewController alloc] initWithActivity:self.activity andType:kActTypeTimed andLevel:self.activityLevel withNibName:@"TopScoresSingleDetailView" bundle:nil];
@@ -68,7 +112,7 @@
 	[numberedVC release];
 	[timedVC release];
 	[viewControllersArray release];
-	[homeBarButton release];		
+	[backBarButton release];
 	[super viewDidLoad];
 }
 
