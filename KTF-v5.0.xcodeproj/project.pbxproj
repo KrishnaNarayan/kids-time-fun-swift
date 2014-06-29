@@ -113,6 +113,15 @@
 		5164FDBD195F85CC00DD87DE /* Green Belt.png in Resources */ = {isa = PBXBuildFile; fileRef = 5164FDBA195F85CC00DD87DE /* Green Belt.png */; };
 		5164FDBE195F85CC00DD87DE /* Black Belt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5164FDBB195F85CC00DD87DE /* Black Belt@2x.png */; };
 		5164FDBF195F85CC00DD87DE /* Black Belt.png in Resources */ = {isa = PBXBuildFile; fileRef = 5164FDBC195F85CC00DD87DE /* Black Belt.png */; };
+		5164FDC2195FAF6700DD87DE /* Right40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5164FDC0195FAF6700DD87DE /* Right40@2x.png */; };
+		5164FDC3195FAF6700DD87DE /* Right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5164FDC1195FAF6700DD87DE /* Right@2x.png */; };
+		5164FDC6195FB1D000DD87DE /* Wrong@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5164FDC4195FB1D000DD87DE /* Wrong@2x.png */; };
+		5164FDC7195FB1D000DD87DE /* Wrong40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5164FDC5195FB1D000DD87DE /* Wrong40@2x.png */; };
+		5164FDC9195FB25400DD87DE /* Percent40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5164FDC8195FB25400DD87DE /* Percent40@2x.png */; };
+		5164FDCB195FB2E700DD87DE /* EqualTo40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5164FDCA195FB2E700DD87DE /* EqualTo40@2x.png */; };
+		5164FDCD195FB3E800DD87DE /* Separator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5164FDCC195FB3E800DD87DE /* Separator@2x.png */; };
+		5164FDD2195FB5AE00DD87DE /* Timer.png in Resources */ = {isa = PBXBuildFile; fileRef = 5164FDD0195FB5AE00DD87DE /* Timer.png */; };
+		5164FDD3195FB5AE00DD87DE /* Timer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5164FDD1195FB5AE00DD87DE /* Timer@2x.png */; };
 		5183D432195D0E85003E3156 /* Menu-BlueButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5183D424195D0E85003E3156 /* Menu-BlueButton.png */; };
 		5183D433195D0E85003E3156 /* Menu-BlueButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5183D425195D0E85003E3156 /* Menu-BlueButton@2x.png */; };
 		5183D434195D0E85003E3156 /* Menu-GreenButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5183D426195D0E85003E3156 /* Menu-GreenButton.png */; };
@@ -127,6 +136,10 @@
 		5183D43D195D0E85003E3156 /* Menu-PurpleButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5183D42F195D0E85003E3156 /* Menu-PurpleButton@2x.png */; };
 		5183D43E195D0E85003E3156 /* Menu-RedButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5183D430195D0E85003E3156 /* Menu-RedButton.png */; };
 		5183D43F195D0E85003E3156 /* Menu-RedButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5183D431195D0E85003E3156 /* Menu-RedButton@2x.png */; };
+		51A07C351960A9A5005577F4 /* TryAgain@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A07C321960A9A5005577F4 /* TryAgain@2x.png */; };
+		51A07C361960A9A5005577F4 /* GoodJob@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A07C331960A9A5005577F4 /* GoodJob@2x.png */; };
+		51A07C371960A9A5005577F4 /* TryAgain.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A07C341960A9A5005577F4 /* TryAgain.png */; };
+		51A07C391960A9C7005577F4 /* GoodJob.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A07C381960A9C7005577F4 /* GoodJob.png */; };
 		51F37001195E0E0A006797B2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51F37000195E0E0A006797B2 /* Images.xcassets */; };
 		51F37005195E1B76006797B2 /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 51F37003195E1B76006797B2 /* Settings.png */; };
 		51F37006195E1B76006797B2 /* Settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51F37004195E1B76006797B2 /* Settings@2x.png */; };
@@ -171,8 +184,6 @@
 		52E5E11B1352124F00EBCBBE /* TopScoresSingleDetailView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E5E11A1352124F00EBCBBE /* TopScoresSingleDetailView-iPad.xib */; };
 		6B683CF51098E9A300FFE9A1 /* SetTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B683CF41098E9A300FFE9A1 /* SetTimeViewController.m */; };
 		6B683D011098EA0400FFE9A1 /* SetClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B683D001098EA0400FFE9A1 /* SetClockView.m */; };
-		6B9BBAC5109A5FF30075FDDC /* dot.blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B9BBAC3109A5FF30075FDDC /* dot.blue.png */; };
-		6B9BBAC6109A5FF30075FDDC /* dot.red.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B9BBAC4109A5FF30075FDDC /* dot.red.png */; };
 		6BE410BB12EBC098001D7376 /* 100KCF72A.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BE4105612EBC098001D7376 /* 100KCF72A.png */; };
 		6BE410BC12EBC098001D7376 /* 10KCF72A.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BE4105712EBC098001D7376 /* 10KCF72A.png */; };
 		6BE410BD12EBC098001D7376 /* 11KCF72A.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BE4105812EBC098001D7376 /* 11KCF72A.png */; };
@@ -275,35 +286,22 @@
 		6BE4111E12EBC098001D7376 /* 9KCF72A.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BE410B912EBC098001D7376 /* 9KCF72A.png */; };
 		9B1DE2010FA78A5000DB7E9A /* SetTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B1DE2000FA78A5000DB7E9A /* SetTimeView.xib */; };
 		9B2143D20FADD62B00A1CF20 /* Separator.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B2143CE0FADD62B00A1CF20 /* Separator.png */; };
-		9B21451C0FAE4B2B00A1CF20 /* Mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B21451B0FAE4B2B00A1CF20 /* Mail.png */; };
-		9B21458F0FAE6CB300A1CF20 /* KidsTimeFun.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B21458E0FAE6CB300A1CF20 /* KidsTimeFun.png */; };
-		9B2145B70FAE7ED000A1CF20 /* Help.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B2145B60FAE7ED000A1CF20 /* Help.png */; };
 		9B430A140FC71F44006B3E90 /* ElapsedTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B430A120FC71F44006B3E90 /* ElapsedTimeViewController.m */; };
 		9B60CE110FB28DF6002ADA58 /* ResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B60CE100FB28DF6002ADA58 /* ResultView.xib */; };
 		9B692B230FBF199B005B1155 /* TopScoresSingleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B692B220FBF199B005B1155 /* TopScoresSingleDetailViewController.m */; };
 		9B779EC70FAD30B2009F068C /* ActivityHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B779EC60FAD30B2009F068C /* ActivityHeaderView.m */; };
-		9B779F4C0FAD4496009F068C /* GoodJob.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B779F4A0FAD4496009F068C /* GoodJob.png */; };
-		9B779F500FAD450D009F068C /* TryAgain.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B779F4F0FAD450D009F068C /* TryAgain.png */; };
 		9B81C6BD0FAA79A4007321EE /* TellTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B81C6BC0FAA79A4007321EE /* TellTimeViewController.m */; };
 		9B90EE610F96C74C002839FA /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B90EE600F96C74C002839FA /* ActivityViewController.m */; };
 		9B90EE640F96C778002839FA /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B90EE630F96C778002839FA /* HelpViewController.m */; };
 		9B90EE8F0F96C8E8002839FA /* HelpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B90EE8E0F96C8E8002839FA /* HelpView.xib */; };
 		9B90EE930F96C920002839FA /* TellTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B90EE920F96C920002839FA /* TellTimeView.xib */; };
-		9B93C6280FC0783A00043810 /* BlueBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B93C6270FC0783A00043810 /* BlueBox.png */; };
 		9B93C9720FC1DDAB00043810 /* EqualTo40.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B93C9710FC1DDAB00043810 /* EqualTo40.png */; };
-		9B93C97A0FC1DE7200043810 /* whiteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B93C9790FC1DE7200043810 /* whiteButton.png */; };
-		9B93C9840FC1DF0D00043810 /* blueButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B93C9830FC1DF0D00043810 /* blueButton.png */; };
-		9B93CA300FC211A100043810 /* TellAFriend40.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B93CA2F0FC211A100043810 /* TellAFriend40.png */; };
 		9B93CA990FC2259300043810 /* ElapsedTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B93CA980FC2259300043810 /* ElapsedTimeView.xib */; };
 		9B9DF60D0FBB8AE800200B50 /* Right.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B9DF6080FBB8AE800200B50 /* Right.png */; };
 		9B9DF6100FBB8AE800200B50 /* Wrong.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B9DF60B0FBB8AE800200B50 /* Wrong.png */; };
 		9B9DF6200FBB95A700200B50 /* Percent40.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B9DF61B0FBB95A700200B50 /* Percent40.png */; };
 		9B9DF6210FBB95A700200B50 /* Right40.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B9DF61C0FBB95A700200B50 /* Right40.png */; };
-		9B9DF6230FBB95A700200B50 /* watch40.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B9DF61E0FBB95A700200B50 /* watch40.png */; };
 		9B9DF6240FBB95A700200B50 /* Wrong40.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B9DF61F0FBB95A700200B50 /* Wrong40.png */; };
-		9B9DF6280FBB976800200B50 /* GoldStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B9DF6270FBB976800200B50 /* GoldStar.png */; };
-		9B9DF62C0FBB9AE300200B50 /* Smiley.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B9DF62B0FBB9AE300200B50 /* Smiley.png */; };
-		9B9DF6360FBB9B6000200B50 /* happy.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B9DF6350FBB9B6000200B50 /* happy.png */; };
 		9BA3E0B00F92E8CA00E7ED9C /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA3E0AF0F92E8CA00E7ED9C /* MenuViewController.m */; };
 		9BA3E0B20F92E8E200E7ED9C /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA3E0B10F92E8E200E7ED9C /* MenuView.xib */; };
 		9BA47CB40FB2800200FA425E /* ScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA47CB30FB2800200FA425E /* ScoreViewController.m */; };
@@ -440,6 +438,15 @@
 		5164FDBA195F85CC00DD87DE /* Green Belt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Green Belt.png"; sourceTree = "<group>"; };
 		5164FDBB195F85CC00DD87DE /* Black Belt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Black Belt@2x.png"; sourceTree = "<group>"; };
 		5164FDBC195F85CC00DD87DE /* Black Belt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Black Belt.png"; sourceTree = "<group>"; };
+		5164FDC0195FAF6700DD87DE /* Right40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Right40@2x.png"; sourceTree = "<group>"; };
+		5164FDC1195FAF6700DD87DE /* Right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Right@2x.png"; sourceTree = "<group>"; };
+		5164FDC4195FB1D000DD87DE /* Wrong@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Wrong@2x.png"; sourceTree = "<group>"; };
+		5164FDC5195FB1D000DD87DE /* Wrong40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Wrong40@2x.png"; sourceTree = "<group>"; };
+		5164FDC8195FB25400DD87DE /* Percent40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Percent40@2x.png"; sourceTree = "<group>"; };
+		5164FDCA195FB2E700DD87DE /* EqualTo40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EqualTo40@2x.png"; sourceTree = "<group>"; };
+		5164FDCC195FB3E800DD87DE /* Separator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Separator@2x.png"; sourceTree = "<group>"; };
+		5164FDD0195FB5AE00DD87DE /* Timer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Timer.png; sourceTree = "<group>"; };
+		5164FDD1195FB5AE00DD87DE /* Timer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Timer@2x.png"; sourceTree = "<group>"; };
 		5183D424195D0E85003E3156 /* Menu-BlueButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu-BlueButton.png"; sourceTree = "<group>"; };
 		5183D425195D0E85003E3156 /* Menu-BlueButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu-BlueButton@2x.png"; sourceTree = "<group>"; };
 		5183D426195D0E85003E3156 /* Menu-GreenButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu-GreenButton.png"; sourceTree = "<group>"; };
@@ -454,6 +461,10 @@
 		5183D42F195D0E85003E3156 /* Menu-PurpleButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu-PurpleButton@2x.png"; sourceTree = "<group>"; };
 		5183D430195D0E85003E3156 /* Menu-RedButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu-RedButton.png"; sourceTree = "<group>"; };
 		5183D431195D0E85003E3156 /* Menu-RedButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu-RedButton@2x.png"; sourceTree = "<group>"; };
+		51A07C321960A9A5005577F4 /* TryAgain@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TryAgain@2x.png"; sourceTree = "<group>"; };
+		51A07C331960A9A5005577F4 /* GoodJob@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GoodJob@2x.png"; sourceTree = "<group>"; };
+		51A07C341960A9A5005577F4 /* TryAgain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TryAgain.png; sourceTree = "<group>"; };
+		51A07C381960A9C7005577F4 /* GoodJob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoodJob.png; sourceTree = "<group>"; };
 		51F37000195E0E0A006797B2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = KidsTimeFun/Images.xcassets; sourceTree = "<group>"; };
 		51F37003195E1B76006797B2 /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
 		51F37004195E1B76006797B2 /* Settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings@2x.png"; sourceTree = "<group>"; };
@@ -502,8 +513,6 @@
 		6B683CF41098E9A300FFE9A1 /* SetTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetTimeViewController.m; sourceTree = "<group>"; };
 		6B683CFF1098EA0400FFE9A1 /* SetClockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetClockView.h; sourceTree = "<group>"; };
 		6B683D001098EA0400FFE9A1 /* SetClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetClockView.m; sourceTree = "<group>"; };
-		6B9BBAC3109A5FF30075FDDC /* dot.blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dot.blue.png; sourceTree = "<group>"; };
-		6B9BBAC4109A5FF30075FDDC /* dot.red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dot.red.png; sourceTree = "<group>"; };
 		6BE4105612EBC098001D7376 /* 100KCF72A.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 100KCF72A.png; sourceTree = "<group>"; };
 		6BE4105712EBC098001D7376 /* 10KCF72A.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10KCF72A.png; sourceTree = "<group>"; };
 		6BE4105812EBC098001D7376 /* 11KCF72A.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11KCF72A.png; sourceTree = "<group>"; };
@@ -607,9 +616,6 @@
 		8D1107310486CEB800E47090 /* KidsTimeFun-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "KidsTimeFun-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		9B1DE2000FA78A5000DB7E9A /* SetTimeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetTimeView.xib; sourceTree = "<group>"; };
 		9B2143CE0FADD62B00A1CF20 /* Separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Separator.png; sourceTree = "<group>"; };
-		9B21451B0FAE4B2B00A1CF20 /* Mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mail.png; sourceTree = "<group>"; };
-		9B21458E0FAE6CB300A1CF20 /* KidsTimeFun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KidsTimeFun.png; sourceTree = "<group>"; };
-		9B2145B60FAE7ED000A1CF20 /* Help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Help.png; sourceTree = "<group>"; };
 		9B430A120FC71F44006B3E90 /* ElapsedTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElapsedTimeViewController.m; sourceTree = "<group>"; };
 		9B430A130FC71F44006B3E90 /* ElapsedTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElapsedTimeViewController.h; sourceTree = "<group>"; };
 		9B60CE100FB28DF6002ADA58 /* ResultView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultView.xib; sourceTree = "<group>"; };
@@ -617,8 +623,6 @@
 		9B692B220FBF199B005B1155 /* TopScoresSingleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopScoresSingleDetailViewController.m; sourceTree = "<group>"; };
 		9B779EC50FAD30B2009F068C /* ActivityHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityHeaderView.h; sourceTree = "<group>"; };
 		9B779EC60FAD30B2009F068C /* ActivityHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityHeaderView.m; sourceTree = "<group>"; };
-		9B779F4A0FAD4496009F068C /* GoodJob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoodJob.png; sourceTree = "<group>"; };
-		9B779F4F0FAD450D009F068C /* TryAgain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TryAgain.png; sourceTree = "<group>"; };
 		9B81C6BB0FAA79A4007321EE /* TellTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TellTimeViewController.h; sourceTree = "<group>"; };
 		9B81C6BC0FAA79A4007321EE /* TellTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TellTimeViewController.m; sourceTree = "<group>"; };
 		9B90EE5F0F96C74C002839FA /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
@@ -627,21 +631,13 @@
 		9B90EE630F96C778002839FA /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		9B90EE8E0F96C8E8002839FA /* HelpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpView.xib; sourceTree = "<group>"; };
 		9B90EE920F96C920002839FA /* TellTimeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TellTimeView.xib; sourceTree = "<group>"; };
-		9B93C6270FC0783A00043810 /* BlueBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlueBox.png; sourceTree = "<group>"; };
 		9B93C9710FC1DDAB00043810 /* EqualTo40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EqualTo40.png; sourceTree = "<group>"; };
-		9B93C9790FC1DE7200043810 /* whiteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteButton.png; sourceTree = "<group>"; };
-		9B93C9830FC1DF0D00043810 /* blueButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueButton.png; sourceTree = "<group>"; };
-		9B93CA2F0FC211A100043810 /* TellAFriend40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TellAFriend40.png; sourceTree = "<group>"; };
 		9B93CA980FC2259300043810 /* ElapsedTimeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ElapsedTimeView.xib; sourceTree = "<group>"; };
 		9B9DF6080FBB8AE800200B50 /* Right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Right.png; sourceTree = "<group>"; };
 		9B9DF60B0FBB8AE800200B50 /* Wrong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wrong.png; sourceTree = "<group>"; };
 		9B9DF61B0FBB95A700200B50 /* Percent40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Percent40.png; sourceTree = "<group>"; };
 		9B9DF61C0FBB95A700200B50 /* Right40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Right40.png; sourceTree = "<group>"; };
-		9B9DF61E0FBB95A700200B50 /* watch40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watch40.png; sourceTree = "<group>"; };
 		9B9DF61F0FBB95A700200B50 /* Wrong40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wrong40.png; sourceTree = "<group>"; };
-		9B9DF6270FBB976800200B50 /* GoldStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoldStar.png; sourceTree = "<group>"; };
-		9B9DF62B0FBB9AE300200B50 /* Smiley.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Smiley.png; sourceTree = "<group>"; };
-		9B9DF6350FBB9B6000200B50 /* happy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = happy.png; sourceTree = "<group>"; };
 		9BA3E0AE0F92E8CA00E7ED9C /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		9BA3E0AF0F92E8CA00E7ED9C /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		9BA3E0B10F92E8E200E7ED9C /* MenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
@@ -770,7 +766,6 @@
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
-				52E092441342E3750035F697 /* Resources-iPad */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -792,8 +787,6 @@
 				51F37000195E0E0A006797B2 /* Images.xcassets */,
 				451C76C7165377DC0068C5CC /* Alexa Audio New */,
 				52C2F710133789CE008E0AB9 /* Audio */,
-				6B9BBAC3109A5FF30075FDDC /* dot.blue.png */,
-				6B9BBAC4109A5FF30075FDDC /* dot.red.png */,
 				9BB3DA050F9A56C400877016 /* PLIST Files */,
 				9BB3DA040F9A56AD00877016 /* NIB Files */,
 				9BB3DA010F9A567900877016 /* PNG Files */,
@@ -901,6 +894,46 @@
 			path = "Alexa Audio New";
 			sourceTree = "<group>";
 		};
+		51A07C3A1960B144005577F4 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				9BB3DB420F9BBE3500877016 /* ClockView.xib */,
+				9BFA129E0FBA707400A2C057 /* TellAFriendView.xib */,
+				9BA55FEF0FBE2CDD004A7C2F /* TopScoresSingleDetailView.xib */,
+				9BA561DD0FBE6728004A7C2F /* TopScoresActivityLevelSelectorView.xib */,
+				9BA5605A0FBE3EC9004A7C2F /* TopScoresActivitySelectorView.xib */,
+				9B93CA980FC2259300043810 /* ElapsedTimeView.xib */,
+				9B1DE2000FA78A5000DB7E9A /* SetTimeView.xib */,
+				9B60CE100FB28DF6002ADA58 /* ResultView.xib */,
+				9B90EE920F96C920002839FA /* TellTimeView.xib */,
+				9BCE515F0FAC90E800B7BC73 /* ActivityView.xib */,
+				9B90EE8E0F96C8E8002839FA /* HelpView.xib */,
+				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
+				9BA3E0B10F92E8E200E7ED9C /* MenuView.xib */,
+				9BA5626A0FBE730A004A7C2F /* SettingsModalView.xib */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
+		51A07C3B1960B156005577F4 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				52E5E11A1352124F00EBCBBE /* TopScoresSingleDetailView-iPad.xib */,
+				52E5E10B135210A800EBCBBE /* TopScoresActivityLevelSelectorView-iPad.xib */,
+				52E5E1011351CAC300EBCBBE /* TopScoresActivitySelectorView-iPad.xib */,
+				52E5E0C41351C41B00EBCBBE /* ElapsedTimeView-iPad.xib */,
+				52E5E0B91351C09A00EBCBBE /* SetTimeView-iPad.xib */,
+				524F3794135197A8005905D1 /* ResultView-iPad.xib */,
+				527BE54E1349D2CD009DF756 /* TellTimeView-iPad.xib */,
+				527BE52F1349CC93009DF756 /* ActivityView-iPad.xib */,
+				5210D9DD13484F3500B54AB2 /* HelpView-iPad.xib */,
+				52E092451342E3770035F697 /* MainWindow-iPad.xib */,
+				52E092651342E61C0035F697 /* MenuView-iPad.xib */,
+				52E092701342E7AB0035F697 /* SettingsModalView-iPad.xib */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
 		52C2F710133789CE008E0AB9 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
@@ -924,25 +957,6 @@
 				52C2F75F133789CE008E0AB9 /* 9wrong.mp3 */,
 			);
 			path = Audio;
-			sourceTree = "<group>";
-		};
-		52E092441342E3750035F697 /* Resources-iPad */ = {
-			isa = PBXGroup;
-			children = (
-				52E5E11A1352124F00EBCBBE /* TopScoresSingleDetailView-iPad.xib */,
-				52E5E10B135210A800EBCBBE /* TopScoresActivityLevelSelectorView-iPad.xib */,
-				52E5E1011351CAC300EBCBBE /* TopScoresActivitySelectorView-iPad.xib */,
-				52E5E0C41351C41B00EBCBBE /* ElapsedTimeView-iPad.xib */,
-				52E5E0B91351C09A00EBCBBE /* SetTimeView-iPad.xib */,
-				524F3794135197A8005905D1 /* ResultView-iPad.xib */,
-				527BE54E1349D2CD009DF756 /* TellTimeView-iPad.xib */,
-				527BE52F1349CC93009DF756 /* ActivityView-iPad.xib */,
-				5210D9DD13484F3500B54AB2 /* HelpView-iPad.xib */,
-				52E092451342E3770035F697 /* MainWindow-iPad.xib */,
-				52E092651342E61C0035F697 /* MenuView-iPad.xib */,
-				52E092701342E7AB0035F697 /* SettingsModalView-iPad.xib */,
-			);
-			name = "Resources-iPad";
 			sourceTree = "<group>";
 		};
 		6BE4105512EBC098001D7376 /* Clipart */ = {
@@ -1053,23 +1067,6 @@
 			path = KCF72A;
 			sourceTree = "<group>";
 		};
-		9B2145310FAE598000A1CF20 /* Footer */ = {
-			isa = PBXGroup;
-			children = (
-				9B93CA2F0FC211A100043810 /* TellAFriend40.png */,
-				9B2145B60FAE7ED000A1CF20 /* Help.png */,
-				9B21451B0FAE4B2B00A1CF20 /* Mail.png */,
-			);
-			name = Footer;
-			sourceTree = "<group>";
-		};
-		9B2145330FAE59F700A1CF20 /* Icons */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Icons;
-			sourceTree = "<group>";
-		};
 		9B2145340FAE5A0700A1CF20 /* Clock */ = {
 			isa = PBXGroup;
 			children = (
@@ -1082,6 +1079,14 @@
 		9B2145350FAE5A1100A1CF20 /* Symbols */ = {
 			isa = PBXGroup;
 			children = (
+				51A07C321960A9A5005577F4 /* TryAgain@2x.png */,
+				51A07C331960A9A5005577F4 /* GoodJob@2x.png */,
+				51A07C341960A9A5005577F4 /* TryAgain.png */,
+				51A07C381960A9C7005577F4 /* GoodJob.png */,
+				5164FDC4195FB1D000DD87DE /* Wrong@2x.png */,
+				5164FDC5195FB1D000DD87DE /* Wrong40@2x.png */,
+				5164FDC0195FAF6700DD87DE /* Right40@2x.png */,
+				5164FDC1195FAF6700DD87DE /* Right@2x.png */,
 				5164FDB0195F85C200DD87DE /* Red Belt@2x.png */,
 				5164FDB1195F85C200DD87DE /* Red Belt.png */,
 				5164FDBB195F85CC00DD87DE /* Black Belt@2x.png */,
@@ -1092,16 +1097,17 @@
 				5164FDB4195F85C200DD87DE /* Yellow Belt.png */,
 				5164FDA9195F7BCA00DD87DE /* RWTLabel@2x.png */,
 				5164FDA8195F7BCA00DD87DE /* RWTLabel.png */,
-				9B9DF6350FBB9B6000200B50 /* happy.png */,
-				9B9DF62B0FBB9AE300200B50 /* Smiley.png */,
-				9B9DF6270FBB976800200B50 /* GoldStar.png */,
+				5164FDC8195FB25400DD87DE /* Percent40@2x.png */,
 				9B9DF61B0FBB95A700200B50 /* Percent40.png */,
 				9B9DF61C0FBB95A700200B50 /* Right40.png */,
+				5164FDCA195FB2E700DD87DE /* EqualTo40@2x.png */,
 				9B93C9710FC1DDAB00043810 /* EqualTo40.png */,
-				9B9DF61E0FBB95A700200B50 /* watch40.png */,
 				9B9DF61F0FBB95A700200B50 /* Wrong40.png */,
 				9B9DF6080FBB8AE800200B50 /* Right.png */,
 				9B9DF60B0FBB8AE800200B50 /* Wrong.png */,
+				5164FDD0195FB5AE00DD87DE /* Timer.png */,
+				5164FDD1195FB5AE00DD87DE /* Timer@2x.png */,
+				5164FDCC195FB3E800DD87DE /* Separator@2x.png */,
 				9B2143CE0FADD62B00A1CF20 /* Separator.png */,
 			);
 			name = Symbols;
@@ -1110,10 +1116,22 @@
 		9BB3DA000F9A566300877016 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				9B93C6270FC0783A00043810 /* BlueBox.png */,
-				9B93C9830FC1DF0D00043810 /* blueButton.png */,
-				9B93C9790FC1DE7200043810 /* whiteButton.png */,
-				9BB3DA030F9A569E00877016 /* Menu Buttons */,
+				51444715195F066200B66680 /* MixedPattern@2x.png */,
+				51444716195F066200B66680 /* MixedPattern.png */,
+				5183D424195D0E85003E3156 /* Menu-BlueButton.png */,
+				5183D425195D0E85003E3156 /* Menu-BlueButton@2x.png */,
+				5183D426195D0E85003E3156 /* Menu-GreenButton.png */,
+				5183D427195D0E85003E3156 /* Menu-GreenButton@2x.png */,
+				5183D428195D0E85003E3156 /* Menu-MixedButton.png */,
+				5183D429195D0E85003E3156 /* Menu-MixedButton@2x.png */,
+				5183D42A195D0E85003E3156 /* Menu-OrangeButton.png */,
+				5183D42B195D0E85003E3156 /* Menu-OrangeButton@2x.png */,
+				5183D42C195D0E85003E3156 /* Menu-PinkButton.png */,
+				5183D42D195D0E85003E3156 /* Menu-PinkButton@2x.png */,
+				5183D42E195D0E85003E3156 /* Menu-PurpleButton.png */,
+				5183D42F195D0E85003E3156 /* Menu-PurpleButton@2x.png */,
+				5183D430195D0E85003E3156 /* Menu-RedButton.png */,
+				5183D431195D0E85003E3156 /* Menu-RedButton@2x.png */,
 			);
 			name = Buttons;
 			sourceTree = "<group>";
@@ -1125,8 +1143,6 @@
 				6BE4105512EBC098001D7376 /* Clipart */,
 				9B2145350FAE5A1100A1CF20 /* Symbols */,
 				9B2145340FAE5A0700A1CF20 /* Clock */,
-				9B2145330FAE59F700A1CF20 /* Icons */,
-				9BB3DAAD0F9AB13D00877016 /* Slogans */,
 				9BB3DABB0F9B883600877016 /* Background */,
 				9BB3DA000F9A566300877016 /* Buttons */,
 			);
@@ -1152,47 +1168,11 @@
 			name = "Toolbar Icons";
 			sourceTree = "<group>";
 		};
-		9BB3DA030F9A569E00877016 /* Menu Buttons */ = {
-			isa = PBXGroup;
-			children = (
-				51444715195F066200B66680 /* MixedPattern@2x.png */,
-				51444716195F066200B66680 /* MixedPattern.png */,
-				5183D424195D0E85003E3156 /* Menu-BlueButton.png */,
-				5183D425195D0E85003E3156 /* Menu-BlueButton@2x.png */,
-				5183D426195D0E85003E3156 /* Menu-GreenButton.png */,
-				5183D427195D0E85003E3156 /* Menu-GreenButton@2x.png */,
-				5183D428195D0E85003E3156 /* Menu-MixedButton.png */,
-				5183D429195D0E85003E3156 /* Menu-MixedButton@2x.png */,
-				5183D42A195D0E85003E3156 /* Menu-OrangeButton.png */,
-				5183D42B195D0E85003E3156 /* Menu-OrangeButton@2x.png */,
-				5183D42C195D0E85003E3156 /* Menu-PinkButton.png */,
-				5183D42D195D0E85003E3156 /* Menu-PinkButton@2x.png */,
-				5183D42E195D0E85003E3156 /* Menu-PurpleButton.png */,
-				5183D42F195D0E85003E3156 /* Menu-PurpleButton@2x.png */,
-				5183D430195D0E85003E3156 /* Menu-RedButton.png */,
-				5183D431195D0E85003E3156 /* Menu-RedButton@2x.png */,
-				9B2145310FAE598000A1CF20 /* Footer */,
-			);
-			name = "Menu Buttons";
-			sourceTree = "<group>";
-		};
 		9BB3DA040F9A56AD00877016 /* NIB Files */ = {
 			isa = PBXGroup;
 			children = (
-				9BB3DB420F9BBE3500877016 /* ClockView.xib */,
-				9BFA129E0FBA707400A2C057 /* TellAFriendView.xib */,
-				9BA55FEF0FBE2CDD004A7C2F /* TopScoresSingleDetailView.xib */,
-				9BA561DD0FBE6728004A7C2F /* TopScoresActivityLevelSelectorView.xib */,
-				9BA5605A0FBE3EC9004A7C2F /* TopScoresActivitySelectorView.xib */,
-				9B93CA980FC2259300043810 /* ElapsedTimeView.xib */,
-				9B1DE2000FA78A5000DB7E9A /* SetTimeView.xib */,
-				9B60CE100FB28DF6002ADA58 /* ResultView.xib */,
-				9B90EE920F96C920002839FA /* TellTimeView.xib */,
-				9BCE515F0FAC90E800B7BC73 /* ActivityView.xib */,
-				9B90EE8E0F96C8E8002839FA /* HelpView.xib */,
-				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
-				9BA3E0B10F92E8E200E7ED9C /* MenuView.xib */,
-				9BA5626A0FBE730A004A7C2F /* SettingsModalView.xib */,
+				51A07C3A1960B144005577F4 /* iPhone */,
+				51A07C3B1960B156005577F4 /* iPad */,
 			);
 			name = "NIB Files";
 			sourceTree = "<group>";
@@ -1203,16 +1183,6 @@
 				8D1107310486CEB800E47090 /* KidsTimeFun-Info.plist */,
 			);
 			name = "PLIST Files";
-			sourceTree = "<group>";
-		};
-		9BB3DAAD0F9AB13D00877016 /* Slogans */ = {
-			isa = PBXGroup;
-			children = (
-				9B21458E0FAE6CB300A1CF20 /* KidsTimeFun.png */,
-				9B779F4F0FAD450D009F068C /* TryAgain.png */,
-				9B779F4A0FAD4496009F068C /* GoodJob.png */,
-			);
-			name = Slogans;
 			sourceTree = "<group>";
 		};
 		9BB3DABB0F9B883600877016 /* Background */ = {
@@ -1288,12 +1258,7 @@
 				9BB3DB430F9BBE3500877016 /* ClockView.xib in Resources */,
 				9B1DE2010FA78A5000DB7E9A /* SetTimeView.xib in Resources */,
 				9BCE51600FAC90E800B7BC73 /* ActivityView.xib in Resources */,
-				9B779F4C0FAD4496009F068C /* GoodJob.png in Resources */,
-				9B779F500FAD450D009F068C /* TryAgain.png in Resources */,
 				9B2143D20FADD62B00A1CF20 /* Separator.png in Resources */,
-				9B21451C0FAE4B2B00A1CF20 /* Mail.png in Resources */,
-				9B21458F0FAE6CB300A1CF20 /* KidsTimeFun.png in Resources */,
-				9B2145B70FAE7ED000A1CF20 /* Help.png in Resources */,
 				9B60CE110FB28DF6002ADA58 /* ResultView.xib in Resources */,
 				51F3700A195E1F10006797B2 /* Top Scores.png in Resources */,
 				51F37001195E0E0A006797B2 /* Images.xcassets in Resources */,
@@ -1301,13 +1266,10 @@
 				9B9DF60D0FBB8AE800200B50 /* Right.png in Resources */,
 				9B9DF6100FBB8AE800200B50 /* Wrong.png in Resources */,
 				51F3701E195E4CA7006797B2 /* Home@2x.png in Resources */,
+				5164FDC3195FAF6700DD87DE /* Right@2x.png in Resources */,
 				9B9DF6200FBB95A700200B50 /* Percent40.png in Resources */,
 				9B9DF6210FBB95A700200B50 /* Right40.png in Resources */,
-				9B9DF6230FBB95A700200B50 /* watch40.png in Resources */,
 				9B9DF6240FBB95A700200B50 /* Wrong40.png in Resources */,
-				9B9DF6280FBB976800200B50 /* GoldStar.png in Resources */,
-				9B9DF62C0FBB9AE300200B50 /* Smiley.png in Resources */,
-				9B9DF6360FBB9B6000200B50 /* happy.png in Resources */,
 				9BA55FF00FBE2CDD004A7C2F /* TopScoresSingleDetailView.xib in Resources */,
 				9BA5605B0FBE3EC9004A7C2F /* TopScoresActivitySelectorView.xib in Resources */,
 				5164FDB6195F85C200DD87DE /* Red Belt.png in Resources */,
@@ -1317,14 +1279,9 @@
 				9BA561D60FBE65CC004A7C2F /* Timed.png in Resources */,
 				9BA561DE0FBE6728004A7C2F /* TopScoresActivityLevelSelectorView.xib in Resources */,
 				9BA5626C0FBE730A004A7C2F /* SettingsModalView.xib in Resources */,
-				9B93C6280FC0783A00043810 /* BlueBox.png in Resources */,
 				9B93C9720FC1DDAB00043810 /* EqualTo40.png in Resources */,
-				9B93C97A0FC1DE7200043810 /* whiteButton.png in Resources */,
-				9B93C9840FC1DF0D00043810 /* blueButton.png in Resources */,
-				9B93CA300FC211A100043810 /* TellAFriend40.png in Resources */,
 				9B93CA990FC2259300043810 /* ElapsedTimeView.xib in Resources */,
-				6B9BBAC5109A5FF30075FDDC /* dot.blue.png in Resources */,
-				6B9BBAC6109A5FF30075FDDC /* dot.red.png in Resources */,
+				5164FDC9195FB25400DD87DE /* Percent40@2x.png in Resources */,
 				6BE410BB12EBC098001D7376 /* 100KCF72A.png in Resources */,
 				6BE410BC12EBC098001D7376 /* 10KCF72A.png in Resources */,
 				6BE410BD12EBC098001D7376 /* 11KCF72A.png in Resources */,
@@ -1337,8 +1294,10 @@
 				6BE410C312EBC098001D7376 /* 17KCF72A.png in Resources */,
 				6BE410C412EBC098001D7376 /* 18KCF72A.png in Resources */,
 				6BE410C512EBC098001D7376 /* 19KCF72A.png in Resources */,
+				5164FDC7195FB1D000DD87DE /* Wrong40@2x.png in Resources */,
 				6BE410C612EBC098001D7376 /* 1KCF72A.png in Resources */,
 				6BE410C712EBC098001D7376 /* 20KCF72A.png in Resources */,
+				51A07C371960A9A5005577F4 /* TryAgain.png in Resources */,
 				51F3701D195E4CA7006797B2 /* Home.png in Resources */,
 				5183D43B195D0E85003E3156 /* Menu-PinkButton@2x.png in Resources */,
 				6BE410C812EBC098001D7376 /* 21KCF72A.png in Resources */,
@@ -1363,6 +1322,7 @@
 				6BE410D912EBC098001D7376 /* 37KCF72A.png in Resources */,
 				6BE410DA12EBC098001D7376 /* 38KCF72A.png in Resources */,
 				6BE410DB12EBC098001D7376 /* 39KCF72A.png in Resources */,
+				51A07C391960A9C7005577F4 /* GoodJob.png in Resources */,
 				6BE410DC12EBC098001D7376 /* 3KCF72A.png in Resources */,
 				6BE410DD12EBC098001D7376 /* 40KCF72A.png in Resources */,
 				6BE410DE12EBC098001D7376 /* 41KCF72A.png in Resources */,
@@ -1425,6 +1385,7 @@
 				6BE4111212EBC098001D7376 /* 89KCF72A.png in Resources */,
 				5183D437195D0E85003E3156 /* Menu-MixedButton@2x.png in Resources */,
 				6BE4111312EBC098001D7376 /* 8KCF72A.png in Resources */,
+				5164FDC2195FAF6700DD87DE /* Right40@2x.png in Resources */,
 				6BE4111412EBC098001D7376 /* 90KCF72A.png in Resources */,
 				6BE4111512EBC098001D7376 /* 91KCF72A.png in Resources */,
 				6BE4111612EBC098001D7376 /* 92KCF72A.png in Resources */,
@@ -1454,6 +1415,7 @@
 				52C2F7DF133789CE008E0AB9 /* 7wrong.mp3 in Resources */,
 				52C2F7E1133789CE008E0AB9 /* 8correct.mp3 in Resources */,
 				52C2F7E2133789CE008E0AB9 /* 8wrong.mp3 in Resources */,
+				5164FDD3195FB5AE00DD87DE /* Timer@2x.png in Resources */,
 				52C2F7E4133789CE008E0AB9 /* 9correct.mp3 in Resources */,
 				52C2F7E5133789CE008E0AB9 /* 9wrong.mp3 in Resources */,
 				52E092461342E3770035F697 /* MainWindow-iPad.xib in Resources */,
@@ -1481,6 +1443,7 @@
 				451C771E165377DC0068C5CC /* 14_m.mp3 in Resources */,
 				451C771F165377DC0068C5CC /* 15_m.mp3 in Resources */,
 				5144471B195F233000B66680 /* Clock Face.png in Resources */,
+				51A07C361960A9A5005577F4 /* GoodJob@2x.png in Resources */,
 				451C7720165377DC0068C5CC /* 16_m.mp3 in Resources */,
 				451C7721165377DC0068C5CC /* 17_m.mp3 in Resources */,
 				451C7722165377DC0068C5CC /* 18_m.mp3 in Resources */,
@@ -1502,6 +1465,7 @@
 				5164FDAE195F7E8800DD87DE /* Timerbox.png in Resources */,
 				5164FDAF195F7E8800DD87DE /* Timerbox@2x.png in Resources */,
 				451C7730165377DC0068C5CC /* 30_m.mp3 in Resources */,
+				5164FDCD195FB3E800DD87DE /* Separator@2x.png in Resources */,
 				451C7731165377DC0068C5CC /* 31_m.mp3 in Resources */,
 				451C7732165377DC0068C5CC /* 32_m.mp3 in Resources */,
 				451C7733165377DC0068C5CC /* 33_m.mp3 in Resources */,
@@ -1531,6 +1495,7 @@
 				51444714195F015200B66680 /* RightArrowAccessory@2x.png in Resources */,
 				451C7748165377DC0068C5CC /* 52_m.mp3 in Resources */,
 				451C7749165377DC0068C5CC /* 53_m.mp3 in Resources */,
+				5164FDCB195FB2E700DD87DE /* EqualTo40@2x.png in Resources */,
 				451C774A165377DC0068C5CC /* 54_m.mp3 in Resources */,
 				451C774B165377DC0068C5CC /* 55_m.mp3 in Resources */,
 				451C774C165377DC0068C5CC /* 56_m.mp3 in Resources */,
@@ -1546,6 +1511,7 @@
 				451C7755165377DC0068C5CC /* ago_m.mp3 in Resources */,
 				451C7756165377DC0068C5CC /* and_m.mp3 in Resources */,
 				451C7757165377DC0068C5CC /* half_past_m.mp3 in Resources */,
+				5164FDD2195FB5AE00DD87DE /* Timer.png in Resources */,
 				5183D438195D0E85003E3156 /* Menu-OrangeButton.png in Resources */,
 				5183D43F195D0E85003E3156 /* Menu-RedButton@2x.png in Resources */,
 				451C7758165377DC0068C5CC /* hour_m.mp3 in Resources */,
@@ -1562,6 +1528,8 @@
 				451C775F165377DC0068C5CC /* move_the_clock_hands_to_m.mp3 in Resources */,
 				451C7760165377DC0068C5CC /* oclock_m.mp3 in Resources */,
 				451C7761165377DC0068C5CC /* past_m.mp3 in Resources */,
+				5164FDC6195FB1D000DD87DE /* Wrong@2x.png in Resources */,
+				51A07C351960A9A5005577F4 /* TryAgain@2x.png in Resources */,
 				451C7762165377DC0068C5CC /* quarter_past_m.mp3 in Resources */,
 				451C7763165377DC0068C5CC /* quarter_till_m.mp3 in Resources */,
 				451C7764165377DC0068C5CC /* till_m.mp3 in Resources */,

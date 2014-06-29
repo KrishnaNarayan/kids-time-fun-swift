@@ -13,7 +13,6 @@
                 <outlet property="clockContainerView" destination="81" id="92"/>
                 <outlet property="labelQuestion" destination="87" id="93"/>
                 <outlet property="rightOrWrong" destination="83" id="94"/>
-                <outlet property="rightOrWrong2" destination="82" id="91"/>
                 <outlet property="view" destination="80" id="98"/>
             </connections>
         </placeholder>
@@ -27,10 +26,6 @@
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
-                <imageView hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="82" userLabel="ImgRightOrWrong2">
-                    <rect key="frame" x="42" y="10" width="235" height="336"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                </imageView>
                 <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="83" userLabel="ImgRightOrWrong1">
                     <rect key="frame" x="20" y="303" width="280" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

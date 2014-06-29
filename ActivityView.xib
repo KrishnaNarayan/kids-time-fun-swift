@@ -32,7 +32,7 @@
                             <rect key="frame" x="199" y="6" width="117" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" alpha="0.85000002384185791" contentMode="scaleAspectFit" fixedFrame="YES" image="Timerbox.png" translatesAutoresizingMaskIntoConstraints="NO" id="11" userLabel="RightOrWrong">
+                        <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Timerbox.png" translatesAutoresizingMaskIntoConstraints="NO" id="11" userLabel="Timer">
                             <rect key="frame" x="6" y="6" width="70" height="28"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>

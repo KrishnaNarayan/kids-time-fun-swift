@@ -14,7 +14,6 @@
                 <outlet property="clockContainerView2" destination="74" id="86"/>
                 <outlet property="labelQuestion" destination="79" id="87"/>
                 <outlet property="rightOrWrong" destination="75" id="88"/>
-                <outlet property="rightOrWrong2" destination="80" id="85"/>
                 <outlet property="view" destination="72" id="92"/>
             </connections>
         </placeholder>
@@ -89,10 +88,6 @@
                     <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                     <size key="shadowOffset" width="0.0" height="0.0"/>
                 </label>
-                <imageView hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="80" userLabel="ImgRightOrWrong2">
-                    <rect key="frame" x="34" y="3" width="252" height="351"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

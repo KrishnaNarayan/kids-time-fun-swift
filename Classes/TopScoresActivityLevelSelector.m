@@ -56,6 +56,33 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 		}
+    
+    // Paint Cell Accessory and Cell Background based on activity
+    cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"RightArrowAccessory"]];
+    [cell.textLabel setTextColor:[UIColor whiteColor]];
+    switch (self.activity) {
+		case kActTellTime:
+            [cell setBackgroundColor:[UIColor colorWithRed:.956 green:.423 blue:.109 alpha:0.50]];
+			break;
+		case kActSetTime:
+            [cell setBackgroundColor:[UIColor colorWithRed:.408 green:0.0 blue:.972 alpha:0.50]];
+			break;
+		case kActTimeAfter:
+            [cell setBackgroundColor:[UIColor colorWithRed:.984 green:0.0 blue:.972 alpha:0.50]];
+			break;
+		case kActTimeBefore:
+            [cell setBackgroundColor:[UIColor colorWithRed:.043 green:.808 blue:.11 alpha:0.50]];
+			break;
+		case kActElapsedTime:
+            [cell setBackgroundColor:[UIColor colorWithRed:.043 green:.349 blue:.976 alpha:0.50]];
+			break;
+		case kActMixed:
+            [cell setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"MixedPattern"]]];
+			break;
+		default:
+			break;
+	}
+    
 	// Configure the cell.
 	switch (indexPath.row) {
 		case kActLevelYellowBelt:
@@ -82,6 +109,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [[tableView cellForRowAtIndexPath:indexPath] setSelectionStyle:UITableViewCellSelectionStyleNone];
 	self.activityLevel = (int) indexPath.row;
 	TopScoresDetailViewController *topScoreDetailViewController = nil;
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) 

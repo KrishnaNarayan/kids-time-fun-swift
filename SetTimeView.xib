@@ -10,7 +10,6 @@
                 <outlet property="clockContainerView" destination="41" id="49"/>
                 <outlet property="labelQuestion" destination="44" id="48"/>
                 <outlet property="rightOrWrong" destination="43" id="46"/>
-                <outlet property="rightOrWrong2" destination="42" id="47"/>
                 <outlet property="view" destination="39" id="50"/>
             </connections>
         </placeholder>
@@ -37,15 +36,11 @@
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
-                <imageView hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="42" userLabel="ImgRightOrWrong2">
-                    <rect key="frame" x="3" y="36" width="310" height="309"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="43">
                     <rect key="frame" x="4" y="269" width="310" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Set clock to 12:30" textAlignment="center" lineBreakMode="wordWrap" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="44" userLabel="LabelQuestion">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Set clock to 12:30" textAlignment="center" lineBreakMode="wordWrap" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44" userLabel="LabelQuestion">
                     <rect key="frame" x="3" y="242" width="313" height="37"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
