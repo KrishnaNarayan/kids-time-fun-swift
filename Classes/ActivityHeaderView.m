@@ -33,16 +33,16 @@
 	
 	switch (activityLevel) {
 		case kActLevelYellowBelt:
-			activityLevelImg.image = [UIImage imageNamed:@"YellowBelt.png"];
+			activityLevelImg.image = [UIImage imageNamed:@"Yellow Belt"];
 			break;
 		case kActLevelGreenBelt:
-			activityLevelImg.image = [UIImage imageNamed:@"GreenBelt.png"];
+			activityLevelImg.image = [UIImage imageNamed:@"Green Belt"];
 			break;
 		case kActLevelRedBelt:
-			activityLevelImg.image = [UIImage imageNamed:@"RedBelt.png"];
+			activityLevelImg.image = [UIImage imageNamed:@"Red Belt"];
 			break;
 		case kActLevelBlackBelt:
-			activityLevelImg.image = [UIImage imageNamed:@"BlackBelt.png"];
+			activityLevelImg.image = [UIImage imageNamed:@"Black Belt"];
 			break;
 		default:
 			break;

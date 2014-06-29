@@ -69,7 +69,7 @@
 	x = x_c-r;
 	y = y_c-r;
 	//Load Clock Face with the start points and diameter above (circle in a square)
-	UIImage *img = [UIImage imageNamed:@"ClockFace218.png"]; //Load clock face image
+	UIImage *img = [UIImage imageNamed:@"Clock Face"]; //Load clock face image
 	//Draw clock face - with diameter
 	[img drawInRect:CGRectMake(x, y, d, d)];
 	
