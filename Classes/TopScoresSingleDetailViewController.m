@@ -37,7 +37,6 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-	self.title = kStrTopScores;
 	[self loadScoreForActivity:self.activity andType:self.activityType andLevel:self.activityLevel];
     [super viewDidLoad];
 }
