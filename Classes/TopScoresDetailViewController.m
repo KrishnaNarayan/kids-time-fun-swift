@@ -93,8 +93,17 @@
 	UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Top Score"] style:UIBarButtonItemStyleBordered target:self action:nil];
 	self.navigationItem.backBarButtonItem = backBarButton;
 	//create two views - one for numbered, one for timed quiz
-	TopScoresSingleDetailViewController *numberedVC = [[TopScoresSingleDetailViewController alloc] initWithActivity:self.activity andType:kActTypeNumbered andLevel:self.activityLevel withNibName:@"TopScoresSingleDetailView" bundle:nil];
-	TopScoresSingleDetailViewController *timedVC = [[TopScoresSingleDetailViewController alloc] initWithActivity:self.activity andType:kActTypeTimed andLevel:self.activityLevel withNibName:@"TopScoresSingleDetailView" bundle:nil];
+    NSString *nibName;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+	{
+		nibName = @"TopScoresSingleDetailView-iPad";
+	}
+	else
+	{
+        nibName = @"TopScoresSingleDetailView";
+	}
+	TopScoresSingleDetailViewController *numberedVC = [[TopScoresSingleDetailViewController alloc] initWithActivity:self.activity andType:kActTypeNumbered andLevel:self.activityLevel withNibName:nibName bundle:nil];
+	TopScoresSingleDetailViewController *timedVC = [[TopScoresSingleDetailViewController alloc] initWithActivity:self.activity andType:kActTypeTimed andLevel:self.activityLevel withNibName:nibName bundle:nil];
 	numberedVC.title = @"Numbered";
 	timedVC.title = @"Timed";
 	//setup tab bar

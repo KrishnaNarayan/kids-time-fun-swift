@@ -10,7 +10,6 @@
                 <outlet property="btnDone" destination="53" id="66"/>
                 <outlet property="btnSave" destination="51" id="67"/>
                 <outlet property="headerView" destination="88" id="91"/>
-                <outlet property="imgViewTopScore" destination="46" id="79"/>
                 <outlet property="lblPercentScore" destination="47" id="68"/>
                 <outlet property="lblRightAnswers" destination="62" id="69"/>
                 <outlet property="lblScoreMessage" destination="50" id="70"/>
@@ -29,76 +28,76 @@
             <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" alpha="0.99436622858047485" contentMode="scaleToFill" fixedFrame="YES" image="BGAqua.png" translatesAutoresizingMaskIntoConstraints="NO" id="64" userLabel="Background">
+                <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" alpha="0.99436622858047485" contentMode="scaleToFill" fixedFrame="YES" image="Main Menu Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="64" userLabel="Background">
                     <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 </imageView>
                 <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="EqualTo40.png" translatesAutoresizingMaskIntoConstraints="NO" id="48" userLabel="ImgTotal">
-                    <rect key="frame" x="232" y="540" width="100" height="60"/>
+                    <rect key="frame" x="232" y="581" width="100" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="watch40.png" translatesAutoresizingMaskIntoConstraints="NO" id="57" userLabel="ImgTimeTaken">
-                    <rect key="frame" x="232" y="807" width="100" height="75"/>
+                <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Timer.png" translatesAutoresizingMaskIntoConstraints="NO" id="57" userLabel="ImgTimeTaken">
+                    <rect key="frame" x="232" y="848" width="100" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Percent40.png" translatesAutoresizingMaskIntoConstraints="NO" id="59" userLabel="ImgPercentScore">
-                    <rect key="frame" x="232" y="630" width="100" height="80"/>
+                    <rect key="frame" x="232" y="671" width="100" height="80"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="20" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="49" userLabel="LabelTotal">
-                    <rect key="frame" x="402" y="526" width="93" height="88"/>
+                    <rect key="frame" x="402" y="567" width="93" height="88"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="75"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.30980393290519714" green="0.61960786581039429" blue="0.98431378602981567" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="47" userLabel="LabelPercentScore">
-                    <rect key="frame" x="402" y="626" width="90" height="88"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="47" userLabel="LabelPercentScore">
+                    <rect key="frame" x="402" y="667" width="181" height="88"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="75"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.30980393290519714" green="0.61960786581039429" blue="0.98431378602981567" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="56" userLabel="LabelTimeTaken">
-                    <rect key="frame" x="368" y="801" width="124" height="88"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="56" userLabel="LabelTimeTaken">
+                    <rect key="frame" x="395" y="842" width="260" height="88"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="75"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.30980393290519714" green="0.61960786581039429" blue="0.98431378602981567" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFit" fixedFrame="YES" image="Separator.png" translatesAutoresizingMaskIntoConstraints="NO" id="55" userLabel="ImgSeparator">
-                    <rect key="frame" x="0.0" y="208" width="768" height="46"/>
+                <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" image="Separator.png" translatesAutoresizingMaskIntoConstraints="NO" id="55" userLabel="ImgSeparator">
+                    <rect key="frame" x="0.0" y="249" width="768" height="8"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFit" fixedFrame="YES" image="Separator.png" translatesAutoresizingMaskIntoConstraints="NO" id="102" userLabel="ImgSeparator">
-                    <rect key="frame" x="0.0" y="747" width="768" height="46"/>
+                <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" image="Separator.png" translatesAutoresizingMaskIntoConstraints="NO" id="102" userLabel="ImgSeparator">
+                    <rect key="frame" x="0.0" y="788" width="768" height="8"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFit" fixedFrame="YES" image="Separator.png" translatesAutoresizingMaskIntoConstraints="NO" id="103" userLabel="ImgSeparator">
-                    <rect key="frame" x="0.0" y="470" width="768" height="46"/>
+                <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" image="Separator.png" translatesAutoresizingMaskIntoConstraints="NO" id="103" userLabel="ImgSeparator">
+                    <rect key="frame" x="0.0" y="511" width="768" height="8"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Right40.png" translatesAutoresizingMaskIntoConstraints="NO" id="63" userLabel="ImgRight">
-                    <rect key="frame" x="232" y="268" width="100" height="75"/>
+                    <rect key="frame" x="232" y="309" width="100" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Wrong40.png" translatesAutoresizingMaskIntoConstraints="NO" id="61" userLabel="ImgWrong">
-                    <rect key="frame" x="232" y="371" width="100" height="75"/>
+                    <rect key="frame" x="232" y="412" width="100" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="20" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="62" userLabel="LabelRightAnswers">
-                    <rect key="frame" x="395" y="261" width="100" height="88"/>
+                    <rect key="frame" x="395" y="302" width="100" height="88"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="75"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.10196079313755035" green="0.67843139171600342" blue="0.12156863510608673" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="60" userLabel="LabelWrongAnswers">
-                    <rect key="frame" x="395" y="364" width="100" height="88"/>
+                    <rect key="frame" x="395" y="405" width="100" height="88"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="75"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.87058830261230469" green="0.058823533356189728" blue="0.15686275064945221" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="94" userLabel="DismissButton1">
@@ -117,18 +116,18 @@
                     </connections>
                 </button>
                 <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="88" userLabel="HeaderView">
-                    <rect key="frame" x="0.0" y="0.0" width="768" height="200"/>
+                    <rect key="frame" x="0.0" y="49" width="768" height="200"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
                 <button hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="53" userLabel="YourScoreButtonDone">
-                    <rect key="frame" x="259" y="909" width="236" height="46"/>
+                    <rect key="frame" x="259" y="950" width="236" height="46"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0099999997999999993" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
                     <state key="normal" title="Show Top Scores">
-                        <color key="titleColor" red="0.098039216999999998" green="0.098039216999999998" blue="0.098039216999999998" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="0.086274512110000007" green="0.49411767719999999" blue="0.98431378599999997" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </state>
                     <state key="disabled" title="Show Top Scores">
                         <color key="titleColor" red="0.098039216999999998" green="0.098039216999999998" blue="0.098039216999999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -151,22 +150,18 @@
             <rect key="frame" x="0.0" y="0.0" width="768" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Congratulations!                           You have a new high score." lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" preferredMaxLayoutWidth="403" translatesAutoresizingMaskIntoConstraints="NO" id="50" userLabel="LabelHighScore">
-                    <rect key="frame" x="72" y="55" width="403" height="71"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Congratulations!                           You have a new high score." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" preferredMaxLayoutWidth="434" translatesAutoresizingMaskIntoConstraints="NO" id="50" userLabel="LabelHighScore">
+                    <rect key="frame" x="185" y="55" width="434" height="71"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="26"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.086274512110000007" green="0.49411767719999999" blue="0.98431378599999997" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="GoldStar.png" translatesAutoresizingMaskIntoConstraints="NO" id="46" userLabel="ImgTopScore">
-                    <rect key="frame" x="564" y="-2" width="200" height="200"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="100" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="45" userLabel="LabelScoreRank">
                     <rect key="frame" x="364" y="11" width="76" height="53"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="45"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.086274512110000007" green="0.49411767719999999" blue="0.98431378599999997" alpha="1" colorSpace="deviceRGB"/>
                     <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
                     <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
                     <size key="shadowOffset" width="0.0" height="0.0"/>
@@ -187,9 +182,9 @@
                     </connections>
                 </button>
                 <textField opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your name here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="52" userLabel="TextYourName">
-                    <rect key="frame" x="72" y="144" width="216" height="31"/>
+                    <rect key="frame" x="78" y="136" width="255" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.086274512110000007" green="0.49411767719999999" blue="0.98431378599999997" alpha="1" colorSpace="deviceRGB"/>
                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                     <connections>
@@ -197,12 +192,12 @@
                     </connections>
                 </textField>
                 <button opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.89999997615814209" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51" userLabel="TopScoresButtonRecordScore">
-                    <rect key="frame" x="325" y="128" width="200" height="70"/>
+                    <rect key="frame" x="329" y="117" width="200" height="70"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="47"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
                     <state key="normal" title="Save">
-                        <color key="titleColor" red="0.098039216999999998" green="0.098039216999999998" blue="0.098039216999999998" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="0.086274512110000007" green="0.49411767719999999" blue="0.98431378599999997" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </state>
                     <state key="disabled" title="Save">
                         <color key="titleColor" red="0.098039216999999998" green="0.098039216999999998" blue="0.098039216999999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -225,31 +220,25 @@
             <rect key="frame" x="0.0" y="0.0" width="768" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Nice Try!                           Keep trying for a high score." lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" preferredMaxLayoutWidth="678" translatesAutoresizingMaskIntoConstraints="NO" id="87" userLabel="LabelHighScore">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Nice Try! Keep trying for a high score." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" preferredMaxLayoutWidth="678" translatesAutoresizingMaskIntoConstraints="NO" id="87" userLabel="LabelHighScore">
                     <rect key="frame" x="53" y="58" width="678" height="80"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="29"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                    <color key="textColor" red="0.086274512110000007" green="0.49411767719999999" blue="0.98431378599999997" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="happy.png" translatesAutoresizingMaskIntoConstraints="NO" id="86" userLabel="ImgTopScore">
-                    <rect key="frame" x="206" y="38" width="120" height="120"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
         </view>
     </objects>
     <resources>
-        <image name="BGAqua.png" width="320" height="420"/>
-        <image name="EqualTo40.png" width="40" height="40"/>
-        <image name="GoldStar.png" width="80" height="80"/>
+        <image name="EqualTo40.png" width="40" height="20"/>
+        <image name="Main Menu Background.png" width="644" height="1140"/>
         <image name="Percent40.png" width="40" height="40"/>
         <image name="Right40.png" width="40" height="40"/>
-        <image name="Separator.png" width="480" height="25"/>
+        <image name="Separator.png" width="124" height="4"/>
+        <image name="Timer.png" width="27" height="40"/>
         <image name="Wrong40.png" width="40" height="40"/>
-        <image name="happy.png" width="128" height="128"/>
-        <image name="watch40.png" width="40" height="40"/>
     </resources>
 </document>
