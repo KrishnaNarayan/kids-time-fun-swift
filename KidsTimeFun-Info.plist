@@ -8,8 +8,6 @@
 	<string>KidsTimeFun</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleIconFile</key>
-	<string>Icon-72.png</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.nscpartners.kidstimefun</string>
 	<key>CFBundleInfoDictionaryVersion</key>

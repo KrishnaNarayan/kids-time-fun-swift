@@ -136,13 +136,13 @@
 		5183D43D195D0E85003E3156 /* Menu-PurpleButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5183D42F195D0E85003E3156 /* Menu-PurpleButton@2x.png */; };
 		5183D43E195D0E85003E3156 /* Menu-RedButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5183D430195D0E85003E3156 /* Menu-RedButton.png */; };
 		5183D43F195D0E85003E3156 /* Menu-RedButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5183D431195D0E85003E3156 /* Menu-RedButton@2x.png */; };
+		519D1BCF19621404000F7AF7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 519D1BCE19621404000F7AF7 /* Images.xcassets */; };
 		51A07C351960A9A5005577F4 /* TryAgain@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A07C321960A9A5005577F4 /* TryAgain@2x.png */; };
 		51A07C361960A9A5005577F4 /* GoodJob@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A07C331960A9A5005577F4 /* GoodJob@2x.png */; };
 		51A07C371960A9A5005577F4 /* TryAgain.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A07C341960A9A5005577F4 /* TryAgain.png */; };
 		51A07C391960A9C7005577F4 /* GoodJob.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A07C381960A9C7005577F4 /* GoodJob.png */; };
 		51A07C3E1960D63F005577F4 /* Timed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A07C3C1960D63F005577F4 /* Timed@2x.png */; };
 		51A07C3F1960D63F005577F4 /* Numbered@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A07C3D1960D63F005577F4 /* Numbered@2x.png */; };
-		51F37001195E0E0A006797B2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51F37000195E0E0A006797B2 /* Images.xcassets */; };
 		51F37005195E1B76006797B2 /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 51F37003195E1B76006797B2 /* Settings.png */; };
 		51F37006195E1B76006797B2 /* Settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51F37004195E1B76006797B2 /* Settings@2x.png */; };
 		51F37009195E1F10006797B2 /* Top Scores@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51F37007195E1F10006797B2 /* Top Scores@2x.png */; };
@@ -463,13 +463,13 @@
 		5183D42F195D0E85003E3156 /* Menu-PurpleButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu-PurpleButton@2x.png"; sourceTree = "<group>"; };
 		5183D430195D0E85003E3156 /* Menu-RedButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu-RedButton.png"; sourceTree = "<group>"; };
 		5183D431195D0E85003E3156 /* Menu-RedButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu-RedButton@2x.png"; sourceTree = "<group>"; };
+		519D1BCE19621404000F7AF7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		51A07C321960A9A5005577F4 /* TryAgain@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TryAgain@2x.png"; sourceTree = "<group>"; };
 		51A07C331960A9A5005577F4 /* GoodJob@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GoodJob@2x.png"; sourceTree = "<group>"; };
 		51A07C341960A9A5005577F4 /* TryAgain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TryAgain.png; sourceTree = "<group>"; };
 		51A07C381960A9C7005577F4 /* GoodJob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoodJob.png; sourceTree = "<group>"; };
 		51A07C3C1960D63F005577F4 /* Timed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Timed@2x.png"; sourceTree = "<group>"; };
 		51A07C3D1960D63F005577F4 /* Numbered@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Numbered@2x.png"; sourceTree = "<group>"; };
-		51F37000195E0E0A006797B2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = KidsTimeFun/Images.xcassets; sourceTree = "<group>"; };
 		51F37003195E1B76006797B2 /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
 		51F37004195E1B76006797B2 /* Settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings@2x.png"; sourceTree = "<group>"; };
 		51F37007195E1F10006797B2 /* Top Scores@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Top Scores@2x.png"; sourceTree = "<group>"; };
@@ -788,7 +788,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				51F37000195E0E0A006797B2 /* Images.xcassets */,
+				519D1BCE19621404000F7AF7 /* Images.xcassets */,
 				451C76C7165377DC0068C5CC /* Alexa Audio New */,
 				52C2F710133789CE008E0AB9 /* Audio */,
 				9BB3DA050F9A56C400877016 /* PLIST Files */,
@@ -1268,7 +1268,6 @@
 				9B2143D20FADD62B00A1CF20 /* Separator.png in Resources */,
 				9B60CE110FB28DF6002ADA58 /* ResultView.xib in Resources */,
 				51F3700A195E1F10006797B2 /* Top Scores.png in Resources */,
-				51F37001195E0E0A006797B2 /* Images.xcassets in Resources */,
 				9BFA129F0FBA707400A2C057 /* TellAFriendView.xib in Resources */,
 				9B9DF60D0FBB8AE800200B50 /* Right.png in Resources */,
 				9B9DF6100FBB8AE800200B50 /* Wrong.png in Resources */,
@@ -1429,6 +1428,7 @@
 				52E092461342E3770035F697 /* MainWindow-iPad.xib in Resources */,
 				52E092661342E61C0035F697 /* MenuView-iPad.xib in Resources */,
 				51444713195F015200B66680 /* RightArrowAccessory.png in Resources */,
+				519D1BCF19621404000F7AF7 /* Images.xcassets in Resources */,
 				52E092711342E7AB0035F697 /* SettingsModalView-iPad.xib in Resources */,
 				5164FDB8195F85C200DD87DE /* Yellow Belt@2x.png in Resources */,
 				5210D9DE13484F3500B54AB2 /* HelpView-iPad.xib in Resources */,
@@ -1592,6 +1592,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: ONE STEP AHEAD APPS, LLC (CW985P4WQJ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ONE STEP AHEAD APPS, LLC (CW985P4WQJ)";
@@ -1614,6 +1615,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: ONE STEP AHEAD APPS, LLC (CW985P4WQJ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ONE STEP AHEAD APPS, LLC (CW985P4WQJ)";
@@ -1648,6 +1650,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: ONE STEP AHEAD APPS, LLC (CW985P4WQJ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ONE STEP AHEAD APPS, LLC (CW985P4WQJ)";
