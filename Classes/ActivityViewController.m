@@ -274,24 +274,12 @@
 			[elapsedTimeVC release];
 			break;
 		case kActMixed:
+            
 			[self.activityBG setImage:[UIImage imageNamed:kBGMixed]];
-			//change below to Random activity when ready
-			TellTimeViewController *mixedVC = nil;
-			if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) 
-			{
-				mixedVC = [[TellTimeViewController alloc] initWithNibName:kiPadNibTellTime bundle:nil];
-			}
-			else 
-			{
-				mixedVC = [[TellTimeViewController alloc] initWithNibName:kNibTellTime bundle:nil];	
-			}
-			
-			[mixedVC setDelegate:self];
-			[self.navigationItem setTitle:kStrTellTime];
-			self.ttvc = mixedVC;
-			[content addSubview:[self.ttvc view]];
-			[mixedVC release];
-			break;			
+
+            int r = arc4random() % 5;
+			[self loadActivity:r];
+			break;
 		default:
 			break;
 	}
