@@ -279,8 +279,8 @@
 	choices.hidden = YES;
 	if (choices.selectedSegmentIndex == self.answerIndex) {
 		isRight = YES;
-		rightOrWrong.image = [UIImage imageNamed:@"GoodJob.png"];
-		rightOrWrong2.image = [UIImage imageNamed:@"Right.png"];
+		rightOrWrong.image = [UIImage imageNamed:@"GoodJob"];
+		rightOrWrong2.image = [UIImage imageNamed:@"Right"];
 		rightOrWrong2.hidden = NO;
 		[[AudioPlayer getInstance] playCorrectWrong:YES];
 		[NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(rightAnswer) userInfo:NULL repeats:NO];
@@ -288,13 +288,13 @@
 	else {
 		isRight = NO;
 		++wrongCounter;
-		rightOrWrong2.image = [UIImage imageNamed:@"Wrong.png"];
-		rightOrWrong.image = [UIImage imageNamed:@"TryAgain.png"];
+		rightOrWrong2.image = [UIImage imageNamed:@"Wrong"];
+		rightOrWrong.image = [UIImage imageNamed:@"TryAgain"];
 		[[AudioPlayer getInstance] playCorrectWrong:NO];
 		
 		if (self.activityType == kActTypeTimed) {
-			rightOrWrong2.hidden = NO;
-			rightOrWrong.hidden = YES;
+			rightOrWrong2.hidden = YES;
+			rightOrWrong.hidden = NO;
 		}
 		else {
 			rightOrWrong2.hidden = YES;
