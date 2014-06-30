@@ -30,7 +30,7 @@
                     <rect key="frame" x="20" y="303" width="280" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <segmentedControl hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" translatesAutoresizingMaskIntoConstraints="NO" id="84" userLabel="Choices4">
+                <segmentedControl hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" momentary="YES" translatesAutoresizingMaskIntoConstraints="NO" id="84" userLabel="Choices4">
                     <rect key="frame" x="23" y="311" width="275" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="0.25" colorSpace="calibratedWhite"/>
@@ -45,7 +45,7 @@
                         <action selector="choicesValueChanged" destination="-1" eventType="valueChanged" id="88"/>
                     </connections>
                 </segmentedControl>
-                <segmentedControl hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" translatesAutoresizingMaskIntoConstraints="NO" id="85" userLabel="Choices3">
+                <segmentedControl hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" momentary="YES" translatesAutoresizingMaskIntoConstraints="NO" id="85" userLabel="Choices3">
                     <rect key="frame" x="23" y="311" width="275" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="0.25" colorSpace="calibratedWhite"/>
@@ -59,7 +59,7 @@
                         <action selector="choicesValueChanged" destination="-1" eventType="valueChanged" id="90"/>
                     </connections>
                 </segmentedControl>
-                <segmentedControl hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" translatesAutoresizingMaskIntoConstraints="NO" id="86" userLabel="Choices2">
+                <segmentedControl hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" momentary="YES" translatesAutoresizingMaskIntoConstraints="NO" id="86" userLabel="Choices2">
                     <rect key="frame" x="23" y="310" width="275" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="0.25" colorSpace="calibratedWhite"/>
