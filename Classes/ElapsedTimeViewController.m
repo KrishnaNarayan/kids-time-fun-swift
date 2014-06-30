@@ -186,7 +186,7 @@
 			m = ([randomNumber nextRandomIntegerInRange:0 To:59]/timeInterval)*timeInterval;
 			//if same as previous or answer, generate new random minute to change it
 			int loopLimit=0;
-			while ((((prev_h*60+prev_m) == (h*60+m))||((h*60+m) == (answerHours*60+answerMinutes)))&&(loopLimit<3)) {
+			while ((((prev_h*60+prev_m) == (h*60+m))||((h*60+m) == (answerHours*60+answerMinutes)))&&(loopLimit<9)) {
 				m = (randomNumber.randomInteger/timeInterval)*timeInterval;
 				++loopLimit;
 			}
