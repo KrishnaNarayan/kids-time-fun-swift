@@ -20,54 +20,17 @@
 
 - (void)viewDidLoad {
 	self.title = kStrTopScores;
-	UIBarButtonItem *homeBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TopScores20.png"] style:UIBarButtonItemStyleBordered target:self action:nil];
+	UIBarButtonItem *homeBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Top Scores"] style:UIBarButtonItemStyleBordered target:self action:nil];
 	self.navigationItem.backBarButtonItem = homeBarButton;
 	[homeBarButton release];	
 	[super viewDidLoad];
-
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
-/*
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-*/
-/*
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-*/
-/*
-- (void)viewWillDisappear:(BOOL)animated {
-	[super viewWillDisappear:animated];
-}
-*/
-/*
-- (void)viewDidDisappear:(BOOL)animated {
-	[super viewDidDisappear:animated];
-}
-*/
-
-/*
- // Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	// Return YES for supported orientations.
-	return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
- */
 
 - (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
 }
 
 - (void)viewDidUnload {
-	// Release anything that can be recreated in viewDidLoad or on demand.
-	// e.g. self.myOutlet = nil;
 }
 
 
@@ -77,66 +40,58 @@
     return 1;
 }
 
-
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return kNumberOfActivities;
 }
-
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Activity";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-//        cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 		}
 	NSLog(@"Index path is %ld",(long)indexPath.row);
 	// Configure the cell.
+    cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"RightArrowAccessory"]];
+    [cell.textLabel setTextColor:[UIColor whiteColor]];
 	switch (indexPath.row) {
 		case kActTellTime:
-			cell.imageView.image = [UIImage imageNamed:@"TellTimeOrange.png"];
-			//cell.text = kStrTellTime;
+            [cell setBackgroundColor:[UIColor colorWithRed:.956 green:.423 blue:.109 alpha:0.50]];
+            cell.textLabel.text = kStrTellTime;
 			break;
 		case kActSetTime:
-			cell.imageView.image = [UIImage imageNamed:@"SetTimeMagenta.png"];
-			//cell.text = kStrSetTime;
+            [cell setBackgroundColor:[UIColor colorWithRed:.408 green:0.0 blue:.972 alpha:0.50]];
+            cell.textLabel.text = kStrSetTime;
 			break;
 		case kActTimeAfter:
-			cell.imageView.image = [UIImage imageNamed:@"TimeAfterStrawberry.png"];
-			//cell.text = kStrTimeAfter;
+            [cell setBackgroundColor:[UIColor colorWithRed:.984 green:0.0 blue:.972 alpha:0.50]];
+            cell.textLabel.text = kStrTimeAfter;
 			break;
 		case kActTimeBefore:
-			cell.imageView.image = [UIImage imageNamed:@"TimeBeforeGreen.png"];
-			//cell.text = kStrTimeBefore;
+            [cell setBackgroundColor:[UIColor colorWithRed:.043 green:.808 blue:.11 alpha:0.50]];
+            cell.textLabel.text = kStrTimeBefore;
 			break;
 		case kActElapsedTime:
-			cell.imageView.image = [UIImage imageNamed:@"TellDifferenceAqua.png"];
-			//cell.text = kStrElapsedTime;
+            [cell setBackgroundColor:[UIColor colorWithRed:.043 green:.349 blue:.976 alpha:0.50]];
+            cell.textLabel.text = kStrElapsedTime;
 			break;
 		case kActMixed:
-			cell.imageView.image = [UIImage imageNamed:@"MixedRainbow.png"];			
-			//cell.text = kStrMixed;
+            [cell setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"MixedPattern"]]];
+			cell.textLabel.text = kStrMixed;
 			break;				
 		default:
 			break;
 	}
-	/*cell.selectionStyle = UITableViewCellSelectionStyleGray;*/
-	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-	/*
-	if (indexPath.row%2) [[[cell subviews] objectAtIndex:0] setBackgroundColor:[UIColor lightGrayColor]];
-	else [[[cell subviews] objectAtIndex:0] setBackgroundColor:[UIColor whiteColor]];
-	 */
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//	return 60;
-//}
-
 // Override to support row selection in the table view.
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
 	self.activity = (int) indexPath.row;
 	TopScoresActivityLevelSelector *topScoresActivityLevelSelector = nil;
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) 
@@ -147,54 +102,12 @@
 	{
 		topScoresActivityLevelSelector = [[TopScoresActivityLevelSelector alloc] initWithNibName:@"TopScoresActivityLevelSelectorView" bundle:nil];	
 	}
-
-	
+    
 	topScoresActivityLevelSelector.activity = self.activity;
 	topScoresActivityLevelSelector.activityLevel = kActLevelNone;
 	[self.navigationController pushViewController:topScoresActivityLevelSelector animated:YES];
 	[topScoresActivityLevelSelector release];
 }
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source.
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }   
-}
-*/
-
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 
 - (void)dealloc {
     [super dealloc];

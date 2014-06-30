@@ -53,8 +53,6 @@
 	//Load current settings and initialize UI to values;
 	//Get the file name - root for documents directory
     
-    self.navigationItem.hidesBackButton=YES;
-    
 	NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
 	NSString *fileNameWithPath = [docPath stringByAppendingPathComponent:kFileAppSettings];
 	//Now read settings from disk
@@ -72,13 +70,11 @@
     if ([UIImage instancesRespondToSelector:@selector(imageWithRenderingMode:)])
         {
             
-            [self->activityLevelChoiceControl setImage:[[UIImage imageNamed:@"YellowBelt.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forSegmentAtIndex:0];
-            [self->activityLevelChoiceControl setImage:[[UIImage imageNamed:@"GreenBelt.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forSegmentAtIndex:1];
-            [self->activityLevelChoiceControl setImage:[[UIImage imageNamed:@"RedBelt.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forSegmentAtIndex:2];
-            [self->activityLevelChoiceControl setImage:[[UIImage imageNamed:@"BlackBelt.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forSegmentAtIndex:3];
+            [self->activityLevelChoiceControl setImage:[[UIImage imageNamed:@"Yellow Belt"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forSegmentAtIndex:0];
+            [self->activityLevelChoiceControl setImage:[[UIImage imageNamed:@"Green Belt"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forSegmentAtIndex:1];
+            [self->activityLevelChoiceControl setImage:[[UIImage imageNamed:@"Red Belt"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forSegmentAtIndex:2];
+            [self->activityLevelChoiceControl setImage:[[UIImage imageNamed:@"Black Belt"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forSegmentAtIndex:3];
         }
-    
-    
     
     if (settingsDict)
     {
@@ -122,18 +118,13 @@
 		default:
 			break;
 	}
-	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(settingsDone:)];
-	//settingsNavController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:nil style:UIBarButtonSystemItemDone target:self action:nil];
+
+    UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Settings"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsDone:)];
+	self.navigationItem.backBarButtonItem = backBarButtonItem;
+    [backBarButtonItem release];
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.055 green:0.478 blue:0.996 alpha:1.000];
 	[super viewDidLoad];
 }
-
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -145,6 +136,10 @@
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self settingsDone:self];
 }
 
 
@@ -203,47 +198,6 @@
 	playSoundInApplication = [playSoundDecider isOn];
 }
 
-/*
-- (void) SlideActivityLevelTextInAndOut {
-	[UIView beginAnimations:@"SlideActivityLevelTextInAndOut" context:nil];
-	[UIView setAnimationDuration:0.25];
-	[UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
-	CGRect frame = [activityLevelDescriptionDropDownView frame];
-	activityLevelDescriptionLabel.text = kStrBlank;
-	activityLevelLabel.text = kStrBlank;
-	activityLevelDescriptionDropDownView.bounds = CGRectMake(0, 0, frame.size.width, 0);
-	activityLevelDescriptionDropDownView.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, 0);
-	[UIView commitAnimations];	
-}
-
-- (void) slideActivityLevelTextOut: (CGRect) frame {
-	[UIView beginAnimations:@"SlideActivityLevelTextOut" context:nil];
-	[UIView setAnimationDuration:0.25];
-	activityLevelDescriptionDropDownView.bounds = CGRectMake(0, 0, width, height);
-	activityLevelDescriptionDropDownView.frame = CGRectMake(origin.x, origin.y,width, height);
-	switch (activityLevelChoiceControl.selectedSegmentIndex) {
-		case kActLevelYellowBelt:
-			activityLevelLabel.text = kStrActTypeYellowBelt;
-			activityLevelDescriptionLabel.text = kStrYellowBeltDescription;
-			break;
-		case kActLevelGreenBelt:
-			activityLevelLabel.text = kStrActTypeGreenBelt;
-			activityLevelDescriptionLabel.text = kStrGreenBeltDescription;
-			break;
-		case kActLevelRedBelt:
-			activityLevelLabel.text = kStrActTypeRedBelt;
-			activityLevelDescriptionLabel.text = kStrRedBeltDescription;
-			break;
-		case kActLevelBlackBelt:
-			activityLevelLabel.text = kStrActTypeBlackBelt;
-			activityLevelDescriptionLabel.text = kStrBlackBeltDescription;
-		default:
-			break;
-	}
-	[UIView commitAnimations];
-}
-*/
-
 - (void) settingsDone: (id) sender {
 	if (isDirty) {
 		//update settings here
@@ -261,9 +215,6 @@
 		[settingsDict writeToFile:fileNameWithPath atomically:YES];
 		[[KidsTimeFunAppState sharedState] readSettings];
 	}
-	[self.navigationController popViewControllerAnimated:YES];
-//	if ([self.delegate conformsToProtocol:@protocol(DismissSettings)])
-//			[self.delegate didDismissSettings:self];
 }
 
 @end

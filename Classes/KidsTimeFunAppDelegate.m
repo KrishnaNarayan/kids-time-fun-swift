@@ -23,12 +23,11 @@
 	//Initialize State
 	[KidsTimeFunAppState sharedState];
 	[[KidsTimeFunAppState sharedState] resumeFromState];
-	//Initialize Menu View Controller
-	//Create navigation controller with menu at its root and set its style
-	//navController = [[UINavigationController alloc] initWithRootViewController:menuViewController];
-	navController.navigationBar.barStyle = UIBarStyleBlackOpaque;
-    //Add navController to window and show window
-//	[window addSubview:navController.view];
+	
+	//Set Application Defaults
+	[self setApplicationAppearanceDefaults];
+	
+	//Show UI
 	window.rootViewController = navController;
 	[window makeKeyAndVisible];
 }
@@ -36,6 +35,28 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
 	//store state
 	[[KidsTimeFunAppState sharedState] flushState];
+}
+
+
+- (void)setApplicationAppearanceDefaults {
+    //Navigation Bar - Clear Color
+    UINavigationBar *navigationBarAppearance = [UINavigationBar appearance];
+    navigationBarAppearance.backgroundColor = [UIColor clearColor];
+    [navigationBarAppearance setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    navigationBarAppearance.shadowImage = [[UIImage alloc] init];
+	//Navigation Bar - Tint Color
+	navigationBarAppearance.tintColor = [UIColor colorWithRed:0.055 green:0.478 blue:0.996 alpha:1.000];
+    //Navigation Bar - Purple Font
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowColor = [UIColor clearColor];
+    shadow.shadowBlurRadius = 0.0;
+    shadow.shadowOffset = CGSizeMake(0.0, 0.0);
+    [[UINavigationBar appearance] setTitleTextAttributes: @{
+                                                            NSForegroundColorAttributeName : [UIColor colorWithRed:0.055 green:0.478 blue:0.996 alpha:1.000],
+                                                            NSShadowAttributeName : shadow
+                                                            }];
+	[shadow release];
+
 }
 
 - (void)dealloc {

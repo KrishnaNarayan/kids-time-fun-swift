@@ -65,16 +65,19 @@ NSTimer *clipArtTimer;
 - (void)viewDidLoad {
 	//Put Title - App Name/Menu
 	self.title = kStrAppTitle;
-	//Customize navItem - add settings button
-	//UIBarButtonItem *settingsBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:kImgSettings] style:UIBarButtonItemStyleBordered target:self action:@selector(settingsActivated)];
-	//self.navigationItem.rightBarButtonItem = settingsBarButton;
+	//Customize navItem - add settings button and top cores button
+	UIBarButtonItem *settingsBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Settings"] style:UIBarButtonItemStyleBordered target:self action:@selector(settingsActivated)];
+	self.navigationItem.rightBarButtonItem = settingsBarButton;
+    UIBarButtonItem *topScoresBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Top Scores"] style:UIBarButtonItemStyleBordered target:self action:@selector(topScoresButtonPressed:)];
+	self.navigationItem.leftBarButtonItem = topScoresBarButton;
+    
+    
 	//[settingsBarButton release];
 	//Custom Back Button - home button
-	UIBarButtonItem *homeBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:kImgHome] style:UIBarButtonItemStyleBordered target:self action:@selector(goHome)];
+	UIBarButtonItem *homeBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:kImgHome] style:UIBarButtonItemStylePlain target:self action:@selector(goHome)];
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:0.055 green:0.478 blue:0.996 alpha:1.000]];
 	self.navigationItem.backBarButtonItem = homeBarButton;
 	[homeBarButton release];
-	//set tint of segmented control for activity type
-	choiceActivityType.tintColor = [UIColor grayColor];
 	//set activity Type to default
 	choiceActivityType.selectedSegmentIndex = [KidsTimeFunAppState sharedState].activityType;
 	clipArtTimer = nil;

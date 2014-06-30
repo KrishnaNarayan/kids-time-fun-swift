@@ -213,13 +213,17 @@
 	int h=0, m=0, prev_h=0, prev_m=0;
 	for (int i = 0; i<choices.numberOfSegments; i++) {
 		//generate random time
-		h = [randomNumber nextRandomIntegerInRange:1 To:12];
-		m = ([randomNumber nextRandomIntegerInRange:0 To:59]/timeInterval)*timeInterval;
+        h = [randomNumber nextRandomIntegerInRange:1 To:12];
+        m = ([randomNumber nextRandomIntegerInRange:0 To:59]/timeInterval)*timeInterval;
 		//if same as previous or answer, generate new random minute to change it
 		int loopLimit=0;
-		while ((((prev_h*60+prev_m) == (h*60+m))||((h*60+m) == (answerHours*60+answerMinutes)))&&(loopLimit<3)) {
-			m = (randomNumber.randomInteger/timeInterval)*timeInterval;
-			++loopLimit;
+		while ((loopLimit<9)&&
+               (((h*60+m) == (prev_h*60+prev_m))||
+                ((h*60+m) == (answerHours*60+answerMinutes)))) {
+            //generate random answer again
+            h = [randomNumber nextRandomIntegerInRange:1 To:12];
+            m = ([randomNumber nextRandomIntegerInRange:0 To:59]/timeInterval)*timeInterval;
+            ++loopLimit;
 		}
 		prev_m = m;
 		prev_h = h;
@@ -228,6 +232,7 @@
 	//load answer in a random index, but remember where it is
 	randomNumber.rangeLow = 0;
 	randomNumber.rangeHigh = (int) choices.numberOfSegments-1;
+    
 	self.answerIndex = randomNumber.randomInteger;
 	if (((self.activityLevel == kActLevelYellowBelt) || (self.activityLevel == kActLevelGreenBelt)) && (answerMinutes == 0)) [choices setTitle:[NSString stringWithFormat:@"%i o'clock", answerHours] forSegmentAtIndex:self.answerIndex];
 		else [choices setTitle:[NSString stringWithFormat:@"%i:%02i", answerHours, answerMinutes] forSegmentAtIndex:self.answerIndex];
