@@ -14,7 +14,6 @@
                 <outlet property="clockContainerView2" destination="74" id="86"/>
                 <outlet property="labelQuestion" destination="79" id="87"/>
                 <outlet property="rightOrWrong" destination="75" id="88"/>
-                <outlet property="rightOrWrong2" destination="80" id="85"/>
                 <outlet property="view" destination="72" id="92"/>
             </connections>
         </placeholder>
@@ -26,15 +25,15 @@
                 <view clearsContextBeforeDrawing="NO" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="73" userLabel="ClockContainerView">
                     <rect key="frame" x="71" y="20" width="300" height="300"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <view clearsContextBeforeDrawing="NO" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="74" userLabel="ClockContainerView2">
                     <rect key="frame" x="396" y="346" width="300" height="300"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="75" userLabel="ImgRightOrWrong1">
-                    <rect key="frame" x="133" y="755" width="500" height="100"/>
+                    <rect key="frame" x="133" y="742" width="500" height="100"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <segmentedControl hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="76" userLabel="Choices4">
@@ -46,7 +45,7 @@
                         <segment title=""/>
                         <segment title=""/>
                     </segments>
-                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" red="0.086274512110000007" green="0.49411767719999999" blue="0.98431378599999997" alpha="1" colorSpace="deviceRGB"/>
                     <connections>
                         <action selector="choicesValueChanged" destination="-1" eventType="valueChanged" id="83"/>
                     </connections>
@@ -59,7 +58,7 @@
                         <segment title=""/>
                         <segment title=""/>
                     </segments>
-                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" red="0.086274512110000007" green="0.49411767719999999" blue="0.98431378599999997" alpha="1" colorSpace="deviceRGB"/>
                     <connections>
                         <action selector="choicesValueChanged" destination="-1" eventType="valueChanged" id="82"/>
                     </connections>
@@ -71,7 +70,7 @@
                         <segment title=""/>
                         <segment title=""/>
                     </segments>
-                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" red="0.086274512110000007" green="0.49411767719999999" blue="0.98431378599999997" alpha="1" colorSpace="deviceRGB"/>
                     <connections>
                         <action selector="choicesValueChanged" destination="-1" eventType="valueChanged" id="81"/>
                     </connections>
@@ -81,15 +80,11 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="45"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.086274512110000007" green="0.49411767719999999" blue="0.98431378599999997" alpha="1" colorSpace="deviceRGB"/>
                     <color key="highlightedColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <color key="shadowColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <size key="shadowOffset" width="0.0" height="0.0"/>
                 </label>
-                <imageView hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="80" userLabel="ImgRightOrWrong2">
-                    <rect key="frame" x="71" y="21" width="625" height="625"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
         </view>
