@@ -25,6 +25,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <color key="sectionIndexColor" red="0.0" green="0.43325109690000002" blue="0.85919563139999999" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="54"/>
                         <outlet property="delegate" destination="-1" id="55"/>

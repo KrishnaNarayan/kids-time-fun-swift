@@ -106,6 +106,7 @@
 			cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:15.0f];	
 		}
 	}
+    cell.textLabel.textColor = [UIColor colorWithRed:0.043 green:0.376 blue:0.996 alpha:1.0];
     [cell setBackgroundColor:[UIColor colorWithWhite:1.00 alpha:0.25]];
 	// Configure the cell.
     return cell;

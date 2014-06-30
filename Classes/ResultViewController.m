@@ -80,15 +80,6 @@
 	}
 	else [headerView addSubview:noTopScoreHeaderView];
 	[yourScoreCard release];
-	//button images
-	UIImage *buttonImgNormal = [[UIImage imageNamed:@"whiteButton.png"] stretchableImageWithLeftCapWidth:12 topCapHeight:0];
-	UIImage *buttonImgPressed = [[UIImage imageNamed:@"blueButton.png"] stretchableImageWithLeftCapWidth:12 topCapHeight:0];
-	[btnSave setBackgroundImage:buttonImgNormal forState:UIControlStateNormal];
-	[btnSave setBackgroundImage:buttonImgPressed forState:UIControlStateHighlighted];
-	[btnSave setBackgroundImage:buttonImgPressed forState:UIControlStateSelected];
-	[btnDone setBackgroundImage:buttonImgNormal forState:UIControlStateNormal];
-	[btnDone setBackgroundImage:buttonImgPressed forState:UIControlStateHighlighted];
-	[btnDone setBackgroundImage:buttonImgPressed forState:UIControlStateSelected];
 	[super viewDidLoad];
 }
 

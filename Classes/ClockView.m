@@ -93,8 +93,8 @@
 	CGContextSetLineWidth (context, 3.0f);
 	CGContextSetLineCap(context, kCGLineCapRound);
 	CGContextSetAlpha(context, 0.75f);
-	CGContextSetStrokeColorWithColor (context, [UIColor blackColor].CGColor);
-	CGContextSetFillColorWithColor (context, [UIColor blackColor].CGColor);
+	CGContextSetStrokeColorWithColor (context, [UIColor purpleColor].CGColor);
+	CGContextSetFillColorWithColor (context, [UIColor purpleColor].CGColor);
 	CGContextSetShadow(context, CGSizeMake(1.0f, 1.0f), 1.0f);
 	CGContextMoveToPoint (context, x_c, y_c);
 	CGContextAddLineToPoint (context, x, y);
@@ -116,8 +116,8 @@
 	CGContextSetLineWidth (context, 3.0f);
 	CGContextSetLineCap(context, kCGLineCapRound);
 	CGContextSetAlpha(context, 0.75f);
-	CGContextSetStrokeColorWithColor (context, [UIColor blackColor].CGColor);
-	CGContextSetFillColorWithColor (context, [UIColor blackColor].CGColor);
+	CGContextSetStrokeColorWithColor (context, [UIColor purpleColor].CGColor);
+	CGContextSetFillColorWithColor (context, [UIColor purpleColor].CGColor);
 	CGContextSetShadow(context, CGSizeMake(1.0f, 1.0f), 1.0f);
 	CGContextMoveToPoint (context, x_c, y_c);
 	CGContextAddLineToPoint (context, x, y);
@@ -140,8 +140,8 @@
 		CGContextSetLineWidth (context, 1.0f);
 		CGContextSetLineCap(context, kCGLineCapRound);
 		CGContextSetAlpha(context, 0.50f);
-		CGContextSetStrokeColorWithColor (context, [UIColor blackColor].CGColor);
-		CGContextSetFillColorWithColor (context, [UIColor blackColor].CGColor);
+		CGContextSetStrokeColorWithColor (context, [UIColor purpleColor].CGColor);
+		CGContextSetFillColorWithColor (context, [UIColor purpleColor].CGColor);
 		CGContextMoveToPoint (context, x_c, y_c);
 		CGContextAddLineToPoint (context, x, y);
 		//Stroke Path Now
@@ -151,8 +151,8 @@
 	CGContextSetLineWidth (context, 1.0f);
 	CGContextSetLineCap(context, kCGLineCapRound);
 	CGContextSetAlpha(context, 0.75f);
-	CGContextSetStrokeColorWithColor (context, [UIColor blackColor].CGColor);
-	CGContextSetFillColorWithColor (context, [UIColor blackColor].CGColor);
+	CGContextSetStrokeColorWithColor (context, [UIColor purpleColor].CGColor);
+	CGContextSetFillColorWithColor (context, [UIColor purpleColor].CGColor);
 	CGContextMoveToPoint (context, x_c, y_c);
 	CGContextAddEllipseInRect(context, CGRectMake(x_c-4, y_c-4, 8, 8));
 	CGContextFillEllipseInRect(context, CGRectMake(x_c-4, y_c-4, 8, 8));
