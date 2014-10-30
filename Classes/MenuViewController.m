@@ -379,4 +379,27 @@ NSTimer *clipArtTimer;
 	
 	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:email]];
 }
+
+// Application Launcher
+- (IBAction) launchApp:(id)sender {
+    
+    UIButton *buttonClicked = (UIButton *)sender;
+    
+    NSString* appLauchFilePath = [[NSBundle mainBundle] pathForResource:@"AppLaunchInfo" ofType:@"plist"];
+    NSURL *appLaunchFileURL = [NSURL fileURLWithPath:appLauchFilePath];
+    NSArray *appLauchInfo = [NSArray arrayWithContentsOfURL:appLaunchFileURL];
+    
+    UIApplication *ourApplication = [UIApplication sharedApplication];
+    NSInteger ourAppIndex = buttonClicked.tag-700;
+    NSDictionary *ourApp = appLauchInfo[ourAppIndex];
+    NSURL *appLauchURL = [NSURL URLWithString:ourApp[@"AppLauchURL"]];
+    NSURL *appStoreURL = [NSURL URLWithString:ourApp[@"AppStoreURL"]];
+    
+    if ([ourApplication canOpenURL:appLauchURL]) {
+        [ourApplication openURL:appLauchURL];
+    }
+    else {
+        [ourApplication openURL:appStoreURL];
+    }
+}
 @end

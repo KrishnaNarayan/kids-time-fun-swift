@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>AppLauchURL</key>
+		<string>kmfk://</string>
+		<key>AppStoreURL</key>
+		<string>https://itunes.apple.com/us/app/kids-math-fun-kindergarten/id287877578?mt=8</string>
+	</dict>
+	<dict>
+		<key>AppLauchURL</key>
+		<string>kmf1://</string>
+		<key>AppStoreURL</key>
+		<string>https://itunes.apple.com/us/app/kids-math-fun-first-grade/id287880249?mt=8</string>
+	</dict>
+	<dict>
+		<key>AppLauchURL</key>
+		<string>kmf2://</string>
+		<key>AppStoreURL</key>
+		<string>https://itunes.apple.com/us/app/kids-math-fun-second-grade/id287882100?mt=8</string>
+	</dict>
+	<dict>
+		<key>AppLauchURL</key>
+		<string>kmf3://</string>
+		<key>AppStoreURL</key>
+		<string>https://itunes.apple.com/us/app/kids-math-fun-third-grade/id287884849?mt=8</string>
+	</dict>
+	<dict>
+		<key>AppLauchURL</key>
+		<string>kmf4://</string>
+		<key>AppStoreURL</key>
+		<string>https://itunes.apple.com/us/app/kids-math-fun-fourth-grade/id290076686?mt=8</string>
+	</dict>
+	<dict>
+		<key>AppLauchURL</key>
+		<string>kmf5://</string>
+		<key>AppStoreURL</key>
+		<string>https://itunes.apple.com/us/app/kids-math-fun-fifth-grade/id300633885?mt=8</string>
+	</dict>
+	<dict>
+		<key>AppLauchURL</key>
+		<string>ktf://</string>
+		<key>AppStoreURL</key>
+		<string>https://itunes.apple.com/us/app/kids-time-fun/id318350766?mt=8</string>
+	</dict>
+	<dict>
+		<key>AppLauchURL</key>
+		<string>kcf://</string>
+		<key>AppStoreURL</key>
+		<string>https://itunes.apple.com/us/app/kids-coin-fun/id380632079?mt=8</string>
+	</dict>
+	<dict>
+		<key>AppLauchURL</key>
+		<string>ceh://</string>
+		<key>AppStoreURL</key>
+		<string>https://itunes.apple.com/us/app/clean-energy-hawaii-stem/id399143221?mt=8</string>
+	</dict>
+</array>
+</plist>

@@ -81,4 +81,5 @@
 @property(nonatomic, retain) IBOutlet ActivityViewController *activityVC;
 -(void)displayComposerSheet;
 -(void)launchMailAppOnDevice;
+- (IBAction) launchApp:(id)sender;
 @end

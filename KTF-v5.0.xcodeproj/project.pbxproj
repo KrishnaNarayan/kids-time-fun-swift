@@ -136,6 +136,18 @@
 		5183D43D195D0E85003E3156 /* Menu-PurpleButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5183D42F195D0E85003E3156 /* Menu-PurpleButton@2x.png */; };
 		5183D43E195D0E85003E3156 /* Menu-RedButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5183D430195D0E85003E3156 /* Menu-RedButton.png */; };
 		5183D43F195D0E85003E3156 /* Menu-RedButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5183D431195D0E85003E3156 /* Menu-RedButton@2x.png */; };
+		519AD08B1A01DC7B0014AB46 /* KTF-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 519AD0831A01DC7B0014AB46 /* KTF-120.png */; };
+		519AD08C1A01DC7B0014AB46 /* KCF-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 519AD0841A01DC7B0014AB46 /* KCF-120.png */; };
+		519AD08D1A01DC7B0014AB46 /* KMF-3-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 519AD0851A01DC7B0014AB46 /* KMF-3-120.png */; };
+		519AD08E1A01DC7B0014AB46 /* KMF-4-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 519AD0861A01DC7B0014AB46 /* KMF-4-120.png */; };
+		519AD08F1A01DC7B0014AB46 /* KMF-K-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 519AD0871A01DC7B0014AB46 /* KMF-K-120.png */; };
+		519AD0901A01DC7B0014AB46 /* KMF-1-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 519AD0881A01DC7B0014AB46 /* KMF-1-120.png */; };
+		519AD0911A01DC7B0014AB46 /* KMF-2-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 519AD0891A01DC7B0014AB46 /* KMF-2-120.png */; };
+		519AD0921A01DC7B0014AB46 /* KMF-5-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 519AD08A1A01DC7B0014AB46 /* KMF-5-120.png */; };
+		519AD0941A01DCD40014AB46 /* AppLaunchInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 519AD0931A01DCD40014AB46 /* AppLaunchInfo.plist */; };
+		519AD0A81A01DDC80014AB46 /* LaucherHZ@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 519AD0A51A01DDC80014AB46 /* LaucherHZ@3x.png */; };
+		519AD0A91A01DDC80014AB46 /* LaucherHZ.png in Resources */ = {isa = PBXBuildFile; fileRef = 519AD0A61A01DDC80014AB46 /* LaucherHZ.png */; };
+		519AD0AA1A01DDC80014AB46 /* LaucherHZ@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 519AD0A71A01DDC80014AB46 /* LaucherHZ@2x.png */; };
 		519D1BCF19621404000F7AF7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 519D1BCE19621404000F7AF7 /* Images.xcassets */; };
 		51A07C351960A9A5005577F4 /* TryAgain@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A07C321960A9A5005577F4 /* TryAgain@2x.png */; };
 		51A07C361960A9A5005577F4 /* GoodJob@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A07C331960A9A5005577F4 /* GoodJob@2x.png */; };
@@ -463,6 +475,18 @@
 		5183D42F195D0E85003E3156 /* Menu-PurpleButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu-PurpleButton@2x.png"; sourceTree = "<group>"; };
 		5183D430195D0E85003E3156 /* Menu-RedButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu-RedButton.png"; sourceTree = "<group>"; };
 		5183D431195D0E85003E3156 /* Menu-RedButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu-RedButton@2x.png"; sourceTree = "<group>"; };
+		519AD0831A01DC7B0014AB46 /* KTF-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KTF-120.png"; sourceTree = "<group>"; };
+		519AD0841A01DC7B0014AB46 /* KCF-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KCF-120.png"; sourceTree = "<group>"; };
+		519AD0851A01DC7B0014AB46 /* KMF-3-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KMF-3-120.png"; sourceTree = "<group>"; };
+		519AD0861A01DC7B0014AB46 /* KMF-4-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KMF-4-120.png"; sourceTree = "<group>"; };
+		519AD0871A01DC7B0014AB46 /* KMF-K-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KMF-K-120.png"; sourceTree = "<group>"; };
+		519AD0881A01DC7B0014AB46 /* KMF-1-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KMF-1-120.png"; sourceTree = "<group>"; };
+		519AD0891A01DC7B0014AB46 /* KMF-2-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KMF-2-120.png"; sourceTree = "<group>"; };
+		519AD08A1A01DC7B0014AB46 /* KMF-5-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KMF-5-120.png"; sourceTree = "<group>"; };
+		519AD0931A01DCD40014AB46 /* AppLaunchInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppLaunchInfo.plist; sourceTree = "<group>"; };
+		519AD0A51A01DDC80014AB46 /* LaucherHZ@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaucherHZ@3x.png"; sourceTree = "<group>"; };
+		519AD0A61A01DDC80014AB46 /* LaucherHZ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaucherHZ.png; sourceTree = "<group>"; };
+		519AD0A71A01DDC80014AB46 /* LaucherHZ@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaucherHZ@2x.png"; sourceTree = "<group>"; };
 		519D1BCE19621404000F7AF7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		51A07C321960A9A5005577F4 /* TryAgain@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TryAgain@2x.png"; sourceTree = "<group>"; };
 		51A07C331960A9A5005577F4 /* GoodJob@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GoodJob@2x.png"; sourceTree = "<group>"; };
@@ -898,6 +922,21 @@
 			path = "Alexa Audio New";
 			sourceTree = "<group>";
 		};
+		519AD0821A01DC6D0014AB46 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				519AD0831A01DC7B0014AB46 /* KTF-120.png */,
+				519AD0841A01DC7B0014AB46 /* KCF-120.png */,
+				519AD0851A01DC7B0014AB46 /* KMF-3-120.png */,
+				519AD0861A01DC7B0014AB46 /* KMF-4-120.png */,
+				519AD0871A01DC7B0014AB46 /* KMF-K-120.png */,
+				519AD0881A01DC7B0014AB46 /* KMF-1-120.png */,
+				519AD0891A01DC7B0014AB46 /* KMF-2-120.png */,
+				519AD08A1A01DC7B0014AB46 /* KMF-5-120.png */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
 		51A07C3A1960B144005577F4 /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
@@ -1143,6 +1182,7 @@
 		9BB3DA010F9A567900877016 /* PNG Files */ = {
 			isa = PBXGroup;
 			children = (
+				519AD0821A01DC6D0014AB46 /* Icons */,
 				9BB3DA020F9A568900877016 /* Toolbar Icons */,
 				6BE4105512EBC098001D7376 /* Clipart */,
 				9B2145350FAE5A1100A1CF20 /* Symbols */,
@@ -1186,6 +1226,7 @@
 		9BB3DA050F9A56C400877016 /* PLIST Files */ = {
 			isa = PBXGroup;
 			children = (
+				519AD0931A01DCD40014AB46 /* AppLaunchInfo.plist */,
 				8D1107310486CEB800E47090 /* KidsTimeFun-Info.plist */,
 			);
 			name = "PLIST Files";
@@ -1194,6 +1235,9 @@
 		9BB3DABB0F9B883600877016 /* Background */ = {
 			isa = PBXGroup;
 			children = (
+				519AD0A51A01DDC80014AB46 /* LaucherHZ@3x.png */,
+				519AD0A61A01DDC80014AB46 /* LaucherHZ.png */,
+				519AD0A71A01DDC80014AB46 /* LaucherHZ@2x.png */,
 				51F3700B195E2635006797B2 /* Main Menu Background.png */,
 				51F3700C195E2635006797B2 /* Main Menu Background@2x.png */,
 			);
@@ -1278,6 +1322,7 @@
 				9B9DF6240FBB95A700200B50 /* Wrong40.png in Resources */,
 				9BA55FF00FBE2CDD004A7C2F /* TopScoresSingleDetailView.xib in Resources */,
 				9BA5605B0FBE3EC9004A7C2F /* TopScoresActivitySelectorView.xib in Resources */,
+				519AD08E1A01DC7B0014AB46 /* KMF-4-120.png in Resources */,
 				5164FDB6195F85C200DD87DE /* Red Belt.png in Resources */,
 				9BA561D40FBE6543004A7C2F /* Numbered.png in Resources */,
 				51F3700D195E2635006797B2 /* Main Menu Background.png in Resources */,
@@ -1303,10 +1348,12 @@
 				5164FDC7195FB1D000DD87DE /* Wrong40@2x.png in Resources */,
 				6BE410C612EBC098001D7376 /* 1KCF72A.png in Resources */,
 				6BE410C712EBC098001D7376 /* 20KCF72A.png in Resources */,
+				519AD0A91A01DDC80014AB46 /* LaucherHZ.png in Resources */,
 				51A07C371960A9A5005577F4 /* TryAgain.png in Resources */,
 				51A07C3F1960D63F005577F4 /* Numbered@2x.png in Resources */,
 				51F3701D195E4CA7006797B2 /* Home.png in Resources */,
 				5183D43B195D0E85003E3156 /* Menu-PinkButton@2x.png in Resources */,
+				519AD08C1A01DC7B0014AB46 /* KCF-120.png in Resources */,
 				6BE410C812EBC098001D7376 /* 21KCF72A.png in Resources */,
 				6BE410C912EBC098001D7376 /* 22KCF72A.png in Resources */,
 				6BE410CA12EBC098001D7376 /* 23KCF72A.png in Resources */,
@@ -1322,6 +1369,7 @@
 				6BE410D312EBC098001D7376 /* 31KCF72A.png in Resources */,
 				5164FDAB195F7BCA00DD87DE /* RWTLabel@2x.png in Resources */,
 				6BE410D412EBC098001D7376 /* 32KCF72A.png in Resources */,
+				519AD0941A01DCD40014AB46 /* AppLaunchInfo.plist in Resources */,
 				6BE410D512EBC098001D7376 /* 33KCF72A.png in Resources */,
 				6BE410D612EBC098001D7376 /* 34KCF72A.png in Resources */,
 				6BE410D712EBC098001D7376 /* 35KCF72A.png in Resources */,
@@ -1331,10 +1379,12 @@
 				6BE410DB12EBC098001D7376 /* 39KCF72A.png in Resources */,
 				51A07C391960A9C7005577F4 /* GoodJob.png in Resources */,
 				6BE410DC12EBC098001D7376 /* 3KCF72A.png in Resources */,
+				519AD0901A01DC7B0014AB46 /* KMF-1-120.png in Resources */,
 				6BE410DD12EBC098001D7376 /* 40KCF72A.png in Resources */,
 				6BE410DE12EBC098001D7376 /* 41KCF72A.png in Resources */,
 				6BE410DF12EBC098001D7376 /* 42KCF72A.png in Resources */,
 				6BE410E012EBC098001D7376 /* 43KCF72A.png in Resources */,
+				519AD0911A01DC7B0014AB46 /* KMF-2-120.png in Resources */,
 				6BE410E112EBC098001D7376 /* 44KCF72A.png in Resources */,
 				6BE410E212EBC098001D7376 /* 45KCF72A.png in Resources */,
 				6BE410E312EBC098001D7376 /* 46KCF72A.png in Resources */,
@@ -1372,6 +1422,7 @@
 				6BE4110112EBC098001D7376 /* 73KCF72A.png in Resources */,
 				6BE4110212EBC098001D7376 /* 74KCF72A.png in Resources */,
 				6BE4110312EBC098001D7376 /* 75KCF72A.png in Resources */,
+				519AD0A81A01DDC80014AB46 /* LaucherHZ@3x.png in Resources */,
 				5164FDB7195F85C200DD87DE /* Green Belt@2x.png in Resources */,
 				6BE4110412EBC098001D7376 /* 76KCF72A.png in Resources */,
 				6BE4110512EBC098001D7376 /* 77KCF72A.png in Resources */,
@@ -1404,6 +1455,7 @@
 				6BE4111C12EBC098001D7376 /* 98KCF72A.png in Resources */,
 				6BE4111D12EBC098001D7376 /* 99KCF72A.png in Resources */,
 				5183D433195D0E85003E3156 /* Menu-BlueButton@2x.png in Resources */,
+				519AD08D1A01DC7B0014AB46 /* KMF-3-120.png in Resources */,
 				6BE4111E12EBC098001D7376 /* 9KCF72A.png in Resources */,
 				52C2F7A4133789CE008E0AB9 /* 1correct.mp3 in Resources */,
 				52C2F7A5133789CE008E0AB9 /* 1wrong.mp3 in Resources */,
@@ -1418,6 +1470,7 @@
 				52C2F7D9133789CE008E0AB9 /* 5wrong.mp3 in Resources */,
 				52C2F7DB133789CE008E0AB9 /* 6correct.mp3 in Resources */,
 				52C2F7DC133789CE008E0AB9 /* 6wrong.mp3 in Resources */,
+				519AD08B1A01DC7B0014AB46 /* KTF-120.png in Resources */,
 				52C2F7DE133789CE008E0AB9 /* 7correct.mp3 in Resources */,
 				52C2F7DF133789CE008E0AB9 /* 7wrong.mp3 in Resources */,
 				52C2F7E1133789CE008E0AB9 /* 8correct.mp3 in Resources */,
@@ -1431,8 +1484,10 @@
 				519D1BCF19621404000F7AF7 /* Images.xcassets in Resources */,
 				52E092711342E7AB0035F697 /* SettingsModalView-iPad.xib in Resources */,
 				5164FDB8195F85C200DD87DE /* Yellow Belt@2x.png in Resources */,
+				519AD0921A01DC7B0014AB46 /* KMF-5-120.png in Resources */,
 				5210D9DE13484F3500B54AB2 /* HelpView-iPad.xib in Resources */,
 				527BE5301349CC93009DF756 /* ActivityView-iPad.xib in Resources */,
+				519AD08F1A01DC7B0014AB46 /* KMF-K-120.png in Resources */,
 				527BE54F1349D2CD009DF756 /* TellTimeView-iPad.xib in Resources */,
 				524F3795135197A8005905D1 /* ResultView-iPad.xib in Resources */,
 				52E5E0BA1351C09A00EBCBBE /* SetTimeView-iPad.xib in Resources */,
@@ -1449,6 +1504,7 @@
 				451C771C165377DC0068C5CC /* 12_noon_m.mp3 in Resources */,
 				451C771D165377DC0068C5CC /* 13_m.mp3 in Resources */,
 				451C771E165377DC0068C5CC /* 14_m.mp3 in Resources */,
+				519AD0AA1A01DDC80014AB46 /* LaucherHZ@2x.png in Resources */,
 				451C771F165377DC0068C5CC /* 15_m.mp3 in Resources */,
 				5144471B195F233000B66680 /* Clock Face.png in Resources */,
 				51A07C361960A9A5005577F4 /* GoodJob@2x.png in Resources */,
