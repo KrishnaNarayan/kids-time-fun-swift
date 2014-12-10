@@ -13,6 +13,18 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		338334B91A3875D600DC4825 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 338334B81A3875D600DC4825 /* AdSupport.framework */; };
+		338334BB1A3875E200DC4825 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 338334BA1A3875E200DC4825 /* CFNetwork.framework */; };
+		338334BD1A3875ED00DC4825 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 338334BC1A3875ED00DC4825 /* CoreData.framework */; };
+		338334BF1A3875F500DC4825 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 338334BE1A3875F500DC4825 /* CoreImage.framework */; };
+		338334C11A38760600DC4825 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 338334C01A38760600DC4825 /* MobileCoreServices.framework */; };
+		338334C31A38761500DC4825 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 338334C21A38761500DC4825 /* SystemConfiguration.framework */; };
+		338334C51A38763100DC4825 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 338334C41A38763100DC4825 /* Social.framework */; };
+		338334C71A38764500DC4825 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 338334C61A38764500DC4825 /* CoreMedia.framework */; };
+		338334C91A38764C00DC4825 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 338334C81A38764C00DC4825 /* CoreVideo.framework */; };
+		338334CB1A38765600DC4825 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 338334CA1A38765500DC4825 /* OpenGLES.framework */; };
+		338334CE1A38766F00DC4825 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 338334CC1A38766F00DC4825 /* AddressBook.framework */; };
+		338334CF1A38766F00DC4825 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 338334CD1A38766F00DC4825 /* AddressBookUI.framework */; };
 		33B1E8A2161FCBC700150417 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B1E8A1161FCBC700150417 /* Default-568h@2x.png */; };
 		451C7718165377DC0068C5CC /* 10_m.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 451C76C8165377DC0068C5CC /* 10_m.mp3 */; };
 		451C7719165377DC0068C5CC /* 11_m.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 451C76C9165377DC0068C5CC /* 11_m.mp3 */; };
@@ -352,6 +364,18 @@
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* KidsTimeFun_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KidsTimeFun_Prefix.pch; sourceTree = "<group>"; };
+		338334B81A3875D600DC4825 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		338334BA1A3875E200DC4825 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		338334BC1A3875ED00DC4825 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		338334BE1A3875F500DC4825 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		338334C01A38760600DC4825 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		338334C21A38761500DC4825 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		338334C41A38763100DC4825 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		338334C61A38764500DC4825 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		338334C81A38764C00DC4825 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		338334CA1A38765500DC4825 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		338334CC1A38766F00DC4825 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		338334CD1A38766F00DC4825 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		33B1E8A1161FCBC700150417 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		451C76C8165377DC0068C5CC /* 10_m.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 10_m.mp3; sourceTree = "<group>"; };
 		451C76C9165377DC0068C5CC /* 11_m.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 11_m.mp3; sourceTree = "<group>"; };
@@ -711,12 +735,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				338334CE1A38766F00DC4825 /* AddressBook.framework in Frameworks */,
+				338334CF1A38766F00DC4825 /* AddressBookUI.framework in Frameworks */,
+				52C2F854133795AC008E0AB9 /* AVFoundation.framework in Frameworks */,
+				338334CB1A38765600DC4825 /* OpenGLES.framework in Frameworks */,
+				338334C91A38764C00DC4825 /* CoreVideo.framework in Frameworks */,
+				338334C71A38764500DC4825 /* CoreMedia.framework in Frameworks */,
+				4AA483ED11A8E16400BDAEDB /* MessageUI.framework in Frameworks */,
+				338334C51A38763100DC4825 /* Social.framework in Frameworks */,
+				9BCE518D0FAC945000B7BC73 /* QuartzCore.framework in Frameworks */,
+				338334C31A38761500DC4825 /* SystemConfiguration.framework in Frameworks */,
+				338334C11A38760600DC4825 /* MobileCoreServices.framework in Frameworks */,
+				338334BD1A3875ED00DC4825 /* CoreData.framework in Frameworks */,
+				338334BF1A3875F500DC4825 /* CoreImage.framework in Frameworks */,
+				338334BB1A3875E200DC4825 /* CFNetwork.framework in Frameworks */,
+				338334B91A3875D600DC4825 /* AdSupport.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
-				9BCE518D0FAC945000B7BC73 /* QuartzCore.framework in Frameworks */,
-				4AA483ED11A8E16400BDAEDB /* MessageUI.framework in Frameworks */,
-				52C2F854133795AC008E0AB9 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -825,6 +861,18 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				338334CC1A38766F00DC4825 /* AddressBook.framework */,
+				338334CD1A38766F00DC4825 /* AddressBookUI.framework */,
+				338334CA1A38765500DC4825 /* OpenGLES.framework */,
+				338334C81A38764C00DC4825 /* CoreVideo.framework */,
+				338334C61A38764500DC4825 /* CoreMedia.framework */,
+				338334C41A38763100DC4825 /* Social.framework */,
+				338334C21A38761500DC4825 /* SystemConfiguration.framework */,
+				338334C01A38760600DC4825 /* MobileCoreServices.framework */,
+				338334BE1A3875F500DC4825 /* CoreImage.framework */,
+				338334BC1A3875ED00DC4825 /* CoreData.framework */,
+				338334BA1A3875E200DC4825 /* CFNetwork.framework */,
+				338334B81A3875D600DC4825 /* AdSupport.framework */,
 				52C2F853133795AC008E0AB9 /* AVFoundation.framework */,
 				4AA483EC11A8E16400BDAEDB /* MessageUI.framework */,
 				9BCE518C0FAC945000B7BC73 /* QuartzCore.framework */,
@@ -1286,6 +1334,8 @@
 				Japanese,
 				French,
 				German,
+				Base,
+				en,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
@@ -1654,12 +1704,20 @@
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: ONE STEP AHEAD APPS, LLC (CW985P4WQJ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/dist-sdk-ios-master/floopsdk.embeddedframework",
+					"$(PROJECT_DIR)/floopsdk.embeddedframework",
+					"$(PROJECT_DIR)",
+					"/Users/Nanu/Downloads/dist-sdk-ios-master/floopsdk.embeddedframework",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = KidsTimeFun_Prefix.pch;
 				INFOPLIST_FILE = "KidsTimeFun-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = KidsTimeFun;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -1677,10 +1735,18 @@
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: ONE STEP AHEAD APPS, LLC (CW985P4WQJ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/dist-sdk-ios-master/floopsdk.embeddedframework",
+					"$(PROJECT_DIR)/floopsdk.embeddedframework",
+					"$(PROJECT_DIR)",
+					"/Users/Nanu/Downloads/dist-sdk-ios-master/floopsdk.embeddedframework",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = KidsTimeFun_Prefix.pch;
 				INFOPLIST_FILE = "KidsTimeFun-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = KidsTimeFun;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -1710,10 +1776,18 @@
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: ONE STEP AHEAD APPS, LLC (CW985P4WQJ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/dist-sdk-ios-master/floopsdk.embeddedframework",
+					"$(PROJECT_DIR)/floopsdk.embeddedframework",
+					"$(PROJECT_DIR)",
+					"/Users/Nanu/Downloads/dist-sdk-ios-master/floopsdk.embeddedframework",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = KidsTimeFun_Prefix.pch;
 				INFOPLIST_FILE = "KidsTimeFun-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = KidsTimeFun;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;

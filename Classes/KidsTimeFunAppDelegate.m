@@ -13,6 +13,7 @@
 #import "KidsTimeFunAppDelegate.h"
 #import "MenuViewController.h"
 #import "KidsTimeFunAppState.h"
+#import <FloopSDK/FloopSDK.h>
 
 @implementation KidsTimeFunAppDelegate
 @synthesize window;
@@ -20,6 +21,9 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 	[[UIApplication sharedApplication] setStatusBarHidden:YES];
+	
+	[[FloopSdkManager sharedInstance] startWithAppKey:@"a5b62509cce25acc5e397714d7c63981"]; //kn add floop for parental gate
+	
 	//Initialize State
 	[KidsTimeFunAppState sharedState];
 	[[KidsTimeFunAppState sharedState] resumeFromState];
