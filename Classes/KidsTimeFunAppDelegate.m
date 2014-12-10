@@ -22,8 +22,6 @@
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 	[[UIApplication sharedApplication] setStatusBarHidden:YES];
 	
-	[[FloopSdkManager sharedInstance] startWithAppKey:@"a5b62509cce25acc5e397714d7c63981"]; //kn add floop for parental gate
-	
 	//Initialize State
 	[KidsTimeFunAppState sharedState];
 	[[KidsTimeFunAppState sharedState] resumeFromState];
@@ -36,6 +34,11 @@
 	[window makeKeyAndVisible];
 }
 
+- (void)applicationDidFinishLaunchingWithOptions{
+	[[FloopSdkManager sharedInstance] startWithAppKey:@"a5b62509cce25acc5e397714d7c63981"]; //kn add floop for parental gate
+}
+
+
 - (void)applicationWillTerminate:(UIApplication *)application {
 	//store state
 	[[KidsTimeFunAppState sharedState] flushState];
@@ -43,30 +46,30 @@
 
 
 - (void)setApplicationAppearanceDefaults {
-    //Navigation Bar - Clear Color
-    UINavigationBar *navigationBarAppearance = [UINavigationBar appearance];
-    navigationBarAppearance.backgroundColor = [UIColor clearColor];
-    [navigationBarAppearance setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-    navigationBarAppearance.shadowImage = [[UIImage alloc] init];
+	//Navigation Bar - Clear Color
+	UINavigationBar *navigationBarAppearance = [UINavigationBar appearance];
+	navigationBarAppearance.backgroundColor = [UIColor clearColor];
+	[navigationBarAppearance setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+	navigationBarAppearance.shadowImage = [[UIImage alloc] init];
 	//Navigation Bar - Tint Color
 	navigationBarAppearance.tintColor = [UIColor colorWithRed:0.055 green:0.478 blue:0.996 alpha:1.000];
-    //Navigation Bar - Purple Font
-    NSShadow *shadow = [[NSShadow alloc] init];
-    shadow.shadowColor = [UIColor clearColor];
-    shadow.shadowBlurRadius = 0.0;
-    shadow.shadowOffset = CGSizeMake(0.0, 0.0);
-    [[UINavigationBar appearance] setTitleTextAttributes: @{
-                                                            NSForegroundColorAttributeName : [UIColor colorWithRed:0.055 green:0.478 blue:0.996 alpha:1.000],
-                                                            NSShadowAttributeName : shadow
-                                                            }];
+	//Navigation Bar - Purple Font
+	NSShadow *shadow = [[NSShadow alloc] init];
+	shadow.shadowColor = [UIColor clearColor];
+	shadow.shadowBlurRadius = 0.0;
+	shadow.shadowOffset = CGSizeMake(0.0, 0.0);
+	[[UINavigationBar appearance] setTitleTextAttributes: @{
+															NSForegroundColorAttributeName : [UIColor colorWithRed:0.055 green:0.478 blue:0.996 alpha:1.000],
+															NSShadowAttributeName : shadow
+															}];
 	[shadow release];
-
+	
 }
 
 - (void)dealloc {
 	[navController release];
-    [window release];
-    [super dealloc];
+	[window release];
+	[super dealloc];
 }
 
 

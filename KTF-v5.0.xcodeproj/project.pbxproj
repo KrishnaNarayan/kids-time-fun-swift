@@ -25,6 +25,9 @@
 		338334CB1A38765600DC4825 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 338334CA1A38765500DC4825 /* OpenGLES.framework */; };
 		338334CE1A38766F00DC4825 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 338334CC1A38766F00DC4825 /* AddressBook.framework */; };
 		338334CF1A38766F00DC4825 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 338334CD1A38766F00DC4825 /* AddressBookUI.framework */; };
+		338334D91A387B6F00DC4825 /* floopsdk.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 338334D71A387B6F00DC4825 /* floopsdk.bundle */; };
+		338334DA1A387B6F00DC4825 /* floopsdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 338334D81A387B6F00DC4825 /* floopsdk.framework */; };
+		338334DC1A387CE100DC4825 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 338334DB1A387CE100DC4825 /* Accelerate.framework */; };
 		33B1E8A2161FCBC700150417 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B1E8A1161FCBC700150417 /* Default-568h@2x.png */; };
 		451C7718165377DC0068C5CC /* 10_m.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 451C76C8165377DC0068C5CC /* 10_m.mp3 */; };
 		451C7719165377DC0068C5CC /* 11_m.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 451C76C9165377DC0068C5CC /* 11_m.mp3 */; };
@@ -376,6 +379,9 @@
 		338334CA1A38765500DC4825 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		338334CC1A38766F00DC4825 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		338334CD1A38766F00DC4825 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		338334D71A387B6F00DC4825 /* floopsdk.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = floopsdk.bundle; sourceTree = "<group>"; };
+		338334D81A387B6F00DC4825 /* floopsdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = floopsdk.framework; sourceTree = "<group>"; };
+		338334DB1A387CE100DC4825 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		33B1E8A1161FCBC700150417 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		451C76C8165377DC0068C5CC /* 10_m.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 10_m.mp3; sourceTree = "<group>"; };
 		451C76C9165377DC0068C5CC /* 11_m.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 11_m.mp3; sourceTree = "<group>"; };
@@ -735,8 +741,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				338334DC1A387CE100DC4825 /* Accelerate.framework in Frameworks */,
 				338334CE1A38766F00DC4825 /* AddressBook.framework in Frameworks */,
 				338334CF1A38766F00DC4825 /* AddressBookUI.framework in Frameworks */,
+				338334DA1A387B6F00DC4825 /* floopsdk.framework in Frameworks */,
 				52C2F854133795AC008E0AB9 /* AVFoundation.framework in Frameworks */,
 				338334CB1A38765600DC4825 /* OpenGLES.framework in Frameworks */,
 				338334C91A38764C00DC4825 /* CoreVideo.framework in Frameworks */,
@@ -861,6 +869,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				338334DB1A387CE100DC4825 /* Accelerate.framework */,
+				338334D61A387B6F00DC4825 /* floopsdk.embeddedframework */,
 				338334CC1A38766F00DC4825 /* AddressBook.framework */,
 				338334CD1A38766F00DC4825 /* AddressBookUI.framework */,
 				338334CA1A38765500DC4825 /* OpenGLES.framework */,
@@ -881,6 +891,15 @@
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		338334D61A387B6F00DC4825 /* floopsdk.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				338334D71A387B6F00DC4825 /* floopsdk.bundle */,
+				338334D81A387B6F00DC4825 /* floopsdk.framework */,
+			);
+			path = floopsdk.embeddedframework;
 			sourceTree = "<group>";
 		};
 		451C76C7165377DC0068C5CC /* Alexa Audio New */ = {
@@ -1529,6 +1548,7 @@
 				52C2F7E4133789CE008E0AB9 /* 9correct.mp3 in Resources */,
 				52C2F7E5133789CE008E0AB9 /* 9wrong.mp3 in Resources */,
 				52E092461342E3770035F697 /* MainWindow-iPad.xib in Resources */,
+				338334D91A387B6F00DC4825 /* floopsdk.bundle in Resources */,
 				52E092661342E61C0035F697 /* MenuView-iPad.xib in Resources */,
 				51444713195F015200B66680 /* RightArrowAccessory.png in Resources */,
 				519D1BCF19621404000F7AF7 /* Images.xcassets in Resources */,
@@ -1706,10 +1726,7 @@
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/dist-sdk-ios-master/floopsdk.embeddedframework",
 					"$(PROJECT_DIR)/floopsdk.embeddedframework",
-					"$(PROJECT_DIR)",
-					"/Users/Nanu/Downloads/dist-sdk-ios-master/floopsdk.embeddedframework",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1722,6 +1739,7 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
@@ -1737,20 +1755,19 @@
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/dist-sdk-ios-master/floopsdk.embeddedframework",
 					"$(PROJECT_DIR)/floopsdk.embeddedframework",
-					"$(PROJECT_DIR)",
-					"/Users/Nanu/Downloads/dist-sdk-ios-master/floopsdk.embeddedframework",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = KidsTimeFun_Prefix.pch;
 				INFOPLIST_FILE = "KidsTimeFun-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = KidsTimeFun;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};
@@ -1778,20 +1795,19 @@
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/dist-sdk-ios-master/floopsdk.embeddedframework",
 					"$(PROJECT_DIR)/floopsdk.embeddedframework",
-					"$(PROJECT_DIR)",
-					"/Users/Nanu/Downloads/dist-sdk-ios-master/floopsdk.embeddedframework",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = KidsTimeFun_Prefix.pch;
 				INFOPLIST_FILE = "KidsTimeFun-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = KidsTimeFun;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Distribution;
 		};
