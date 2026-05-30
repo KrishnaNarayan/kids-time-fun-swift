@@ -31,10 +31,11 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = kStrAppTitle
+        edgesForExtendedLayout = []
 
-        let settingsBtn = UIBarButtonItem(image: UIImage(named: "Settings"), style: .plain, target: self, action: #selector(settingsActivated))
+        let settingsBtn = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(settingsActivated))
         navigationItem.rightBarButtonItem = settingsBtn
-        let topScoresBtn = UIBarButtonItem(image: UIImage(named: "Top Scores"), style: .plain, target: self, action: #selector(topScoresButtonPressed(_:)))
+        let topScoresBtn = UIBarButtonItem(image: UIImage(systemName: "trophy"), style: .plain, target: self, action: #selector(topScoresButtonPressed(_:)))
         navigationItem.leftBarButtonItem = topScoresBtn
 
         let homeBtn = UIBarButtonItem(image: UIImage(named: kImgHome), style: .plain, target: self, action: #selector(goHome))
