@@ -2,7 +2,7 @@ import UIKit
 import QuartzCore
 
 @objc(ActivityViewController)
-class ActivityViewController: UIViewController, DismissResultDelegate, DismissActivityDelegate {
+class ActivityViewController: UIViewController, DismissResultDelegate, DismissActivityDelegate, UIGestureRecognizerDelegate {
 
     var activity: Int32 = 0
     var activityType: Int32 = 0
@@ -36,7 +36,10 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
     override func viewDidLoad() {
         super.viewDidLoad()
         startTime = Date()
-        navigationItem.backBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "house"), style: .plain, target: nil, action: nil)
+        // A custom left bar button makes UIKit disable the interactive swipe-back
+        // gesture — which otherwise fires when dragging a clock hand near the edge.
+        navigationItem.hidesBackButton = true
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "house"), style: .plain, target: self, action: #selector(goHome(_:)))
         activityBG.contentMode = .scaleAspectFill
         activityBG.clipsToBounds = true
     }
@@ -91,9 +94,19 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        // Re-assert in case the push transition re-enabled it.
+        // Bulletproof: take over the interactive-pop gesture delegate and deny it,
+        // so dragging a clock hand can never start a swipe-back to the menu.
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
         setNeedsUpdateOfScreenEdgesDeferringSystemGestures()
+    }
+
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        // Deny the swipe-back while an activity is on screen.
+        if gestureRecognizer == navigationController?.interactivePopGestureRecognizer {
+            return false
+        }
+        return true
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -102,8 +115,10 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
         }
         content.subviews.forEach { $0.removeFromSuperview() }
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
         super.viewWillDisappear(true)
     }
+
 
     func loadActivity(_ thisActivity: Int32) {
         let isIPad = UIDevice.current.userInterfaceIdiom == .pad
