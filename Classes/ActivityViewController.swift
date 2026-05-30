@@ -41,15 +41,26 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
         activityBG.clipsToBounds = true
     }
 
+    private var compositeBaseSize: CGSize?
+
+    // Defer system edge gestures so dragging a clock hand to the screen edge does
+    // not trigger swipe-back / dock / control-center instead of moving the hand.
+    override var preferredScreenEdgesDeferringSystemGestures: UIRectEdge { .all }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        // The composite (header + content) is absolutely positioned at y=0 in the
-        // XIB and would sit behind the nav bar. Shift it below the safe area so the
-        // score header in the top-right is fully visible.
-        let top = view.safeAreaInsets.top
-        if composite != nil && composite.frame.origin.y != top {
-            composite.frame.origin.y = top
-        }
+        guard composite != nil else { return }
+        // The composite (header + answers) is a fixed-size legacy layout. Scale it to
+        // fit the safe area and center it, so neither the score header at the top nor
+        // the answer options at the bottom get clipped by the nav/home bars.
+        if compositeBaseSize == nil { compositeBaseSize = composite.bounds.size }
+        guard let base = compositeBaseSize, base.width > 0, base.height > 0 else { return }
+        let safe = view.bounds.inset(by: view.safeAreaInsets)
+        let scale = min(safe.width / base.width, safe.height / base.height)
+        composite.transform = .identity
+        composite.bounds = CGRect(origin: .zero, size: base)
+        composite.transform = CGAffineTransform(scaleX: scale, y: scale)
+        composite.center = CGPoint(x: safe.midX, y: safe.midY)
     }
 
     override func viewWillAppear(_ animated: Bool) {
