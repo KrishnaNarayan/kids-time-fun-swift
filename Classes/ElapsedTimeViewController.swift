@@ -94,7 +94,6 @@ class ElapsedTimeViewController: BaseViewController {
         choices.setTitle(answerTitle, forSegmentAt: answerIndex)
 
         super.viewDidLoad()
-        edgesForExtendedLayout = []
     }
 
     @IBAction func choicesValueChanged() {

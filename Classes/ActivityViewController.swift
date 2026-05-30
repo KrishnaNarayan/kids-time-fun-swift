@@ -35,7 +35,6 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        edgesForExtendedLayout = []
         startTime = Date()
         navigationItem.backBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "house"), style: .plain, target: nil, action: nil)
         activityBG.contentMode = .scaleAspectFill

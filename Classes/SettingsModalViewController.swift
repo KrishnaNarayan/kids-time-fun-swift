@@ -33,7 +33,6 @@ class SettingsModalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Settings"
-        edgesForExtendedLayout = []
 
         let docs = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         let path = (docs as NSString).appendingPathComponent(kFileAppSettings)

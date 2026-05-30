@@ -107,7 +107,6 @@ class TellTimeViewController: BaseViewController {
         choices.setTitle(choiceLabel(h: answerHours, m: answerMinutes, level: Int(activityLevel)), forSegmentAt: answerIndex)
 
         super.viewDidLoad()
-        edgesForExtendedLayout = []
     }
 
     @IBAction func choicesValueChanged() {
