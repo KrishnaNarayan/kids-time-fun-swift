@@ -34,7 +34,7 @@ class ResultViewController: UIViewController {
         super.viewDidLoad()
         title = kStrResult
 
-        let homeBtn = UIBarButtonItem(image: UIImage(named: "Home.png"), style: .bordered, target: self, action: #selector(goHome(_:)))
+        let homeBtn = UIBarButtonItem(image: UIImage(named: "Home.png"), style: .plain, target: self, action: #selector(goHome(_:)))
         navigationItem.leftBarButtonItem = homeBtn
 
         lblRightAnswers.text = "\(rightAnswers)"
@@ -92,8 +92,9 @@ class ResultViewController: UIViewController {
         card.newScoreCard()
 
         if card.isTopScore && !card.writeScoreCard() {
-            let alert = UIAlertView(title: "File Alert!", message: "Could not write score to the file. Please contact support.", delegate: nil, cancelButtonTitle: "Okay")
-            alert.show()
+            let alert = UIAlertController(title: "File Alert!", message: "Could not write score to the file. Please contact support.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert, animated: true)
         }
 
         txtName.isEnabled = false

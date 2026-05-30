@@ -18,7 +18,7 @@ class TopScoresActivityLevelSelector: UIViewController, UITableViewDelegate, UIT
         default: activityName = ""
         }
         title = "\(kStrTopScores) - \(activityName)"
-        let btn = UIBarButtonItem(image: UIImage(named: "Top Scores"), style: .bordered, target: self, action: nil)
+        let btn = UIBarButtonItem(image: UIImage(named: "Top Scores"), style: .plain, target: self, action: nil)
         navigationItem.backBarButtonItem = btn
     }
 

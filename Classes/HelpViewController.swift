@@ -27,7 +27,7 @@ class HelpViewController: UIViewController {
             return
         }
         if let url = URL(string: urlString) {
-            UIApplication.shared.openURL(url)
+            UIApplication.shared.open(url)
         }
     }
 }

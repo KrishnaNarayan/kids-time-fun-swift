@@ -6,4 +6,3 @@
 //
 
 #import "KidsTimeFunAppConstants.h"
-#import <floopsdk/FloopSdk.h>

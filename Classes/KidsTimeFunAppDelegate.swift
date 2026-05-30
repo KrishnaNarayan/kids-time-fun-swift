@@ -14,16 +14,12 @@ class KidsTimeFunAppDelegate: UIResponder, UIApplicationDelegate {
     @IBOutlet var navController: UINavigationController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        UIApplication.shared.isStatusBarHidden = true
-
         KidsTimeFunAppState.sharedState().resumeFromState()
 
         setApplicationAppearanceDefaults()
 
         window?.rootViewController = navController
         window?.makeKeyAndVisible()
-
-        FloopSdkManager.sharedInstance().start(withAppKey: "a5b62509cce25acc5e397714d7c63981")
 
         return true
     }

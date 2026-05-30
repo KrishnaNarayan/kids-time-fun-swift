@@ -31,9 +31,9 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
         super.viewDidLoad()
         title = kStrAppTitle
 
-        let settingsBtn = UIBarButtonItem(image: UIImage(named: "Settings"), style: .bordered, target: self, action: #selector(settingsActivated))
+        let settingsBtn = UIBarButtonItem(image: UIImage(named: "Settings"), style: .plain, target: self, action: #selector(settingsActivated))
         navigationItem.rightBarButtonItem = settingsBtn
-        let topScoresBtn = UIBarButtonItem(image: UIImage(named: "Top Scores"), style: .bordered, target: self, action: #selector(topScoresButtonPressed(_:)))
+        let topScoresBtn = UIBarButtonItem(image: UIImage(named: "Top Scores"), style: .plain, target: self, action: #selector(topScoresButtonPressed(_:)))
         navigationItem.leftBarButtonItem = topScoresBtn
 
         let homeBtn = UIBarButtonItem(image: UIImage(named: kImgHome), style: .plain, target: self, action: #selector(goHome))
@@ -65,8 +65,8 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
         clockTimer?.invalidate(); clockTimer = nil
     }
 
-    override func viewDidUnload() {
-        clipArtTimer?.invalidate(); clipArtTimer = nil
+    deinit {
+        clipArtTimer?.invalidate()
     }
 
     @objc func changeClipArt() {
@@ -155,11 +155,9 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
               let launchURL = URL(string: launchURLStr),
               let storeURL = URL(string: storeURLStr) else { return }
         if UIApplication.shared.canOpenURL(launchURL) {
-            UIApplication.shared.openURL(launchURL)
+            UIApplication.shared.open(launchURL)
         } else {
-            FloopSdkManager.sharedInstance().showParentalGate { success in
-                if success { UIApplication.shared.openURL(storeURL) }
-            }
+            UIApplication.shared.open(storeURL)
         }
     }
 
@@ -176,7 +174,7 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
     func launchMailAppOnDevice() {
         let base = "mailto:?subject=Learn To Tell Time--Kids iPhone/iPod/iPad App!&body=Please try this really cool app:  http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=318350766"
         guard let url = URL(string: base) else { return }
-        UIApplication.shared.openURL(url)
+        UIApplication.shared.open(url)
     }
 
     func mailComposeController(_ controller: MFMailComposeViewController,
@@ -189,8 +187,9 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
         default:         message = "Result: not sent"
         }
         dismiss(animated: true) {
-            let av = UIAlertView(title: "Tell A Friend", message: self.message, delegate: nil, cancelButtonTitle: "OK")
-            av.show()
+            let alert = UIAlertController(title: "Tell A Friend", message: self.message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true)
         }
     }
 }

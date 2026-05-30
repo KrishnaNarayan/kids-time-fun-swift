@@ -44,7 +44,7 @@ class SettingsModalViewController: UIViewController {
         if numberOfMinutes == 0 { numberOfMinutes = Int(kDefaultMaxTimeInSeconds) / 60 }
         activityLevel = Int((dict[kSettingsKeyActivityLevel] as? NSNumber)?.int32Value ?? 0)
         if activityLevel == 0 { activityLevel = Int(kDefaultActivityLevel) }
-        playSoundInApplication = dict.isEmpty ? kDefaultAppSoundState : ((dict[kSettingsKeyPlaySound] as? NSNumber)?.boolValue ?? kDefaultAppSoundState)
+        playSoundInApplication = dict.isEmpty ? true : ((dict[kSettingsKeyPlaySound] as? NSNumber)?.boolValue ?? true)
 
         if UIImage.instancesRespond(to: #selector(UIImage.withRenderingMode(_:))) {
             ["Yellow Belt", "Green Belt", "Red Belt", "Black Belt"].enumerated().forEach { i, name in

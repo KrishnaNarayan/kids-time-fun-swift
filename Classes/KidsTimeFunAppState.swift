@@ -18,7 +18,7 @@ class KidsTimeFunAppState: NSObject {
         maxQuestions = kDefaultMaxNumberOfQuestions
         maxTimeInSeconds = kDefaultMaxTimeInSeconds
         sizeOfTopScoreList = kDefaultSizeOfTopScoreList
-        appSoundState = kDefaultAppSoundState
+        appSoundState = true
         readSettings()
     }
 
@@ -55,7 +55,7 @@ class KidsTimeFunAppState: NSObject {
         maxTimeInSeconds = (nm == 0 ? kDefaultMaxTimeInSeconds / 60 : nm) * 60
         let al = (dict[kSettingsKeyActivityLevel] as? NSNumber)?.int32Value ?? 0
         activityLevel = al == 0 ? kDefaultActivityLevel : al
-        appSoundState = dict.isEmpty ? kDefaultAppSoundState : ((dict[kSettingsKeyPlaySound] as? NSNumber)?.boolValue ?? kDefaultAppSoundState)
+        appSoundState = dict.isEmpty ? true : ((dict[kSettingsKeyPlaySound] as? NSNumber)?.boolValue ?? true)
     }
 
     @objc func flushState() {

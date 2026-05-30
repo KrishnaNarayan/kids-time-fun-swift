@@ -35,7 +35,7 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
     override func viewDidLoad() {
         super.viewDidLoad()
         startTime = Date()
-        let homeBtn = UIBarButtonItem(image: UIImage(named: kImgHome), style: .bordered, target: self, action: #selector(goHome(_:)))
+        let homeBtn = UIBarButtonItem(image: UIImage(named: kImgHome), style: .plain, target: self, action: #selector(goHome(_:)))
         navigationItem.backBarButtonItem = homeBtn
     }
 
@@ -167,8 +167,9 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
         guard KidsTimeFunAppState.sharedState().activityType == kActTypeTimed else { return }
         if header.countdownTimer <= 0 && (navigationController?.topViewController == self || !transView.isTransitioning) {
             timer?.invalidate(); timer = nil
-            let alert = UIAlertView(title: "Time is up!", message: nil, delegate: self, cancelButtonTitle: "OK")
-            alert.show()
+            let alert = UIAlertController(title: "Time is up!", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert, animated: true)
             if navigationController?.topViewController == self { loadResultsView(sender: self) }
         } else {
             header.countdownTimer -= 1

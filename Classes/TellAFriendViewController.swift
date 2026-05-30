@@ -30,7 +30,7 @@ class TellAFriendViewController: UIViewController, MFMailComposeViewControllerDe
         let base = "mailto:?subject=Learn To Tell Time--Kids iPhone/iPod/iPad App!&body=Please try this really cool app:  http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=318350766"
         guard let encoded = base.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
               let url = URL(string: encoded) else { return }
-        UIApplication.shared.openURL(url)
+        UIApplication.shared.open(url)
     }
 
     func mailComposeController(_ controller: MFMailComposeViewController,
@@ -42,10 +42,10 @@ class TellAFriendViewController: UIViewController, MFMailComposeViewControllerDe
         default:       message = ""
         }
         dismiss(animated: true) {
-            if !self.message.isEmpty {
-                let av = UIAlertView(title: "Tell A Friend", message: self.message, delegate: nil, cancelButtonTitle: "OK")
-                av.show()
-            }
+            guard !self.message.isEmpty else { return }
+            let alert = UIAlertController(title: "Tell A Friend", message: self.message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.presentingViewController?.present(alert, animated: true)
         }
     }
 }
