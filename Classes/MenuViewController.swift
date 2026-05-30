@@ -41,6 +41,11 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
         UIBarButtonItem.appearance().tintColor = UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1)
         navigationItem.backBarButtonItem = homeBtn
 
+        // Hide defunct app-launcher buttons (tags 700–706)
+        for tag in 700...706 {
+            view.viewWithTag(tag)?.isHidden = true
+        }
+
         choiceActivityType.selectedSegmentIndex = Int(KidsTimeFunAppState.sharedState().activityType)
         if let cv = clipArtView {
             let clipArtFrame = CGRect(x: 0, y: 0, width: cv.frame.size.width, height: cv.frame.size.height)
