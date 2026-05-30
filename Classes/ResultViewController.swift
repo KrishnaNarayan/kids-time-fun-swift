@@ -34,8 +34,15 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = kStrResult
+        // Keep the score message below the nav bar (it was being obscured).
+        edgesForExtendedLayout = []
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "house"), style: .plain, target: self, action: #selector(goHome(_:)))
+
+        // Legacy roundedRect buttons render as plain text on modern iOS — give them
+        // a real button appearance.
+        styleButton(btnSave)
+        styleButton(btnDone)
 
         lblRightAnswers.text = "\(rightAnswers)"
         lblWrongAnswers.text = "\(wrongAnswers)"
@@ -110,5 +117,15 @@ class ResultViewController: UIViewController {
 
     @objc private func goHome(_ sender: Any) {
         navigationController?.popToRootViewController(animated: true)
+    }
+
+    private func styleButton(_ button: UIButton?) {
+        guard let button = button else { return }
+        let tint = UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1.0)
+        button.backgroundColor = tint
+        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(UIColor.white.withAlphaComponent(0.5), for: .disabled)
+        button.layer.cornerRadius = 8
+        button.layer.masksToBounds = true
     }
 }
