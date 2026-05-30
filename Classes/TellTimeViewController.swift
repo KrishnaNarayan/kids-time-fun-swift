@@ -42,6 +42,7 @@ class TellTimeViewController: BaseViewController {
         case 3: choices4.isHidden = true;  choices3.isHidden = false; choices2.isHidden = true;  choices = choices3
         default:choices4.isHidden = false; choices3.isHidden = true;  choices2.isHidden = true;  choices = choices4
         }
+        styleChoices(choices)
 
         randomNumber = RandomInteger(range: 1, to: 12)
         clockView.hours = Float(randomNumber.randomInteger)

@@ -41,6 +41,17 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
         activityBG.clipsToBounds = true
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        // The composite (header + content) is absolutely positioned at y=0 in the
+        // XIB and would sit behind the nav bar. Shift it below the safe area so the
+        // score header in the top-right is fully visible.
+        let top = view.safeAreaInsets.top
+        if composite != nil && composite.frame.origin.y != top {
+            composite.frame.origin.y = top
+        }
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         let state = KidsTimeFunAppState.sharedState()
         activity = state.activity; activityType = state.activityType; activityLevel = state.activityLevel
@@ -60,6 +71,9 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
         header.activityLevel = activityLevel; header.showTotal = true
         header.setNeedsDisplay()
         loadActivity(Int32(activity))
+        // Dragging clock hands near the left edge would otherwise trigger the
+        // swipe-back gesture and pop to the menu. Disable it during the activity.
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         super.viewWillAppear(animated)
     }
 
@@ -68,6 +82,7 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
             timer?.invalidate(); timer = nil
         }
         content.subviews.forEach { $0.removeFromSuperview() }
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         super.viewWillDisappear(true)
     }
 

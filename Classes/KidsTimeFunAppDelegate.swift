@@ -16,7 +16,8 @@ class KidsTimeFunAppDelegate: UIResponder, UIApplicationDelegate {
         KidsTimeFunAppState.sharedState().resumeFromState()
         setApplicationAppearanceDefaults()
 
-        let menuVC = MenuViewController(nibName: "MenuView", bundle: nil)
+        let isIPad = UIDevice.current.userInterfaceIdiom == .pad
+        let menuVC = MenuViewController(nibName: isIPad ? "MenuView-iPad" : "MenuView", bundle: nil)
         let nav = UINavigationController(rootViewController: menuVC)
 
         window = UIWindow(frame: UIScreen.main.bounds)

@@ -41,7 +41,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                     <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.0" colorSpace="calibratedRGB"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LaucherHZ.png" translatesAutoresizingMaskIntoConstraints="NO" id="vgH-0h-ASH">
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LaucherHZ.png" translatesAutoresizingMaskIntoConstraints="NO" id="vgH-0h-ASH">
                     <rect key="frame" x="244" y="842" width="280" height="50"/>
                 </imageView>
                 <button opaque="NO" alpha="0.89999997615814209" tag="704" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ani-cT-0rM">
@@ -72,7 +72,7 @@
                         <action selector="launchApp:" destination="-1" eventType="touchUpInside" id="MHb-hL-NtB"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LaucherHZ.png" translatesAutoresizingMaskIntoConstraints="NO" id="l99-GG-Bs2">
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LaucherHZ.png" translatesAutoresizingMaskIntoConstraints="NO" id="l99-GG-Bs2">
                     <rect key="frame" x="244" y="906" width="280" height="50"/>
                 </imageView>
                 <button opaque="NO" alpha="0.89999997615814209" tag="705" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPu-C5-RPf">
