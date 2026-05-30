@@ -30,7 +30,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.0" colorSpace="calibratedRGB"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LaucherHZ.png" translatesAutoresizingMaskIntoConstraints="NO" id="0cM-o4-PPL">
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LaucherHZ.png" translatesAutoresizingMaskIntoConstraints="NO" id="0cM-o4-PPL">
                     <rect key="frame" x="20" y="393" width="280" height="50"/>
                 </imageView>
                 <button opaque="NO" alpha="0.89999997615814209" tag="704" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlB-fW-MX8">
@@ -61,7 +61,7 @@
                         <action selector="launchApp:" destination="-1" eventType="touchUpInside" id="cCu-OE-ttV"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LaucherHZ.png" translatesAutoresizingMaskIntoConstraints="NO" id="CCj-24-HoH">
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LaucherHZ.png" translatesAutoresizingMaskIntoConstraints="NO" id="CCj-24-HoH">
                     <rect key="frame" x="20" y="442" width="280" height="50"/>
                 </imageView>
                 <view clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="82" customClass="ClockView">

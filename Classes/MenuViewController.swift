@@ -42,7 +42,7 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
         navigationItem.backBarButtonItem = homeBtn
 
         // Hide defunct app-launcher buttons (tags 700–706)
-        for tag in 700...706 {
+        for tag in 700...707 {
             view.viewWithTag(tag)?.isHidden = true
         }
 
