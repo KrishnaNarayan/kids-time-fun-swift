@@ -6,8 +6,16 @@ class TopScoresActivityLevelSelector: UIViewController, UITableViewDelegate, UIT
     var activity: Int32 = 0
     var activityLevel: Int32 = 0
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        for case let table as UITableView in view.subviews {
+            table.frame = view.bounds
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        edgesForExtendedLayout = []
         let activityName: String
         switch activity {
         case kActTellTime: activityName = kStrTellTime
