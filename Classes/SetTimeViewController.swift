@@ -12,7 +12,7 @@ class SetTimeViewController: BaseViewController {
 
     @IBOutlet private weak var clockContainerView: UIView!
     @IBOutlet private weak var rightOrWrong: UIImageView!
-    @IBOutlet private weak var rightOrWrong2: UIImageView!
+    @IBOutlet private weak var rightOrWrong2: UIImageView?
     @IBOutlet private weak var labelQuestion: UILabel!
 
     private var setClockView: SetClockView!
@@ -59,15 +59,15 @@ class SetTimeViewController: BaseViewController {
 
         if rightHours && abs(setMinutes - Int(setClockView.minutes)) < 2 {
             isRight = true
-            rightOrWrong2.image = UIImage(named: "Right"); rightOrWrong.image = UIImage(named: "GoodJob")
-            rightOrWrong2.isHidden = false
+            rightOrWrong2?.image = UIImage(named: "Right"); rightOrWrong.image = UIImage(named: "GoodJob")
+            rightOrWrong2?.isHidden = false
             AudioPlayer.getInstance().playCorrectWrong(true)
             Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(rightAnswer), userInfo: nil, repeats: false)
         } else {
             isRight = false; wrongCounter += 1
-            rightOrWrong2.image = UIImage(named: "Wrong"); rightOrWrong.image = UIImage(named: "TryAgain")
+            rightOrWrong2?.image = UIImage(named: "Wrong"); rightOrWrong.image = UIImage(named: "TryAgain")
             AudioPlayer.getInstance().playCorrectWrong(false)
-            rightOrWrong2.isHidden = true; rightOrWrong.isHidden = false
+            rightOrWrong2?.isHidden = true; rightOrWrong.isHidden = false
             Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(wrongAnswer), userInfo: nil, repeats: false)
         }
     }
@@ -79,8 +79,8 @@ class SetTimeViewController: BaseViewController {
 
     @objc func wrongAnswer() {
         if activityType != kActTypeTimed {
-            rightOrWrong.image = nil; rightOrWrong2.image = nil
-            rightOrWrong2.isHidden = true
+            rightOrWrong.image = nil; rightOrWrong2?.image = nil
+            rightOrWrong2?.isHidden = true
             view.setNeedsDisplay()
         } else {
             delegate?.didDismissActivity(self)

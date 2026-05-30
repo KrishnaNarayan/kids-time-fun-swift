@@ -16,7 +16,7 @@ class ResultViewController: UIViewController {
     var timeTakenInSeconds: Int32 = 0
 
     @IBOutlet private weak var lblScoreMessage: UILabel!
-    @IBOutlet private weak var imgViewTopScore: UIImageView!
+    @IBOutlet private weak var imgViewTopScore: UIImageView?
     @IBOutlet private weak var lblScoreRank: UILabel!
     @IBOutlet private weak var txtName: UITextField!
     @IBOutlet private weak var btnSave: UIButton!
@@ -26,7 +26,7 @@ class ResultViewController: UIViewController {
     @IBOutlet private weak var lblTotalQuestions: UILabel!
     @IBOutlet private weak var lblTimeTaken: UILabel!
     @IBOutlet private weak var btnDone: UIButton!
-    @IBOutlet private weak var btnDismissKeyboard: UIButton!
+    @IBOutlet private weak var btnDismissKeyboard: UIButton?
     @IBOutlet private weak var headerView: UIView!
     @IBOutlet private weak var topScoreHeaderView: UIView!
     @IBOutlet private weak var noTopScoreHeaderView: UIView!

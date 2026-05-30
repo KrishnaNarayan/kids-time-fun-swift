@@ -8,8 +8,8 @@ class SettingsModalViewController: UIViewController {
     @IBOutlet private weak var activityLevelChoiceControl: UISegmentedControl!
     @IBOutlet private weak var numberOfQuestionsLabel: UILabel!
     @IBOutlet private weak var numberOfMinutesLabel: UILabel!
-    @IBOutlet private weak var activityLevelDescriptionDropDownView: UIView!
-    @IBOutlet private weak var activityLevelLabel: UILabel!
+    @IBOutlet private weak var activityLevelDescriptionDropDownView: UIView?
+    @IBOutlet private weak var activityLevelLabel: UILabel?
     @IBOutlet private weak var activityLevelDescriptionLabel: UILabel!
     @IBOutlet private weak var playSoundDecider: UISwitch!
 
@@ -117,7 +117,7 @@ class SettingsModalViewController: UIViewController {
 
     private func updateLevelLabels() {
         guard activityLevel < levelNames.count else { return }
-        activityLevelLabel.text = levelNames[activityLevel]
+        activityLevelLabel?.text = levelNames[activityLevel]
         activityLevelDescriptionLabel.text = levelDescriptions[activityLevel]
     }
 }
