@@ -7,7 +7,6 @@ class TopScoresActivitySelector: UIViewController, UITableViewDelegate, UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        edgesForExtendedLayout = []
         title = kStrTopScores
         let btn = UIBarButtonItem(image: UIImage(named: "Top Scores"), style: .plain, target: self, action: nil)
         navigationItem.backBarButtonItem = btn

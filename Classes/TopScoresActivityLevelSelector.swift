@@ -8,7 +8,6 @@ class TopScoresActivityLevelSelector: UIViewController, UITableViewDelegate, UIT
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        edgesForExtendedLayout = []
         let activityName: String
         switch activity {
         case kActTellTime: activityName = kStrTellTime

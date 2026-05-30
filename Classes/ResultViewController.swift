@@ -33,7 +33,6 @@ class ResultViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        edgesForExtendedLayout = []
         title = kStrResult
 
         let homeBtn = UIBarButtonItem(image: UIImage(named: "Home.png"), style: .plain, target: self, action: #selector(goHome(_:)))

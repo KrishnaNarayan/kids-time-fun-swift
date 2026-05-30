@@ -35,7 +35,6 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        edgesForExtendedLayout = []
         startTime = Date()
         let homeBtn = UIBarButtonItem(image: UIImage(named: kImgHome), style: .plain, target: self, action: #selector(goHome(_:)))
         navigationItem.backBarButtonItem = homeBtn

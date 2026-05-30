@@ -16,7 +16,6 @@ class TopScoresSingleDetailViewController: UIViewController, UITableViewDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        edgesForExtendedLayout = []
         loadScores()
     }
 
