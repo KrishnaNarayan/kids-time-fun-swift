@@ -38,9 +38,8 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
         let topScoresBtn = UIBarButtonItem(image: UIImage(systemName: "trophy"), style: .plain, target: self, action: #selector(topScoresButtonPressed(_:)))
         navigationItem.leftBarButtonItem = topScoresBtn
 
-        let homeBtn = UIBarButtonItem(image: UIImage(named: kImgHome), style: .plain, target: self, action: #selector(goHome))
         UIBarButtonItem.appearance().tintColor = UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1)
-        navigationItem.backBarButtonItem = homeBtn
+        navigationItem.backBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "house"), style: .plain, target: nil, action: nil)
 
         // Hide defunct app-launcher buttons (tags 700–706)
         for tag in 700...707 {

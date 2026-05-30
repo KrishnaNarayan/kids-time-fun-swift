@@ -33,10 +33,10 @@ class ResultViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        edgesForExtendedLayout = []
         title = kStrResult
 
-        let homeBtn = UIBarButtonItem(image: UIImage(named: "Home.png"), style: .plain, target: self, action: #selector(goHome(_:)))
-        navigationItem.leftBarButtonItem = homeBtn
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "house"), style: .plain, target: self, action: #selector(goHome(_:)))
 
         lblRightAnswers.text = "\(rightAnswers)"
         lblWrongAnswers.text = "\(wrongAnswers)"

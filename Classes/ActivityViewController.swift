@@ -35,9 +35,11 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        edgesForExtendedLayout = []
         startTime = Date()
-        let homeBtn = UIBarButtonItem(image: UIImage(named: kImgHome), style: .plain, target: self, action: #selector(goHome(_:)))
-        navigationItem.backBarButtonItem = homeBtn
+        navigationItem.backBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "house"), style: .plain, target: nil, action: nil)
+        activityBG.contentMode = .scaleAspectFill
+        activityBG.clipsToBounds = true
     }
 
     override func viewWillAppear(_ animated: Bool) {

@@ -18,6 +18,7 @@ class TopScoresDetailViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        edgesForExtendedLayout = []
 
         let activityName: String
         switch activity {

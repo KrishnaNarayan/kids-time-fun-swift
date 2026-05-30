@@ -68,8 +68,7 @@ class SettingsModalViewController: UIViewController {
         playSoundDecider.isOn = playSoundInApplication
         updateLevelLabels()
 
-        let backBtn = UIBarButtonItem(image: UIImage(named: "Settings"), style: .plain, target: self, action: #selector(settingsDone(_:)))
-        navigationItem.backBarButtonItem = backBtn
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.tintColor = UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1)
     }
 

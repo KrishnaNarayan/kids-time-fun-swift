@@ -8,6 +8,7 @@ class TopScoresActivityLevelSelector: UIViewController, UITableViewDelegate, UIT
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        edgesForExtendedLayout = []
         let activityName: String
         switch activity {
         case kActTellTime: activityName = kStrTellTime
@@ -19,8 +20,7 @@ class TopScoresActivityLevelSelector: UIViewController, UITableViewDelegate, UIT
         default: activityName = ""
         }
         title = "\(kStrTopScores) - \(activityName)"
-        let btn = UIBarButtonItem(image: UIImage(named: "Top Scores"), style: .plain, target: self, action: nil)
-        navigationItem.backBarButtonItem = btn
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Top Scores", style: .plain, target: nil, action: nil)
     }
 
     func numberOfSections(in tableView: UITableView) -> Int { 1 }

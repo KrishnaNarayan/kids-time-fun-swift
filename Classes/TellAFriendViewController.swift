@@ -8,6 +8,7 @@ class TellAFriendViewController: UIViewController, MFMailComposeViewControllerDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        edgesForExtendedLayout = []
         title = kStrTellAFriend
     }
 
