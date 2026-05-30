@@ -43,6 +43,7 @@ class SetTimeViewController: BaseViewController {
         clockContainerView.addSubview(setClockView)
 
         super.viewDidLoad()
+        edgesForExtendedLayout = []
     }
 
     @IBAction func setTimeButtonPushed() {

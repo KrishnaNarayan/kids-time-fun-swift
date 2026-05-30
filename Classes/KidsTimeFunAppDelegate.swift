@@ -20,6 +20,7 @@ class KidsTimeFunAppDelegate: UIResponder, UIApplicationDelegate {
         let nav = UINavigationController(rootViewController: menuVC)
 
         window = UIWindow(frame: UIScreen.main.bounds)
+        window?.backgroundColor = .white
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
 
@@ -31,22 +32,17 @@ class KidsTimeFunAppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func setApplicationAppearanceDefaults() {
-        let navBar = UINavigationBar.appearance()
-        navBar.backgroundColor = .clear
-        navBar.setBackgroundImage(UIImage(), for: .default)
-        navBar.shadowImage = UIImage()
-
         let tintColor = UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1.0)
-        navBar.tintColor = tintColor
 
-        let shadow = NSShadow()
-        shadow.shadowColor = UIColor.clear
-        shadow.shadowBlurRadius = 0.0
-        shadow.shadowOffset = CGSize(width: 0, height: 0)
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .white
+        appearance.titleTextAttributes = [.foregroundColor: tintColor]
+        appearance.shadowColor = UIColor(white: 0.8, alpha: 1)
 
-        UINavigationBar.appearance().titleTextAttributes = [
-            .foregroundColor: tintColor,
-            .shadow: shadow
-        ]
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
+        UINavigationBar.appearance().tintColor = tintColor
     }
 }
