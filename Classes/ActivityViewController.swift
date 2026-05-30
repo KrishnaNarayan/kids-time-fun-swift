@@ -50,9 +50,10 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         guard composite != nil else { return }
-        // The composite (header + answers) is a fixed-size legacy layout. Scale it to
-        // fit the safe area and center it, so neither the score header at the top nor
-        // the answer options at the bottom get clipped by the nav/home bars.
+        // Only the iPad layout overflowed; iPhone fits natively. Scale the fixed-size
+        // composite to fit the safe area (centered) on iPad so neither the score
+        // header nor the bottom answers get clipped. Leave iPhone untouched.
+        guard UIDevice.current.userInterfaceIdiom == .pad else { return }
         if compositeBaseSize == nil { compositeBaseSize = composite.bounds.size }
         guard let base = compositeBaseSize, base.width > 0, base.height > 0 else { return }
         let safe = view.bounds.inset(by: view.safeAreaInsets)
@@ -86,6 +87,13 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
         // swipe-back gesture and pop to the menu. Disable it during the activity.
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         super.viewWillAppear(animated)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // Re-assert in case the push transition re-enabled it.
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        setNeedsUpdateOfScreenEdgesDeferringSystemGestures()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
