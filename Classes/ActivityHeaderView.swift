@@ -1,0 +1,48 @@
+import UIKit
+
+class ActivityHeaderView: UIView {
+
+    var activityLevel: Int32 = 0
+    var right: Int32 = 0
+    var wrong: Int32 = 0
+    var current: Int32 = 0
+    var total: Int32 = 0
+    var showTotal: Bool = false
+    var showTimer: Bool = false
+    var countdownTimer: Int32 = 0
+
+    @IBOutlet private weak var rightLabel: UILabel!
+    @IBOutlet private weak var wrongLabel: UILabel!
+    @IBOutlet private weak var countdownLabel: UILabel!
+    @IBOutlet private weak var pageLabel: UILabel!
+    @IBOutlet private weak var timerImg: UIImageView!
+    @IBOutlet private weak var activityLevelImg: UIImageView!
+
+    override func draw(_ rect: CGRect) {
+        switch activityLevel {
+        case kActLevelYellowBelt: activityLevelImg.image = UIImage(named: "Yellow Belt")
+        case kActLevelGreenBelt:  activityLevelImg.image = UIImage(named: "Green Belt")
+        case kActLevelRedBelt:    activityLevelImg.image = UIImage(named: "Red Belt")
+        case kActLevelBlackBelt:  activityLevelImg.image = UIImage(named: "Black Belt")
+        default: break
+        }
+
+        if showTimer {
+            timerImg.isHidden = false
+            countdownLabel.isHidden = false
+            showTotal = false
+        } else {
+            timerImg.isHidden = true
+            countdownLabel.isHidden = true
+        }
+
+        rightLabel.text = "\(right)"
+        wrongLabel.text = "\(wrong)"
+        pageLabel.text = showTotal ? "\(current)/\(total)" : "\(current)"
+        countdownLabel.text = "\(countdownTimer)"
+
+        if countdownTimer < 10 {
+            countdownLabel.textColor = UIColor(red: 0.5, green: 0, blue: 0, alpha: 1)
+        }
+    }
+}

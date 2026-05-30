@@ -1,0 +1,196 @@
+import UIKit
+import MessageUI
+import QuartzCore
+
+class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate {
+
+    @IBOutlet var tellTimeButton: UIButton!
+    @IBOutlet var setTimeButton: UIButton!
+    @IBOutlet var elapsedTimeButton: UIButton!
+    @IBOutlet var mixedModeButton: UIButton!
+    @IBOutlet var tellTimeAfterButton: UIButton!
+    @IBOutlet var tellTimeBeforeButton: UIButton!
+    @IBOutlet var topScoresButton: UIButton!
+    @IBOutlet var helpButton: UIButton!
+    @IBOutlet var tellAFriendButton: UIButton!
+    @IBOutlet var choiceActivityType: UISegmentedControl!
+    @IBOutlet var clockView: ClockView!
+    @IBOutlet var logoImageView: UIImageView!
+    @IBOutlet var clipArtImageView: UIImageView!
+    @IBOutlet var clipArtView: TransitionView!
+    @IBOutlet var topScoresActVC: TopScoresActivitySelector!
+    @IBOutlet var settingsVC: SettingsModalViewController!
+    @IBOutlet var helpVC: HelpViewController!
+    @IBOutlet var activityVC: ActivityViewController!
+
+    private var clockTimer: Timer?
+    private var clipArtTimer: Timer?
+    private var message: String = ""
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = kStrAppTitle
+
+        let settingsBtn = UIBarButtonItem(image: UIImage(named: "Settings"), style: .bordered, target: self, action: #selector(settingsActivated))
+        navigationItem.rightBarButtonItem = settingsBtn
+        let topScoresBtn = UIBarButtonItem(image: UIImage(named: "Top Scores"), style: .bordered, target: self, action: #selector(topScoresButtonPressed(_:)))
+        navigationItem.leftBarButtonItem = topScoresBtn
+
+        let homeBtn = UIBarButtonItem(image: UIImage(named: kImgHome), style: .plain, target: self, action: #selector(goHome))
+        UIBarButtonItem.appearance().tintColor = UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1)
+        navigationItem.backBarButtonItem = homeBtn
+
+        choiceActivityType.selectedSegmentIndex = Int(KidsTimeFunAppState.sharedState().activityType)
+        clipArtImageView.frame = logoImageView.frame = CGRect(x: 0, y: 0, width: clipArtView.frame.size.width, height: clipArtView.frame.size.height)
+        clipArtImageView.contentMode = UIView.ContentMode.scaleAspectFit
+        logoImageView.contentMode = UIView.ContentMode.scaleAspectFit
+        clipArtView.addSubview(logoImageView)
+        clipArtTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(changeClipArt), userInfo: nil, repeats: true)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let state = KidsTimeFunAppState.sharedState()
+        let nq = String(format: kStrVarMaxQuestions, state.maxQuestions)
+        choiceActivityType.setTitle(nq, forSegmentAt: Int(kActTypeNumbered))
+        let mins = state.maxTimeInSeconds / 60
+        let timeStr = mins == 1 ? kStrOneMinute : String(format: kStrVarMaxMinutes, mins)
+        choiceActivityType.setTitle(timeStr, forSegmentAt: Int(kActTypeTimed))
+        refreshClock()
+        clockTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(refreshClock), userInfo: nil, repeats: true)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        clockTimer?.invalidate(); clockTimer = nil
+    }
+
+    override func viewDidUnload() {
+        clipArtTimer?.invalidate(); clipArtTimer = nil
+    }
+
+    @objc func changeClipArt() {
+        let r = RandomInteger(range: kClipArtFileRangeLow, to: kClipArtFileRangeHigh)
+        let name = String(format: kClipArtFileMask, r.randomInteger, kClipArtFileType)
+        clipArtImageView.image = UIImage(named: name)
+        if let first = clipArtView.subviews.first {
+            clipArtView.replaceSubview(first, withSubview: clipArtImageView, transition: kCATransitionPush, direction: kCATransitionFromLeft, duration: 0.10)
+        }
+    }
+
+    @objc func refreshClock() {
+        let cal = Calendar.autoupdatingCurrent
+        let c = cal.dateComponents([.hour, .minute, .second], from: Date())
+        clockView.hours = Float(c.hour ?? 0)
+        clockView.minutes = Float(c.minute ?? 0)
+        clockView.seconds = Float(c.second ?? 0)
+        clockView.showSeconds = true; clockView.showClockAsAnalog = true
+        clockView.showMinutesOffsetInHoursHand = true; clockView.showAMPM = false; clockView.showDayNight = false
+        clockView.setNeedsDisplay()
+    }
+
+    @IBAction func tellTimeButtonPressed(_ sender: Any) {
+        KidsTimeFunAppState.sharedState().activity = kActTellTime
+        navigationController?.pushViewController(activityVC, animated: true)
+    }
+
+    @IBAction func setTimeButtonPressed(_ sender: Any) {
+        KidsTimeFunAppState.sharedState().activity = kActSetTime
+        navigationController?.pushViewController(activityVC, animated: true)
+    }
+
+    @IBAction func elapsedTimeButtonPressed(_ sender: Any) {
+        KidsTimeFunAppState.sharedState().activity = kActElapsedTime
+        navigationController?.pushViewController(activityVC, animated: true)
+    }
+
+    @IBAction func tellTimeAfterButtonPressed(_ sender: Any) {
+        KidsTimeFunAppState.sharedState().activity = kActTimeAfter
+        navigationController?.pushViewController(activityVC, animated: true)
+    }
+
+    @IBAction func tellTimeBeforeButtonPressed(_ sender: Any) {
+        KidsTimeFunAppState.sharedState().activity = kActTimeBefore
+        navigationController?.pushViewController(activityVC, animated: true)
+    }
+
+    @IBAction func mixedModeButtonPressed(_ sender: Any) {
+        KidsTimeFunAppState.sharedState().activity = kActMixed
+        navigationController?.pushViewController(activityVC, animated: true)
+    }
+
+    @IBAction @objc func topScoresButtonPressed(_ sender: Any) {
+        navigationController?.pushViewController(topScoresActVC, animated: true)
+    }
+
+    @IBAction func helpButtonPressed(_ sender: Any) {
+        navigationController?.pushViewController(helpVC, animated: true)
+    }
+
+    @IBAction func tellAFriendButtonPressed(_ sender: Any) {
+        if MFMailComposeViewController.canSendMail() {
+            displayComposerSheet()
+        } else {
+            launchMailAppOnDevice()
+        }
+    }
+
+    @IBAction func setActivityType(_ sender: UISegmentedControl) {
+        KidsTimeFunAppState.sharedState().activityType = Int32(sender.selectedSegmentIndex)
+    }
+
+    @IBAction @objc func settingsActivated() {
+        guard navigationController?.topViewController == self else { return }
+        navigationController?.pushViewController(settingsVC, animated: true)
+    }
+
+    @IBAction func launchApp(_ sender: UIButton) {
+        guard let path = Bundle.main.path(forResource: "AppLaunchInfo", ofType: "plist"),
+              let apps = NSArray(contentsOfFile: path) as? [[String: String]] else { return }
+        let idx = sender.tag - 700
+        guard idx >= 0 && idx < apps.count else { return }
+        let app = apps[idx]
+        guard let launchURLStr = app["AppLaunchURL"],
+              let storeURLStr = app["AppStoreURL"],
+              let launchURL = URL(string: launchURLStr),
+              let storeURL = URL(string: storeURLStr) else { return }
+        if UIApplication.shared.canOpenURL(launchURL) {
+            UIApplication.shared.openURL(launchURL)
+        } else {
+            FloopSdkManager.sharedInstance().showParentalGate { success in
+                if success { UIApplication.shared.openURL(storeURL) }
+            }
+        }
+    }
+
+    @objc private func goHome() {}
+
+    func displayComposerSheet() {
+        let picker = MFMailComposeViewController()
+        picker.mailComposeDelegate = self
+        picker.setSubject("Kids Time Fun App")
+        picker.setMessageBody("Please try this really cool app:  http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=318350766", isHTML: false)
+        present(picker, animated: true)
+    }
+
+    func launchMailAppOnDevice() {
+        let base = "mailto:?subject=Learn To Tell Time--Kids iPhone/iPod/iPad App!&body=Please try this really cool app:  http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=318350766"
+        guard let url = URL(string: base) else { return }
+        UIApplication.shared.openURL(url)
+    }
+
+    func mailComposeController(_ controller: MFMailComposeViewController,
+                                didFinishWith result: MFMailComposeResult, error: Error?) {
+        switch result {
+        case .cancelled: message = "User cancelled"
+        case .saved:     message = "Your information saved successfully"
+        case .sent:      message = "Your friends were informed about this application"
+        case .failed:    message = "Sorry, I couldn't inform your friend. Try again"
+        default:         message = "Result: not sent"
+        }
+        dismiss(animated: true) {
+            let av = UIAlertView(title: "Tell A Friend", message: self.message, delegate: nil, cancelButtonTitle: "OK")
+            av.show()
+        }
+    }
+}

@@ -2,8 +2,8 @@
 //  KidsTimeFun-Bridging-Header.h
 //  KidsTimeFun
 //
-//  Exposes Objective-C classes to Swift.
+//  Exposes Objective-C constants and FloopSDK to Swift.
 //
 
-#import "KidsTimeFunAppState.h"
+#import "KidsTimeFunAppConstants.h"
 #import <floopsdk/FloopSdk.h>

@@ -9,6 +9,29 @@
 /* Begin PBXBuildFile section */
 		1D3623260D0F684500981E51 /* KidsTimeFunAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* KidsTimeFunAppDelegate.m */; };
 		CC0000001000000000000002 /* KidsTimeFunAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000001 /* KidsTimeFunAppDelegate.swift */; };
+		CC0000001000000000000027 /* ActivityHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000004 /* ActivityHeaderView.swift */; };
+		CC0000001000000000000028 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000005 /* ActivityViewController.swift */; };
+		CC0000001000000000000029 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000006 /* AudioPlayer.swift */; };
+		CC0000001000000000000030 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000007 /* BaseViewController.swift */; };
+		CC0000001000000000000031 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000008 /* ClockView.swift */; };
+		CC0000001000000000000032 /* ElapsedTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000009 /* ElapsedTimeViewController.swift */; };
+		CC0000001000000000000033 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000010 /* HelpViewController.swift */; };
+		CC0000001000000000000034 /* KidsTimeFunAppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000011 /* KidsTimeFunAppState.swift */; };
+		CC0000001000000000000035 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000012 /* MenuViewController.swift */; };
+		CC0000001000000000000036 /* RandomInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000013 /* RandomInteger.swift */; };
+		CC0000001000000000000037 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000014 /* ResultViewController.swift */; };
+		CC0000001000000000000038 /* ScoreCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000015 /* ScoreCard.swift */; };
+		CC0000001000000000000039 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000016 /* ScoreViewController.swift */; };
+		CC0000001000000000000040 /* SetClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000017 /* SetClockView.swift */; };
+		CC0000001000000000000041 /* SetTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000018 /* SetTimeViewController.swift */; };
+		CC0000001000000000000042 /* SettingsModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000019 /* SettingsModalViewController.swift */; };
+		CC0000001000000000000043 /* TellAFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000020 /* TellAFriendViewController.swift */; };
+		CC0000001000000000000044 /* TellTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000021 /* TellTimeViewController.swift */; };
+		CC0000001000000000000045 /* TopScoresActivityLevelSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000022 /* TopScoresActivityLevelSelector.swift */; };
+		CC0000001000000000000046 /* TopScoresActivitySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000023 /* TopScoresActivitySelector.swift */; };
+		CC0000001000000000000047 /* TopScoresDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000024 /* TopScoresDetailViewController.swift */; };
+		CC0000001000000000000048 /* TopScoresSingleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000025 /* TopScoresSingleDetailViewController.swift */; };
+		CC0000001000000000000049 /* TransitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000026 /* TransitionView.swift */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -364,6 +387,29 @@
 		1D3623250D0F684500981E51 /* KidsTimeFunAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = KidsTimeFunAppDelegate.m; sourceTree = "<group>"; tabWidth = 4; usesTabs = 1; wrapsLines = 1; };
 		CC0000001000000000000001 /* KidsTimeFunAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KidsTimeFunAppDelegate.swift; sourceTree = "<group>"; };
 		CC0000001000000000000003 /* KidsTimeFun-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KidsTimeFun-Bridging-Header.h"; sourceTree = "<group>"; };
+		CC0000001000000000000004 /* ActivityHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHeaderView.swift; sourceTree = "<group>"; };
+		CC0000001000000000000005 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		CC0000001000000000000006 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		CC0000001000000000000007 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		CC0000001000000000000008 /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
+		CC0000001000000000000009 /* ElapsedTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElapsedTimeViewController.swift; sourceTree = "<group>"; };
+		CC0000001000000000000010 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		CC0000001000000000000011 /* KidsTimeFunAppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KidsTimeFunAppState.swift; sourceTree = "<group>"; };
+		CC0000001000000000000012 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		CC0000001000000000000013 /* RandomInteger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomInteger.swift; sourceTree = "<group>"; };
+		CC0000001000000000000014 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		CC0000001000000000000015 /* ScoreCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCard.swift; sourceTree = "<group>"; };
+		CC0000001000000000000016 /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
+		CC0000001000000000000017 /* SetClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetClockView.swift; sourceTree = "<group>"; };
+		CC0000001000000000000018 /* SetTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimeViewController.swift; sourceTree = "<group>"; };
+		CC0000001000000000000019 /* SettingsModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModalViewController.swift; sourceTree = "<group>"; };
+		CC0000001000000000000020 /* TellAFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TellAFriendViewController.swift; sourceTree = "<group>"; };
+		CC0000001000000000000021 /* TellTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TellTimeViewController.swift; sourceTree = "<group>"; };
+		CC0000001000000000000022 /* TopScoresActivityLevelSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScoresActivityLevelSelector.swift; sourceTree = "<group>"; };
+		CC0000001000000000000023 /* TopScoresActivitySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScoresActivitySelector.swift; sourceTree = "<group>"; };
+		CC0000001000000000000024 /* TopScoresDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScoresDetailViewController.swift; sourceTree = "<group>"; };
+		CC0000001000000000000025 /* TopScoresSingleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScoresSingleDetailViewController.swift; sourceTree = "<group>"; };
+		CC0000001000000000000026 /* TransitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionView.swift; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* KidsTimeFun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KidsTimeFun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -788,6 +834,29 @@
 				1D3623250D0F684500981E51 /* KidsTimeFunAppDelegate.m */,
 				CC0000001000000000000001 /* KidsTimeFunAppDelegate.swift */,
 				CC0000001000000000000003 /* KidsTimeFun-Bridging-Header.h */,
+				CC0000001000000000000004 /* ActivityHeaderView.swift */,
+				CC0000001000000000000005 /* ActivityViewController.swift */,
+				CC0000001000000000000006 /* AudioPlayer.swift */,
+				CC0000001000000000000007 /* BaseViewController.swift */,
+				CC0000001000000000000008 /* ClockView.swift */,
+				CC0000001000000000000009 /* ElapsedTimeViewController.swift */,
+				CC0000001000000000000010 /* HelpViewController.swift */,
+				CC0000001000000000000011 /* KidsTimeFunAppState.swift */,
+				CC0000001000000000000012 /* MenuViewController.swift */,
+				CC0000001000000000000013 /* RandomInteger.swift */,
+				CC0000001000000000000014 /* ResultViewController.swift */,
+				CC0000001000000000000015 /* ScoreCard.swift */,
+				CC0000001000000000000016 /* ScoreViewController.swift */,
+				CC0000001000000000000017 /* SetClockView.swift */,
+				CC0000001000000000000018 /* SetTimeViewController.swift */,
+				CC0000001000000000000019 /* SettingsModalViewController.swift */,
+				CC0000001000000000000020 /* TellAFriendViewController.swift */,
+				CC0000001000000000000021 /* TellTimeViewController.swift */,
+				CC0000001000000000000022 /* TopScoresActivityLevelSelector.swift */,
+				CC0000001000000000000023 /* TopScoresActivitySelector.swift */,
+				CC0000001000000000000024 /* TopScoresDetailViewController.swift */,
+				CC0000001000000000000025 /* TopScoresSingleDetailViewController.swift */,
+				CC0000001000000000000026 /* TransitionView.swift */,
 				9BDD788B0FB352AA00E04CA9 /* KidsTimeFunAppState.h */,
 				9BDD788C0FB352AA00E04CA9 /* KidsTimeFunAppState.m */,
 				9BA3E0AE0F92E8CA00E7ED9C /* MenuViewController.h */,
@@ -1689,29 +1758,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC0000001000000000000002 /* KidsTimeFunAppDelegate.swift in Sources */,
-				9BA3E0B00F92E8CA00E7ED9C /* MenuViewController.m in Sources */,
-				9B90EE610F96C74C002839FA /* ActivityViewController.m in Sources */,
-				9B90EE640F96C778002839FA /* HelpViewController.m in Sources */,
-				9BB3DB470F9BBE6700877016 /* ClockView.m in Sources */,
-				9B81C6BD0FAA79A4007321EE /* TellTimeViewController.m in Sources */,
-				9BCE515E0FAC8DB700B7BC73 /* TransitionView.m in Sources */,
-				9BCE52910FACAF0300B7BC73 /* RandomInteger.m in Sources */,
-				9B779EC70FAD30B2009F068C /* ActivityHeaderView.m in Sources */,
-				9BA47CB40FB2800200FA425E /* ScoreViewController.m in Sources */,
-				9BDD788D0FB352AA00E04CA9 /* KidsTimeFunAppState.m in Sources */,
-				9BCBE6780FB726C800CFC4A3 /* ScoreCard.m in Sources */,
-				9BFA11D90FBA4D5B00A2C057 /* ResultViewController.m in Sources */,
-				9BFA12A20FBA709A00A2C057 /* TellAFriendViewController.m in Sources */,
-				9BA5600A0FBE31BA004A7C2F /* TopScoresDetailViewController.m in Sources */,
-				9BA5604C0FBE3E3B004A7C2F /* TopScoresActivitySelector.m in Sources */,
-				9BA561DC0FBE66E8004A7C2F /* TopScoresActivityLevelSelector.m in Sources */,
-				9BA5626B0FBE730A004A7C2F /* SettingsModalViewController.m in Sources */,
-				9B692B230FBF199B005B1155 /* TopScoresSingleDetailViewController.m in Sources */,
-				9B430A140FC71F44006B3E90 /* ElapsedTimeViewController.m in Sources */,
-				6B683CF51098E9A300FFE9A1 /* SetTimeViewController.m in Sources */,
-				6B683D011098EA0400FFE9A1 /* SetClockView.m in Sources */,
-				52C2F84213379580008E0AB9 /* AudioPlayer.m in Sources */,
-				52781BD6133DC23D009AD503 /* BaseViewController.m in Sources */,
+				CC0000001000000000000027 /* ActivityHeaderView.swift in Sources */,
+				CC0000001000000000000028 /* ActivityViewController.swift in Sources */,
+				CC0000001000000000000029 /* AudioPlayer.swift in Sources */,
+				CC0000001000000000000030 /* BaseViewController.swift in Sources */,
+				CC0000001000000000000031 /* ClockView.swift in Sources */,
+				CC0000001000000000000032 /* ElapsedTimeViewController.swift in Sources */,
+				CC0000001000000000000033 /* HelpViewController.swift in Sources */,
+				CC0000001000000000000034 /* KidsTimeFunAppState.swift in Sources */,
+				CC0000001000000000000035 /* MenuViewController.swift in Sources */,
+				CC0000001000000000000036 /* RandomInteger.swift in Sources */,
+				CC0000001000000000000037 /* ResultViewController.swift in Sources */,
+				CC0000001000000000000038 /* ScoreCard.swift in Sources */,
+				CC0000001000000000000039 /* ScoreViewController.swift in Sources */,
+				CC0000001000000000000040 /* SetClockView.swift in Sources */,
+				CC0000001000000000000041 /* SetTimeViewController.swift in Sources */,
+				CC0000001000000000000042 /* SettingsModalViewController.swift in Sources */,
+				CC0000001000000000000043 /* TellAFriendViewController.swift in Sources */,
+				CC0000001000000000000044 /* TellTimeViewController.swift in Sources */,
+				CC0000001000000000000045 /* TopScoresActivityLevelSelector.swift in Sources */,
+				CC0000001000000000000046 /* TopScoresActivitySelector.swift in Sources */,
+				CC0000001000000000000047 /* TopScoresDetailViewController.swift in Sources */,
+				CC0000001000000000000048 /* TopScoresSingleDetailViewController.swift in Sources */,
+				CC0000001000000000000049 /* TransitionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
