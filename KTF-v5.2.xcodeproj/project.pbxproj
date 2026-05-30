@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1D3623260D0F684500981E51 /* KidsTimeFunAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* KidsTimeFunAppDelegate.m */; };
+		CC0000001000000000000002 /* KidsTimeFunAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000001 /* KidsTimeFunAppDelegate.swift */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -361,6 +362,8 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* KidsTimeFunAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KidsTimeFunAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* KidsTimeFunAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = KidsTimeFunAppDelegate.m; sourceTree = "<group>"; tabWidth = 4; usesTabs = 1; wrapsLines = 1; };
+		CC0000001000000000000001 /* KidsTimeFunAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KidsTimeFunAppDelegate.swift; sourceTree = "<group>"; };
+		CC0000001000000000000003 /* KidsTimeFun-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KidsTimeFun-Bridging-Header.h"; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* KidsTimeFun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KidsTimeFun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -783,6 +786,8 @@
 				9BCE515D0FAC8DB700B7BC73 /* TransitionView.m */,
 				1D3623240D0F684500981E51 /* KidsTimeFunAppDelegate.h */,
 				1D3623250D0F684500981E51 /* KidsTimeFunAppDelegate.m */,
+				CC0000001000000000000001 /* KidsTimeFunAppDelegate.swift */,
+				CC0000001000000000000003 /* KidsTimeFun-Bridging-Header.h */,
 				9BDD788B0FB352AA00E04CA9 /* KidsTimeFunAppState.h */,
 				9BDD788C0FB352AA00E04CA9 /* KidsTimeFunAppState.m */,
 				9BA3E0AE0F92E8CA00E7ED9C /* MenuViewController.h */,
@@ -1683,8 +1688,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
-				1D3623260D0F684500981E51 /* KidsTimeFunAppDelegate.m in Sources */,
+				CC0000001000000000000002 /* KidsTimeFunAppDelegate.swift in Sources */,
 				9BA3E0B00F92E8CA00E7ED9C /* MenuViewController.m in Sources */,
 				9B90EE610F96C74C002839FA /* ActivityViewController.m in Sources */,
 				9B90EE640F96C778002839FA /* HelpViewController.m in Sources */,
@@ -1739,6 +1743,8 @@
 				PRODUCT_NAME = KidsTimeFun;
 				PROVISIONING_PROFILE = "8c484919-3a24-49e6-87ed-db999f0d0781";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Classes/KidsTimeFun-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
@@ -1767,6 +1773,8 @@
 				PRODUCT_NAME = KidsTimeFun;
 				PROVISIONING_PROFILE = "8c484919-3a24-49e6-87ed-db999f0d0781";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Classes/KidsTimeFun-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
@@ -1807,6 +1815,8 @@
 				PRODUCT_NAME = KidsTimeFun;
 				PROVISIONING_PROFILE = "8c484919-3a24-49e6-87ed-db999f0d0781";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Classes/KidsTimeFun-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
