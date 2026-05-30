@@ -10,7 +10,7 @@ import QuartzCore
 @objc(TransitionView)
 class TransitionView: UIView {
 
-    weak var delegate: TransitionViewDelegate?
+    @objc weak var delegate: TransitionViewDelegate?
     private(set) var isTransitioning = false
     private var wasEnabled = false
 
