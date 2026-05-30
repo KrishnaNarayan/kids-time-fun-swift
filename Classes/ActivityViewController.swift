@@ -216,12 +216,15 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
 
     @objc private func countDown() {
         guard KidsTimeFunAppState.sharedState().activityType == kActTypeTimed else { return }
-        if header.countdownTimer <= 0 && (navigationController?.topViewController == self || !transView.isTransitioning) {
+        if header.countdownTimer <= 0 {
             timer?.invalidate(); timer = nil
+            guard navigationController?.topViewController == self else { return }
             let alert = UIAlertController(title: "Time is up!", message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            alert.addAction(UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+                guard let self = self else { return }
+                self.loadResultsView(sender: self)
+            })
             present(alert, animated: true)
-            if navigationController?.topViewController == self { loadResultsView(sender: self) }
         } else {
             header.countdownTimer -= 1
             header.setNeedsDisplay()
