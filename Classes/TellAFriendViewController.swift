@@ -1,6 +1,7 @@
 import UIKit
 import MessageUI
 
+@objc(TellAFriendViewController)
 class TellAFriendViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
     private var message: String = ""

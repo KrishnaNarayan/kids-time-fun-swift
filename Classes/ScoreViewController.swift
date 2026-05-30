@@ -1,5 +1,6 @@
 import UIKit
 
+@objc(ScoreViewController)
 class ScoreViewController: UIViewController {
 
     var yourScoreCard: ScoreCard?

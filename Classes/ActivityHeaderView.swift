@@ -1,5 +1,6 @@
 import UIKit
 
+@objc(ActivityHeaderView)
 class ActivityHeaderView: UIView {
 
     var activityLevel: Int32 = 0

@@ -41,10 +41,6 @@
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSMainNibFile</key>
-	<string>MainWindow</string>
-	<key>NSMainNibFile~ipad</key>
-	<string>MainWindow-iPad</string>
 	<key>UIApplicationExitsOnSuspend</key>
 	<true/>
 	<key>UIPrerenderedIcon</key>

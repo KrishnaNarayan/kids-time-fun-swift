@@ -1,6 +1,7 @@
 import UIKit
 import QuartzCore
 
+@objc(ActivityViewController)
 class ActivityViewController: UIViewController, DismissResultDelegate, DismissActivityDelegate {
 
     var activity: Int32 = 0
@@ -135,7 +136,7 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
             loadActivity(next)
             composite.layoutIfNeeded()
             if let oldView = transView.subviews.indices.contains(1) ? transView.subviews[1] : nil {
-                transView.replaceSubview(oldView, withSubview: composite, transition: kCATransitionPush, direction: kCATransitionFromRight, duration: 0.25)
+                transView.replaceSubview(oldView, withSubview: composite, transition: .push, direction: .fromRight, duration: 0.25)
             }
         } else {
             loadResultsView(sender: self)

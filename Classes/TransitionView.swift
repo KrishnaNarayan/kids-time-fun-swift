@@ -7,6 +7,7 @@ import QuartzCore
     @objc optional func transitionViewDidCancel(_ view: TransitionView)
 }
 
+@objc(TransitionView)
 class TransitionView: UIView {
 
     weak var delegate: TransitionViewDelegate?
@@ -16,7 +17,7 @@ class TransitionView: UIView {
     private static let animationKey = "transitionViewAnimation"
 
     func replaceSubview(_ oldView: UIView, withSubview newView: UIView,
-                        transition: String, direction: String, duration: TimeInterval) {
+                        transition: CATransitionType, direction: CATransitionSubtype, duration: TimeInterval) {
         guard !isTransitioning else { return }
 
         var index: Int = 0
@@ -32,11 +33,11 @@ class TransitionView: UIView {
         let animation = CATransition()
         animation.delegate = self
 
-        if transition == kCATransitionFade {
-            animation.type = CATransitionType.fade
+        if transition == .fade {
+            animation.type = .fade
         } else {
-            animation.type = CATransitionType(rawValue: transition)
-            animation.subtype = CATransitionSubtype(rawValue: direction)
+            animation.type = transition
+            animation.subtype = direction
         }
 
         animation.duration = duration

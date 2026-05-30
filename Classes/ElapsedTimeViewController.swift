@@ -1,5 +1,6 @@
 import UIKit
 
+@objc(ElapsedTimeViewController)
 class ElapsedTimeViewController: BaseViewController {
 
     weak var delegate: DismissActivityDelegate?

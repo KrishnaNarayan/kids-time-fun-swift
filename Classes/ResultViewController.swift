@@ -4,6 +4,7 @@ import UIKit
     func didDismissResult(_ sender: Any)
 }
 
+@objc(ResultViewController)
 class ResultViewController: UIViewController {
 
     weak var delegate: DismissResultDelegate?

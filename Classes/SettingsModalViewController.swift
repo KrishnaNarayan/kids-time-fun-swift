@@ -1,5 +1,6 @@
 import UIKit
 
+@objc(SettingsModalViewController)
 class SettingsModalViewController: UIViewController {
 
     @IBOutlet private weak var numberOfQuestionsSlider: UISlider!

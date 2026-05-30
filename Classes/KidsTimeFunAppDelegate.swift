@@ -10,15 +10,17 @@ import UIKit
 @UIApplicationMain
 class KidsTimeFunAppDelegate: UIResponder, UIApplicationDelegate {
 
-    @IBOutlet var window: UIWindow?
-    @IBOutlet var navController: UINavigationController?
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         KidsTimeFunAppState.sharedState().resumeFromState()
-
         setApplicationAppearanceDefaults()
 
-        window?.rootViewController = navController
+        let menuVC = MenuViewController(nibName: "MenuView", bundle: nil)
+        let nav = UINavigationController(rootViewController: menuVC)
+
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = nav
         window?.makeKeyAndVisible()
 
         return true

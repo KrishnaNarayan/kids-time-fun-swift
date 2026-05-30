@@ -1,5 +1,6 @@
 import UIKit
 
+@objc(TopScoresActivityLevelSelector)
 class TopScoresActivityLevelSelector: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var activity: Int32 = 0

@@ -1,5 +1,6 @@
 import UIKit
 
+@objc(TopScoresDetailViewController)
 class TopScoresDetailViewController: UITabBarController {
 
     var activity: Int32 = 0

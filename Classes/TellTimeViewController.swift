@@ -1,5 +1,6 @@
 import UIKit
 
+@objc(TellTimeViewController)
 class TellTimeViewController: BaseViewController {
 
     weak var delegate: DismissActivityDelegate?

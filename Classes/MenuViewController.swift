@@ -2,22 +2,23 @@ import UIKit
 import MessageUI
 import QuartzCore
 
+@objc(MenuViewController)
 class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
-    @IBOutlet var tellTimeButton: UIButton!
-    @IBOutlet var setTimeButton: UIButton!
-    @IBOutlet var elapsedTimeButton: UIButton!
-    @IBOutlet var mixedModeButton: UIButton!
-    @IBOutlet var tellTimeAfterButton: UIButton!
-    @IBOutlet var tellTimeBeforeButton: UIButton!
-    @IBOutlet var topScoresButton: UIButton!
-    @IBOutlet var helpButton: UIButton!
-    @IBOutlet var tellAFriendButton: UIButton!
+    @IBOutlet var tellTimeButton: UIButton?
+    @IBOutlet var setTimeButton: UIButton?
+    @IBOutlet var elapsedTimeButton: UIButton?
+    @IBOutlet var mixedModeButton: UIButton?
+    @IBOutlet var tellTimeAfterButton: UIButton?
+    @IBOutlet var tellTimeBeforeButton: UIButton?
+    @IBOutlet var topScoresButton: UIButton?
+    @IBOutlet var helpButton: UIButton?
+    @IBOutlet var tellAFriendButton: UIButton?
     @IBOutlet var choiceActivityType: UISegmentedControl!
     @IBOutlet var clockView: ClockView!
-    @IBOutlet var logoImageView: UIImageView!
-    @IBOutlet var clipArtImageView: UIImageView!
-    @IBOutlet var clipArtView: TransitionView!
+    @IBOutlet var logoImageView: UIImageView?
+    @IBOutlet var clipArtImageView: UIImageView?
+    @IBOutlet var clipArtView: TransitionView?
     @IBOutlet var topScoresActVC: TopScoresActivitySelector!
     @IBOutlet var settingsVC: SettingsModalViewController!
     @IBOutlet var helpVC: HelpViewController!
@@ -41,11 +42,15 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
         navigationItem.backBarButtonItem = homeBtn
 
         choiceActivityType.selectedSegmentIndex = Int(KidsTimeFunAppState.sharedState().activityType)
-        clipArtImageView.frame = logoImageView.frame = CGRect(x: 0, y: 0, width: clipArtView.frame.size.width, height: clipArtView.frame.size.height)
-        clipArtImageView.contentMode = UIView.ContentMode.scaleAspectFit
-        logoImageView.contentMode = UIView.ContentMode.scaleAspectFit
-        clipArtView.addSubview(logoImageView)
-        clipArtTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(changeClipArt), userInfo: nil, repeats: true)
+        if let cv = clipArtView {
+            let clipArtFrame = CGRect(x: 0, y: 0, width: cv.frame.size.width, height: cv.frame.size.height)
+            clipArtImageView?.frame = clipArtFrame
+            logoImageView?.frame = clipArtFrame
+            clipArtImageView?.contentMode = .scaleAspectFit
+            logoImageView?.contentMode = .scaleAspectFit
+            if let logo = logoImageView { cv.addSubview(logo) }
+            clipArtTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(changeClipArt), userInfo: nil, repeats: true)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -70,11 +75,12 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
     }
 
     @objc func changeClipArt() {
-        let r = RandomInteger(range: kClipArtFileRangeLow, to: kClipArtFileRangeHigh)
+        guard let cv = clipArtView, let civ = clipArtImageView else { return }
+        let r = RandomInteger(range: Int(kClipArtFileRangeLow), to: Int(kClipArtFileRangeHigh))
         let name = String(format: kClipArtFileMask, r.randomInteger, kClipArtFileType)
-        clipArtImageView.image = UIImage(named: name)
-        if let first = clipArtView.subviews.first {
-            clipArtView.replaceSubview(first, withSubview: clipArtImageView, transition: kCATransitionPush, direction: kCATransitionFromLeft, duration: 0.10)
+        civ.image = UIImage(named: name)
+        if let first = cv.subviews.first {
+            cv.replaceSubview(first, withSubview: civ, transition: .push, direction: .fromLeft, duration: 0.10)
         }
     }
 

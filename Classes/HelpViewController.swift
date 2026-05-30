@@ -1,5 +1,6 @@
 import UIKit
 
+@objc(HelpViewController)
 class HelpViewController: UIViewController {
 
     private let appIDs = [

@@ -1,5 +1,6 @@
 import UIKit
 
+@objc(SetClockView)
 class SetClockView: UIView {
 
     var hours: Float = 12
