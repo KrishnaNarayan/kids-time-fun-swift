@@ -53,27 +53,15 @@ extension UIViewController {
     /// container so the fixed-size XIB layout fills modern screens. Call at the
     /// start of viewDidLoad (outlets remain valid — they're just references).
     func installLegacyScaling() {
-        // Use the actual content extent (some XIBs overflow their design height,
-        // e.g. Settings' belt description), not just the nominal design size.
-        var extent = CGRect.zero
-        for sub in view.subviews { extent = extent.union(sub.frame) }
-        let base = CGSize(width: max(extent.maxX, 1), height: max(extent.maxY, 1))
-
+        // Aspect-fit the fixed-size XIB content (design size) into the safe area.
+        // Using the design size keeps every screen filling the width consistently
+        // and centered; content is laid out for this size.
+        let base = legacyBaseSize
         let container = LegacyScalingView(frame: view.bounds)
         container.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         container.baseSize = base
         container.content.frame = CGRect(origin: .zero, size: base)
         for sub in view.subviews { container.content.addSubview(sub) }
-
-        // Stretch the background (largest top-left-anchored subview) to cover the
-        // full content extent, so controls that overflow the design height (e.g.
-        // Settings' belt description) still sit on the background, not blank space.
-        if let bg = container.content.subviews
-            .filter({ $0.frame.origin.x <= 1 && $0.frame.origin.y <= 1 })
-            .max(by: { $0.frame.width * $0.frame.height < $1.frame.width * $1.frame.height }) {
-            bg.frame = CGRect(origin: .zero, size: base)
-        }
-
         container.addSubview(container.content)
         view.addSubview(container)
         view.backgroundColor = .white

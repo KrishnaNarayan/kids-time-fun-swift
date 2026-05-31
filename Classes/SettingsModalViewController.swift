@@ -104,12 +104,19 @@ class SettingsModalViewController: UIViewController {
             belt.superview?.addSubview(header)
         }
 
-        // Make the belt description readable: centered text on a translucent panel.
-        if let desc = activityLevelDescriptionLabel {
+        // Move the belt description into the rainbow's white center (plain text).
+        // Reparent to the scaling container so we can position it in absolute
+        // content coordinates rather than relative to the overflowing dropdown.
+        if let desc = activityLevelDescriptionLabel,
+           let scaling = view.subviews.first as? LegacyScalingView {
             desc.textAlignment = .center
-            desc.backgroundColor = UIColor.white.withAlphaComponent(0.7)
-            desc.layer.cornerRadius = 10
-            desc.layer.masksToBounds = true
+            desc.backgroundColor = .clear
+            desc.numberOfLines = 0
+            desc.removeFromSuperview()
+            scaling.content.addSubview(desc)
+            let base = scaling.baseSize
+            let w = base.width * 0.85
+            desc.frame = CGRect(x: (base.width - w) / 2, y: base.height * 0.78, width: w, height: 120)
         }
     }
 

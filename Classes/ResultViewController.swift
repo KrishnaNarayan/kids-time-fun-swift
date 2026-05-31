@@ -132,9 +132,15 @@ class ResultViewController: UIViewController {
         button.setTitleColor(UIColor.white.withAlphaComponent(0.5), for: .disabled)
         button.layer.cornerRadius = 8
         button.layer.masksToBounds = true
-        // Cap the size so the oversized iPad XIB button isn't huge.
+        // Cap the size so the oversized iPad XIB button isn't huge. Shrink toward the
+        // button's right edge and vertical center so it stays in its corner and
+        // doesn't overlap the name field.
+        let newW = min(button.frame.width, 90)
+        let newH = min(button.frame.height, 42)
         var f = button.frame
-        f.size = CGSize(width: min(f.width, 120), height: min(f.height, 48))
+        f.origin.x += f.width - newW
+        f.origin.y += (f.height - newH) / 2
+        f.size = CGSize(width: newW, height: newH)
         button.frame = f
     }
 }
