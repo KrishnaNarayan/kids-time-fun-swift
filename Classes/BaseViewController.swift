@@ -23,12 +23,10 @@ final class LegacyScalingView: UIView {
         content.transform = .identity
         content.bounds = CGRect(origin: .zero, size: baseSize)
         content.transform = CGAffineTransform(scaleX: scale, y: scale)
-        if topAligned {
-            content.frame = CGRect(x: safe.midX - content.frame.width / 2, y: safe.minY,
-                                   width: content.frame.width, height: content.frame.height)
-        } else {
-            content.center = CGPoint(x: safe.midX, y: safe.midY)
-        }
+        // Use center (valid with a transform — setting frame is not) to position:
+        // horizontally centered, vertically centered or top-aligned.
+        let y = topAligned ? safe.minY + content.frame.height / 2 : safe.midY
+        content.center = CGPoint(x: safe.midX, y: y)
     }
 }
 
