@@ -8,6 +8,8 @@
 //		--Added tell a friend
 //		--Changed app name to Kids Learn To Tell Time
 //  Copyright 2009-2013 NSC Partners LLC. Copyright 2014 One Step Ahead Apps, LLC. All rights reserved.
+// Revised by Krishna Narayan on 5/30/26 — Used Claude to migrate to Swift, fix UI Views, remove deprecations, update for iPad, modernize for Apple UI rules.
+// Copyright 2026 Island Innovation LLC.  All rights reserved.
 //
 
 #import "TopScoresSingleDetailViewController.h"
