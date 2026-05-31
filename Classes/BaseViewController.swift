@@ -61,6 +61,16 @@ extension UIViewController {
         container.baseSize = base
         container.content.frame = CGRect(origin: .zero, size: base)
         for sub in view.subviews { container.content.addSubview(sub) }
+
+        // Stretch the background (largest top-left-anchored subview) to cover the
+        // full content extent, so controls that overflow the design height (e.g.
+        // Settings' belt description) still sit on the background, not blank space.
+        if let bg = container.content.subviews
+            .filter({ $0.frame.origin.x <= 1 && $0.frame.origin.y <= 1 })
+            .max(by: { $0.frame.width * $0.frame.height < $1.frame.width * $1.frame.height }) {
+            bg.frame = CGRect(origin: .zero, size: base)
+        }
+
         container.addSubview(container.content)
         view.addSubview(container)
         view.backgroundColor = .white
