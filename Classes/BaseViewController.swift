@@ -35,10 +35,16 @@ extension UIViewController {
     /// container so the fixed-size XIB layout fills modern screens. Call at the
     /// start of viewDidLoad (outlets remain valid — they're just references).
     func installLegacyScaling() {
+        // Use the actual content extent (some XIBs overflow their design height,
+        // e.g. Settings' belt description), not just the nominal design size.
+        var extent = CGRect.zero
+        for sub in view.subviews { extent = extent.union(sub.frame) }
+        let base = CGSize(width: max(extent.maxX, 1), height: max(extent.maxY, 1))
+
         let container = LegacyScalingView(frame: view.bounds)
         container.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        container.baseSize = legacyBaseSize
-        container.content.frame = CGRect(origin: .zero, size: legacyBaseSize)
+        container.baseSize = base
+        container.content.frame = CGRect(origin: .zero, size: base)
         for sub in view.subviews { container.content.addSubview(sub) }
         container.addSubview(container.content)
         view.addSubview(container)
