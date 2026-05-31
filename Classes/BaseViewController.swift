@@ -12,6 +12,7 @@ import UIKit
 final class LegacyScalingView: UIView {
     let content = UIView()
     var baseSize: CGSize = .zero
+    var topAligned = false
 
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -22,7 +23,12 @@ final class LegacyScalingView: UIView {
         content.transform = .identity
         content.bounds = CGRect(origin: .zero, size: baseSize)
         content.transform = CGAffineTransform(scaleX: scale, y: scale)
-        content.center = CGPoint(x: safe.midX, y: safe.midY)
+        if topAligned {
+            content.frame = CGRect(x: safe.midX - content.frame.width / 2, y: safe.minY,
+                                   width: content.frame.width, height: content.frame.height)
+        } else {
+            content.center = CGPoint(x: safe.midX, y: safe.midY)
+        }
     }
 }
 
@@ -42,6 +48,20 @@ extension UIViewController {
         control.frame = f
     }
 
+    /// For table-based legacy screens: make the background image (aspect-fill) and
+    /// the table fill the whole view. Call from viewDidLayoutSubviews.
+    func layoutLegacyTableAndBackground() {
+        for sub in view.subviews {
+            if let img = sub as? UIImageView {
+                img.contentMode = .scaleAspectFill
+                img.clipsToBounds = true
+                img.frame = view.bounds
+            } else if let table = sub as? UITableView {
+                table.frame = view.bounds
+            }
+        }
+    }
+
     /// The design size of the legacy XIBs for the current device family.
     var legacyBaseSize: CGSize {
         UIDevice.current.userInterfaceIdiom == .pad
@@ -52,7 +72,7 @@ extension UIViewController {
     /// Reparent all of the controller's current subviews into an aspect-fitting
     /// container so the fixed-size XIB layout fills modern screens. Call at the
     /// start of viewDidLoad (outlets remain valid — they're just references).
-    func installLegacyScaling() {
+    func installLegacyScaling(topAligned: Bool = false) {
         // Aspect-fit the fixed-size XIB content (design size) into the safe area.
         // Using the design size keeps every screen filling the width consistently
         // and centered; content is laid out for this size.
@@ -60,6 +80,7 @@ extension UIViewController {
         let container = LegacyScalingView(frame: view.bounds)
         container.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         container.baseSize = base
+        container.topAligned = topAligned
         container.content.frame = CGRect(origin: .zero, size: base)
         for sub in view.subviews { container.content.addSubview(sub) }
         container.addSubview(container.content)

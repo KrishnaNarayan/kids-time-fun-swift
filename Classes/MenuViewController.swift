@@ -33,7 +33,7 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        installLegacyScaling()
+        installLegacyScaling(topAligned: true)
         title = kStrAppTitle
         edgesForExtendedLayout = []
 

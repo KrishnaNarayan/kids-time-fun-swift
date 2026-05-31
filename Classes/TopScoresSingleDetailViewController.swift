@@ -22,6 +22,11 @@ class TopScoresSingleDetailViewController: UIViewController, UITableViewDelegate
         loadScores()
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        layoutLegacyTableAndBackground()
+    }
+
     func loadScores() {
         let docs = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         let fileName = String(format: kFileVarScores, activity, activityType, activityLevel)

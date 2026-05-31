@@ -10,9 +10,7 @@ class TopScoresActivitySelector: UIViewController, UITableViewDelegate, UITableV
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        for case let table as UITableView in view.subviews {
-            table.frame = view.bounds
-        }
+        layoutLegacyTableAndBackground()
     }
 
     override func viewDidLoad() {
