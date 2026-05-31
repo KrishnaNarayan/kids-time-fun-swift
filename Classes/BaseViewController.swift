@@ -4,6 +4,48 @@ import UIKit
     func didDismissActivity(_ sender: Any)
 }
 
+/// Container that aspect-fits its `content` (a fixed-size legacy layout) into its
+/// own safe area. Used to make 320x568 / 768x1024 XIB screens fill modern devices.
+final class LegacyScalingView: UIView {
+    let content = UIView()
+    var baseSize: CGSize = .zero
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        guard baseSize.width > 0, baseSize.height > 0 else { return }
+        let safe = bounds.inset(by: safeAreaInsets)
+        guard safe.width > 0, safe.height > 0 else { return }
+        let scale = min(safe.width / baseSize.width, safe.height / baseSize.height)
+        content.transform = .identity
+        content.bounds = CGRect(origin: .zero, size: baseSize)
+        content.transform = CGAffineTransform(scaleX: scale, y: scale)
+        content.center = CGPoint(x: safe.midX, y: safe.midY)
+    }
+}
+
+extension UIViewController {
+    /// The design size of the legacy XIBs for the current device family.
+    var legacyBaseSize: CGSize {
+        UIDevice.current.userInterfaceIdiom == .pad
+            ? CGSize(width: 768, height: 1024)
+            : CGSize(width: 320, height: 568)
+    }
+
+    /// Reparent all of the controller's current subviews into an aspect-fitting
+    /// container so the fixed-size XIB layout fills modern screens. Call at the
+    /// start of viewDidLoad (outlets remain valid — they're just references).
+    func installLegacyScaling() {
+        let container = LegacyScalingView(frame: view.bounds)
+        container.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        container.baseSize = legacyBaseSize
+        container.content.frame = CGRect(origin: .zero, size: legacyBaseSize)
+        for sub in view.subviews { container.content.addSubview(sub) }
+        container.addSubview(container.content)
+        view.addSubview(container)
+        view.backgroundColor = .white
+    }
+}
+
 @objc(BaseViewController)
 class BaseViewController: UIViewController {
     override func didReceiveMemoryWarning() {

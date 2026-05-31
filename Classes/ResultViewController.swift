@@ -31,24 +31,10 @@ class ResultViewController: UIViewController {
     @IBOutlet private weak var topScoreHeaderView: UIView!
     @IBOutlet private weak var noTopScoreHeaderView: UIView!
 
-    private let contentContainer = UIView()
-    private var contentBaseSize: CGSize = .zero
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        installLegacyScaling()
         title = kStrResult
-        view.backgroundColor = .white
-
-        // Wrap the fixed-size XIB content in a container we can aspect-fit to any
-        // screen, so nothing (score message at top, seconds at bottom) is clipped.
-        // Use the XIB design size, not the runtime view size (which is full-screen
-        // and would leave the content small with white margins).
-        contentBaseSize = UIDevice.current.userInterfaceIdiom == .pad
-            ? CGSize(width: 768, height: 1024)
-            : CGSize(width: 320, height: 568)
-        contentContainer.frame = CGRect(origin: .zero, size: contentBaseSize)
-        for sub in view.subviews { contentContainer.addSubview(sub) }
-        view.addSubview(contentContainer)
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "house"), style: .plain, target: self, action: #selector(goHome(_:)))
 
@@ -147,16 +133,5 @@ class ResultViewController: UIViewController {
         var f = button.frame
         f.size = CGSize(width: min(f.width, 120), height: min(f.height, 48))
         button.frame = f
-    }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        guard contentBaseSize.width > 0, contentBaseSize.height > 0 else { return }
-        let safe = view.bounds.inset(by: view.safeAreaInsets)
-        let scale = min(safe.width / contentBaseSize.width, safe.height / contentBaseSize.height)
-        contentContainer.transform = .identity
-        contentContainer.bounds = CGRect(origin: .zero, size: contentBaseSize)
-        contentContainer.transform = CGAffineTransform(scaleX: scale, y: scale)
-        contentContainer.center = CGPoint(x: safe.midX, y: safe.midY)
     }
 }

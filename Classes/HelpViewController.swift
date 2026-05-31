@@ -12,6 +12,7 @@ class HelpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        installLegacyScaling()
         title = kStrHelp
     }
 

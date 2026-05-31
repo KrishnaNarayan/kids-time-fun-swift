@@ -32,6 +32,7 @@ class SettingsModalViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        installLegacyScaling()
         title = "Settings"
 
         let docs = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]

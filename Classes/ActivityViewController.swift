@@ -44,7 +44,6 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
         activityBG.clipsToBounds = true
     }
 
-    private var compositeBaseSize: CGSize?
 
     // Defer system edge gestures so dragging a clock hand to the screen edge does
     // not trigger swipe-back / dock / control-center instead of moving the hand.
@@ -53,13 +52,11 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         guard composite != nil else { return }
-        // Aspect-fit the fixed-size composite into the safe area (both iPhone and
-        // iPad) so the score header at the top and answers at the bottom are never
-        // clipped by the nav bar or home indicator.
-        if compositeBaseSize == nil, composite.transform == .identity, composite.bounds.width > 0 {
-            compositeBaseSize = composite.bounds.size
-        }
-        guard let base = compositeBaseSize, base.width > 0, base.height > 0 else { return }
+        // The XIB content is a fixed design size; aspect-fit it into the safe area
+        // so the score header (top) and answers (bottom) are fully visible.
+        let base = UIDevice.current.userInterfaceIdiom == .pad
+            ? CGSize(width: 768, height: 1024)
+            : CGSize(width: 320, height: 568)
         let safe = view.bounds.inset(by: view.safeAreaInsets)
         guard safe.width > 0, safe.height > 0 else { return }
         let scale = min(safe.width / base.width, safe.height / base.height)
