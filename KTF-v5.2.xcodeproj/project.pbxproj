@@ -187,7 +187,6 @@
 		519AD0AA1A01DDC80014AB46 /* LaucherHZ@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 519AD0A71A01DDC80014AB46 /* LaucherHZ@2x.png */; };
 		519D1BCF19621404000F7AF7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 519D1BCE19621404000F7AF7 /* Images.xcassets */; };
 		CC0000002000000000000002 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC0000002000000000000001 /* LaunchScreen.storyboard */; };
-		CC0000002000000000000004 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = CC0000002000000000000003 /* PrivacyInfo.xcprivacy */; };
 		51A07C351960A9A5005577F4 /* TryAgain@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A07C321960A9A5005577F4 /* TryAgain@2x.png */; };
 		51A07C361960A9A5005577F4 /* GoodJob@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A07C331960A9A5005577F4 /* GoodJob@2x.png */; };
 		51A07C371960A9A5005577F4 /* TryAgain.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A07C341960A9A5005577F4 /* TryAgain.png */; };
@@ -566,7 +565,6 @@
 		519AD0A71A01DDC80014AB46 /* LaucherHZ@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaucherHZ@2x.png"; sourceTree = "<group>"; };
 		519D1BCE19621404000F7AF7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CC0000002000000000000001 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		CC0000002000000000000003 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		51A07C321960A9A5005577F4 /* TryAgain@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TryAgain@2x.png"; sourceTree = "<group>"; };
 		51A07C331960A9A5005577F4 /* GoodJob@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GoodJob@2x.png"; sourceTree = "<group>"; };
 		51A07C341960A9A5005577F4 /* TryAgain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TryAgain.png; sourceTree = "<group>"; };
@@ -1407,7 +1405,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "KTF-v26.0" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "KTF-v5.2" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -1615,7 +1613,6 @@
 				51444713195F015200B66680 /* RightArrowAccessory.png in Resources */,
 				519D1BCF19621404000F7AF7 /* Images.xcassets in Resources */,
 				CC0000002000000000000002 /* LaunchScreen.storyboard in Resources */,
-				CC0000002000000000000004 /* PrivacyInfo.xcprivacy in Resources */,
 				52E092711342E7AB0035F697 /* SettingsModalView-iPad.xib in Resources */,
 				5164FDB8195F85C200DD87DE /* Yellow Belt@2x.png in Resources */,
 				519AD0921A01DC7B0014AB46 /* KMF-5-120.png in Resources */,
@@ -1902,7 +1899,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "KTF-v26.0" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "KTF-v5.2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
