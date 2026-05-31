@@ -27,6 +27,7 @@ class KidsTimeFunAppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
 
+
         return true
     }
 

@@ -73,6 +73,53 @@ class SettingsModalViewController: UIViewController {
 
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.tintColor = UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1)
+
+        adjustChallengeLevelLayout()
+    }
+
+    private func adjustChallengeLevelLayout() {
+        let tint = UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1)
+        let isPad = UIDevice.current.userInterfaceIdiom == .pad
+
+        guard let belt = activityLevelChoiceControl else { return }
+
+        if isPad {
+            // iPad: lift the belt selector out of the rainbow and anchor the existing
+            // "Challenge Level" header just above it.
+            if let sound = playSoundDecider, let header = findLabel(withText: "Challenge Level") {
+                let headerH = header.frame.height
+                let headerY = sound.frame.maxY + 24
+                header.frame.origin.y = headerY
+                belt.frame.origin.y = headerY + headerH + 24
+            }
+        } else {
+            // iPhone: its XIB has no "Challenge Level" header — add one just above the
+            // belt selector (leave the belt where it is; that layout is correct).
+            let header = UILabel(frame: CGRect(x: belt.frame.minX, y: belt.frame.minY - 28,
+                                               width: belt.frame.width, height: 24))
+            header.text = "Challenge Level"
+            header.font = .boldSystemFont(ofSize: 18)
+            header.textColor = tint
+            header.textAlignment = .center
+            belt.superview?.addSubview(header)
+        }
+
+        // Make the belt description readable: centered text on a translucent panel.
+        if let desc = activityLevelDescriptionLabel {
+            desc.textAlignment = .center
+            desc.backgroundColor = UIColor.white.withAlphaComponent(0.7)
+            desc.layer.cornerRadius = 10
+            desc.layer.masksToBounds = true
+        }
+    }
+
+    private func findLabel(withText text: String, in root: UIView? = nil) -> UILabel? {
+        let base = root ?? view
+        for sub in base?.subviews ?? [] {
+            if let label = sub as? UILabel, label.text == text { return label }
+            if let found = findLabel(withText: text, in: sub) { return found }
+        }
+        return nil
     }
 
     override func viewWillDisappear(_ animated: Bool) {
