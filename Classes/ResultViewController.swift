@@ -41,8 +41,12 @@ class ResultViewController: UIViewController {
 
         // Wrap the fixed-size XIB content in a container we can aspect-fit to any
         // screen, so nothing (score message at top, seconds at bottom) is clipped.
-        contentBaseSize = view.bounds.size
-        contentContainer.frame = view.bounds
+        // Use the XIB design size, not the runtime view size (which is full-screen
+        // and would leave the content small with white margins).
+        contentBaseSize = UIDevice.current.userInterfaceIdiom == .pad
+            ? CGSize(width: 768, height: 1024)
+            : CGSize(width: 320, height: 568)
+        contentContainer.frame = CGRect(origin: .zero, size: contentBaseSize)
         for sub in view.subviews { contentContainer.addSubview(sub) }
         view.addSubview(contentContainer)
 

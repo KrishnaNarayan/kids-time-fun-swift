@@ -53,13 +53,15 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         guard composite != nil else { return }
-        // Only the iPad layout overflowed; iPhone fits natively. Scale the fixed-size
-        // composite to fit the safe area (centered) on iPad so neither the score
-        // header nor the bottom answers get clipped. Leave iPhone untouched.
-        guard UIDevice.current.userInterfaceIdiom == .pad else { return }
-        if compositeBaseSize == nil { compositeBaseSize = composite.bounds.size }
+        // Aspect-fit the fixed-size composite into the safe area (both iPhone and
+        // iPad) so the score header at the top and answers at the bottom are never
+        // clipped by the nav bar or home indicator.
+        if compositeBaseSize == nil, composite.transform == .identity, composite.bounds.width > 0 {
+            compositeBaseSize = composite.bounds.size
+        }
         guard let base = compositeBaseSize, base.width > 0, base.height > 0 else { return }
         let safe = view.bounds.inset(by: view.safeAreaInsets)
+        guard safe.width > 0, safe.height > 0 else { return }
         let scale = min(safe.width / base.width, safe.height / base.height)
         composite.transform = .identity
         composite.bounds = CGRect(origin: .zero, size: base)
@@ -202,8 +204,9 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
         let isIPad = UIDevice.current.userInterfaceIdiom == .pad
         let vc = ResultViewController(nibName: isIPad ? kiPadNibResult : kNibResult, bundle: nil)
         vc.rightAnswers = rightAnswers; vc.wrongAnswers = wrongAnswers
-        vc.totalQuestions = rightAnswers + wrongAnswers
-        vc.percentScore = Float(rightAnswers) / Float(rightAnswers + wrongAnswers)
+        let answered = rightAnswers + wrongAnswers
+        vc.totalQuestions = answered
+        vc.percentScore = answered > 0 ? Float(rightAnswers) / Float(answered) : 0
         vc.timeTakenInSeconds = activityType == kActTypeTimed ? maxSeconds : Int32(endTime?.timeIntervalSince(startTime ?? Date()) ?? 0)
         navigationController?.pushViewController(vc, animated: true)
     }
