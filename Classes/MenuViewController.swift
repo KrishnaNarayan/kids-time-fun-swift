@@ -48,6 +48,7 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
         }
 
         choiceActivityType.selectedSegmentIndex = Int(KidsTimeFunAppState.sharedState().activityType)
+        enlargeSegmentedControlForIPad(choiceActivityType)
         if let cv = clipArtView {
             let clipArtFrame = CGRect(x: 0, y: 0, width: cv.frame.size.width, height: cv.frame.size.height)
             clipArtImageView?.frame = clipArtFrame

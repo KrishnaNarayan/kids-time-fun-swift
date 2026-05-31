@@ -24,6 +24,21 @@ final class LegacyScalingView: UIView {
 }
 
 extension UIViewController {
+    /// On iPad, enlarge a segmented control's text and height so it isn't thin and
+    /// out of proportion with the large buttons.
+    func enlargeSegmentedControlForIPad(_ control: UISegmentedControl?) {
+        guard UIDevice.current.userInterfaceIdiom == .pad, let control = control else { return }
+        let font = UIFont.boldSystemFont(ofSize: 24)
+        for state: UIControl.State in [.normal, .selected] {
+            var attrs = control.titleTextAttributes(for: state) ?? [:]
+            attrs[.font] = font
+            control.setTitleTextAttributes(attrs, for: state)
+        }
+        var f = control.frame
+        f.size.height = max(f.size.height, 54)
+        control.frame = f
+    }
+
     /// The design size of the legacy XIBs for the current device family.
     var legacyBaseSize: CGSize {
         UIDevice.current.userInterfaceIdiom == .pad
@@ -74,6 +89,7 @@ class BaseViewController: UIViewController {
         control.layer.masksToBounds = true
         let divider = BaseViewController.solidImage(color: tint, size: CGSize(width: 2, height: 1))
         control.setDividerImage(divider, forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
+        enlargeSegmentedControlForIPad(control)
     }
 
     private static func solidImage(color: UIColor, size: CGSize) -> UIImage {
