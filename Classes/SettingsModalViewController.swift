@@ -58,10 +58,12 @@ class SettingsModalViewController: UIViewController {
         if activityLevel == 0 { activityLevel = Int(kDefaultActivityLevel) }
         playSoundInApplication = dict.isEmpty ? true : ((dict[kSettingsKeyPlaySound] as? NSNumber)?.boolValue ?? true)
 
-        if UIImage.instancesRespond(to: #selector(UIImage.withRenderingMode(_:))) {
-            ["Yellow Belt", "Green Belt", "Red Belt", "Black Belt"].enumerated().forEach { i, name in
-                activityLevelChoiceControl.setImage(UIImage(named: name)?.withRenderingMode(.alwaysOriginal), forSegmentAt: i)
-            }
+        ["Yellow Belt", "Green Belt", "Red Belt", "Black Belt"].enumerated().forEach { i, name in
+            let img = UIImage(named: name)?.withRenderingMode(.alwaysOriginal)
+            // UISegmentedControl reads an image segment's VoiceOver text from the
+            // image's accessibilityLabel — so set the belt name here.
+            img?.accessibilityLabel = name
+            activityLevelChoiceControl.setImage(img, forSegmentAt: i)
         }
 
         numberOfQuestionsSlider.minimumValue = Float(minQ)
@@ -87,11 +89,6 @@ class SettingsModalViewController: UIViewController {
         addPrivacyLink()
     }
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        applySegmentAccessibilityLabels()
-    }
-
     // MARK: - Discrete pickers (replace the continuous sliders)
 
     private func installDiscretePickers() {
@@ -106,12 +103,12 @@ class SettingsModalViewController: UIViewController {
         numberOfQuestionsLabel.text = String(format: "Total Questions: %i", numberOfQuestions)
         numberOfMinutesLabel.text = String(format: "Total Minutes: %i", numberOfMinutes)
 
-        questionsControl = makePicker(over: numberOfQuestionsSlider,
-                                      titles: questionOptions.map { "\($0)" },
+        questionsControl = makePicker(over: numberOfQuestionsSlider, values: questionOptions,
+                                      unit: "questions", singularUnit: "questions",
                                       selected: questionOptions.firstIndex(of: numberOfQuestions) ?? 2,
                                       action: #selector(questionsChanged))
-        minutesControl = makePicker(over: numberOfMinutesSlider,
-                                    titles: minuteOptions.map { "\($0)" },
+        minutesControl = makePicker(over: numberOfMinutesSlider, values: minuteOptions,
+                                    unit: "minutes", singularUnit: "minute",
                                     selected: minuteOptions.firstIndex(of: numberOfMinutes) ?? 0,
                                     action: #selector(minutesChanged))
 
@@ -126,25 +123,44 @@ class SettingsModalViewController: UIViewController {
         }
     }
 
-    private func makePicker(over slider: UISlider?, titles: [String], selected: Int, action: Selector) -> UISegmentedControl? {
+    private func makePicker(over slider: UISlider?, values: [Int], unit: String, singularUnit: String,
+                            selected: Int, action: Selector) -> UISegmentedControl? {
         guard let slider = slider, let parent = slider.superview else { return nil }
-        let tint = UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1)
-        let control = UISegmentedControl(items: titles)
-        control.frame = slider.frame
-        control.selectedSegmentIndex = max(0, min(selected, titles.count - 1))
-        control.selectedSegmentTintColor = tint
-        control.backgroundColor = UIColor.white.withAlphaComponent(0.9)
-        control.setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
-        control.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            let f = UIFont.boldSystemFont(ofSize: 22)
-            control.setTitleTextAttributes([.foregroundColor: UIColor.black, .font: f], for: .normal)
-            control.setTitleTextAttributes([.foregroundColor: UIColor.white, .font: f], for: .selected)
+        let isPad = UIDevice.current.userInterfaceIdiom == .pad
+        // Use text-rendered images per segment so VoiceOver can read the full
+        // phrase ("10 questions") via each image's accessibilityLabel — there is
+        // no public per-segment accessibility API for plain titles.
+        let control = UISegmentedControl()
+        for (i, v) in values.enumerated() {
+            let spoken = "\(v) \(v == 1 ? singularUnit : unit)"
+            control.insertSegment(with: segmentTextImage("\(v)", accessibility: spoken, pad: isPad), at: i, animated: false)
         }
+        control.frame = slider.frame
+        control.selectedSegmentIndex = max(0, min(selected, values.count - 1))
+        // Light selection fill so the dark-blue number stays legible whether or
+        // not the segment is selected (a single image color must read on both).
+        control.selectedSegmentTintColor = UIColor(red: 0.80, green: 0.90, blue: 1.0, alpha: 1.0)
+        control.backgroundColor = UIColor.white.withAlphaComponent(0.9)
         control.addTarget(self, action: action, for: .valueChanged)
         slider.isHidden = true
         parent.addSubview(control)
         return control
+    }
+
+    /// Render a short string as an image whose VoiceOver label is `accessibility`.
+    private func segmentTextImage(_ text: String, accessibility: String, pad: Bool) -> UIImage {
+        let attrs: [NSAttributedString.Key: Any] = [
+            .font: UIFont.boldSystemFont(ofSize: pad ? 22 : 15),
+            .foregroundColor: UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1)
+        ]
+        let textSize = (text as NSString).size(withAttributes: attrs)
+        let size = CGSize(width: ceil(textSize.width) + 10, height: ceil(textSize.height) + 6)
+        let image = UIGraphicsImageRenderer(size: size).image { _ in
+            let origin = CGPoint(x: (size.width - textSize.width) / 2, y: (size.height - textSize.height) / 2)
+            (text as NSString).draw(at: origin, withAttributes: attrs)
+        }.withRenderingMode(.alwaysOriginal)
+        image.accessibilityLabel = accessibility
+        return image
     }
 
     @objc private func questionsChanged() {
@@ -159,38 +175,6 @@ class SettingsModalViewController: UIViewController {
         numberOfMinutes = minuteOptions[idx]
         numberOfMinutesLabel.text = String(format: "Total Minutes: %i", numberOfMinutes)
         isDirty = true
-    }
-
-    // MARK: - VoiceOver
-
-    /// VoiceOver: speak each picker/belt segment with its full meaning.
-    /// UISegmentedControl exposes no public per-segment accessibility API, so we
-    /// label the underlying segment subviews (left-to-right). Counts must match
-    /// exactly, otherwise we leave the defaults rather than risk mislabeling.
-    private func applySegmentAccessibilityLabels() {
-        if let c = questionsControl {
-            setSegmentLabels(c, questionOptions.map { "\($0) questions" })
-        }
-        if let c = minutesControl {
-            setSegmentLabels(c, minuteOptions.map { $0 == 1 ? "1 minute" : "\($0) minutes" })
-        }
-        if let belt = activityLevelChoiceControl {
-            setSegmentLabels(belt, levelNames)
-        }
-    }
-
-    private func setSegmentLabels(_ control: UISegmentedControl, _ labels: [String]) {
-        var segs = control.subviews.filter { String(describing: type(of: $0)) == "UISegment" }
-        if segs.count != labels.count {
-            let alt = control.subviews.filter { $0.isAccessibilityElement }
-            if alt.count == labels.count { segs = alt }
-        }
-        guard segs.count == labels.count else { return }
-        segs.sort { $0.frame.minX < $1.frame.minX }
-        for (i, seg) in segs.enumerated() {
-            seg.isAccessibilityElement = true
-            seg.accessibilityLabel = labels[i]
-        }
     }
 
     // MARK: - Sound on/off (speaker icon button replacing the toggle switch)
