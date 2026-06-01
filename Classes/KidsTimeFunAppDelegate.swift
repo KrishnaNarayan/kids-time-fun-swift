@@ -24,6 +24,10 @@ class KidsTimeFunAppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
+        // This app uses a fixed, illustrated light visual design; lock the
+        // interface style to light so hardcoded artwork/colors stay correct
+        // regardless of the device's Dark Mode setting.
+        window?.overrideUserInterfaceStyle = .light
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
 

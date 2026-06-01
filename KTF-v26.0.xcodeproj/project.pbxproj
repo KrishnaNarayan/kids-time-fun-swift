@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D3623260D0F684500981E51 /* KidsTimeFunAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* KidsTimeFunAppDelegate.m */; };
 		CC0000001000000000000002 /* KidsTimeFunAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000001 /* KidsTimeFunAppDelegate.swift */; };
 		CC0000001000000000000027 /* ActivityHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000004 /* ActivityHeaderView.swift */; };
 		CC0000001000000000000028 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000005 /* ActivityViewController.swift */; };
@@ -32,7 +31,6 @@
 		CC0000001000000000000047 /* TopScoresDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000024 /* TopScoresDetailViewController.swift */; };
 		CC0000001000000000000048 /* TopScoresSingleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000025 /* TopScoresSingleDetailViewController.swift */; };
 		CC0000001000000000000049 /* TransitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000026 /* TransitionView.swift */; };
-		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
@@ -204,7 +202,6 @@
 		51F3701E195E4CA7006797B2 /* Home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51F3701C195E4CA7006797B2 /* Home@2x.png */; };
 		5210D9DE13484F3500B54AB2 /* HelpView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5210D9DD13484F3500B54AB2 /* HelpView-iPad.xib */; };
 		524F3795135197A8005905D1 /* ResultView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524F3794135197A8005905D1 /* ResultView-iPad.xib */; };
-		52781BD6133DC23D009AD503 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52781BD5133DC23D009AD503 /* BaseViewController.m */; };
 		527BE5301349CC93009DF756 /* ActivityView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527BE52F1349CC93009DF756 /* ActivityView-iPad.xib */; };
 		527BE54F1349D2CD009DF756 /* TellTimeView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527BE54E1349D2CD009DF756 /* TellTimeView-iPad.xib */; };
 		52C2F7A4133789CE008E0AB9 /* 1correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52C2F71E133789CE008E0AB9 /* 1correct.mp3 */; };
@@ -225,7 +222,6 @@
 		52C2F7E2133789CE008E0AB9 /* 8wrong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52C2F75C133789CE008E0AB9 /* 8wrong.mp3 */; };
 		52C2F7E4133789CE008E0AB9 /* 9correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52C2F75E133789CE008E0AB9 /* 9correct.mp3 */; };
 		52C2F7E5133789CE008E0AB9 /* 9wrong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52C2F75F133789CE008E0AB9 /* 9wrong.mp3 */; };
-		52C2F84213379580008E0AB9 /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C2F84113379580008E0AB9 /* AudioPlayer.m */; };
 		52C2F854133795AC008E0AB9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52C2F853133795AC008E0AB9 /* AVFoundation.framework */; };
 		52E092461342E3770035F697 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E092451342E3770035F697 /* MainWindow-iPad.xib */; };
 		52E092661342E61C0035F697 /* MenuView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E092651342E61C0035F697 /* MenuView-iPad.xib */; };
@@ -235,8 +231,6 @@
 		52E5E1021351CAC300EBCBBE /* TopScoresActivitySelectorView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E5E1011351CAC300EBCBBE /* TopScoresActivitySelectorView-iPad.xib */; };
 		52E5E10C135210A800EBCBBE /* TopScoresActivityLevelSelectorView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E5E10B135210A800EBCBBE /* TopScoresActivityLevelSelectorView-iPad.xib */; };
 		52E5E11B1352124F00EBCBBE /* TopScoresSingleDetailView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E5E11A1352124F00EBCBBE /* TopScoresSingleDetailView-iPad.xib */; };
-		6B683CF51098E9A300FFE9A1 /* SetTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B683CF41098E9A300FFE9A1 /* SetTimeViewController.m */; };
-		6B683D011098EA0400FFE9A1 /* SetClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B683D001098EA0400FFE9A1 /* SetClockView.m */; };
 		6BE410BB12EBC098001D7376 /* 100KCF72A.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BE4105612EBC098001D7376 /* 100KCF72A.png */; };
 		6BE410BC12EBC098001D7376 /* 10KCF72A.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BE4105712EBC098001D7376 /* 10KCF72A.png */; };
 		6BE410BD12EBC098001D7376 /* 11KCF72A.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BE4105812EBC098001D7376 /* 11KCF72A.png */; };
@@ -339,13 +333,7 @@
 		6BE4111E12EBC098001D7376 /* 9KCF72A.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BE410B912EBC098001D7376 /* 9KCF72A.png */; };
 		9B1DE2010FA78A5000DB7E9A /* SetTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B1DE2000FA78A5000DB7E9A /* SetTimeView.xib */; };
 		9B2143D20FADD62B00A1CF20 /* Separator.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B2143CE0FADD62B00A1CF20 /* Separator.png */; };
-		9B430A140FC71F44006B3E90 /* ElapsedTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B430A120FC71F44006B3E90 /* ElapsedTimeViewController.m */; };
 		9B60CE110FB28DF6002ADA58 /* ResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B60CE100FB28DF6002ADA58 /* ResultView.xib */; };
-		9B692B230FBF199B005B1155 /* TopScoresSingleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B692B220FBF199B005B1155 /* TopScoresSingleDetailViewController.m */; };
-		9B779EC70FAD30B2009F068C /* ActivityHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B779EC60FAD30B2009F068C /* ActivityHeaderView.m */; };
-		9B81C6BD0FAA79A4007321EE /* TellTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B81C6BC0FAA79A4007321EE /* TellTimeViewController.m */; };
-		9B90EE610F96C74C002839FA /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B90EE600F96C74C002839FA /* ActivityViewController.m */; };
-		9B90EE640F96C778002839FA /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B90EE630F96C778002839FA /* HelpViewController.m */; };
 		9B90EE8F0F96C8E8002839FA /* HelpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B90EE8E0F96C8E8002839FA /* HelpView.xib */; };
 		9B90EE930F96C920002839FA /* TellTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B90EE920F96C920002839FA /* TellTimeView.xib */; };
 		9B93C9720FC1DDAB00043810 /* EqualTo40.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B93C9710FC1DDAB00043810 /* EqualTo40.png */; };
@@ -355,36 +343,21 @@
 		9B9DF6200FBB95A700200B50 /* Percent40.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B9DF61B0FBB95A700200B50 /* Percent40.png */; };
 		9B9DF6210FBB95A700200B50 /* Right40.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B9DF61C0FBB95A700200B50 /* Right40.png */; };
 		9B9DF6240FBB95A700200B50 /* Wrong40.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B9DF61F0FBB95A700200B50 /* Wrong40.png */; };
-		9BA3E0B00F92E8CA00E7ED9C /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA3E0AF0F92E8CA00E7ED9C /* MenuViewController.m */; };
 		9BA3E0B20F92E8E200E7ED9C /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA3E0B10F92E8E200E7ED9C /* MenuView.xib */; };
-		9BA47CB40FB2800200FA425E /* ScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA47CB30FB2800200FA425E /* ScoreViewController.m */; };
 		9BA55FF00FBE2CDD004A7C2F /* TopScoresSingleDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA55FEF0FBE2CDD004A7C2F /* TopScoresSingleDetailView.xib */; };
-		9BA5600A0FBE31BA004A7C2F /* TopScoresDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA560090FBE31BA004A7C2F /* TopScoresDetailViewController.m */; };
-		9BA5604C0FBE3E3B004A7C2F /* TopScoresActivitySelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5604A0FBE3E3B004A7C2F /* TopScoresActivitySelector.m */; };
 		9BA5605B0FBE3EC9004A7C2F /* TopScoresActivitySelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA5605A0FBE3EC9004A7C2F /* TopScoresActivitySelectorView.xib */; };
 		9BA561D40FBE6543004A7C2F /* Numbered.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BA561D30FBE6543004A7C2F /* Numbered.png */; };
 		9BA561D60FBE65CC004A7C2F /* Timed.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BA561D50FBE65CC004A7C2F /* Timed.png */; };
-		9BA561DC0FBE66E8004A7C2F /* TopScoresActivityLevelSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA561DB0FBE66E8004A7C2F /* TopScoresActivityLevelSelector.m */; };
 		9BA561DE0FBE6728004A7C2F /* TopScoresActivityLevelSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA561DD0FBE6728004A7C2F /* TopScoresActivityLevelSelectorView.xib */; };
-		9BA5626B0FBE730A004A7C2F /* SettingsModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA562690FBE730A004A7C2F /* SettingsModalViewController.m */; };
 		9BA5626C0FBE730A004A7C2F /* SettingsModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA5626A0FBE730A004A7C2F /* SettingsModalView.xib */; };
 		9BB3DB430F9BBE3500877016 /* ClockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BB3DB420F9BBE3500877016 /* ClockView.xib */; };
-		9BB3DB470F9BBE6700877016 /* ClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB3DB460F9BBE6700877016 /* ClockView.m */; };
-		9BCBE6780FB726C800CFC4A3 /* ScoreCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBE6760FB726C800CFC4A3 /* ScoreCard.m */; };
-		9BCE515E0FAC8DB700B7BC73 /* TransitionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE515D0FAC8DB700B7BC73 /* TransitionView.m */; };
 		9BCE51600FAC90E800B7BC73 /* ActivityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE515F0FAC90E800B7BC73 /* ActivityView.xib */; };
 		9BCE518D0FAC945000B7BC73 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE518C0FAC945000B7BC73 /* QuartzCore.framework */; };
-		9BCE52910FACAF0300B7BC73 /* RandomInteger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE52900FACAF0300B7BC73 /* RandomInteger.m */; };
-		9BDD788D0FB352AA00E04CA9 /* KidsTimeFunAppState.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BDD788C0FB352AA00E04CA9 /* KidsTimeFunAppState.m */; };
-		9BFA11D90FBA4D5B00A2C057 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFA11D80FBA4D5B00A2C057 /* ResultViewController.m */; };
 		9BFA129F0FBA707400A2C057 /* TellAFriendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BFA129E0FBA707400A2C057 /* TellAFriendView.xib */; };
-		9BFA12A20FBA709A00A2C057 /* TellAFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFA12A10FBA709A00A2C057 /* TellAFriendViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D3623240D0F684500981E51 /* KidsTimeFunAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KidsTimeFunAppDelegate.h; sourceTree = "<group>"; };
-		1D3623250D0F684500981E51 /* KidsTimeFunAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = KidsTimeFunAppDelegate.m; sourceTree = "<group>"; tabWidth = 4; usesTabs = 1; wrapsLines = 1; };
 		CC0000001000000000000001 /* KidsTimeFunAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KidsTimeFunAppDelegate.swift; sourceTree = "<group>"; };
 		CC0000001000000000000003 /* KidsTimeFun-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KidsTimeFun-Bridging-Header.h"; sourceTree = "<group>"; };
 		CC0000001000000000000004 /* ActivityHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHeaderView.swift; sourceTree = "<group>"; };
@@ -414,7 +387,6 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* KidsTimeFun_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KidsTimeFun_Prefix.pch; sourceTree = "<group>"; };
 		338334B81A3875D600DC4825 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		338334BA1A3875E200DC4825 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -583,8 +555,6 @@
 		51F3701C195E4CA7006797B2 /* Home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home@2x.png"; sourceTree = "<group>"; };
 		5210D9DD13484F3500B54AB2 /* HelpView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "HelpView-iPad.xib"; path = "Resources-iPad/HelpView-iPad.xib"; sourceTree = "<group>"; };
 		524F3794135197A8005905D1 /* ResultView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "ResultView-iPad.xib"; path = "Resources-iPad/ResultView-iPad.xib"; sourceTree = "<group>"; };
-		52781BD4133DC23D009AD503 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
-		52781BD5133DC23D009AD503 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		527BE52F1349CC93009DF756 /* ActivityView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "ActivityView-iPad.xib"; path = "Resources-iPad/ActivityView-iPad.xib"; sourceTree = "<group>"; };
 		527BE54E1349D2CD009DF756 /* TellTimeView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "TellTimeView-iPad.xib"; path = "Resources-iPad/TellTimeView-iPad.xib"; sourceTree = "<group>"; };
 		52C2F71E133789CE008E0AB9 /* 1correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1correct.mp3; sourceTree = "<group>"; };
@@ -605,8 +575,6 @@
 		52C2F75C133789CE008E0AB9 /* 8wrong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 8wrong.mp3; sourceTree = "<group>"; };
 		52C2F75E133789CE008E0AB9 /* 9correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 9correct.mp3; sourceTree = "<group>"; };
 		52C2F75F133789CE008E0AB9 /* 9wrong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 9wrong.mp3; sourceTree = "<group>"; };
-		52C2F84013379580008E0AB9 /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayer.h; sourceTree = "<group>"; };
-		52C2F84113379580008E0AB9 /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayer.m; sourceTree = "<group>"; };
 		52C2F853133795AC008E0AB9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		52E092451342E3770035F697 /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "Resources-iPad/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		52E092651342E61C0035F697 /* MenuView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MenuView-iPad.xib"; path = "Resources-iPad/MenuView-iPad.xib"; sourceTree = "<group>"; };
@@ -616,10 +584,6 @@
 		52E5E1011351CAC300EBCBBE /* TopScoresActivitySelectorView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "TopScoresActivitySelectorView-iPad.xib"; path = "Resources-iPad/TopScoresActivitySelectorView-iPad.xib"; sourceTree = "<group>"; };
 		52E5E10B135210A800EBCBBE /* TopScoresActivityLevelSelectorView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "TopScoresActivityLevelSelectorView-iPad.xib"; path = "Resources-iPad/TopScoresActivityLevelSelectorView-iPad.xib"; sourceTree = "<group>"; };
 		52E5E11A1352124F00EBCBBE /* TopScoresSingleDetailView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "TopScoresSingleDetailView-iPad.xib"; path = "Resources-iPad/TopScoresSingleDetailView-iPad.xib"; sourceTree = "<group>"; };
-		6B683CF31098E9A300FFE9A1 /* SetTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetTimeViewController.h; sourceTree = "<group>"; };
-		6B683CF41098E9A300FFE9A1 /* SetTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetTimeViewController.m; sourceTree = "<group>"; };
-		6B683CFF1098EA0400FFE9A1 /* SetClockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetClockView.h; sourceTree = "<group>"; };
-		6B683D001098EA0400FFE9A1 /* SetClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetClockView.m; sourceTree = "<group>"; };
 		6BE4105612EBC098001D7376 /* 100KCF72A.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 100KCF72A.png; sourceTree = "<group>"; };
 		6BE4105712EBC098001D7376 /* 10KCF72A.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10KCF72A.png; sourceTree = "<group>"; };
 		6BE4105812EBC098001D7376 /* 11KCF72A.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11KCF72A.png; sourceTree = "<group>"; };
@@ -723,19 +687,7 @@
 		8D1107310486CEB800E47090 /* KidsTimeFun-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "KidsTimeFun-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		9B1DE2000FA78A5000DB7E9A /* SetTimeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetTimeView.xib; sourceTree = "<group>"; };
 		9B2143CE0FADD62B00A1CF20 /* Separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Separator.png; sourceTree = "<group>"; };
-		9B430A120FC71F44006B3E90 /* ElapsedTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElapsedTimeViewController.m; sourceTree = "<group>"; };
-		9B430A130FC71F44006B3E90 /* ElapsedTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElapsedTimeViewController.h; sourceTree = "<group>"; };
 		9B60CE100FB28DF6002ADA58 /* ResultView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultView.xib; sourceTree = "<group>"; };
-		9B692B210FBF199B005B1155 /* TopScoresSingleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopScoresSingleDetailViewController.h; sourceTree = "<group>"; };
-		9B692B220FBF199B005B1155 /* TopScoresSingleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopScoresSingleDetailViewController.m; sourceTree = "<group>"; };
-		9B779EC50FAD30B2009F068C /* ActivityHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityHeaderView.h; sourceTree = "<group>"; };
-		9B779EC60FAD30B2009F068C /* ActivityHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityHeaderView.m; sourceTree = "<group>"; };
-		9B81C6BB0FAA79A4007321EE /* TellTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TellTimeViewController.h; sourceTree = "<group>"; };
-		9B81C6BC0FAA79A4007321EE /* TellTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TellTimeViewController.m; sourceTree = "<group>"; };
-		9B90EE5F0F96C74C002839FA /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
-		9B90EE600F96C74C002839FA /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
-		9B90EE620F96C778002839FA /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
-		9B90EE630F96C778002839FA /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		9B90EE8E0F96C8E8002839FA /* HelpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpView.xib; sourceTree = "<group>"; };
 		9B90EE920F96C920002839FA /* TellTimeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TellTimeView.xib; sourceTree = "<group>"; };
 		9B93C9710FC1DDAB00043810 /* EqualTo40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EqualTo40.png; sourceTree = "<group>"; };
@@ -745,44 +697,18 @@
 		9B9DF61B0FBB95A700200B50 /* Percent40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Percent40.png; sourceTree = "<group>"; };
 		9B9DF61C0FBB95A700200B50 /* Right40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Right40.png; sourceTree = "<group>"; };
 		9B9DF61F0FBB95A700200B50 /* Wrong40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wrong40.png; sourceTree = "<group>"; };
-		9BA3E0AE0F92E8CA00E7ED9C /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
-		9BA3E0AF0F92E8CA00E7ED9C /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		9BA3E0B10F92E8E200E7ED9C /* MenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
-		9BA47CB20FB2800200FA425E /* ScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreViewController.h; sourceTree = "<group>"; };
-		9BA47CB30FB2800200FA425E /* ScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreViewController.m; sourceTree = "<group>"; };
 		9BA55FEF0FBE2CDD004A7C2F /* TopScoresSingleDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopScoresSingleDetailView.xib; sourceTree = "<group>"; };
-		9BA560080FBE31BA004A7C2F /* TopScoresDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopScoresDetailViewController.h; sourceTree = "<group>"; };
-		9BA560090FBE31BA004A7C2F /* TopScoresDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopScoresDetailViewController.m; sourceTree = "<group>"; };
-		9BA5604A0FBE3E3B004A7C2F /* TopScoresActivitySelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopScoresActivitySelector.m; sourceTree = "<group>"; };
-		9BA5604B0FBE3E3B004A7C2F /* TopScoresActivitySelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopScoresActivitySelector.h; sourceTree = "<group>"; };
 		9BA5605A0FBE3EC9004A7C2F /* TopScoresActivitySelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopScoresActivitySelectorView.xib; sourceTree = "<group>"; };
 		9BA561D30FBE6543004A7C2F /* Numbered.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Numbered.png; sourceTree = "<group>"; };
 		9BA561D50FBE65CC004A7C2F /* Timed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Timed.png; sourceTree = "<group>"; };
-		9BA561DA0FBE66E8004A7C2F /* TopScoresActivityLevelSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopScoresActivityLevelSelector.h; sourceTree = "<group>"; };
-		9BA561DB0FBE66E8004A7C2F /* TopScoresActivityLevelSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopScoresActivityLevelSelector.m; sourceTree = "<group>"; };
 		9BA561DD0FBE6728004A7C2F /* TopScoresActivityLevelSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopScoresActivityLevelSelectorView.xib; sourceTree = "<group>"; };
-		9BA562680FBE730A004A7C2F /* SettingsModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsModalViewController.h; sourceTree = "<group>"; };
-		9BA562690FBE730A004A7C2F /* SettingsModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsModalViewController.m; sourceTree = "<group>"; };
 		9BA5626A0FBE730A004A7C2F /* SettingsModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SettingsModalView.xib; path = Classes/SettingsModalView.xib; sourceTree = "<group>"; };
 		9BB3DB420F9BBE3500877016 /* ClockView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClockView.xib; sourceTree = "<group>"; };
-		9BB3DB450F9BBE6700877016 /* ClockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClockView.h; sourceTree = "<group>"; };
-		9BB3DB460F9BBE6700877016 /* ClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockView.m; sourceTree = "<group>"; };
-		9BCBE6750FB726C800CFC4A3 /* ScoreCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreCard.h; sourceTree = "<group>"; };
-		9BCBE6760FB726C800CFC4A3 /* ScoreCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreCard.m; sourceTree = "<group>"; };
-		9BCE515C0FAC8DB700B7BC73 /* TransitionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionView.h; sourceTree = "<group>"; };
-		9BCE515D0FAC8DB700B7BC73 /* TransitionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionView.m; sourceTree = "<group>"; };
 		9BCE515F0FAC90E800B7BC73 /* ActivityView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityView.xib; sourceTree = "<group>"; };
 		9BCE518C0FAC945000B7BC73 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		9BCE528F0FACAF0300B7BC73 /* RandomInteger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomInteger.h; sourceTree = "<group>"; };
-		9BCE52900FACAF0300B7BC73 /* RandomInteger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomInteger.m; sourceTree = "<group>"; };
-		9BDD788B0FB352AA00E04CA9 /* KidsTimeFunAppState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KidsTimeFunAppState.h; sourceTree = "<group>"; };
-		9BDD788C0FB352AA00E04CA9 /* KidsTimeFunAppState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KidsTimeFunAppState.m; sourceTree = "<group>"; };
 		9BDD78DA0FB35D4300E04CA9 /* KidsTimeFunAppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KidsTimeFunAppConstants.h; path = ../KidsTimeFunAppConstants.h; sourceTree = "<group>"; };
-		9BFA11D70FBA4D5B00A2C057 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
-		9BFA11D80FBA4D5B00A2C057 /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
 		9BFA129E0FBA707400A2C057 /* TellAFriendView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TellAFriendView.xib; sourceTree = "<group>"; };
-		9BFA12A00FBA709A00A2C057 /* TellAFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TellAFriendViewController.h; sourceTree = "<group>"; };
-		9BFA12A10FBA709A00A2C057 /* TellAFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TellAFriendViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -819,18 +745,6 @@
 			isa = PBXGroup;
 			children = (
 				9BDD78DA0FB35D4300E04CA9 /* KidsTimeFunAppConstants.h */,
-				6B683CF31098E9A300FFE9A1 /* SetTimeViewController.h */,
-				6B683CF41098E9A300FFE9A1 /* SetTimeViewController.m */,
-				6B683CFF1098EA0400FFE9A1 /* SetClockView.h */,
-				6B683D001098EA0400FFE9A1 /* SetClockView.m */,
-				9BCBE6750FB726C800CFC4A3 /* ScoreCard.h */,
-				9BCBE6760FB726C800CFC4A3 /* ScoreCard.m */,
-				9BCE528F0FACAF0300B7BC73 /* RandomInteger.h */,
-				9BCE52900FACAF0300B7BC73 /* RandomInteger.m */,
-				9BCE515C0FAC8DB700B7BC73 /* TransitionView.h */,
-				9BCE515D0FAC8DB700B7BC73 /* TransitionView.m */,
-				1D3623240D0F684500981E51 /* KidsTimeFunAppDelegate.h */,
-				1D3623250D0F684500981E51 /* KidsTimeFunAppDelegate.m */,
 				CC0000001000000000000001 /* KidsTimeFunAppDelegate.swift */,
 				CC0000001000000000000003 /* KidsTimeFun-Bridging-Header.h */,
 				CC0000001000000000000004 /* ActivityHeaderView.swift */,
@@ -856,42 +770,6 @@
 				CC0000001000000000000024 /* TopScoresDetailViewController.swift */,
 				CC0000001000000000000025 /* TopScoresSingleDetailViewController.swift */,
 				CC0000001000000000000026 /* TransitionView.swift */,
-				9BDD788B0FB352AA00E04CA9 /* KidsTimeFunAppState.h */,
-				9BDD788C0FB352AA00E04CA9 /* KidsTimeFunAppState.m */,
-				9BA3E0AE0F92E8CA00E7ED9C /* MenuViewController.h */,
-				9BA3E0AF0F92E8CA00E7ED9C /* MenuViewController.m */,
-				9B90EE5F0F96C74C002839FA /* ActivityViewController.h */,
-				9B90EE600F96C74C002839FA /* ActivityViewController.m */,
-				9B90EE620F96C778002839FA /* HelpViewController.h */,
-				9B90EE630F96C778002839FA /* HelpViewController.m */,
-				9BB3DB450F9BBE6700877016 /* ClockView.h */,
-				9BB3DB460F9BBE6700877016 /* ClockView.m */,
-				9B81C6BB0FAA79A4007321EE /* TellTimeViewController.h */,
-				9B81C6BC0FAA79A4007321EE /* TellTimeViewController.m */,
-				9B430A130FC71F44006B3E90 /* ElapsedTimeViewController.h */,
-				9B430A120FC71F44006B3E90 /* ElapsedTimeViewController.m */,
-				9B779EC50FAD30B2009F068C /* ActivityHeaderView.h */,
-				9B779EC60FAD30B2009F068C /* ActivityHeaderView.m */,
-				9BA47CB20FB2800200FA425E /* ScoreViewController.h */,
-				9BA47CB30FB2800200FA425E /* ScoreViewController.m */,
-				9BFA11D70FBA4D5B00A2C057 /* ResultViewController.h */,
-				9BFA11D80FBA4D5B00A2C057 /* ResultViewController.m */,
-				9BFA12A00FBA709A00A2C057 /* TellAFriendViewController.h */,
-				9BFA12A10FBA709A00A2C057 /* TellAFriendViewController.m */,
-				9BA5604B0FBE3E3B004A7C2F /* TopScoresActivitySelector.h */,
-				9BA5604A0FBE3E3B004A7C2F /* TopScoresActivitySelector.m */,
-				9BA561DA0FBE66E8004A7C2F /* TopScoresActivityLevelSelector.h */,
-				9BA561DB0FBE66E8004A7C2F /* TopScoresActivityLevelSelector.m */,
-				9BA560080FBE31BA004A7C2F /* TopScoresDetailViewController.h */,
-				9BA560090FBE31BA004A7C2F /* TopScoresDetailViewController.m */,
-				9B692B210FBF199B005B1155 /* TopScoresSingleDetailViewController.h */,
-				9B692B220FBF199B005B1155 /* TopScoresSingleDetailViewController.m */,
-				52C2F84013379580008E0AB9 /* AudioPlayer.h */,
-				52C2F84113379580008E0AB9 /* AudioPlayer.m */,
-				52781BD4133DC23D009AD503 /* BaseViewController.h */,
-				52781BD5133DC23D009AD503 /* BaseViewController.m */,
-				9BA562680FBE730A004A7C2F /* SettingsModalViewController.h */,
-				9BA562690FBE730A004A7C2F /* SettingsModalViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -921,7 +799,6 @@
 			isa = PBXGroup;
 			children = (
 				32CA4F630368D1EE00C91783 /* KidsTimeFun_Prefix.pch */,
-				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
