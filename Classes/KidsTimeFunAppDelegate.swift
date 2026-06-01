@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 @UIApplicationMain
 class KidsTimeFunAppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,7 @@ class KidsTimeFunAppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         KidsTimeFunAppState.sharedState().resumeFromState()
+        configureAudioSession()
         setApplicationAppearanceDefaults()
 
         let isIPad = UIDevice.current.userInterfaceIdiom == .pad
@@ -36,6 +38,15 @@ class KidsTimeFunAppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         KidsTimeFunAppState.sharedState().flushState()
+    }
+
+    private func configureAudioSession() {
+        // Use the ambient category: the app's spoken-time audio respects the
+        // hardware mute switch, mixes politely with other audio, and is ducked
+        // automatically while VoiceOver is speaking so the two don't collide.
+        let session = AVAudioSession.sharedInstance()
+        try? session.setCategory(.ambient, mode: .default, options: [])
+        try? session.setActive(true)
     }
 
     private func setApplicationAppearanceDefaults() {

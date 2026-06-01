@@ -111,6 +111,11 @@ class TellTimeViewController: BaseViewController {
         choices.setTitle(choiceLabel(h: answerHours, m: answerMinutes, level: Int(activityLevel)), forSegmentAt: answerIndex)
 
         super.viewDidLoad()
+
+        // Move VoiceOver focus to the question once this activity is on screen.
+        if let q = labelQuestion {
+            DispatchQueue.main.async { UIAccessibility.post(notification: .screenChanged, argument: q) }
+        }
     }
 
     @IBAction func choicesValueChanged() {
@@ -120,11 +125,13 @@ class TellTimeViewController: BaseViewController {
             rightOrWrong.image = UIImage(named: "GoodJob")
             rightOrWrong2?.image = UIImage(named: "Right"); rightOrWrong2?.isHidden = false
             AudioPlayer.getInstance().playCorrectWrong(true)
+            ktfAnnounce("Correct!")
             Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(rightAnswer), userInfo: nil, repeats: false)
         } else {
             isRight = false; wrongCounter += 1
             rightOrWrong2?.image = UIImage(named: "Wrong"); rightOrWrong.image = UIImage(named: "TryAgain")
             AudioPlayer.getInstance().playCorrectWrong(false)
+            ktfAnnounce("Not quite, try again.")
             rightOrWrong2?.isHidden = true; rightOrWrong.isHidden = false
             Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(wrongAnswer), userInfo: nil, repeats: false)
         }

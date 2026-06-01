@@ -7,6 +7,26 @@ import UIKit
     func didDismissActivity(_ sender: Any)
 }
 
+/// A clock time spoken the way VoiceOver should read it (e.g. "3 o'clock",
+/// "3 oh 5", "3 15"). Avoids the literal "three colon one five" that a raw
+/// "3:15" string would produce.
+func ktfSpokenTime(hours: Int, minutes: Int) -> String {
+    var h = hours % 12
+    if h == 0 { h = 12 }
+    let m = ((minutes % 60) + 60) % 60
+    if m == 0 { return "\(h) o'clock" }
+    if m < 10 { return "\(h) oh \(m)" }
+    return "\(h) \(m)"
+}
+
+extension UIViewController {
+    /// Speak a message via VoiceOver (no-op when VoiceOver is off).
+    func ktfAnnounce(_ message: String) {
+        guard UIAccessibility.isVoiceOverRunning else { return }
+        UIAccessibility.post(notification: .announcement, argument: message)
+    }
+}
+
 /// Container that aspect-fits its `content` (a fixed-size legacy layout) into its
 /// own safe area. Used to make 320x568 / 768x1024 XIB screens fill modern devices.
 final class LegacyScalingView: UIView {

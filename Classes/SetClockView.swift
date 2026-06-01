@@ -18,6 +18,24 @@ class SetClockView: UIView {
     private var touchX: CGFloat = 0, touchY: CGFloat = 0
     private var hourHandFlag = false, minuteHandFlag = false, firstPass = true
 
+    // VoiceOver: describe the clock and let the user drag the hands directly
+    // (allowsDirectInteraction passes touches straight through to this view).
+    override var isAccessibilityElement: Bool {
+        get { true }
+        set { }
+    }
+    override var accessibilityLabel: String? {
+        get {
+            let now = ktfSpokenTime(hours: Int(hours.rounded()), minutes: Int(minutes.rounded()))
+            return "Adjustable clock, currently set to \(now). Touch and drag the hour and minute hands to set the time."
+        }
+        set { }
+    }
+    override var accessibilityTraits: UIAccessibilityTraits {
+        get { [.allowsDirectInteraction] }
+        set { }
+    }
+
     override func draw(_ rect: CGRect) {
         guard let context = UIGraphicsGetCurrentContext() else { return }
 

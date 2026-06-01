@@ -16,6 +16,20 @@ class ClockView: UIView {
     var showAMPM: Bool = false
     var showDayNight: Bool = false
 
+    // VoiceOver: read this analog clock as the time it is showing.
+    override var isAccessibilityElement: Bool {
+        get { true }
+        set { }
+    }
+    override var accessibilityLabel: String? {
+        get { "Clock showing \(ktfSpokenTime(hours: Int(hours.rounded()), minutes: Int(minutes.rounded())))" }
+        set { }
+    }
+    override var accessibilityTraits: UIAccessibilityTraits {
+        get { .image }
+        set { }
+    }
+
     override func draw(_ rect: CGRect) {
         guard let context = UIGraphicsGetCurrentContext() else { return }
 

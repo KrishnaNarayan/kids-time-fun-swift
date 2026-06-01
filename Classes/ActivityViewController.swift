@@ -42,7 +42,9 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
         // A custom left bar button makes UIKit disable the interactive swipe-back
         // gesture — which otherwise fires when dragging a clock hand near the edge.
         navigationItem.hidesBackButton = true
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "house"), style: .plain, target: self, action: #selector(goHome(_:)))
+        let homeBtn = UIBarButtonItem(image: UIImage(systemName: "house"), style: .plain, target: self, action: #selector(goHome(_:)))
+        homeBtn.accessibilityLabel = "Home"
+        navigationItem.leftBarButtonItem = homeBtn
         activityBG.contentMode = .scaleAspectFill
         activityBG.clipsToBounds = true
     }

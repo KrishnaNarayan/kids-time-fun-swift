@@ -39,7 +39,9 @@ class ResultViewController: UIViewController {
         installLegacyScaling()
         title = kStrResult
 
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "house"), style: .plain, target: self, action: #selector(goHome(_:)))
+        let homeBtn = UIBarButtonItem(image: UIImage(systemName: "house"), style: .plain, target: self, action: #selector(goHome(_:)))
+        homeBtn.accessibilityLabel = "Home"
+        navigationItem.leftBarButtonItem = homeBtn
 
         // Hide the bare rank number that floated above the congratulations text.
         lblScoreRank.isHidden = true
@@ -74,6 +76,8 @@ class ResultViewController: UIViewController {
             lblScoreRank.text = "\(card.scoreRank)"
             txtName.text = state.playerName == kDefaultPlayerName ? "" : state.playerName
             txtName.isEnabled = true
+            txtName.accessibilityLabel = "Your name"
+            txtName.accessibilityHint = "Enter your name to save your top score"
             btnSave.isEnabled = true
         } else {
             headerView.addSubview(noTopScoreHeaderView)

@@ -38,12 +38,16 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
         edgesForExtendedLayout = []
 
         let settingsBtn = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(settingsActivated))
+        settingsBtn.accessibilityLabel = "Settings"
         navigationItem.rightBarButtonItem = settingsBtn
         let topScoresBtn = UIBarButtonItem(image: UIImage(systemName: "trophy"), style: .plain, target: self, action: #selector(topScoresButtonPressed(_:)))
+        topScoresBtn.accessibilityLabel = "Top Scores"
         navigationItem.leftBarButtonItem = topScoresBtn
 
         UIBarButtonItem.appearance().tintColor = UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1)
-        navigationItem.backBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "house"), style: .plain, target: nil, action: nil)
+        let backBtn = UIBarButtonItem(image: UIImage(systemName: "house"), style: .plain, target: nil, action: nil)
+        backBtn.accessibilityLabel = "Home"
+        navigationItem.backBarButtonItem = backBtn
 
         // Hide defunct app-launcher buttons (tags 700–706)
         for tag in 700...707 {
@@ -52,6 +56,21 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
 
         choiceActivityType.selectedSegmentIndex = Int(KidsTimeFunAppState.sharedState().activityType)
         enlargeSegmentedControlForIPad(choiceActivityType)
+
+        // VoiceOver: give each activity launcher a clear spoken name, and hide the
+        // purely decorative logo / rotating clip art from the rotor.
+        let buttonLabels: [(UIButton?, String)] = [
+            (tellTimeButton, "Tell Time"), (setTimeButton, "Set the Time"),
+            (elapsedTimeButton, "Elapsed Time"), (mixedModeButton, "Mixed Practice"),
+            (tellTimeAfterButton, "Time After"), (tellTimeBeforeButton, "Time Before"),
+            (topScoresButton, "Top Scores"), (helpButton, "Help"),
+            (tellAFriendButton, "Tell a Friend")
+        ]
+        for (button, label) in buttonLabels { button?.accessibilityLabel = label }
+        clipArtImageView?.isAccessibilityElement = false
+        logoImageView?.isAccessibilityElement = false
+        clipArtView?.isAccessibilityElement = false
+        // (clockView is a ClockView; it already self-describes its time to VoiceOver.)
         if let cv = clipArtView {
             let clipArtFrame = CGRect(x: 0, y: 0, width: cv.frame.size.width, height: cv.frame.size.height)
             clipArtImageView?.frame = clipArtFrame

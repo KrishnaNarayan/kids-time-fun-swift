@@ -22,6 +22,27 @@ class ActivityHeaderView: UIView {
     @IBOutlet private weak var timerImg: UIImageView!
     @IBOutlet private weak var activityLevelImg: UIImageView!
 
+    // VoiceOver: read the whole header as a single progress/score summary
+    // instead of the individual bare numbers.
+    override var isAccessibilityElement: Bool {
+        get { true }
+        set { }
+    }
+    override var accessibilityLabel: String? {
+        get {
+            var parts = ["\(right) correct", "\(wrong) wrong"]
+            if showTimer {
+                parts.append("\(countdownTimer) seconds left")
+            } else if showTotal {
+                parts.append("question \(current) of \(total)")
+            } else {
+                parts.append("question \(current)")
+            }
+            return parts.joined(separator: ", ")
+        }
+        set { }
+    }
+
     override func draw(_ rect: CGRect) {
         switch activityLevel {
         case kActLevelYellowBelt: activityLevelImg.image = UIImage(named: "Yellow Belt")
