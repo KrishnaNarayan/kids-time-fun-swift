@@ -41,11 +41,12 @@ class KidsTimeFunAppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func configureAudioSession() {
-        // Use the ambient category: the app's spoken-time audio respects the
-        // hardware mute switch, mixes politely with other audio, and is ducked
-        // automatically while VoiceOver is speaking so the two don't collide.
+        // Use the playback category so the spoken-time and feedback audio (the
+        // whole point of this learning app) plays even when the device's
+        // silent/ring switch is on. VoiceOver still ducks it automatically.
+        // The in-app Sound button remains the user's on/off control.
         let session = AVAudioSession.sharedInstance()
-        try? session.setCategory(.ambient, mode: .default, options: [])
+        try? session.setCategory(.playback, mode: .default, options: [])
         try? session.setActive(true)
     }
 
