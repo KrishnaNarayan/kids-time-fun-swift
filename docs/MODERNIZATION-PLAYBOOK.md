@@ -1,8 +1,8 @@
----
-description: Modernize a legacy Objective-C iOS app — migrate to Swift, fix deprecations, support iPad, meet Apple HIG, and prep for App Store submission.
----
-
 # Modernize a Legacy iOS App
+
+> Reusable playbook for migrating an old Objective-C iOS app to Swift, fixing
+> deprecations, supporting iPad, meeting Apple HIG, and prepping for App Store
+> submission. Mirrors the `/modernize-legacy-ios-app` Claude Code slash command.
 
 You are modernizing an old Objective-C iPhone/iPad app and preparing it for current
 App Store submission. Work through the phases below **in order**, adapting to the
