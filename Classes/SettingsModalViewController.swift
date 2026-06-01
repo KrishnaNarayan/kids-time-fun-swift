@@ -75,6 +75,51 @@ class SettingsModalViewController: UIViewController {
         navigationController?.navigationBar.tintColor = UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1)
 
         adjustChallengeLevelLayout()
+        addPrivacyLink()
+    }
+
+    private static let privacyURL = URL(string: "https://krishnanarayan.github.io/kids-time-fun-swift/#privacy")!
+
+    private func addPrivacyLink() {
+        guard let scaling = view.subviews.first as? LegacyScalingView else { return }
+        let tint = UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1)
+        let base = scaling.baseSize
+
+        let link = UIButton(type: .system)
+        link.setTitle("Privacy Policy", for: .normal)
+        link.setTitleColor(tint, for: .normal)
+        link.titleLabel?.font = .systemFont(ofSize: 14)
+        link.tintColor = tint
+        link.accessibilityHint = "Opens the privacy policy in your web browser"
+        link.addTarget(self, action: #selector(openPrivacyPolicy), for: .touchUpInside)
+
+        let w: CGFloat = 200, h: CGFloat = 30
+        link.frame = CGRect(x: (base.width - w) / 2, y: base.height - h - 8, width: w, height: h)
+        scaling.content.addSubview(link)
+    }
+
+    @objc private func openPrivacyPolicy() {
+        // Parental gate: the privacy policy opens in Safari (leaves the app), so
+        // require a simple grown-up check first to satisfy Apple's Kids Category
+        // rules for links out of the app.
+        let a = Int.random(in: 6...9)
+        let b = Int.random(in: 6...9)
+        let alert = UIAlertController(
+            title: "Ask a Grown-Up",
+            message: "To open the privacy policy in your browser, please answer:\n\nWhat is \(a) × \(b)?",
+            preferredStyle: .alert)
+        alert.addTextField { tf in
+            tf.keyboardType = .numberPad
+            tf.placeholder = "Answer"
+        }
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Open", style: .default) { [weak self, weak alert] _ in
+            let answer = Int(alert?.textFields?.first?.text ?? "")
+            if answer == a * b {
+                UIApplication.shared.open(Self.privacyURL)
+            }
+        })
+        present(alert, animated: true)
     }
 
     private func adjustChallengeLevelLayout() {
