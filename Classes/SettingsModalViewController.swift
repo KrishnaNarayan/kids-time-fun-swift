@@ -127,9 +127,50 @@ class SettingsModalViewController: UIViewController {
     private func installBeltButtons() {
         guard let belt = activityLevelChoiceControl, let parent = belt.superview else { return }
         belt.isHidden = true   // keep the XIB control for its frame/wiring, but show buttons
-        let cells = levelNames.map { (image: UIImage(named: $0), title: String?.none, a11y: $0) }
-        beltButtons = makeSelectableRow(frame: belt.frame, in: parent, cells: cells)
-        beltButtons.forEach { $0.addTarget(self, action: #selector(beltTapped(_:)), for: .touchUpInside) }
+        let isPad = UIDevice.current.userInterfaceIdiom == .pad
+        let tint = UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1)
+        let frame = belt.frame
+        let images = levelNames.map { UIImage(named: $0) }
+
+        // Size each belt button to its image's aspect ratio (taller than the
+        // original 29pt row) so the selection highlight hugs the belt graphic
+        // instead of a wide, mostly-empty cell. Scale down if the row can't fit.
+        var h: CGFloat = isPad ? 54 : 36
+        let minGap: CGFloat = 6
+        let n = levelNames.count
+        func widths(forHeight hh: CGFloat) -> [CGFloat] {
+            images.map { img in
+                let ar = max(0.4, (img?.size.width ?? 1) / (img?.size.height ?? 1))
+                return (hh - 8) * ar + 8   // image area = hh-8 (edge insets), + padding
+            }
+        }
+        var w = widths(forHeight: h)
+        let totalW = w.reduce(0, +)
+        if totalW + minGap * CGFloat(n + 1) > frame.width {
+            let scale = (frame.width - minGap * CGFloat(n + 1)) / totalW
+            h *= scale
+            w = widths(forHeight: h)
+        }
+        let gap = max(minGap, (frame.width - w.reduce(0, +)) / CGFloat(n + 1))
+
+        var x = frame.minX + gap
+        let cy = frame.midY
+        beltButtons = []
+        for (i, name) in levelNames.enumerated() {
+            let b = UIButton(type: .custom)
+            b.frame = CGRect(x: x, y: cy - h / 2, width: w[i], height: h)
+            b.setImage(images[i]?.withRenderingMode(.alwaysOriginal), for: .normal)
+            b.imageView?.contentMode = .scaleAspectFit
+            b.contentEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
+            b.accessibilityLabel = name
+            b.layer.cornerRadius = 8
+            b.layer.borderColor = tint.cgColor
+            b.tag = i
+            b.addTarget(self, action: #selector(beltTapped(_:)), for: .touchUpInside)
+            parent.addSubview(b)
+            beltButtons.append(b)
+            x += w[i] + gap
+        }
         styleSelection(beltButtons, selected: activityLevel)
     }
 
@@ -299,9 +340,10 @@ class SettingsModalViewController: UIViewController {
                 belt.frame.origin.y = headerY + headerH + 24
             }
         } else {
-            // iPhone: its XIB has no "Challenge Level" header — add one just above the
-            // belt selector (leave the belt where it is; that layout is correct).
-            let header = UILabel(frame: CGRect(x: belt.frame.minX, y: belt.frame.minY - 28,
+            // iPhone: nudge the belt band down to give it room below the Sound row,
+            // then add a "Challenge Level" header above the belt with clear spacing.
+            belt.frame.origin.y += 16
+            let header = UILabel(frame: CGRect(x: belt.frame.minX, y: belt.frame.minY - 30,
                                                width: belt.frame.width, height: 24))
             header.text = "Challenge Level"
             header.font = .boldSystemFont(ofSize: 18)
