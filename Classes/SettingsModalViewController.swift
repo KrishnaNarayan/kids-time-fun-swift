@@ -94,7 +94,11 @@ class SettingsModalViewController: UIViewController {
         link.addTarget(self, action: #selector(openPrivacyPolicy), for: .touchUpInside)
 
         let w: CGFloat = 200, h: CGFloat = 30
-        link.frame = CGRect(x: (base.width - w) / 2, y: base.height - h - 8, width: w, height: h)
+        // Sit the link near the bottom of the canvas; nudge it a little lower on
+        // iPhone where there is extra room beneath the belt description.
+        let isPad = UIDevice.current.userInterfaceIdiom == .pad
+        let bottomMargin: CGFloat = isPad ? 8 : -10
+        link.frame = CGRect(x: (base.width - w) / 2, y: base.height - h - bottomMargin, width: w, height: h)
         scaling.content.addSubview(link)
     }
 
