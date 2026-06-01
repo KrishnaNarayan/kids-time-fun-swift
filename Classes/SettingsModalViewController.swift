@@ -3,49 +3,6 @@
 
 import UIKit
 
-/// A segmented control that VoiceOver treats as a single *adjustable* element:
-/// it announces the selected value (and lets the user swipe up/down to change)
-/// instead of reading each segment as "N of M". Touch behavior is unchanged.
-@objc(KTFAdjustableSegmentedControl)
-final class KTFAdjustableSegmentedControl: UISegmentedControl {
-    /// Optional spoken name for the whole control; usually nil so VoiceOver reads
-    /// only the value (a nearby header label already gives context).
-    var groupAccessibilityLabel: String?
-
-    override var isAccessibilityElement: Bool {
-        get { true }
-        set { }
-    }
-    override var accessibilityTraits: UIAccessibilityTraits {
-        get { .adjustable }
-        set { }
-    }
-    override var accessibilityLabel: String? {
-        get { groupAccessibilityLabel }
-        set { }
-    }
-    override var accessibilityValue: String? {
-        get {
-            let i = selectedSegmentIndex
-            guard i >= 0, i < numberOfSegments else { return nil }
-            // Prefer the per-segment image accessibilityLabel we set
-            // ("Red Belt", "30 questions"); fall back to the title.
-            return imageForSegment(at: i)?.accessibilityLabel ?? titleForSegment(at: i)
-        }
-        set { }
-    }
-    override func accessibilityIncrement() {
-        guard selectedSegmentIndex < numberOfSegments - 1 else { return }
-        selectedSegmentIndex += 1
-        sendActions(for: .valueChanged)
-    }
-    override func accessibilityDecrement() {
-        guard selectedSegmentIndex > 0 else { return }
-        selectedSegmentIndex -= 1
-        sendActions(for: .valueChanged)
-    }
-}
-
 @objc(SettingsModalViewController)
 class SettingsModalViewController: UIViewController {
 
@@ -71,8 +28,9 @@ class SettingsModalViewController: UIViewController {
     // Discrete choices that replace the old continuous sliders.
     private let questionOptions = [10, 20, 30, 40, 50]
     private let minuteOptions = [1, 2, 3, 4, 5]
-    private var questionsControl: UISegmentedControl?
-    private var minutesControl: UISegmentedControl?
+    private var questionButtons: [UIButton] = []
+    private var minuteButtons: [UIButton] = []
+    private var beltButtons: [UIButton] = []
     private var soundButton: UIButton?
 
     private let levelNames = ["Yellow Belt", "Green Belt", "Red Belt", "Black Belt"]
@@ -101,14 +59,6 @@ class SettingsModalViewController: UIViewController {
         if activityLevel == 0 { activityLevel = Int(kDefaultActivityLevel) }
         playSoundInApplication = dict.isEmpty ? true : ((dict[kSettingsKeyPlaySound] as? NSNumber)?.boolValue ?? true)
 
-        ["Yellow Belt", "Green Belt", "Red Belt", "Black Belt"].enumerated().forEach { i, name in
-            let img = UIImage(named: name)?.withRenderingMode(.alwaysOriginal)
-            // UISegmentedControl reads an image segment's VoiceOver text from the
-            // image's accessibilityLabel — so set the belt name here.
-            img?.accessibilityLabel = name
-            activityLevelChoiceControl.setImage(img, forSegmentAt: i)
-        }
-
         numberOfQuestionsSlider.minimumValue = Float(minQ)
         numberOfQuestionsSlider.maximumValue = Float(maxQ)
         numberOfQuestionsSlider.isContinuous = true
@@ -129,10 +79,11 @@ class SettingsModalViewController: UIViewController {
         installDiscretePickers()
         installSoundButton()
         adjustChallengeLevelLayout()
+        installBeltButtons()   // after adjustChallengeLevelLayout: belt frame is final
         addPrivacyLink()
     }
 
-    // MARK: - Discrete pickers (replace the continuous sliders)
+    // MARK: - Discrete pickers (button rows replacing the continuous sliders)
 
     private func installDiscretePickers() {
         // Snap any stored value to the nearest allowed option so the saved value
@@ -146,17 +97,24 @@ class SettingsModalViewController: UIViewController {
         numberOfQuestionsLabel.text = String(format: "Total Questions: %i", numberOfQuestions)
         numberOfMinutesLabel.text = String(format: "Total Minutes: %i", numberOfMinutes)
 
-        questionsControl = makePicker(over: numberOfQuestionsSlider, values: questionOptions,
-                                      unit: "questions", singularUnit: "questions",
-                                      selected: questionOptions.firstIndex(of: numberOfQuestions) ?? 2,
-                                      action: #selector(questionsChanged))
-        minutesControl = makePicker(over: numberOfMinutesSlider, values: minuteOptions,
-                                    unit: "minutes", singularUnit: "minute",
-                                    selected: minuteOptions.firstIndex(of: numberOfMinutes) ?? 0,
-                                    action: #selector(minutesChanged))
+        if let slider = numberOfQuestionsSlider, let parent = slider.superview {
+            slider.isHidden = true
+            let cells = questionOptions.map { (image: UIImage?.none, title: Optional("\($0)"), a11y: "\($0) questions") }
+            questionButtons = makeSelectableRow(frame: slider.frame, in: parent, cells: cells)
+            questionButtons.forEach { $0.addTarget(self, action: #selector(questionTapped(_:)), for: .touchUpInside) }
+            styleSelection(questionButtons, selected: questionOptions.firstIndex(of: numberOfQuestions) ?? 2)
+        }
+        if let slider = numberOfMinutesSlider, let parent = slider.superview {
+            slider.isHidden = true
+            let cells = minuteOptions.map { (image: UIImage?.none, title: Optional("\($0)"),
+                                             a11y: $0 == 1 ? "1 minute" : "\($0) minutes") }
+            minuteButtons = makeSelectableRow(frame: slider.frame, in: parent, cells: cells)
+            minuteButtons.forEach { $0.addTarget(self, action: #selector(minuteTapped(_:)), for: .touchUpInside) }
+            styleSelection(minuteButtons, selected: minuteOptions.firstIndex(of: numberOfMinutes) ?? 0)
+        }
 
         // The original XIB drew static tick labels (10 20 30 40 50 / 1 2 3 4 5)
-        // beneath the sliders. They're now redundant with the segments — hide them.
+        // beneath the sliders. They're now redundant — hide them.
         if let content = numberOfQuestionsSlider?.superview {
             let tickTexts = Set((questionOptions + minuteOptions).map { "\($0)" })
             for case let label as UILabel in content.subviews
@@ -166,57 +124,80 @@ class SettingsModalViewController: UIViewController {
         }
     }
 
-    private func makePicker(over slider: UISlider?, values: [Int], unit: String, singularUnit: String,
-                            selected: Int, action: Selector) -> UISegmentedControl? {
-        guard let slider = slider, let parent = slider.superview else { return nil }
+    private func installBeltButtons() {
+        guard let belt = activityLevelChoiceControl, let parent = belt.superview else { return }
+        belt.isHidden = true   // keep the XIB control for its frame/wiring, but show buttons
+        let cells = levelNames.map { (image: UIImage(named: $0), title: String?.none, a11y: $0) }
+        beltButtons = makeSelectableRow(frame: belt.frame, in: parent, cells: cells)
+        beltButtons.forEach { $0.addTarget(self, action: #selector(beltTapped(_:)), for: .touchUpInside) }
+        styleSelection(beltButtons, selected: activityLevel)
+    }
+
+    /// Build a horizontal row of selectable buttons (radio style) filling `frame`.
+    /// Each is an independent VoiceOver button so the user can swipe between them
+    /// and double-tap to choose.
+    private func makeSelectableRow(frame: CGRect, in parent: UIView,
+                                   cells: [(image: UIImage?, title: String?, a11y: String)]) -> [UIButton] {
+        let tint = UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1)
         let isPad = UIDevice.current.userInterfaceIdiom == .pad
-        // Use text-rendered images per segment so VoiceOver can read the full
-        // phrase ("10 questions") via each image's accessibilityLabel — there is
-        // no public per-segment accessibility API for plain titles.
-        let control = KTFAdjustableSegmentedControl()
-        for (i, v) in values.enumerated() {
-            let spoken = "\(v) \(v == 1 ? singularUnit : unit)"
-            control.insertSegment(with: segmentTextImage("\(v)", accessibility: spoken, pad: isPad), at: i, animated: false)
+        let n = cells.count
+        let gap: CGFloat = 4
+        let w = (frame.width - gap * CGFloat(n - 1)) / CGFloat(n)
+        var buttons: [UIButton] = []
+        for (i, cell) in cells.enumerated() {
+            let b = UIButton(type: .custom)
+            b.frame = CGRect(x: frame.minX + CGFloat(i) * (w + gap), y: frame.minY, width: w, height: frame.height)
+            if let img = cell.image {
+                b.setImage(img.withRenderingMode(.alwaysOriginal), for: .normal)
+                b.imageView?.contentMode = .scaleAspectFit
+                b.contentEdgeInsets = UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3)
+            }
+            if let title = cell.title {
+                b.setTitle(title, for: .normal)
+                b.setTitleColor(tint, for: .normal)
+                b.titleLabel?.font = .boldSystemFont(ofSize: isPad ? 22 : 16)
+            }
+            b.accessibilityLabel = cell.a11y
+            b.layer.cornerRadius = 8
+            b.layer.borderColor = tint.cgColor
+            b.tag = i
+            parent.addSubview(b)
+            buttons.append(b)
         }
-        control.frame = slider.frame
-        control.selectedSegmentIndex = max(0, min(selected, values.count - 1))
-        // Light selection fill so the dark-blue number stays legible whether or
-        // not the segment is selected (a single image color must read on both).
-        control.selectedSegmentTintColor = UIColor(red: 0.80, green: 0.90, blue: 1.0, alpha: 1.0)
-        control.backgroundColor = UIColor.white.withAlphaComponent(0.9)
-        control.addTarget(self, action: action, for: .valueChanged)
-        slider.isHidden = true
-        parent.addSubview(control)
-        return control
+        return buttons
     }
 
-    /// Render a short string as an image whose VoiceOver label is `accessibility`.
-    private func segmentTextImage(_ text: String, accessibility: String, pad: Bool) -> UIImage {
-        let attrs: [NSAttributedString.Key: Any] = [
-            .font: UIFont.boldSystemFont(ofSize: pad ? 22 : 15),
-            .foregroundColor: UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1)
-        ]
-        let textSize = (text as NSString).size(withAttributes: attrs)
-        let size = CGSize(width: ceil(textSize.width) + 10, height: ceil(textSize.height) + 6)
-        let image = UIGraphicsImageRenderer(size: size).image { _ in
-            let origin = CGPoint(x: (size.width - textSize.width) / 2, y: (size.height - textSize.height) / 2)
-            (text as NSString).draw(at: origin, withAttributes: attrs)
-        }.withRenderingMode(.alwaysOriginal)
-        image.accessibilityLabel = accessibility
-        return image
+    /// Highlight the chosen button and mark it `.selected` for VoiceOver.
+    private func styleSelection(_ buttons: [UIButton], selected: Int) {
+        for (i, b) in buttons.enumerated() {
+            let on = i == selected
+            b.layer.borderWidth = on ? 2 : 0
+            b.backgroundColor = on ? UIColor(red: 0.80, green: 0.90, blue: 1.0, alpha: 1) : .clear
+            b.accessibilityTraits = on ? [.button, .selected] : .button
+        }
     }
 
-    @objc private func questionsChanged() {
-        guard let idx = questionsControl?.selectedSegmentIndex, questionOptions.indices.contains(idx) else { return }
-        numberOfQuestions = questionOptions[idx]
+    @objc private func questionTapped(_ sender: UIButton) {
+        guard questionOptions.indices.contains(sender.tag) else { return }
+        numberOfQuestions = questionOptions[sender.tag]
         numberOfQuestionsLabel.text = String(format: "Total Questions: %i", numberOfQuestions)
+        styleSelection(questionButtons, selected: sender.tag)
         isDirty = true
     }
 
-    @objc private func minutesChanged() {
-        guard let idx = minutesControl?.selectedSegmentIndex, minuteOptions.indices.contains(idx) else { return }
-        numberOfMinutes = minuteOptions[idx]
+    @objc private func minuteTapped(_ sender: UIButton) {
+        guard minuteOptions.indices.contains(sender.tag) else { return }
+        numberOfMinutes = minuteOptions[sender.tag]
         numberOfMinutesLabel.text = String(format: "Total Minutes: %i", numberOfMinutes)
+        styleSelection(minuteButtons, selected: sender.tag)
+        isDirty = true
+    }
+
+    @objc private func beltTapped(_ sender: UIButton) {
+        guard levelNames.indices.contains(sender.tag) else { return }
+        activityLevel = sender.tag
+        styleSelection(beltButtons, selected: sender.tag)
+        updateLevelLabels()
         isDirty = true
     }
 
