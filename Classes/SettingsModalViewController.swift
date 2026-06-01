@@ -3,6 +3,49 @@
 
 import UIKit
 
+/// A segmented control that VoiceOver treats as a single *adjustable* element:
+/// it announces the selected value (and lets the user swipe up/down to change)
+/// instead of reading each segment as "N of M". Touch behavior is unchanged.
+@objc(KTFAdjustableSegmentedControl)
+final class KTFAdjustableSegmentedControl: UISegmentedControl {
+    /// Optional spoken name for the whole control; usually nil so VoiceOver reads
+    /// only the value (a nearby header label already gives context).
+    var groupAccessibilityLabel: String?
+
+    override var isAccessibilityElement: Bool {
+        get { true }
+        set { }
+    }
+    override var accessibilityTraits: UIAccessibilityTraits {
+        get { .adjustable }
+        set { }
+    }
+    override var accessibilityLabel: String? {
+        get { groupAccessibilityLabel }
+        set { }
+    }
+    override var accessibilityValue: String? {
+        get {
+            let i = selectedSegmentIndex
+            guard i >= 0, i < numberOfSegments else { return nil }
+            // Prefer the per-segment image accessibilityLabel we set
+            // ("Red Belt", "30 questions"); fall back to the title.
+            return imageForSegment(at: i)?.accessibilityLabel ?? titleForSegment(at: i)
+        }
+        set { }
+    }
+    override func accessibilityIncrement() {
+        guard selectedSegmentIndex < numberOfSegments - 1 else { return }
+        selectedSegmentIndex += 1
+        sendActions(for: .valueChanged)
+    }
+    override func accessibilityDecrement() {
+        guard selectedSegmentIndex > 0 else { return }
+        selectedSegmentIndex -= 1
+        sendActions(for: .valueChanged)
+    }
+}
+
 @objc(SettingsModalViewController)
 class SettingsModalViewController: UIViewController {
 
@@ -130,7 +173,7 @@ class SettingsModalViewController: UIViewController {
         // Use text-rendered images per segment so VoiceOver can read the full
         // phrase ("10 questions") via each image's accessibilityLabel — there is
         // no public per-segment accessibility API for plain titles.
-        let control = UISegmentedControl()
+        let control = KTFAdjustableSegmentedControl()
         for (i, v) in values.enumerated() {
             let spoken = "\(v) \(v == 1 ? singularUnit : unit)"
             control.insertSegment(with: segmentTextImage("\(v)", accessibility: spoken, pad: isPad), at: i, animated: false)
