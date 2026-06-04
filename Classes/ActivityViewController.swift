@@ -1,4 +1,5 @@
 // Revised by Krishna Narayan on 5/30/26 — Used Claude to migrate to Swift, fix UI Views, remove deprecations, update for iPad, modernize for Apple UI rules.
+// Revised by Krishna Narayan on 6/3/26 — Using Claude changed to 1st, 2nd, and 3rd grade levels, belts are earned not selected, added adaptive weak-drilling algorithm to rectify mistakes and build proficiency after initially providing randomized problems for activities
 // Copyright 2026 Island Innovation LLC.  All rights reserved.
 
 import UIKit
@@ -9,9 +10,15 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
 
     var activity: Int32 = 0
     var activityType: Int32 = 0
-    var activityLevel: Int32 = 0
+    var activityLevel: Int32 = 0   // earned belt (-1 none … 3 black) — drives the header image
+    var gradeLevel: Int32 = 0      // difficulty knob passed to the generators
     var maxQuestions: Int32 = 0
     var maxSeconds: Int32 = 0
+    /// Position in the belt ladder for the current continuous session. Reset to 0
+    /// every time the activity is entered from the menu (see MenuViewController),
+    /// so a session always starts with the untimed warm-up round.
+    var roundIndex: Int32 = 0
+    private var pendingNextRound: Int32?
     private(set) var currentQuestion: Int32 = 1
     private(set) var elapsedSeconds: Int32 = 0
     private(set) var questionsAsked: Int32 = 1
@@ -73,8 +80,27 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
 
     override func viewWillAppear(_ animated: Bool) {
         let state = KidsTimeFunAppState.sharedState()
-        activity = state.activity; activityType = state.activityType; activityLevel = state.activityLevel
-        maxQuestions = state.maxQuestions; maxSeconds = state.maxTimeInSeconds
+        activity = state.activity
+        gradeLevel = state.gradeLevel
+        // Reset the round clock here (not viewDidLoad) — this VC is a reused outlet
+        // instance, so each round must start its own timing.
+        startTime = Date()
+
+        // The belt-progression engine decides this round's shape (how many
+        // questions, whether it's timed, the time limit) for the current ladder
+        // position, and what belt the child is working toward. The header shows
+        // the belt already earned.
+        let plan = BeltProgressStore.shared.roundPlan(grade: gradeLevel, activity: activity, roundIndex: roundIndex)
+        activityType = plan.activityType
+        maxQuestions = plan.questions
+        maxSeconds = plan.seconds
+        activityLevel = plan.earnedBelt
+        // Mirror onto shared state so the header, timer, and result screen agree.
+        state.activityType = plan.activityType
+        state.maxQuestions = plan.questions
+        state.maxTimeInSeconds = plan.seconds
+        state.activityLevel = plan.earnedBelt
+
         currentQuestion = 1; elapsedSeconds = 0; questionsAsked = 1
         questionsAttempted = 0; rightAnswers = 0; wrongAnswers = 0; secondsTaken = 0
 
@@ -130,31 +156,31 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
         case kActTellTime:
             activityBG.image = UIImage(named: kBGTellTime)
             let vc = TellTimeViewController(nibName: isIPad ? kiPadNibTellTime : kNibTellTime, bundle: nil)
-            vc.activity = thisActivity; vc.activityType = activityType; vc.activityLevel = activityLevel; vc.timeOffset = 0
+            vc.activity = thisActivity; vc.activityType = activityType; vc.activityLevel = activityLevel; vc.gradeLevel = gradeLevel; vc.timeOffset = 0
             vc.delegate = self; navigationItem.title = kStrTellTime
             ttvc = vc; content.addSubview(vc.view)
         case kActSetTime:
             activityBG.image = UIImage(named: kBGSetTime)
             let vc = SetTimeViewController(nibName: isIPad ? kiPadNibSetTime : kNibSetTime, bundle: nil)
-            vc.activity = thisActivity; vc.activityType = activityType; vc.activityLevel = activityLevel; vc.timeOffset = 0
+            vc.activity = thisActivity; vc.activityType = activityType; vc.activityLevel = activityLevel; vc.gradeLevel = gradeLevel; vc.timeOffset = 0
             vc.delegate = self; navigationItem.title = kStrSetTime
             stvc = vc; content.addSubview(vc.view)
         case kActTimeBefore:
             activityBG.image = UIImage(named: kBGTimeBefore)
             let vc = TellTimeViewController(nibName: isIPad ? kiPadNibTellTime : kNibTellTime, bundle: nil)
-            vc.activity = thisActivity; vc.activityType = activityType; vc.activityLevel = activityLevel; vc.timeOffset = -1
+            vc.activity = thisActivity; vc.activityType = activityType; vc.activityLevel = activityLevel; vc.gradeLevel = gradeLevel; vc.timeOffset = -1
             vc.delegate = self; navigationItem.title = kStrTimeBefore
             ttvc = vc; content.addSubview(vc.view)
         case kActTimeAfter:
             activityBG.image = UIImage(named: kBGTimeAfter)
             let vc = TellTimeViewController(nibName: isIPad ? kiPadNibTellTime : kNibTellTime, bundle: nil)
-            vc.activity = thisActivity; vc.activityType = activityType; vc.activityLevel = activityLevel; vc.timeOffset = 1
+            vc.activity = thisActivity; vc.activityType = activityType; vc.activityLevel = activityLevel; vc.gradeLevel = gradeLevel; vc.timeOffset = 1
             vc.delegate = self; navigationItem.title = kStrTimeAfter
             ttvc = vc; content.addSubview(vc.view)
         case kActElapsedTime:
             activityBG.image = UIImage(named: kBGElapsedTime)
             let vc = ElapsedTimeViewController(nibName: isIPad ? kiPadNibElapsedTime : kNibElapsedTime, bundle: nil)
-            vc.activity = thisActivity; vc.activityType = activityType; vc.activityLevel = activityLevel; vc.timeOffset = 1
+            vc.activity = thisActivity; vc.activityType = activityType; vc.activityLevel = activityLevel; vc.gradeLevel = gradeLevel; vc.timeOffset = 1
             vc.delegate = self; navigationItem.title = kStrElapsedTime
             etvc = vc; content.addSubview(vc.view)
         case kActMixed:
@@ -181,9 +207,11 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
         let state = KidsTimeFunAppState.sharedState()
         state.questionNumber = currentQuestion; state.questionsRight = rightAnswers; state.questionsWrong = wrongAnswers
 
-        let numbered = state.activityType == kActTypeNumbered && currentQuestion <= maxQuestions
-        let timed = state.activityType == kActTypeTimed && secondsTaken <= maxSeconds
-        if numbered || timed {
+        // Every belt-ladder round has a fixed number of questions (10 or 20). A
+        // timed round simply adds a time limit on top — it ends at the question
+        // count OR when the countdown hits zero (handled in countDown), whichever
+        // comes first. So the round-end test is the same for both modes.
+        if currentQuestion <= maxQuestions {
             questionsAsked += 1; questionsAttempted += 1
             content.subviews.first?.removeFromSuperview()
             let next = activity == kActMixed ? Int32(Int.random(in: 0...4)) : activity
@@ -205,17 +233,24 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
         title = kStrResult
         let isIPad = UIDevice.current.userInterfaceIdiom == .pad
         let vc = ResultViewController(nibName: isIPad ? kiPadNibResult : kNibResult, bundle: nil)
+        vc.delegate = self
         vc.rightAnswers = rightAnswers; vc.wrongAnswers = wrongAnswers
         let answered = rightAnswers + wrongAnswers
         vc.totalQuestions = answered
-        vc.percentScore = answered > 0 ? Float(rightAnswers) / Float(answered) : 0
-        vc.timeTakenInSeconds = activityType == kActTypeTimed ? maxSeconds : Int32(endTime?.timeIntervalSince(startTime ?? Date()) ?? 0)
-        navigationController?.pushViewController(vc, animated: true)
-    }
+        let percent: Float = answered > 0 ? Float(rightAnswers) / Float(answered) : 0
+        vc.percentScore = percent
+        vc.timeTakenInSeconds = Int32(endTime?.timeIntervalSince(startTime ?? Date()) ?? 0)
 
-    func loadTopScoresView(sender: AnyObject) {
-        let vc = TopScoresSingleDetailViewController(activity: activity, andType: activityType, andLevel: activityLevel, withNibName: "TopScoresSingleDetailView", bundle: nil)
-        title = kStrTopScores
+        // Feed the score into the belt engine and let the result screen announce
+        // whether the child advances to the next round, repeats this one, or earned
+        // a belt. Continuing keeps the same session going (next/repeat round);
+        // earning a belt (or mastering) ends the session back at the menu.
+        let outcome = BeltProgressStore.shared.evaluateRound(grade: gradeLevel, activity: activity,
+                                                             roundIndex: roundIndex, percent: percent)
+        vc.outcomeMessage = outcome.message
+        vc.awardedBeltImageName = outcome.awardedBeltImageName
+        vc.canContinue = outcome.nextRoundIndex != nil
+        pendingNextRound = outcome.nextRoundIndex
         navigationController?.pushViewController(vc, animated: true)
     }
 
@@ -242,7 +277,15 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
 
     // MARK: - DismissResultDelegate
     func didDismissResult(_ sender: Any) {
-        if navigationController?.topViewController == self { loadTopScoresView(sender: self) }
+        // Continue the same session at the next (or repeated) round; otherwise the
+        // belt was earned / mastered, so return to the menu.
+        if let next = pendingNextRound {
+            roundIndex = next
+            pendingNextRound = nil
+            navigationController?.popToViewController(self, animated: true)
+        } else {
+            navigationController?.popToRootViewController(animated: true)
+        }
     }
 
     // MARK: - DismissActivityDelegate

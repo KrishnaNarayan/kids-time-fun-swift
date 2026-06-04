@@ -1,4 +1,5 @@
 // Revised by Krishna Narayan on 5/30/26 — Used Claude to migrate to Swift, fix UI Views, remove deprecations, update for iPad, modernize for Apple UI rules.
+// Revised by Krishna Narayan on 6/3/26 — Using Claude changed to 1st, 2nd, and 3rd grade levels, belts are earned not selected, added adaptive weak-drilling algorithm to rectify mistakes and build proficiency after initially providing randomized problems for activities
 // Copyright 2026 Island Innovation LLC.  All rights reserved.
 
 import UIKit
@@ -11,6 +12,7 @@ class SetTimeViewController: BaseViewController {
     var activity: Int32 = 0
     var activityType: Int32 = 0
     var activityLevel: Int32 = 0
+    var gradeLevel: Int32 = 0
     var timeOffset: Int32 = 0
 
     @IBOutlet private weak var clockContainerView: UIView!
@@ -21,20 +23,25 @@ class SetTimeViewController: BaseViewController {
     private var setClockView: SetClockView!
     private var randomNumber: RandomInteger!
     private var setHours = 0, setMinutes = 0, wrongCounter = 0
+    private var recordedAnswer = false // ensure the adaptive engine logs only the first attempt
 
     override func viewDidLoad() {
+        // Grade level sets how fine the target time can be (the hands the child
+        // must set): first grade lands on the half hour, third grade on the minute.
         let timeInterval: Int
-        switch activityLevel {
-        case kActLevelYellowBelt: timeInterval = 30
-        case kActLevelGreenBelt:  timeInterval = 15
-        case kActLevelRedBelt:    timeInterval = 5
-        case kActLevelBlackBelt:  timeInterval = 1
-        default:                  timeInterval = 30
+        switch gradeLevel {
+        case kGradeFirst:  timeInterval = 30
+        case kGradeSecond: timeInterval = 15
+        case kGradeThird:  timeInterval = 5
+        default:           timeInterval = 30
         }
 
         randomNumber = RandomInteger(range: 1, to: 12)
         setHours = randomNumber.randomInteger
-        setMinutes = (randomNumber.nextRandomInteger(inRange: 0, to: 59) / timeInterval) * timeInterval
+        // Adaptive drilling: bias the target minute toward the values this child
+        // sets wrong most (random warm-up / variety falls back to a random minute).
+        let randomMinute = (randomNumber.nextRandomInteger(inRange: 0, to: 59) / timeInterval) * timeInterval
+        setMinutes = AdaptiveDrill.shared.nextTargetMinute(grade: gradeLevel, activity: activity, interval: timeInterval) ?? randomMinute
 
         let timeStr = String(format: "%d:%02d", setHours, setMinutes)
         labelQuestion.text = "Move the clock hands to \(timeStr)"
@@ -65,7 +72,16 @@ class SetTimeViewController: BaseViewController {
             rightHours = true
         }
 
-        if rightHours && abs(setMinutes - Int(setClockView.minutes)) < 2 {
+        let correct = rightHours && abs(setMinutes - Int(setClockView.minutes)) < 2
+
+        // Log the first attempt for this question's minute bucket so the adaptive
+        // engine learns which target times this child struggles to set.
+        if !recordedAnswer {
+            recordedAnswer = true
+            AdaptiveDrill.shared.record(grade: gradeLevel, activity: activity, minute: setMinutes, correct: correct)
+        }
+
+        if correct {
             isRight = true
             rightOrWrong2?.image = UIImage(named: "Right"); rightOrWrong.image = UIImage(named: "GoodJob")
             rightOrWrong2?.isHidden = false

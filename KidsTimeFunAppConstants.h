@@ -4,23 +4,24 @@
  *
  //  Created by Jagmeet Chawla on 4/12/09.
  //  Revised by Krishna Narayan on 9/17/09
- //		--Updated graphics
- //		--Added tell a friend
- //		--Changed app name to Kids Learn To Tell Time
+ //		 - Updated graphics
+ //		 - Added tell a friend
+ //		 - Changed app name to Kids Learn To Tell Time
  //	 Revised by Krishna Narayan on 10/14/09
- //	    --Added conditional compilation for multiple languages--Spanish, French, Filipino, Portuguese, Turkish, Korean
+ //	     - Added conditional compilation for multiple languages - Spanish, French, Filipino, Portuguese, Turkish, Korean
  //  Modified by SVV Satyanarayana, under contract to NSC Partners LLC on 28/04/10.
  //  Revised by Krishna Narayan on 8/20/10
- //		---Update graphics for back to school
- //		---Changed name to Kids Time Fun
- //		---Revised icons for Kids Fraction Fun to Kids Math Fun~5th Grade and Learn to Tell Time to Kids Time Fun
- //		---Next version will include additional languages...will need to change the buttons, graphics are hard coded :(
- //	 Revised by Krishna Narayan on 10/29/10--Revised graphics and UI.  Fixed timers, fixed try again, changed fonts, and added new backgrounds.
- //  Revised by Krishna Narayan on 1/22/11--Revised graphics, fixed SET TIME smoother movement of hands, detects touches closer to the hand now.
- //  Revised by Krishna Narayan on 3/9/12--Added sound files and kids voice files
- //  Revised by Krishna Narayan on 12/14/12--Tested new sound files, revised text, copyright, released as universal version. Satyam debugged memory leaks
+ //		 - Update graphics for back to school
+ //		 - Changed name to Kids Time Fun
+ //		 - Revised icons for Kids Fraction Fun to Kids Math Fun~5th Grade and Learn to Tell Time to Kids Time Fun
+ //		 - Next version will include additional languages...will need to change the buttons, graphics are hard coded :(
+ //	 Revised by Krishna Narayan on 10/29/10 - Revised graphics and UI.  Fixed timers, fixed try again, changed fonts, and added new backgrounds.
+ //  Revised by Krishna Narayan on 1/22/11 - Revised graphics, fixed SET TIME smoother movement of hands, detects touches closer to the hand now.
+ //  Revised by Krishna Narayan on 3/9/12 - Added sound files and kids voice files
+ //  Revised by Krishna Narayan on 12/14/12 - Tested new sound files, revised text, copyright, released as universal version. Satyam debugged memory leaks
  //  Copyright 2009-2013 NSC Partners LLC. Copyright 2014 One Step Ahead Apps, LLC. All rights reserved.
 // Revised by Krishna Narayan on 5/30/26 — Used Claude to migrate to Swift, fix UI Views, remove deprecations, update for iPad, modernize for Apple UI rules.
+// Revised by Krishna Narayan on 6/3/26 — Using Claude changed to 1st, 2nd, and 3rd grade levels, belts are earned not selected, added adaptive weak-drilling algorithm to rectify mistakes and build proficiency after initially providing randomized problems for activities
 // Copyright 2026 Island Innovation LLC.  All rights reserved.
  */
 
@@ -78,6 +79,12 @@
 #define kActLevelGreenBelt 1
 #define kActLevelRedBelt 2
 #define kActLevelBlackBelt 3
+//Grade Level (the new single difficulty knob; drives clock-time increments)
+#define kGradeNone -1
+#define kNumberOfGrades 3
+#define kGradeFirst 0
+#define kGradeSecond 1
+#define kGradeThird 2
 //Activity Individual Question Progress
 #define kActQuestionNotDisplayed 0
 #define kActQuestionAsked 1
@@ -90,6 +97,7 @@
 //Application Defaults
 #define kDefaultActivityType kActTypeNumbered
 #define kDefaultActivityLevel kActLevelYellowBelt
+#define kDefaultGradeLevel kGradeFirst
 #define kDefaultMaxNumberOfQuestions 10
 #define kDefaultMaxTimeInSeconds 60
 #define kDefaultSizeOfTopScoreList 100
@@ -123,6 +131,15 @@
 #define kStrOneMinute @"1 Minute"
 #define kStrVarMaxMinutes @"%i Minutes"
 #define kStrBlank @""
+#define kStrRankBelts @"Rank Belts"
+#define kStrGradeLevel @"Grade Level"
+#define kStrFirstGrade @"First Grade"
+#define kStrSecondGrade @"Second Grade"
+#define kStrThirdGrade @"Third Grade"
+#define kStrFirstGradeInfo @"Thirty-minute increments"
+#define kStrSecondGradeInfo @"Fifteen-minute increments"
+#define kStrThirdGradeInfo @"Five-minute increments"
+#define kStrNoBeltYet @"No belt yet"
 
 #elif CC_LANGUAGE == CC_SPANISH
 
@@ -238,6 +255,8 @@
 //State
 #define kFileAppState @"KTFState.plist"
 #define kFileAppSettings @"KTFSettings.plist"
+#define kFileBeltProgress @"KTFBeltProgress.plist"
+#define kFileAdaptive @"KTFAdaptive.plist"
 //Settings
 //Var File Names for Scores - pass activity, type and level as variables
 #define kFileVarScores @"KTFScoreForAct%iTyp%iLvl%i.plist"
@@ -245,6 +264,7 @@
 #define kSettingsKeyNumberOfQuestions @"NumberOfQuestions"
 #define kSettingsKeyNumberOfMinutes @"NumberOfMinutes"
 #define kSettingsKeyActivityLevel @"ActivityLevel"
+#define kSettingsKeyGradeLevel @"GradeLevel"
 #define kSettingsKeyPlaySound @"PlaySound"
 //State Dictionary Keys
 

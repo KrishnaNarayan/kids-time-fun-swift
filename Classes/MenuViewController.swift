@@ -1,4 +1,5 @@
 // Revised by Krishna Narayan on 5/30/26 — Used Claude to migrate to Swift, fix UI Views, remove deprecations, update for iPad, modernize for Apple UI rules.
+// Revised by Krishna Narayan on 6/3/26 — Using Claude changed to 1st, 2nd, and 3rd grade levels, belts are earned not selected, added adaptive weak-drilling algorithm to rectify mistakes and build proficiency after initially providing randomized problems for activities
 // Copyright 2026 Island Innovation LLC.  All rights reserved.
 
 import UIKit
@@ -41,7 +42,7 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
         settingsBtn.accessibilityLabel = "Settings"
         navigationItem.rightBarButtonItem = settingsBtn
         let topScoresBtn = UIBarButtonItem(image: UIImage(systemName: "trophy"), style: .plain, target: self, action: #selector(topScoresButtonPressed(_:)))
-        topScoresBtn.accessibilityLabel = "Top Scores"
+        topScoresBtn.accessibilityLabel = kStrRankBelts
         navigationItem.leftBarButtonItem = topScoresBtn
 
         UIBarButtonItem.appearance().tintColor = UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1)
@@ -54,8 +55,9 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
             view.viewWithTag(tag)?.isHidden = true
         }
 
-        choiceActivityType.selectedSegmentIndex = Int(KidsTimeFunAppState.sharedState().activityType)
-        enlargeSegmentedControlForIPad(choiceActivityType)
+        // The Questions/Minutes selector is gone — round count and timing are now
+        // decided by the belt-progression engine, not chosen on the main screen.
+        choiceActivityType.isHidden = true
 
         // VoiceOver: give each activity launcher a clear spoken name, and hide the
         // purely decorative logo / rotating clip art from the rotor.
@@ -84,12 +86,10 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let state = KidsTimeFunAppState.sharedState()
-        let nq = String(format: kStrVarMaxQuestions, state.maxQuestions)
-        choiceActivityType.setTitle(nq, forSegmentAt: Int(kActTypeNumbered))
-        let mins = state.maxTimeInSeconds / 60
-        let timeStr = mins == 1 ? kStrOneMinute : String(format: kStrVarMaxMinutes, mins)
-        choiceActivityType.setTitle(timeStr, forSegmentAt: Int(kActTypeTimed))
+        // Whenever we're back at the menu, the next activity launch should begin a
+        // fresh belt session at the untimed warm-up round. (During a continuous
+        // session the menu is never shown, so in-session progress is preserved.)
+        activityVC?.roundIndex = 0
         refreshClock()
         clockTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(refreshClock), userInfo: nil, repeats: true)
     }

@@ -1,4 +1,5 @@
 // Revised by Krishna Narayan on 5/30/26 — Used Claude to migrate to Swift, fix UI Views, remove deprecations, update for iPad, modernize for Apple UI rules.
+// Revised by Krishna Narayan on 6/3/26 — Using Claude changed to 1st, 2nd, and 3rd grade levels, belts are earned not selected, added adaptive weak-drilling algorithm to rectify mistakes and build proficiency after initially providing randomized problems for activities
 // Copyright 2026 Island Innovation LLC.  All rights reserved.
 
 import UIKit
@@ -6,6 +7,9 @@ import UIKit
 @objc(SettingsModalViewController)
 class SettingsModalViewController: UIViewController {
 
+    // Outlets kept from the legacy XIB. The sliders, belt segmented control and
+    // their labels are no longer shown — we keep the references so we can hide
+    // them and reuse their frames/superview as layout anchors.
     @IBOutlet private weak var numberOfQuestionsSlider: UISlider!
     @IBOutlet private weak var numberOfMinutesSlider: UISlider!
     @IBOutlet private weak var activityLevelChoiceControl: UISegmentedControl!
@@ -17,29 +21,16 @@ class SettingsModalViewController: UIViewController {
     @IBOutlet private weak var playSoundDecider: UISwitch!
 
     private var isDirty = false
-    private var numberOfQuestions = 0
-    private var numberOfMinutes = 0
-    private var activityLevel = 0
+    private var gradeLevel = 0
     private var playSoundInApplication = true
 
-    private let minQ = 10, maxQ = 50, incQ = 10
-    private let minM = 1, maxM = 5, incM = 1
-
-    // Discrete choices that replace the old continuous sliders.
-    private let questionOptions = [10, 20, 30, 40, 50]
-    private let minuteOptions = [1, 2, 3, 4, 5]
-    private var questionButtons: [UIButton] = []
-    private var minuteButtons: [UIButton] = []
-    private var beltButtons: [UIButton] = []
+    // Grade level is the new single difficulty knob. Short visible titles keep
+    // three buttons readable on iPhone; VoiceOver speaks the full grade name.
+    private let gradeNames = [kStrFirstGrade, kStrSecondGrade, kStrThirdGrade]
+    private let gradeShortTitles = ["1st", "2nd", "3rd"]
+    private let gradeInfo = [kStrFirstGradeInfo, kStrSecondGradeInfo, kStrThirdGradeInfo]
+    private var gradeButtons: [UIButton] = []
     private var soundButton: UIButton?
-
-    private let levelNames = ["Yellow Belt", "Green Belt", "Red Belt", "Black Belt"]
-    private let levelDescriptions = [
-        "YELLOW BELT\n2 answer choices\n30 minute time increments\n2 hour max math range",
-        "GREEN BELT\n3 answer choices\n15 minute time increments\n4 hour max math range",
-        "RED BELT\n4 answer choices\n5 minute time increments\n6 hour max math range",
-        "BLACK BELT\n4 answer choices\n1 minute time increments\nNo max math range"
-    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,127 +42,118 @@ class SettingsModalViewController: UIViewController {
         let dict = NSDictionary(contentsOfFile: path) as? [String: Any] ?? [:]
 
         isDirty = dict.isEmpty
-        numberOfQuestions = Int((dict[kSettingsKeyNumberOfQuestions] as? NSNumber)?.int32Value ?? 0)
-        if numberOfQuestions == 0 { numberOfQuestions = Int(kDefaultMaxNumberOfQuestions) }
-        numberOfMinutes = Int((dict[kSettingsKeyNumberOfMinutes] as? NSNumber)?.int32Value ?? 0)
-        if numberOfMinutes == 0 { numberOfMinutes = Int(kDefaultMaxTimeInSeconds) / 60 }
-        activityLevel = Int((dict[kSettingsKeyActivityLevel] as? NSNumber)?.int32Value ?? 0)
-        if activityLevel == 0 { activityLevel = Int(kDefaultActivityLevel) }
+        if let g = (dict[kSettingsKeyGradeLevel] as? NSNumber)?.int32Value, !dict.isEmpty {
+            gradeLevel = Int(g)
+        } else {
+            gradeLevel = Int(kDefaultGradeLevel)
+        }
         playSoundInApplication = dict.isEmpty ? true : ((dict[kSettingsKeyPlaySound] as? NSNumber)?.boolValue ?? true)
-
-        numberOfQuestionsSlider.minimumValue = Float(minQ)
-        numberOfQuestionsSlider.maximumValue = Float(maxQ)
-        numberOfQuestionsSlider.isContinuous = true
-        numberOfQuestionsSlider.value = Float(numberOfQuestions)
-        numberOfMinutesSlider.minimumValue = Float(minM)
-        numberOfMinutesSlider.maximumValue = Float(maxM)
-        numberOfMinutesSlider.isContinuous = true
-        numberOfMinutesSlider.value = Float(numberOfMinutes)
-        activityLevelChoiceControl.selectedSegmentIndex = activityLevel
-        numberOfQuestionsLabel.text = String(format: "Total Questions: %i", numberOfQuestions)
-        numberOfMinutesLabel.text = String(format: "Total Minutes: %i", numberOfMinutes)
         playSoundDecider.isOn = playSoundInApplication
-        updateLevelLabels()
 
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.tintColor = UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1)
 
-        installDiscretePickers()
+        hideLegacyControls()
+        installGradeSection()
         installSoundButton()
-        adjustChallengeLevelLayout()
-        installBeltButtons()   // after adjustChallengeLevelLayout: belt frame is final
         addPrivacyLink()
     }
 
-    // MARK: - Discrete pickers (button rows replacing the continuous sliders)
+    // MARK: - Retire the old Questions / Minutes / Belt UI
 
-    private func installDiscretePickers() {
-        // Snap any stored value to the nearest allowed option so the saved value
-        // is always one of the discrete choices.
-        if !questionOptions.contains(numberOfQuestions) {
-            numberOfQuestions = questionOptions.min(by: { abs($0 - numberOfQuestions) < abs($1 - numberOfQuestions) }) ?? 30
-        }
-        if !minuteOptions.contains(numberOfMinutes) {
-            numberOfMinutes = minuteOptions.min(by: { abs($0 - numberOfMinutes) < abs($1 - numberOfMinutes) }) ?? 1
-        }
-        numberOfQuestionsLabel.text = String(format: "Total Questions: %i", numberOfQuestions)
-        numberOfMinutesLabel.text = String(format: "Total Minutes: %i", numberOfMinutes)
+    private func hideLegacyControls() {
+        numberOfQuestionsSlider?.isHidden = true
+        numberOfMinutesSlider?.isHidden = true
+        activityLevelChoiceControl?.isHidden = true
+        numberOfQuestionsLabel?.isHidden = true
+        numberOfMinutesLabel?.isHidden = true
+        activityLevelLabel?.isHidden = true
+        activityLevelDescriptionDropDownView?.isHidden = true
 
-        if let slider = numberOfQuestionsSlider, let parent = slider.superview {
-            slider.isHidden = true
-            let cells = questionOptions.map { (image: UIImage?.none, title: Optional("\($0)"), a11y: "\($0) questions") }
-            questionButtons = makeSelectableRow(frame: slider.frame, in: parent, cells: cells)
-            questionButtons.forEach { $0.addTarget(self, action: #selector(questionTapped(_:)), for: .touchUpInside) }
-            styleSelection(questionButtons, selected: questionOptions.firstIndex(of: numberOfQuestions) ?? 2)
-        }
-        if let slider = numberOfMinutesSlider, let parent = slider.superview {
-            slider.isHidden = true
-            let cells = minuteOptions.map { (image: UIImage?.none, title: Optional("\($0)"),
-                                             a11y: $0 == 1 ? "1 minute" : "\($0) minutes") }
-            minuteButtons = makeSelectableRow(frame: slider.frame, in: parent, cells: cells)
-            minuteButtons.forEach { $0.addTarget(self, action: #selector(minuteTapped(_:)), for: .touchUpInside) }
-            styleSelection(minuteButtons, selected: minuteOptions.firstIndex(of: numberOfMinutes) ?? 0)
-        }
-
-        // The original XIB drew static tick labels (10 20 30 40 50 / 1 2 3 4 5)
-        // beneath the sliders. They're now redundant — hide them.
-        if let content = numberOfQuestionsSlider?.superview {
-            let tickTexts = Set((questionOptions + minuteOptions).map { "\($0)" })
-            for case let label as UILabel in content.subviews
-            where tickTexts.contains((label.text ?? "").trimmingCharacters(in: .whitespaces)) {
-                label.isHidden = true
-            }
+        // The XIB also drew static tick labels (1…50) and "Total Questions" /
+        // "Total Time" headers beneath the old sliders. Hide those leftovers.
+        // Static leftover labels from the old Questions/Minutes/Belt layout. The
+        // iPad XIB additionally bakes in "Challenge Level" and a "Yellow Belt"
+        // caption; hide those too.
+        let deadTexts: Set<String> = ["1", "2", "3", "4", "5", "10", "20", "30", "40", "50",
+                                      "Total Questions", "Total Time", "Challenge Level", "Yellow Belt"]
+        if let root = view.subviews.first {
+            hideLabels(in: root, matching: deadTexts)
         }
     }
 
-    private func installBeltButtons() {
-        guard let belt = activityLevelChoiceControl, let parent = belt.superview else { return }
-        belt.isHidden = true   // keep the XIB control for its frame/wiring, but show buttons
-        let isPad = UIDevice.current.userInterfaceIdiom == .pad
-        let tint = UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1)
-        let frame = belt.frame
-        let images = levelNames.map { UIImage(named: $0) }
-
-        // Size each belt button to its image's aspect ratio (taller than the
-        // original 29pt row) so the selection highlight hugs the belt graphic
-        // instead of a wide, mostly-empty cell. Scale down if the row can't fit.
-        var h: CGFloat = isPad ? 54 : 36
-        let minGap: CGFloat = 6
-        let n = levelNames.count
-        func widths(forHeight hh: CGFloat) -> [CGFloat] {
-            images.map { img in
-                let ar = max(0.4, (img?.size.width ?? 1) / (img?.size.height ?? 1))
-                return (hh - 8) * ar + 8   // image area = hh-8 (edge insets), + padding
+    private func hideLabels(in v: UIView, matching texts: Set<String>) {
+        for sub in v.subviews {
+            if let l = sub as? UILabel,
+               texts.contains((l.text ?? "").trimmingCharacters(in: .whitespaces)) {
+                l.isHidden = true
             }
+            hideLabels(in: sub, matching: texts)
         }
-        var w = widths(forHeight: h)
-        let totalW = w.reduce(0, +)
-        if totalW + minGap * CGFloat(n + 1) > frame.width {
-            let scale = (frame.width - minGap * CGFloat(n + 1)) / totalW
-            h *= scale
-            w = widths(forHeight: h)
-        }
-        let gap = max(minGap, (frame.width - w.reduce(0, +)) / CGFloat(n + 1))
+    }
 
-        var x = frame.minX + gap
-        let cy = frame.midY
-        beltButtons = []
-        for (i, name) in levelNames.enumerated() {
-            let b = UIButton(type: .custom)
-            b.frame = CGRect(x: x, y: cy - h / 2, width: w[i], height: h)
-            b.setImage(images[i]?.withRenderingMode(.alwaysOriginal), for: .normal)
-            b.imageView?.contentMode = .scaleAspectFit
-            b.contentEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
-            b.accessibilityLabel = name
-            b.layer.cornerRadius = 8
-            b.layer.borderColor = tint.cgColor
-            b.tag = i
-            b.addTarget(self, action: #selector(beltTapped(_:)), for: .touchUpInside)
-            parent.addSubview(b)
-            beltButtons.append(b)
-            x += w[i] + gap
+    // MARK: - Grade Level section
+
+    private func installGradeSection() {
+        guard let scaling = view.subviews.first as? LegacyScalingView else { return }
+        let content = scaling.content
+        let base = scaling.baseSize
+        let tint = UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1)
+        let isPad = UIDevice.current.userInterfaceIdiom == .pad
+
+        // Lay the whole Grade Level section out in absolute base coordinates in the
+        // upper area (above the Sound row), so header / buttons / info text always
+        // line up regardless of the legacy XIB control positions.
+        let sideMargin: CGFloat = isPad ? 90 : 24
+        let rowW = base.width - sideMargin * 2
+        let headerY = base.height * (isPad ? 0.20 : 0.16)
+        let headerH: CGFloat = isPad ? 36 : 26
+        let rowH: CGFloat = isPad ? 56 : 40
+        let gapAfterHeader: CGFloat = isPad ? 14 : 8
+
+        let header = UILabel(frame: CGRect(x: sideMargin, y: headerY, width: rowW, height: headerH))
+        header.text = kStrGradeLevel
+        header.font = .boldSystemFont(ofSize: isPad ? 28 : 20)
+        header.textColor = tint
+        header.textAlignment = .center
+        content.addSubview(header)
+
+        // Three selectable grade buttons.
+        let rowFrame = CGRect(x: sideMargin, y: headerY + headerH + gapAfterHeader, width: rowW, height: rowH)
+        let cells = (0..<gradeNames.count).map { i in
+            (image: UIImage?.none, title: Optional(gradeShortTitles[i]), a11y: gradeNames[i])
         }
-        styleSelection(beltButtons, selected: activityLevel)
+        gradeButtons = makeSelectableRow(frame: rowFrame, in: content, cells: cells)
+        gradeButtons.forEach { $0.addTarget(self, action: #selector(gradeTapped(_:)), for: .touchUpInside) }
+        styleSelection(gradeButtons, selected: gradeLevel)
+
+        // Reuse the old description label for the increment info text, just below.
+        if let desc = activityLevelDescriptionLabel {
+            desc.isHidden = false
+            desc.textAlignment = .center
+            desc.backgroundColor = .clear
+            desc.numberOfLines = 0
+            desc.textColor = .darkGray
+            desc.font = .systemFont(ofSize: isPad ? 22 : 16)
+            desc.removeFromSuperview()
+            content.addSubview(desc)
+            desc.frame = CGRect(x: sideMargin, y: rowFrame.maxY + (isPad ? 18 : 12),
+                                width: rowW, height: isPad ? 60 : 44)
+            updateGradeInfo()
+        }
+    }
+
+    private func updateGradeInfo() {
+        guard gradeInfo.indices.contains(gradeLevel) else { return }
+        activityLevelDescriptionLabel.text = gradeInfo[gradeLevel]
+    }
+
+    @objc private func gradeTapped(_ sender: UIButton) {
+        guard gradeNames.indices.contains(sender.tag) else { return }
+        gradeLevel = sender.tag
+        styleSelection(gradeButtons, selected: sender.tag)
+        updateGradeInfo()
+        isDirty = true
     }
 
     /// Build a horizontal row of selectable buttons (radio style) filling `frame`.
@@ -218,30 +200,6 @@ class SettingsModalViewController: UIViewController {
         }
     }
 
-    @objc private func questionTapped(_ sender: UIButton) {
-        guard questionOptions.indices.contains(sender.tag) else { return }
-        numberOfQuestions = questionOptions[sender.tag]
-        numberOfQuestionsLabel.text = String(format: "Total Questions: %i", numberOfQuestions)
-        styleSelection(questionButtons, selected: sender.tag)
-        isDirty = true
-    }
-
-    @objc private func minuteTapped(_ sender: UIButton) {
-        guard minuteOptions.indices.contains(sender.tag) else { return }
-        numberOfMinutes = minuteOptions[sender.tag]
-        numberOfMinutesLabel.text = String(format: "Total Minutes: %i", numberOfMinutes)
-        styleSelection(minuteButtons, selected: sender.tag)
-        isDirty = true
-    }
-
-    @objc private func beltTapped(_ sender: UIButton) {
-        guard levelNames.indices.contains(sender.tag) else { return }
-        activityLevel = sender.tag
-        styleSelection(beltButtons, selected: sender.tag)
-        updateLevelLabels()
-        isDirty = true
-    }
-
     // MARK: - Sound on/off (speaker icon button replacing the toggle switch)
 
     private func installSoundButton() {
@@ -276,27 +234,42 @@ class SettingsModalViewController: UIViewController {
         soundButton?.accessibilityHint = on ? "Double tap to turn sound off" : "Double tap to turn sound on"
     }
 
+    // MARK: - Privacy link (parental gate before leaving the app)
+
     private static let privacyURL = URL(string: "https://krishnanarayan.github.io/kids-time-fun-swift/#privacy")!
 
     private func addPrivacyLink() {
         guard let scaling = view.subviews.first as? LegacyScalingView else { return }
         let tint = UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1)
         let base = scaling.baseSize
+        let isPad = UIDevice.current.userInterfaceIdiom == .pad
 
+        // Underlined, bold link text + a link icon so it clearly reads as tappable
+        // on both iPhone and iPad (rather than looking like a plain caption).
         let link = UIButton(type: .system)
-        link.setTitle("Privacy Policy", for: .normal)
-        link.setTitleColor(tint, for: .normal)
-        link.titleLabel?.font = .systemFont(ofSize: 14)
+        let title = NSAttributedString(string: "Privacy Policy", attributes: [
+            .font: UIFont.boldSystemFont(ofSize: isPad ? 22 : 17),
+            .foregroundColor: tint,
+            .underlineStyle: NSUnderlineStyle.single.rawValue
+        ])
+        link.setAttributedTitle(title, for: .normal)
         link.tintColor = tint
+        link.setImage(UIImage(systemName: "arrow.up.right.square"), for: .normal)
+        link.setPreferredSymbolConfiguration(
+            UIImage.SymbolConfiguration(pointSize: isPad ? 20 : 15, weight: .semibold), forImageIn: .normal)
+        link.semanticContentAttribute = .forceRightToLeft   // icon sits after the text
+        link.imageEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
+        link.accessibilityTraits = .link
+        link.accessibilityLabel = "Privacy Policy"
         link.accessibilityHint = "Opens the privacy policy in your web browser"
         link.addTarget(self, action: #selector(openPrivacyPolicy), for: .touchUpInside)
 
-        let w: CGFloat = 200, h: CGFloat = 30
-        // Sit the link near the bottom of the canvas; nudge it a little lower on
-        // iPhone where there is extra room beneath the belt description.
-        let isPad = UIDevice.current.userInterfaceIdiom == .pad
-        let bottomMargin: CGFloat = isPad ? 8 : -10
-        link.frame = CGRect(x: (base.width - w) / 2, y: base.height - h - bottomMargin, width: w, height: h)
+        // Center it within the green band near the bottom (lifted off the very edge,
+        // especially on iPhone where it sat too low before).
+        let w: CGFloat = isPad ? 340 : 240
+        let h: CGFloat = isPad ? 50 : 40
+        let centerY = base.height * (isPad ? 0.965 : 0.915)
+        link.frame = CGRect(x: (base.width - w) / 2, y: centerY - h / 2, width: w, height: h)
         scaling.content.addSubview(link)
     }
 
@@ -315,7 +288,7 @@ class SettingsModalViewController: UIViewController {
             tf.placeholder = "Answer"
         }
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        alert.addAction(UIAlertAction(title: "Open", style: .default) { [weak self, weak alert] _ in
+        alert.addAction(UIAlertAction(title: "Open", style: .default) { [weak alert] _ in
             let answer = Int(alert?.textFields?.first?.text ?? "")
             if answer == a * b {
                 UIApplication.shared.open(Self.privacyURL)
@@ -324,89 +297,11 @@ class SettingsModalViewController: UIViewController {
         present(alert, animated: true)
     }
 
-    private func adjustChallengeLevelLayout() {
-        let tint = UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1)
-        let isPad = UIDevice.current.userInterfaceIdiom == .pad
-
-        guard let belt = activityLevelChoiceControl else { return }
-
-        if isPad {
-            // iPad: lift the belt selector out of the rainbow and anchor the existing
-            // "Challenge Level" header just above it.
-            if let sound = playSoundDecider, let header = findLabel(withText: "Challenge Level") {
-                let headerH = header.frame.height
-                let headerY = sound.frame.maxY + 24
-                header.frame.origin.y = headerY
-                belt.frame.origin.y = headerY + headerH + 24
-            }
-        } else {
-            // iPhone: nudge the belt band down to give it room below the Sound row,
-            // then add a "Challenge Level" header above the belt with clear spacing.
-            belt.frame.origin.y += 16
-            let header = UILabel(frame: CGRect(x: belt.frame.minX, y: belt.frame.minY - 30,
-                                               width: belt.frame.width, height: 24))
-            header.text = "Challenge Level"
-            header.font = .boldSystemFont(ofSize: 18)
-            header.textColor = tint
-            header.textAlignment = .center
-            belt.superview?.addSubview(header)
-        }
-
-        // Move the belt description into the rainbow's white center (plain text).
-        // Reparent to the scaling container so we can position it in absolute
-        // content coordinates rather than relative to the overflowing dropdown.
-        if let desc = activityLevelDescriptionLabel,
-           let scaling = view.subviews.first as? LegacyScalingView {
-            desc.textAlignment = .center
-            desc.backgroundColor = .clear
-            desc.numberOfLines = 0
-            desc.removeFromSuperview()
-            scaling.content.addSubview(desc)
-            let base = scaling.baseSize
-            let w = base.width * 0.85
-            desc.frame = CGRect(x: (base.width - w) / 2, y: base.height * 0.78, width: w, height: 120)
-        }
-    }
-
-    private func findLabel(withText text: String, in root: UIView? = nil) -> UILabel? {
-        let base = root ?? view
-        for sub in base?.subviews ?? [] {
-            if let label = sub as? UILabel, label.text == text { return label }
-            if let found = findLabel(withText: text, in: sub) { return found }
-        }
-        return nil
-    }
+    // MARK: - Save
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         settingsDone(self)
-    }
-
-    @IBAction func maxNumberOfQuestionsChanged(_ sender: Any) {
-        let v = Int(numberOfQuestionsSlider.value)
-        numberOfQuestions = (v / incQ) * incQ
-        numberOfQuestionsLabel.text = String(format: "Total Questions: %i", numberOfQuestions)
-        isDirty = true
-    }
-
-    @IBAction func maxNumberOfMinutesChanged(_ sender: Any) {
-        numberOfMinutes = Int(numberOfMinutesSlider.value / Float(incM)) * incM
-        numberOfMinutesLabel.text = String(format: "Total Minutes: %i", numberOfMinutes)
-        isDirty = true
-    }
-
-    @IBAction func activityLevelChoiceChanged(_ sender: Any) {
-        isDirty = true
-        activityLevel = activityLevelChoiceControl.selectedSegmentIndex
-        updateLevelLabels()
-    }
-
-    // Retained for the XIB switch action connection; the visible control is now
-    // the speaker button (see toggleSound). The switch itself is hidden.
-    @IBAction func playSound(_ sender: Any) {
-        isDirty = true
-        playSoundInApplication = playSoundDecider.isOn
-        updateSoundButton()
     }
 
     @IBAction @objc func settingsDone(_ sender: Any) {
@@ -414,18 +309,24 @@ class SettingsModalViewController: UIViewController {
         let docs = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         let path = (docs as NSString).appendingPathComponent(kFileAppSettings)
         let dict: NSDictionary = [
-            kSettingsKeyNumberOfQuestions: NSNumber(value: numberOfQuestions),
-            kSettingsKeyNumberOfMinutes: NSNumber(value: numberOfMinutes),
-            kSettingsKeyActivityLevel: NSNumber(value: activityLevel),
+            kSettingsKeyGradeLevel: NSNumber(value: gradeLevel),
             kSettingsKeyPlaySound: NSNumber(value: playSoundInApplication)
         ]
         dict.write(toFile: path, atomically: true)
         KidsTimeFunAppState.sharedState().readSettings()
     }
 
-    private func updateLevelLabels() {
-        guard activityLevel < levelNames.count else { return }
-        activityLevelLabel?.text = levelNames[activityLevel]
-        activityLevelDescriptionLabel.text = levelDescriptions[activityLevel]
+    // MARK: - Legacy XIB action stubs
+    // These controls are hidden but their target-action wiring still lives in the
+    // nib; keep no-op handlers so the connections never send to a missing selector.
+
+    @IBAction func maxNumberOfQuestionsChanged(_ sender: Any) {}
+    @IBAction func maxNumberOfMinutesChanged(_ sender: Any) {}
+    @IBAction func activityLevelChoiceChanged(_ sender: Any) {}
+
+    @IBAction func playSound(_ sender: Any) {
+        playSoundInApplication = playSoundDecider.isOn
+        updateSoundButton()
+        isDirty = true
     }
 }

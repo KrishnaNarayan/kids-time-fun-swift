@@ -1,4 +1,5 @@
 // Revised by Krishna Narayan on 5/30/26 — Used Claude to migrate to Swift, fix UI Views, remove deprecations, update for iPad, modernize for Apple UI rules.
+// Revised by Krishna Narayan on 6/3/26 — Using Claude changed to 1st, 2nd, and 3rd grade levels, belts are earned not selected, added adaptive weak-drilling algorithm to rectify mistakes and build proficiency after initially providing randomized problems for activities
 // Copyright 2026 Island Innovation LLC.  All rights reserved.
 
 import UIKit
@@ -17,6 +18,12 @@ class ResultViewController: UIViewController {
     var totalQuestions: Int32 = 0
     var percentScore: Float = 0
     var timeTakenInSeconds: Int32 = 0
+    /// Belt-engine outcome supplied by ActivityViewController.
+    var outcomeMessage: String?
+    var awardedBeltImageName: String?
+    /// true when the session continues (next or repeated round); false when the
+    /// belt was earned/mastered and the only action is to return to the menu.
+    var canContinue: Bool = false
 
     @IBOutlet private weak var lblScoreMessage: UILabel!
     @IBOutlet private weak var imgViewTopScore: UIImageView?
@@ -50,6 +57,9 @@ class ResultViewController: UIViewController {
         // a real button appearance at a sensible size.
         styleButton(btnSave)
         styleButton(btnDone)
+        // The primary button either continues the belt session or finishes it.
+        btnDone.setTitle(canContinue ? "Continue" : "Done", for: .normal)
+        btnDone.accessibilityLabel = canContinue ? "Continue" : "Done"
 
         lblRightAnswers.text = "\(rightAnswers)"
         lblWrongAnswers.text = "\(wrongAnswers)"
@@ -57,68 +67,36 @@ class ResultViewController: UIViewController {
         lblPercentScore.text = String(format: "%1.2f%%", percentScore * 100)
         lblTimeTaken.text = "\(timeTakenInSeconds) seconds"
 
-        let card = ScoreCard()
-        let state = KidsTimeFunAppState.sharedState()
-        card.playerName = state.playerName
-        card.activity = state.activity
-        card.activityType = state.activityType
-        card.activityLevel = state.activityLevel
-        card.questionsAsked = totalQuestions
-        card.questionsAttempted = totalQuestions
-        card.rightAnswers = rightAnswers
-        card.wrongAnswers = wrongAnswers
-        card.percentScore = percentScore
-        card.secondsTaken = timeTakenInSeconds
-        card.newScoreCard()
+        // The belt-progression engine replaces the old per-run high-score list, so
+        // the header now reports the belt outcome (advanced / repeat / earned a
+        // belt) instead of asking for a name to save a score.
+        let message = outcomeMessage ?? ""
+        headerView.addSubview(topScoreHeaderView)
+        lblScoreMessage.text = message
+        lblScoreMessage.numberOfLines = 0
+        lblScoreRank.isHidden = true
+        txtName.isHidden = true
+        btnSave.isHidden = true
 
-        if card.isTopScore {
-            headerView.addSubview(topScoreHeaderView)
-            lblScoreRank.text = "\(card.scoreRank)"
-            txtName.text = state.playerName == kDefaultPlayerName ? "" : state.playerName
-            txtName.isEnabled = true
-            txtName.accessibilityLabel = "Your name"
-            txtName.accessibilityHint = "Enter your name to save your top score"
-            btnSave.isEnabled = true
-        } else {
-            headerView.addSubview(noTopScoreHeaderView)
+        // Show the earned belt graphic when one was just awarded; otherwise keep
+        // the encouraging default art.
+        if let beltName = awardedBeltImageName, let belt = UIImage(named: beltName) {
+            imgViewTopScore?.image = belt
+            imgViewTopScore?.accessibilityLabel = beltName
+        }
+
+        if !message.isEmpty {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                UIAccessibility.post(notification: .announcement, argument: message)
+            }
         }
     }
 
-    @IBAction func dismissKeyboard() {
-        if let text = txtName.text, !text.isEmpty {
-            KidsTimeFunAppState.sharedState().playerName = text
-        }
-        txtName.resignFirstResponder()
-    }
-
-    @IBAction func saveScore() {
-        dismissKeyboard()
-        let card = ScoreCard()
-        let state = KidsTimeFunAppState.sharedState()
-        card.playerName = state.playerName
-        card.activity = state.activity
-        card.activityType = state.activityType
-        card.activityLevel = state.activityLevel
-        card.questionsAsked = totalQuestions
-        card.questionsAttempted = totalQuestions
-        card.rightAnswers = rightAnswers
-        card.wrongAnswers = wrongAnswers
-        card.percentScore = percentScore
-        card.secondsTaken = timeTakenInSeconds
-        card.newScoreCard()
-
-        if card.isTopScore && !card.writeScoreCard() {
-            let alert = UIAlertController(title: "File Alert!", message: "Could not write score to the file. Please contact support.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
-            present(alert, animated: true)
-        }
-
-        txtName.isEnabled = false
-        btnSave.isEnabled = false
-        if let vcs = navigationController?.viewControllers {
-            navigationController?.popToViewController(vcs[0], animated: true)
-        }
-    }
+    // The old high-score "save your name" flow was retired when belts replaced
+    // Top Scores; the name field and Save button are hidden. These IBActions are
+    // kept as no-ops so the ResultView XIB's connections remain valid.
+    @IBAction func dismissKeyboard() {}
+    @IBAction func saveScore() {}
 
     @IBAction func done() {
         delegate?.didDismissResult(self)

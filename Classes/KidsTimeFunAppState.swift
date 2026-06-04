@@ -1,4 +1,5 @@
 // Revised by Krishna Narayan on 5/30/26 — Used Claude to migrate to Swift, fix UI Views, remove deprecations, update for iPad, modernize for Apple UI rules.
+// Revised by Krishna Narayan on 6/3/26 — Using Claude changed to 1st, 2nd, and 3rd grade levels, belts are earned not selected, added adaptive weak-drilling algorithm to rectify mistakes and build proficiency after initially providing randomized problems for activities
 // Copyright 2026 Island Innovation LLC.  All rights reserved.
 
 import Foundation
@@ -18,6 +19,7 @@ class KidsTimeFunAppState: NSObject {
         activity = kActNone
         activityType = kDefaultActivityType
         activityLevel = kDefaultActivityLevel
+        gradeLevel = kDefaultGradeLevel
         maxQuestions = kDefaultMaxNumberOfQuestions
         maxTimeInSeconds = kDefaultMaxTimeInSeconds
         sizeOfTopScoreList = kDefaultSizeOfTopScoreList
@@ -30,6 +32,7 @@ class KidsTimeFunAppState: NSObject {
     var activity: Int32 = 0
     var activityType: Int32 = 0
     var activityLevel: Int32 = 0
+    var gradeLevel: Int32 = 0
     var questionNumber: Int32 = 0
     var questionsRight: Int32 = 0
     var questionsWrong: Int32 = 0
@@ -58,6 +61,14 @@ class KidsTimeFunAppState: NSObject {
         maxTimeInSeconds = (nm == 0 ? kDefaultMaxTimeInSeconds / 60 : nm) * 60
         let al = (dict[kSettingsKeyActivityLevel] as? NSNumber)?.int32Value ?? 0
         activityLevel = al == 0 ? kDefaultActivityLevel : al
+        // Grade level is the new single difficulty knob (drives clock-time increments).
+        // First grade is index 0, so a missing key must fall back to the default
+        // rather than being treated as "unset".
+        if let g = (dict[kSettingsKeyGradeLevel] as? NSNumber)?.int32Value, !dict.isEmpty {
+            gradeLevel = g
+        } else {
+            gradeLevel = kDefaultGradeLevel
+        }
         appSoundState = dict.isEmpty ? true : ((dict[kSettingsKeyPlaySound] as? NSNumber)?.boolValue ?? true)
     }
 

@@ -203,8 +203,6 @@
 		52E5E0BA1351C09A00EBCBBE /* SetTimeView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E5E0B91351C09A00EBCBBE /* SetTimeView-iPad.xib */; };
 		52E5E0C51351C41B00EBCBBE /* ElapsedTimeView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E5E0C41351C41B00EBCBBE /* ElapsedTimeView-iPad.xib */; };
 		52E5E1021351CAC300EBCBBE /* TopScoresActivitySelectorView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E5E1011351CAC300EBCBBE /* TopScoresActivitySelectorView-iPad.xib */; };
-		52E5E10C135210A800EBCBBE /* TopScoresActivityLevelSelectorView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E5E10B135210A800EBCBBE /* TopScoresActivityLevelSelectorView-iPad.xib */; };
-		52E5E11B1352124F00EBCBBE /* TopScoresSingleDetailView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E5E11A1352124F00EBCBBE /* TopScoresSingleDetailView-iPad.xib */; };
 		6BE410BB12EBC098001D7376 /* 100KCF72A.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BE4105612EBC098001D7376 /* 100KCF72A.png */; };
 		6BE410BC12EBC098001D7376 /* 10KCF72A.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BE4105712EBC098001D7376 /* 10KCF72A.png */; };
 		6BE410BD12EBC098001D7376 /* 11KCF72A.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BE4105812EBC098001D7376 /* 11KCF72A.png */; };
@@ -318,11 +316,9 @@
 		9B9DF6210FBB95A700200B50 /* Right40.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B9DF61C0FBB95A700200B50 /* Right40.png */; };
 		9B9DF6240FBB95A700200B50 /* Wrong40.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B9DF61F0FBB95A700200B50 /* Wrong40.png */; };
 		9BA3E0B20F92E8E200E7ED9C /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA3E0B10F92E8E200E7ED9C /* MenuView.xib */; };
-		9BA55FF00FBE2CDD004A7C2F /* TopScoresSingleDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA55FEF0FBE2CDD004A7C2F /* TopScoresSingleDetailView.xib */; };
 		9BA5605B0FBE3EC9004A7C2F /* TopScoresActivitySelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA5605A0FBE3EC9004A7C2F /* TopScoresActivitySelectorView.xib */; };
 		9BA561D40FBE6543004A7C2F /* Numbered.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BA561D30FBE6543004A7C2F /* Numbered.png */; };
 		9BA561D60FBE65CC004A7C2F /* Timed.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BA561D50FBE65CC004A7C2F /* Timed.png */; };
-		9BA561DE0FBE6728004A7C2F /* TopScoresActivityLevelSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA561DD0FBE6728004A7C2F /* TopScoresActivityLevelSelectorView.xib */; };
 		9BA5626C0FBE730A004A7C2F /* SettingsModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA5626A0FBE730A004A7C2F /* SettingsModalView.xib */; };
 		9BB3DB430F9BBE3500877016 /* ClockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BB3DB420F9BBE3500877016 /* ClockView.xib */; };
 		9BCE51600FAC90E800B7BC73 /* ActivityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE515F0FAC90E800B7BC73 /* ActivityView.xib */; };
@@ -340,17 +336,14 @@
 		CC0000001000000000000035 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000012 /* MenuViewController.swift */; };
 		CC0000001000000000000036 /* RandomInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000013 /* RandomInteger.swift */; };
 		CC0000001000000000000037 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000014 /* ResultViewController.swift */; };
-		CC0000001000000000000038 /* ScoreCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000015 /* ScoreCard.swift */; };
-		CC0000001000000000000039 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000016 /* ScoreViewController.swift */; };
+		CC0000001000000000000091 /* BeltProgressStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000090 /* BeltProgressStore.swift */; };
+		CC0000001000000000000093 /* AdaptiveDrill.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000092 /* AdaptiveDrill.swift */; };
 		CC0000001000000000000040 /* SetClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000017 /* SetClockView.swift */; };
 		CC0000001000000000000041 /* SetTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000018 /* SetTimeViewController.swift */; };
 		CC0000001000000000000042 /* SettingsModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000019 /* SettingsModalViewController.swift */; };
 		CC0000001000000000000043 /* TellAFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000020 /* TellAFriendViewController.swift */; };
 		CC0000001000000000000044 /* TellTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000021 /* TellTimeViewController.swift */; };
-		CC0000001000000000000045 /* TopScoresActivityLevelSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000022 /* TopScoresActivityLevelSelector.swift */; };
 		CC0000001000000000000046 /* TopScoresActivitySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000023 /* TopScoresActivitySelector.swift */; };
-		CC0000001000000000000047 /* TopScoresDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000024 /* TopScoresDetailViewController.swift */; };
-		CC0000001000000000000048 /* TopScoresSingleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000025 /* TopScoresSingleDetailViewController.swift */; };
 		CC0000001000000000000049 /* TransitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000026 /* TransitionView.swift */; };
 		CC0000002000000000000002 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC0000002000000000000001 /* LaunchScreen.storyboard */; };
 		CC0000002000000000000004 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = CC0000002000000000000003 /* PrivacyInfo.xcprivacy */; };
@@ -555,8 +548,6 @@
 		52E5E0B91351C09A00EBCBBE /* SetTimeView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "SetTimeView-iPad.xib"; path = "Resources-iPad/SetTimeView-iPad.xib"; sourceTree = "<group>"; };
 		52E5E0C41351C41B00EBCBBE /* ElapsedTimeView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "ElapsedTimeView-iPad.xib"; path = "Resources-iPad/ElapsedTimeView-iPad.xib"; sourceTree = "<group>"; };
 		52E5E1011351CAC300EBCBBE /* TopScoresActivitySelectorView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "TopScoresActivitySelectorView-iPad.xib"; path = "Resources-iPad/TopScoresActivitySelectorView-iPad.xib"; sourceTree = "<group>"; };
-		52E5E10B135210A800EBCBBE /* TopScoresActivityLevelSelectorView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "TopScoresActivityLevelSelectorView-iPad.xib"; path = "Resources-iPad/TopScoresActivityLevelSelectorView-iPad.xib"; sourceTree = "<group>"; };
-		52E5E11A1352124F00EBCBBE /* TopScoresSingleDetailView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "TopScoresSingleDetailView-iPad.xib"; path = "Resources-iPad/TopScoresSingleDetailView-iPad.xib"; sourceTree = "<group>"; };
 		6BE4105612EBC098001D7376 /* 100KCF72A.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 100KCF72A.png; sourceTree = "<group>"; };
 		6BE4105712EBC098001D7376 /* 10KCF72A.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10KCF72A.png; sourceTree = "<group>"; };
 		6BE4105812EBC098001D7376 /* 11KCF72A.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11KCF72A.png; sourceTree = "<group>"; };
@@ -671,11 +662,9 @@
 		9B9DF61C0FBB95A700200B50 /* Right40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Right40.png; sourceTree = "<group>"; };
 		9B9DF61F0FBB95A700200B50 /* Wrong40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wrong40.png; sourceTree = "<group>"; };
 		9BA3E0B10F92E8E200E7ED9C /* MenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
-		9BA55FEF0FBE2CDD004A7C2F /* TopScoresSingleDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopScoresSingleDetailView.xib; sourceTree = "<group>"; };
 		9BA5605A0FBE3EC9004A7C2F /* TopScoresActivitySelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopScoresActivitySelectorView.xib; sourceTree = "<group>"; };
 		9BA561D30FBE6543004A7C2F /* Numbered.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Numbered.png; sourceTree = "<group>"; };
 		9BA561D50FBE65CC004A7C2F /* Timed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Timed.png; sourceTree = "<group>"; };
-		9BA561DD0FBE6728004A7C2F /* TopScoresActivityLevelSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopScoresActivityLevelSelectorView.xib; sourceTree = "<group>"; };
 		9BA5626A0FBE730A004A7C2F /* SettingsModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SettingsModalView.xib; path = Classes/SettingsModalView.xib; sourceTree = "<group>"; };
 		9BB3DB420F9BBE3500877016 /* ClockView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClockView.xib; sourceTree = "<group>"; };
 		9BCE515F0FAC90E800B7BC73 /* ActivityView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityView.xib; sourceTree = "<group>"; };
@@ -695,17 +684,14 @@
 		CC0000001000000000000012 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		CC0000001000000000000013 /* RandomInteger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomInteger.swift; sourceTree = "<group>"; };
 		CC0000001000000000000014 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
-		CC0000001000000000000015 /* ScoreCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCard.swift; sourceTree = "<group>"; };
-		CC0000001000000000000016 /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
+		CC0000001000000000000090 /* BeltProgressStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeltProgressStore.swift; sourceTree = "<group>"; };
+		CC0000001000000000000092 /* AdaptiveDrill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveDrill.swift; sourceTree = "<group>"; };
 		CC0000001000000000000017 /* SetClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetClockView.swift; sourceTree = "<group>"; };
 		CC0000001000000000000018 /* SetTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimeViewController.swift; sourceTree = "<group>"; };
 		CC0000001000000000000019 /* SettingsModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModalViewController.swift; sourceTree = "<group>"; };
 		CC0000001000000000000020 /* TellAFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TellAFriendViewController.swift; sourceTree = "<group>"; };
 		CC0000001000000000000021 /* TellTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TellTimeViewController.swift; sourceTree = "<group>"; };
-		CC0000001000000000000022 /* TopScoresActivityLevelSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScoresActivityLevelSelector.swift; sourceTree = "<group>"; };
 		CC0000001000000000000023 /* TopScoresActivitySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScoresActivitySelector.swift; sourceTree = "<group>"; };
-		CC0000001000000000000024 /* TopScoresDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScoresDetailViewController.swift; sourceTree = "<group>"; };
-		CC0000001000000000000025 /* TopScoresSingleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScoresSingleDetailViewController.swift; sourceTree = "<group>"; };
 		CC0000001000000000000026 /* TransitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionView.swift; sourceTree = "<group>"; };
 		CC0000002000000000000001 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC0000002000000000000003 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -758,17 +744,14 @@
 				CC0000001000000000000012 /* MenuViewController.swift */,
 				CC0000001000000000000013 /* RandomInteger.swift */,
 				CC0000001000000000000014 /* ResultViewController.swift */,
-				CC0000001000000000000015 /* ScoreCard.swift */,
-				CC0000001000000000000016 /* ScoreViewController.swift */,
+				CC0000001000000000000090 /* BeltProgressStore.swift */,
+				CC0000001000000000000092 /* AdaptiveDrill.swift */,
 				CC0000001000000000000017 /* SetClockView.swift */,
 				CC0000001000000000000018 /* SetTimeViewController.swift */,
 				CC0000001000000000000019 /* SettingsModalViewController.swift */,
 				CC0000001000000000000020 /* TellAFriendViewController.swift */,
 				CC0000001000000000000021 /* TellTimeViewController.swift */,
-				CC0000001000000000000022 /* TopScoresActivityLevelSelector.swift */,
 				CC0000001000000000000023 /* TopScoresActivitySelector.swift */,
-				CC0000001000000000000024 /* TopScoresDetailViewController.swift */,
-				CC0000001000000000000025 /* TopScoresSingleDetailViewController.swift */,
 				CC0000001000000000000026 /* TransitionView.swift */,
 			);
 			path = Classes;
@@ -950,8 +933,6 @@
 			children = (
 				9BB3DB420F9BBE3500877016 /* ClockView.xib */,
 				9BFA129E0FBA707400A2C057 /* TellAFriendView.xib */,
-				9BA55FEF0FBE2CDD004A7C2F /* TopScoresSingleDetailView.xib */,
-				9BA561DD0FBE6728004A7C2F /* TopScoresActivityLevelSelectorView.xib */,
 				9BA5605A0FBE3EC9004A7C2F /* TopScoresActivitySelectorView.xib */,
 				9B93CA980FC2259300043810 /* ElapsedTimeView.xib */,
 				9B1DE2000FA78A5000DB7E9A /* SetTimeView.xib */,
@@ -969,8 +950,6 @@
 		51A07C3B1960B156005577F4 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
-				52E5E11A1352124F00EBCBBE /* TopScoresSingleDetailView-iPad.xib */,
-				52E5E10B135210A800EBCBBE /* TopScoresActivityLevelSelectorView-iPad.xib */,
 				52E5E1011351CAC300EBCBBE /* TopScoresActivitySelectorView-iPad.xib */,
 				52E5E0C41351C41B00EBCBBE /* ElapsedTimeView-iPad.xib */,
 				52E5E0B91351C09A00EBCBBE /* SetTimeView-iPad.xib */,
@@ -1340,7 +1319,6 @@
 				9B9DF6200FBB95A700200B50 /* Percent40.png in Resources */,
 				9B9DF6210FBB95A700200B50 /* Right40.png in Resources */,
 				9B9DF6240FBB95A700200B50 /* Wrong40.png in Resources */,
-				9BA55FF00FBE2CDD004A7C2F /* TopScoresSingleDetailView.xib in Resources */,
 				9BA5605B0FBE3EC9004A7C2F /* TopScoresActivitySelectorView.xib in Resources */,
 				519AD08E1A01DC7B0014AB46 /* KMF-4-120.png in Resources */,
 				5164FDB6195F85C200DD87DE /* Red Belt.png in Resources */,
@@ -1348,7 +1326,6 @@
 				51F3700D195E2635006797B2 /* Main Menu Background.png in Resources */,
 				5164FDB9195F85C200DD87DE /* Yellow Belt.png in Resources */,
 				9BA561D60FBE65CC004A7C2F /* Timed.png in Resources */,
-				9BA561DE0FBE6728004A7C2F /* TopScoresActivityLevelSelectorView.xib in Resources */,
 				9BA5626C0FBE730A004A7C2F /* SettingsModalView.xib in Resources */,
 				9B93C9720FC1DDAB00043810 /* EqualTo40.png in Resources */,
 				9B93CA990FC2259300043810 /* ElapsedTimeView.xib in Resources */,
@@ -1515,9 +1492,7 @@
 				52E5E0BA1351C09A00EBCBBE /* SetTimeView-iPad.xib in Resources */,
 				52E5E0C51351C41B00EBCBBE /* ElapsedTimeView-iPad.xib in Resources */,
 				52E5E1021351CAC300EBCBBE /* TopScoresActivitySelectorView-iPad.xib in Resources */,
-				52E5E10C135210A800EBCBBE /* TopScoresActivityLevelSelectorView-iPad.xib in Resources */,
 				5183D43E195D0E85003E3156 /* Menu-RedButton.png in Resources */,
-				52E5E11B1352124F00EBCBBE /* TopScoresSingleDetailView-iPad.xib in Resources */,
 				33B1E8A2161FCBC700150417 /* Default-568h@2x.png in Resources */,
 				451C7718165377DC0068C5CC /* 10_m.mp3 in Resources */,
 				451C7719165377DC0068C5CC /* 11_m.mp3 in Resources */,
@@ -1647,17 +1622,14 @@
 				CC0000001000000000000035 /* MenuViewController.swift in Sources */,
 				CC0000001000000000000036 /* RandomInteger.swift in Sources */,
 				CC0000001000000000000037 /* ResultViewController.swift in Sources */,
-				CC0000001000000000000038 /* ScoreCard.swift in Sources */,
-				CC0000001000000000000039 /* ScoreViewController.swift in Sources */,
+				CC0000001000000000000091 /* BeltProgressStore.swift in Sources */,
+				CC0000001000000000000093 /* AdaptiveDrill.swift in Sources */,
 				CC0000001000000000000040 /* SetClockView.swift in Sources */,
 				CC0000001000000000000041 /* SetTimeViewController.swift in Sources */,
 				CC0000001000000000000042 /* SettingsModalViewController.swift in Sources */,
 				CC0000001000000000000043 /* TellAFriendViewController.swift in Sources */,
 				CC0000001000000000000044 /* TellTimeViewController.swift in Sources */,
-				CC0000001000000000000045 /* TopScoresActivityLevelSelector.swift in Sources */,
 				CC0000001000000000000046 /* TopScoresActivitySelector.swift in Sources */,
-				CC0000001000000000000047 /* TopScoresDetailViewController.swift in Sources */,
-				CC0000001000000000000048 /* TopScoresSingleDetailViewController.swift in Sources */,
 				CC0000001000000000000049 /* TransitionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
