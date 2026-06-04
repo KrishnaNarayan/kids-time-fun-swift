@@ -1,4 +1,5 @@
 // Revised by Krishna Narayan on 5/30/26 — Used Claude to migrate to Swift, fix UI Views, remove deprecations, update for iPad, modernize for Apple UI rules.
+// Revised by Krishna Narayan on 6/3/26 — Using Claude changed to 1st, 2nd, and 3rd grade levels, belts are earned not selected, added adaptive weak-drilling algorithm to rectify mistakes and build proficiency after initially providing randomized problems for activities
 // Copyright 2026 Island Innovation LLC.  All rights reserved.
 
 import UIKit
@@ -11,6 +12,7 @@ class ElapsedTimeViewController: BaseViewController {
     var activity: Int32 = 0
     var activityType: Int32 = 0
     var activityLevel: Int32 = 0
+    var gradeLevel: Int32 = 0
     var timeOffset: Int32 = 0
     var answerIndex: Int = 0
 
@@ -28,6 +30,8 @@ class ElapsedTimeViewController: BaseViewController {
     private var randomNumber: RandomInteger!
     private var choices: UISegmentedControl!
     private var wrongCounter = 0
+    private var drilledMinute = 0      // start-clock minute bucket (for adaptive recording)
+    private var recordedAnswer = false // ensure we log only the first attempt
 
     override func viewDidLoad() {
         clockView = ClockView(frame: clockContainerView.bounds)
@@ -38,13 +42,14 @@ class ElapsedTimeViewController: BaseViewController {
             clockView2.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
         }
 
+        // Grade level drives the elapsed-time granularity, the gap range between
+        // the two clocks, and the number of answer choices.
         let timeInterval: Int, timeRangeLow: Int, timeRangeHigh: Int, numberOfChoices: Int
-        switch activityLevel {
-        case kActLevelYellowBelt: (timeInterval, timeRangeLow, timeRangeHigh, numberOfChoices) = (30, 30, 120, 2)
-        case kActLevelGreenBelt:  (timeInterval, timeRangeLow, timeRangeHigh, numberOfChoices) = (15, 15, 240, 3)
-        case kActLevelRedBelt:    (timeInterval, timeRangeLow, timeRangeHigh, numberOfChoices) = (5, 5, 360, 4)
-        case kActLevelBlackBelt:  (timeInterval, timeRangeLow, timeRangeHigh, numberOfChoices) = (1, 5, 719, 4)
-        default:                  (timeInterval, timeRangeLow, timeRangeHigh, numberOfChoices) = (30, 30, 120, 2)
+        switch gradeLevel {
+        case kGradeFirst:  (timeInterval, timeRangeLow, timeRangeHigh, numberOfChoices) = (30, 30, 120, 2)
+        case kGradeSecond: (timeInterval, timeRangeLow, timeRangeHigh, numberOfChoices) = (15, 15, 240, 3)
+        case kGradeThird:  (timeInterval, timeRangeLow, timeRangeHigh, numberOfChoices) = (5, 5, 360, 4)
+        default:           (timeInterval, timeRangeLow, timeRangeHigh, numberOfChoices) = (30, 30, 120, 2)
         }
 
         switch numberOfChoices {
@@ -57,7 +62,11 @@ class ElapsedTimeViewController: BaseViewController {
         randomNumber = RandomInteger(range: 1, to: 12)
         clockView.hours = Float(randomNumber.randomInteger)
         clockView.PM = randomNumber.nextRandomInteger(inRange: 0, to: 1) != 0
-        clockView.minutes = Float((randomNumber.nextRandomInteger(inRange: 0, to: 59) / timeInterval) * timeInterval)
+        // Adaptive drilling: bias the starting clock's minute toward the values this
+        // child reads wrong most (random warm-up / variety falls back to random).
+        let randomMinute = (randomNumber.nextRandomInteger(inRange: 0, to: 59) / timeInterval) * timeInterval
+        drilledMinute = AdaptiveDrill.shared.nextTargetMinute(grade: gradeLevel, activity: activity, interval: timeInterval) ?? randomMinute
+        clockView.minutes = Float(drilledMinute)
         clockView.seconds = 0; clockView.showSeconds = false
         clockView.showClockAsAnalog = true; clockView.showMinutesOffsetInHoursHand = true
         clockView.showAMPM = false; clockView.showDayNight = false
@@ -106,6 +115,12 @@ class ElapsedTimeViewController: BaseViewController {
     }
 
     @IBAction func choicesValueChanged() {
+        if !recordedAnswer {
+            recordedAnswer = true
+            AdaptiveDrill.shared.record(grade: gradeLevel, activity: activity,
+                                        minute: drilledMinute,
+                                        correct: choices.selectedSegmentIndex == answerIndex)
+        }
         choices.isEnabled = false; choices.isHidden = true
         if choices.selectedSegmentIndex == answerIndex {
             isRight = true
