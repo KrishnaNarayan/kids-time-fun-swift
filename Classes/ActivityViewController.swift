@@ -14,11 +14,15 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
     var gradeLevel: Int32 = 0      // difficulty knob passed to the generators
     var maxQuestions: Int32 = 0
     var maxSeconds: Int32 = 0
-    /// Position in the belt ladder for the current continuous session. Reset to 0
-    /// every time the activity is entered from the menu (see MenuViewController),
-    /// so a session always starts with the untimed warm-up round.
-    var roundIndex: Int32 = 0
-    private var pendingNextRound: Int32?
+    // The belt-ladder position is persisted in BeltProgressStore, so it resumes
+    // across leaving/re-entering the activity. After a round we either continue to
+    // the next/repeated round or, on earning a belt, return to the menu.
+    private var sessionContinues = false
+    // Guards against the round ending more than once. A timed round can hit its
+    // time limit AND its question limit at nearly the same moment (in-flight answer
+    // feedback); without this the results screen could be pushed twice / over an
+    // alert, freezing the UI.
+    private var roundFinished = false
     private(set) var currentQuestion: Int32 = 1
     private(set) var elapsedSeconds: Int32 = 0
     private(set) var questionsAsked: Int32 = 1
@@ -90,7 +94,7 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
         // questions, whether it's timed, the time limit) for the current ladder
         // position, and what belt the child is working toward. The header shows
         // the belt already earned.
-        let plan = BeltProgressStore.shared.roundPlan(grade: gradeLevel, activity: activity, roundIndex: roundIndex)
+        let plan = BeltProgressStore.shared.roundPlan(grade: gradeLevel, activity: activity)
         activityType = plan.activityType
         maxQuestions = plan.questions
         maxSeconds = plan.seconds
@@ -103,6 +107,7 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
 
         currentQuestion = 1; elapsedSeconds = 0; questionsAsked = 1
         questionsAttempted = 0; rightAnswers = 0; wrongAnswers = 0; secondsTaken = 0
+        roundFinished = false
 
         if state.activityType == kActTypeTimed {
             header.countdownTimer = state.maxTimeInSeconds
@@ -192,6 +197,10 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
     }
 
     private func loadNextActivity(sender: AnyObject) {
+        // If the round already ended (e.g. the timer ran out), ignore any trailing
+        // answer-feedback callbacks so we never load another question or push the
+        // results screen a second time.
+        guard !roundFinished else { return }
         currentQuestion += 1
         if (sender as? TellTimeViewController)?.isRight == true ||
            (sender as? ElapsedTimeViewController)?.isRight == true ||
@@ -221,8 +230,16 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
                 transView.replaceSubview(oldView, withSubview: composite, transition: .push, direction: .fromRight, duration: 0.25)
             }
         } else {
-            loadResultsView(sender: self)
+            finishRound()
         }
+    }
+
+    /// End the current round exactly once and show the results.
+    private func finishRound() {
+        guard !roundFinished else { return }
+        roundFinished = true
+        timer?.invalidate(); timer = nil
+        loadResultsView(sender: self)
     }
 
     func loadResultsView(sender: AnyObject) {
@@ -245,26 +262,22 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
         // whether the child advances to the next round, repeats this one, or earned
         // a belt. Continuing keeps the same session going (next/repeat round);
         // earning a belt (or mastering) ends the session back at the menu.
-        let outcome = BeltProgressStore.shared.evaluateRound(grade: gradeLevel, activity: activity,
-                                                             roundIndex: roundIndex, percent: percent)
+        let outcome = BeltProgressStore.shared.evaluateRound(grade: gradeLevel, activity: activity, percent: percent)
         vc.outcomeMessage = outcome.message
         vc.awardedBeltImageName = outcome.awardedBeltImageName
-        vc.canContinue = outcome.nextRoundIndex != nil
-        pendingNextRound = outcome.nextRoundIndex
+        vc.canContinue = outcome.sessionContinues
+        sessionContinues = outcome.sessionContinues
         navigationController?.pushViewController(vc, animated: true)
     }
 
     @objc private func countDown() {
-        guard KidsTimeFunAppState.sharedState().activityType == kActTypeTimed else { return }
+        guard KidsTimeFunAppState.sharedState().activityType == kActTypeTimed, !roundFinished else { return }
         if header.countdownTimer <= 0 {
-            timer?.invalidate(); timer = nil
-            guard navigationController?.topViewController == self else { return }
-            let alert = UIAlertController(title: "Time is up!", message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default) { [weak self] _ in
-                guard let self = self else { return }
-                self.loadResultsView(sender: self)
-            })
-            present(alert, animated: true)
+            // Time's up — end the round cleanly and go straight to the results. (We
+            // deliberately don't pop up a blocking alert here: the round's in-flight
+            // answer feedback could otherwise keep advancing questions underneath it
+            // and then push the results a second time, freezing the screen.)
+            finishRound()
         } else {
             header.countdownTimer -= 1
             header.setNeedsDisplay()
@@ -277,11 +290,10 @@ class ActivityViewController: UIViewController, DismissResultDelegate, DismissAc
 
     // MARK: - DismissResultDelegate
     func didDismissResult(_ sender: Any) {
-        // Continue the same session at the next (or repeated) round; otherwise the
-        // belt was earned / mastered, so return to the menu.
-        if let next = pendingNextRound {
-            roundIndex = next
-            pendingNextRound = nil
+        // Continue to the next (or repeated) round — the new position is already
+        // persisted, so popping back to this controller re-reads it. If a belt was
+        // earned/mastered the ladder reset, so return to the menu instead.
+        if sessionContinues {
             navigationController?.popToViewController(self, animated: true)
         } else {
             navigationController?.popToRootViewController(animated: true)

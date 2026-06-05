@@ -86,10 +86,6 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // Whenever we're back at the menu, the next activity launch should begin a
-        // fresh belt session at the untimed warm-up round. (During a continuous
-        // session the menu is never shown, so in-session progress is preserved.)
-        activityVC?.roundIndex = 0
         refreshClock()
         clockTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(refreshClock), userInfo: nil, repeats: true)
     }
