@@ -165,8 +165,18 @@ final class BeltProgressStore {
     // MARK: - Persistence
 
     private var filePath: String {
+        // Per-profile when a student is active; otherwise the legacy single-user file.
+        if let dir = ProfileStore.shared.activeProfileDir {
+            return (dir as NSString).appendingPathComponent("belts.plist")
+        }
         let docs = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         return (docs as NSString).appendingPathComponent(kFileBeltProgress)
+    }
+
+    /// Re-read for the currently active profile (called when the profile switches).
+    func reload() {
+        records.removeAll()
+        load()
     }
 
     private func load() {

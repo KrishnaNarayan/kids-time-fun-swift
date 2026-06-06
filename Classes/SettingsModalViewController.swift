@@ -41,12 +41,9 @@ class SettingsModalViewController: UIViewController {
         let path = (docs as NSString).appendingPathComponent(kFileAppSettings)
         let dict = NSDictionary(contentsOfFile: path) as? [String: Any] ?? [:]
 
-        isDirty = dict.isEmpty
-        if let g = (dict[kSettingsKeyGradeLevel] as? NSNumber)?.int32Value, !dict.isEmpty {
-            gradeLevel = Int(g)
-        } else {
-            gradeLevel = Int(kDefaultGradeLevel)
-        }
+        // Grade level is per student — load it from the active profile.
+        gradeLevel = Int(ProfileStore.shared.activeProfile?.gradeLevel ?? kDefaultGradeLevel)
+        isDirty = false
         playSoundInApplication = dict.isEmpty ? true : ((dict[kSettingsKeyPlaySound] as? NSNumber)?.boolValue ?? true)
         playSoundDecider.isOn = playSoundInApplication
 
@@ -307,12 +304,13 @@ class SettingsModalViewController: UIViewController {
 
     @IBAction @objc func settingsDone(_ sender: Any) {
         guard isDirty else { return }
+        // Grade is saved on the active student's profile; sound stays app-wide.
+        if let id = ProfileStore.shared.activeProfileID {
+            ProfileStore.shared.setGrade(Int32(gradeLevel), for: id)
+        }
         let docs = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         let path = (docs as NSString).appendingPathComponent(kFileAppSettings)
-        let dict: NSDictionary = [
-            kSettingsKeyGradeLevel: NSNumber(value: gradeLevel),
-            kSettingsKeyPlaySound: NSNumber(value: playSoundInApplication)
-        ]
+        let dict: NSDictionary = [kSettingsKeyPlaySound: NSNumber(value: playSoundInApplication)]
         dict.write(toFile: path, atomically: true)
         KidsTimeFunAppState.sharedState().readSettings()
     }

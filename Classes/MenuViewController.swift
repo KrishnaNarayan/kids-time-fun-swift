@@ -31,12 +31,19 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
     private var clockTimer: Timer?
     private var clipArtTimer: Timer?
     private var message: String = ""
+    private let playerChip = UIButton(type: .system)
+    private static var didPresentPickerThisLaunch = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         installLegacyScaling(topAligned: true)
         title = kStrAppTitle
         edgesForExtendedLayout = []
+
+        // Tappable player chip (avatar + name) as the title — taps to switch student.
+        playerChip.addTarget(self, action: #selector(playerChipTapped), for: .touchUpInside)
+        navigationItem.titleView = playerChip
+        updatePlayerChip()
 
         let settingsBtn = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(settingsActivated))
         settingsBtn.accessibilityLabel = "Settings"
@@ -86,8 +93,42 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        updatePlayerChip()
         refreshClock()
         clockTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(refreshClock), userInfo: nil, repeats: true)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // At launch, show "Who's Playing?" unless there's exactly one player (then
+        // just use them). 0 players → add the first; 2+ → choose.
+        guard !MenuViewController.didPresentPickerThisLaunch else { return }
+        MenuViewController.didPresentPickerThisLaunch = true
+        if ProfileStore.shared.profiles.count != 1 || ProfileStore.shared.activeProfile == nil {
+            presentProfilePicker(animated: false)
+        }
+    }
+
+    // MARK: - Player profiles
+
+    private func updatePlayerChip() {
+        let p = ProfileStore.shared.activeProfile
+        playerChip.setTitle(p.map { "\($0.avatar)  \($0.name)  ▾" } ?? kStrAppTitle, for: .normal)
+        playerChip.setTitleColor(UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1), for: .normal)
+        playerChip.titleLabel?.font = .boldSystemFont(ofSize: 18)
+        playerChip.accessibilityLabel = p.map { "Player: \($0.name). Double tap to switch player." } ?? kStrAppTitle
+        playerChip.sizeToFit()
+    }
+
+    @objc private func playerChipTapped() {
+        presentProfilePicker(animated: true)
+    }
+
+    private func presentProfilePicker(animated: Bool) {
+        guard presentedViewController == nil else { return }
+        let nav = UINavigationController(rootViewController: ProfileSelectViewController())
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: animated)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
