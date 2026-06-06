@@ -134,11 +134,12 @@ class SettingsModalViewController: UIViewController {
             desc.backgroundColor = .clear
             desc.numberOfLines = 0
             desc.textColor = .darkGray
-            desc.font = .systemFont(ofSize: isPad ? 22 : 16)
+            desc.font = .systemFont(ofSize: isPad ? 21 : 15)
             desc.removeFromSuperview()
             content.addSubview(desc)
+            // Taller box so the friendlier two/three-line descriptions don't clip.
             desc.frame = CGRect(x: sideMargin, y: rowFrame.maxY + (isPad ? 18 : 12),
-                                width: rowW, height: isPad ? 60 : 44)
+                                width: rowW, height: isPad ? 96 : 72)
             updateGradeInfo()
         }
     }

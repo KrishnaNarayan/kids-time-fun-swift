@@ -26,13 +26,14 @@ final class BeltProgressStore {
 
     struct Round { let questions: Int32; let timed: Bool; let seconds: Int32 }
 
-    /// One belt attempt = these four rounds, run in order. Round 0 is an untimed
-    /// warm-up; the later rounds add a time limit.
+    /// One belt attempt = these three rounds, run in order: a short untimed
+    /// warm-up, then two "beat the clock" rounds with a tightening time limit.
+    /// Kept short so belts come quickly and the child doesn't get bored — the
+    /// whole ladder is replayed for each belt (Yellow→Black).
     static let ladder: [Round] = [
-        Round(questions: 10, timed: false, seconds: 0),
+        Round(questions: 5,  timed: false, seconds: 0),
         Round(questions: 10, timed: true,  seconds: 180),
-        Round(questions: 10, timed: true,  seconds: 120),
-        Round(questions: 20, timed: true,  seconds: 180)
+        Round(questions: 10, timed: true,  seconds: 120)
     ]
 
     /// Passing score required for each belt, indexed by belt

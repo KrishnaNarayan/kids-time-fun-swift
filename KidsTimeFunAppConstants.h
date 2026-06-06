@@ -131,14 +131,14 @@
 #define kStrOneMinute @"1 Minute"
 #define kStrVarMaxMinutes @"%i Minutes"
 #define kStrBlank @""
-#define kStrRankBelts @"Rank Belts"
+#define kStrRankBelts @"My Belts"
 #define kStrGradeLevel @"Grade Level"
 #define kStrFirstGrade @"First Grade"
 #define kStrSecondGrade @"Second Grade"
 #define kStrThirdGrade @"Third Grade"
-#define kStrFirstGradeInfo @"Thirty-minute increments"
-#define kStrSecondGradeInfo @"Fifteen-minute increments"
-#define kStrThirdGradeInfo @"Five-minute increments"
+#define kStrFirstGradeInfo @"Start here! Practice o'clock and half past with simple, friendly clocks."
+#define kStrSecondGradeInfo @"Ready for more — practice quarter past, half past, and quarter to."
+#define kStrThirdGradeInfo @"The full challenge — read the clock to every five minutes."
 #define kStrNoBeltYet @"No belt yet"
 
 #elif CC_LANGUAGE == CC_SPANISH

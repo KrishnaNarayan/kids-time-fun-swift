@@ -57,7 +57,43 @@ class TopScoresActivitySelector: UIViewController, UITableViewDelegate, UITableV
         displayGrade = KidsTimeFunAppState.sharedState().gradeLevel
         gradeControl.selectedSegmentIndex = Int(displayGrade)
         navigationItem.backBarButtonItem = UIBarButtonItem(title: kStrRankBelts, style: .plain, target: nil, action: nil)
+        let infoBtn = UIBarButtonItem(image: UIImage(systemName: "info.circle"),
+                                      style: .plain, target: self, action: #selector(showBeltInfo))
+        infoBtn.accessibilityLabel = "How to earn belts"
+        navigationItem.rightBarButtonItem = infoBtn
         for case let table as UITableView in view.subviews { beltTable = table }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // The screen is a reused instance, so refresh every time it appears —
+        // otherwise a belt just earned won't show until something forces a reload.
+        // Default to the grade the child is currently set to.
+        displayGrade = KidsTimeFunAppState.sharedState().gradeLevel
+        gradeControl.selectedSegmentIndex = Int(displayGrade)
+        beltTable?.reloadData()
+    }
+
+    @objc private func showBeltInfo() {
+        let message = """
+        Each activity has its own belts. Earn one by passing three rounds in a row:
+
+        •  5 questions — no timer
+        •  10 questions in 3 minutes
+        •  10 questions in 2 minutes
+
+        Each belt needs a higher score on every round:
+
+        Yellow Belt — 50% correct
+        Green Belt — 70% correct
+        Red Belt — 90% correct
+        Black Belt — 100% (a perfect run!)
+
+        Miss a round? Just try it again. Belts are saved separately for each grade level.
+        """
+        let alert = UIAlertController(title: "How to Earn Belts", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Got it!", style: .default))
+        present(alert, animated: true)
     }
 
     @objc private func gradeChanged(_ sender: UISegmentedControl) {
