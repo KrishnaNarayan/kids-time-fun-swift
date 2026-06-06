@@ -31,6 +31,7 @@ class SettingsModalViewController: UIViewController {
     private let gradeInfo = [kStrFirstGradeInfo, kStrSecondGradeInfo, kStrThirdGradeInfo]
     private var gradeButtons: [UIButton] = []
     private var soundButton: UIButton?
+    private var gradeBottomY: CGFloat = 0   // bottom of the grade description, in content coords
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -134,11 +135,21 @@ class SettingsModalViewController: UIViewController {
             desc.font = .systemFont(ofSize: isPad ? 21 : 15)
             desc.removeFromSuperview()
             content.addSubview(desc)
-            // Taller box so the friendlier two/three-line descriptions don't clip.
+            // Box tall enough for the friendlier two/three-line descriptions.
             desc.frame = CGRect(x: sideMargin, y: rowFrame.maxY + (isPad ? 18 : 12),
-                                width: rowW, height: isPad ? 96 : 72)
+                                width: rowW, height: isPad ? 80 : 72)
+            gradeBottomY = desc.frame.maxY
             updateGradeInfo()
         }
+    }
+
+    /// First label with the given text anywhere under `root`.
+    private func findLabel(withText text: String, in root: UIView) -> UILabel? {
+        for sub in root.subviews {
+            if let l = sub as? UILabel, l.text == text { return l }
+            if let found = findLabel(withText: text, in: sub) { return found }
+        }
+        return nil
     }
 
     private func updateGradeInfo() {
@@ -201,19 +212,41 @@ class SettingsModalViewController: UIViewController {
     // MARK: - Sound on/off (speaker icon button replacing the toggle switch)
 
     private func installSoundButton() {
-        guard let sw = playSoundDecider, let parent = sw.superview else { return }
+        guard let scaling = view.subviews.first as? LegacyScalingView else { return }
+        let content = scaling.content
+        let base = scaling.baseSize
         let tint = UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1)
         let isPad = UIDevice.current.userInterfaceIdiom == .pad
+        playSoundDecider?.isHidden = true
+
+        // Build a centered "Sound" row a fixed distance BELOW the grade description,
+        // so it can never collide with a two/three-line description on any screen
+        // size (the iPad overlap bug).
+        let rowY = gradeBottomY + (isPad ? 40 : 26)
+        let side: CGFloat = isPad ? 56 : 40
+        let gap: CGFloat = 12
+
+        let soundLabel = findLabel(withText: "Sound", in: content) ?? UILabel()
+        soundLabel.text = "Sound"
+        soundLabel.font = .boldSystemFont(ofSize: isPad ? 24 : 18)
+        soundLabel.textColor = tint
+        soundLabel.removeFromSuperview()
+        content.addSubview(soundLabel)
+        soundLabel.sizeToFit()
+
         let button = UIButton(type: .system)
         button.tintColor = tint
         button.setPreferredSymbolConfiguration(
             UIImage.SymbolConfiguration(pointSize: isPad ? 40 : 28, weight: .regular), forImageIn: .normal)
-        let side: CGFloat = isPad ? 56 : 40
-        // Left-align with the switch, vertically centered on it.
-        button.frame = CGRect(x: sw.frame.minX, y: sw.frame.midY - side / 2, width: side, height: side)
         button.addTarget(self, action: #selector(toggleSound), for: .touchUpInside)
-        sw.isHidden = true
-        parent.addSubview(button)
+        content.addSubview(button)
+
+        let totalW = soundLabel.frame.width + gap + side
+        let startX = (base.width - totalW) / 2
+        soundLabel.frame = CGRect(x: startX, y: rowY + (side - soundLabel.frame.height) / 2,
+                                  width: soundLabel.frame.width, height: soundLabel.frame.height)
+        button.frame = CGRect(x: startX + soundLabel.frame.width + gap, y: rowY, width: side, height: side)
+
         soundButton = button
         updateSoundButton()
     }
