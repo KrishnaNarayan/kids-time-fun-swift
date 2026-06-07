@@ -61,14 +61,10 @@ class KidsTimeFunAppState: NSObject {
         maxTimeInSeconds = (nm == 0 ? kDefaultMaxTimeInSeconds / 60 : nm) * 60
         let al = (dict[kSettingsKeyActivityLevel] as? NSNumber)?.int32Value ?? 0
         activityLevel = al == 0 ? kDefaultActivityLevel : al
-        // Grade level is the new single difficulty knob (drives clock-time increments).
-        // First grade is index 0, so a missing key must fall back to the default
-        // rather than being treated as "unset".
-        if let g = (dict[kSettingsKeyGradeLevel] as? NSNumber)?.int32Value, !dict.isEmpty {
-            gradeLevel = g
-        } else {
-            gradeLevel = kDefaultGradeLevel
-        }
+        // Grade level is the new single difficulty knob and is now per student, so
+        // it comes from the active profile (falling back to the default).
+        gradeLevel = ProfileStore.shared.activeProfile?.gradeLevel ?? kDefaultGradeLevel
+        // Sound is an app-wide (device) preference, kept in the shared settings file.
         appSoundState = dict.isEmpty ? true : ((dict[kSettingsKeyPlaySound] as? NSNumber)?.boolValue ?? true)
     }
 

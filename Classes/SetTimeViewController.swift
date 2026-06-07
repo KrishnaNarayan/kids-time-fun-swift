@@ -61,18 +61,21 @@ class SetTimeViewController: BaseViewController {
     }
 
     @IBAction func setTimeButtonPushed() {
-        var rightHours = false
-        var hrs = Int(round(Double(setClockView.hours)))
-        if hrs == 12 { hrs = 0 }
-        var tempHrs = setHours
-        if tempHrs == 12 { tempHrs = 0 }
+        // Accept the hour hand at (or just past) the target hour, normalised on a
+        // 12-hour dial so 12 o'clock — which the clock stores as 0 or 12.x — is
+        // judged correctly. The old check rejected every "12-something" time, which
+        // left the child stuck on that question so the round could never advance.
+        var hand = setClockView.hours.truncatingRemainder(dividingBy: 12)
+        if hand < 0 { hand += 12 }
+        let targetH = setHours % 12
+        let hourOK = (Int(hand.rounded(.down)) % 12) == targetH
+                  || (Int(hand.rounded()) % 12) == targetH
 
-        let upperBound = min(hrs + 1, Int((Double(hrs) + Double(setClockView.minutes) / 60.0) * 1.1))
-        if Int(setClockView.hours) >= tempHrs && Int(setClockView.hours) <= upperBound {
-            rightHours = true
-        }
+        let setM = ((Int(setClockView.minutes.rounded()) % 60) + 60) % 60
+        let minuteDiff = abs(setM - setMinutes)
+        let minuteOK = min(minuteDiff, 60 - minuteDiff) <= 2
 
-        let correct = rightHours && abs(setMinutes - Int(setClockView.minutes)) < 2
+        let correct = hourOK && minuteOK
 
         // Log the first attempt for this question's minute bucket so the adaptive
         // engine learns which target times this child struggles to set.
@@ -87,14 +90,14 @@ class SetTimeViewController: BaseViewController {
             rightOrWrong2?.isHidden = false
             AudioPlayer.getInstance().playCorrectWrong(true)
             ktfAnnounce("Correct!")
-            Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(rightAnswer), userInfo: nil, repeats: false)
+            Timer.scheduledTimer(timeInterval: activityType == kActTypeTimed ? 0.5 : 1.5, target: self, selector: #selector(rightAnswer), userInfo: nil, repeats: false)
         } else {
             isRight = false; wrongCounter += 1
             rightOrWrong2?.image = UIImage(named: "Wrong"); rightOrWrong.image = UIImage(named: "TryAgain")
             AudioPlayer.getInstance().playCorrectWrong(false)
             ktfAnnounce("Not quite, try again.")
             rightOrWrong2?.isHidden = true; rightOrWrong.isHidden = false
-            Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(wrongAnswer), userInfo: nil, repeats: false)
+            Timer.scheduledTimer(timeInterval: activityType == kActTypeTimed ? 1.2 : 1.5, target: self, selector: #selector(wrongAnswer), userInfo: nil, repeats: false)
         }
     }
 

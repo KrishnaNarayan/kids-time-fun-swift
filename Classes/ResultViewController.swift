@@ -64,7 +64,7 @@ class ResultViewController: UIViewController {
         lblRightAnswers.text = "\(rightAnswers)"
         lblWrongAnswers.text = "\(wrongAnswers)"
         lblTotalQuestions.text = "\(totalQuestions)"
-        lblPercentScore.text = String(format: "%1.2f%%", percentScore * 100)
+        lblPercentScore.text = "\(Int((percentScore * 100).rounded()))%"
         lblTimeTaken.text = "\(timeTakenInSeconds) seconds"
 
         // The belt-progression engine replaces the old per-run high-score list, so

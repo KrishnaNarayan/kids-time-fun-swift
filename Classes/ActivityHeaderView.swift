@@ -7,14 +7,14 @@ import UIKit
 @objc(ActivityHeaderView)
 class ActivityHeaderView: UIView {
 
-    var activityLevel: Int32 = 0
-    var right: Int32 = 0
-    var wrong: Int32 = 0
-    var current: Int32 = 0
-    var total: Int32 = 0
-    var showTotal: Bool = false
-    var showTimer: Bool = false
-    var countdownTimer: Int32 = 0
+    var activityLevel: Int32 = 0 { didSet { refresh() } }
+    var right: Int32 = 0        { didSet { refresh() } }
+    var wrong: Int32 = 0        { didSet { refresh() } }
+    var current: Int32 = 0      { didSet { refresh() } }
+    var total: Int32 = 0        { didSet { refresh() } }
+    var showTotal: Bool = false { didSet { refresh() } }
+    var showTimer: Bool = false { didSet { refresh() } }
+    var countdownTimer: Int32 = 0 { didSet { refresh() } }
 
     @IBOutlet private weak var rightLabel: UILabel!
     @IBOutlet private weak var wrongLabel: UILabel!
@@ -45,7 +45,24 @@ class ActivityHeaderView: UIView {
         set { }
     }
 
-    override func draw(_ rect: CGRect) {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        refresh()
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        refresh()
+    }
+
+    /// Update the header's labels and the timer's visibility directly, the moment
+    /// any input changes. This must NOT live in draw(_:) — draw isn't reliably
+    /// re-invoked when the same activity controller is popped back to for the next
+    /// (timed) round, which would leave the timer hidden.
+    private func refresh() {
+        // Outlets aren't connected until the XIB loads; bail until then.
+        guard timerImg != nil else { return }
+
         switch activityLevel {
         case kActLevelYellowBelt: activityLevelImg.image = UIImage(named: "Yellow Belt")
         case kActLevelGreenBelt:  activityLevelImg.image = UIImage(named: "Green Belt")
@@ -57,21 +74,15 @@ class ActivityHeaderView: UIView {
         // The timer box (left) and the question counter (right) occupy different
         // spots in the header, so a timed round shows BOTH: the countdown plus the
         // "x / total" progress toward the round's fixed question count.
-        if showTimer {
-            timerImg.isHidden = false
-            countdownLabel.isHidden = false
-        } else {
-            timerImg.isHidden = true
-            countdownLabel.isHidden = true
-        }
+        timerImg.isHidden = !showTimer
+        countdownLabel.isHidden = !showTimer
 
         rightLabel.text = "\(right)"
         wrongLabel.text = "\(wrong)"
         pageLabel.text = showTotal ? "\(current)/\(total)" : "\(current)"
         countdownLabel.text = "\(countdownTimer)"
-
-        if countdownTimer < 10 {
-            countdownLabel.textColor = UIColor(red: 0.5, green: 0, blue: 0, alpha: 1)
-        }
+        countdownLabel.textColor = countdownTimer < 10
+            ? UIColor(red: 0.5, green: 0, blue: 0, alpha: 1)   // running low — darker red
+            : UIColor(red: 1.0, green: 0, blue: 0, alpha: 1)   // normal red
     }
 }

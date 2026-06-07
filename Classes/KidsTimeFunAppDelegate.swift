@@ -17,6 +17,9 @@ class KidsTimeFunAppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Fold any pre-profiles single-user data into a default profile, then load
+        // state (grade now comes from the active profile).
+        ProfileStore.shared.migrateLegacyDataIfNeeded()
         KidsTimeFunAppState.sharedState().resumeFromState()
         configureAudioSession()
         setApplicationAppearanceDefaults()

@@ -31,6 +31,7 @@ class SettingsModalViewController: UIViewController {
     private let gradeInfo = [kStrFirstGradeInfo, kStrSecondGradeInfo, kStrThirdGradeInfo]
     private var gradeButtons: [UIButton] = []
     private var soundButton: UIButton?
+    private var gradeBottomY: CGFloat = 0   // bottom of the grade description, in content coords
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,22 +42,41 @@ class SettingsModalViewController: UIViewController {
         let path = (docs as NSString).appendingPathComponent(kFileAppSettings)
         let dict = NSDictionary(contentsOfFile: path) as? [String: Any] ?? [:]
 
-        isDirty = dict.isEmpty
-        if let g = (dict[kSettingsKeyGradeLevel] as? NSNumber)?.int32Value, !dict.isEmpty {
-            gradeLevel = Int(g)
-        } else {
-            gradeLevel = Int(kDefaultGradeLevel)
-        }
+        // Grade level is per student — load it from the active profile.
+        gradeLevel = Int(ProfileStore.shared.activeProfile?.gradeLevel ?? kDefaultGradeLevel)
+        isDirty = false
         playSoundInApplication = dict.isEmpty ? true : ((dict[kSettingsKeyPlaySound] as? NSNumber)?.boolValue ?? true)
         playSoundDecider.isOn = playSoundInApplication
 
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.tintColor = UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1)
+        let info = UIBarButtonItem(image: UIImage(systemName: "info.circle"), style: .plain, target: self, action: #selector(showHowItWorks))
+        info.accessibilityLabel = "How it works, for grown-ups"
+        navigationItem.rightBarButtonItem = info
 
         hideLegacyControls()
         installGradeSection()
         installSoundButton()
         addPrivacyLink()
+    }
+
+    @objc private func showHowItWorks() {
+        let msg = """
+        Kids Time Fun adapts to your child — it isn't random.
+
+        •  Grade level sets the difficulty: 1st = hours & half-hours, 2nd = quarter-hours, 3rd = five-minute times.
+
+        •  Belts are earned, not given. Your child passes rounds of questions to earn Yellow → Green → Red → Black, and each belt needs a higher score — so a belt means real, growing mastery.
+
+        •  Smart practice: the app starts with varied questions, then notices which times your child misses and gives more practice on exactly those — improving where it counts instead of repeating what's already easy.
+
+        •  Each child has their own profile, so progress is personal.
+
+        Everything stays on this device — no accounts, no ads, nothing collected.
+        """
+        let alert = UIAlertController(title: "How Kids Time Fun Works", message: msg, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Got it!", style: .default))
+        present(alert, animated: true)
     }
 
     // MARK: - Retire the old Questions / Minutes / Belt UI
@@ -134,13 +154,24 @@ class SettingsModalViewController: UIViewController {
             desc.backgroundColor = .clear
             desc.numberOfLines = 0
             desc.textColor = .darkGray
-            desc.font = .systemFont(ofSize: isPad ? 22 : 16)
+            desc.font = .systemFont(ofSize: isPad ? 21 : 15)
             desc.removeFromSuperview()
             content.addSubview(desc)
+            // Box tall enough for the friendlier two/three-line descriptions.
             desc.frame = CGRect(x: sideMargin, y: rowFrame.maxY + (isPad ? 18 : 12),
-                                width: rowW, height: isPad ? 60 : 44)
+                                width: rowW, height: isPad ? 80 : 72)
+            gradeBottomY = desc.frame.maxY
             updateGradeInfo()
         }
+    }
+
+    /// First label with the given text anywhere under `root`.
+    private func findLabel(withText text: String, in root: UIView) -> UILabel? {
+        for sub in root.subviews {
+            if let l = sub as? UILabel, l.text == text { return l }
+            if let found = findLabel(withText: text, in: sub) { return found }
+        }
+        return nil
     }
 
     private func updateGradeInfo() {
@@ -190,12 +221,16 @@ class SettingsModalViewController: UIViewController {
         return buttons
     }
 
-    /// Highlight the chosen button and mark it `.selected` for VoiceOver.
+    /// Highlight the chosen button and mark it `.selected` for VoiceOver. Unselected
+    /// buttons keep a light outline + fill so they still read as tappable choices.
     private func styleSelection(_ buttons: [UIButton], selected: Int) {
+        let tint = UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1)
         for (i, b) in buttons.enumerated() {
             let on = i == selected
-            b.layer.borderWidth = on ? 2 : 0
-            b.backgroundColor = on ? UIColor(red: 0.80, green: 0.90, blue: 1.0, alpha: 1) : .clear
+            b.layer.borderWidth = on ? 2 : 1
+            b.layer.borderColor = (on ? tint : UIColor(white: 0.78, alpha: 1)).cgColor
+            b.backgroundColor = on ? UIColor(red: 0.80, green: 0.90, blue: 1.0, alpha: 1)
+                                   : UIColor(white: 1.0, alpha: 0.85)
             b.accessibilityTraits = on ? [.button, .selected] : .button
         }
     }
@@ -203,19 +238,41 @@ class SettingsModalViewController: UIViewController {
     // MARK: - Sound on/off (speaker icon button replacing the toggle switch)
 
     private func installSoundButton() {
-        guard let sw = playSoundDecider, let parent = sw.superview else { return }
+        guard let scaling = view.subviews.first as? LegacyScalingView else { return }
+        let content = scaling.content
+        let base = scaling.baseSize
         let tint = UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1)
         let isPad = UIDevice.current.userInterfaceIdiom == .pad
+        playSoundDecider?.isHidden = true
+
+        // Build a centered "Sound" row a fixed distance BELOW the grade description,
+        // so it can never collide with a two/three-line description on any screen
+        // size (the iPad overlap bug).
+        let rowY = gradeBottomY + (isPad ? 40 : 26)
+        let side: CGFloat = isPad ? 56 : 40
+        let gap: CGFloat = 12
+
+        let soundLabel = findLabel(withText: "Sound", in: content) ?? UILabel()
+        soundLabel.text = "Sound"
+        soundLabel.font = .boldSystemFont(ofSize: isPad ? 24 : 18)
+        soundLabel.textColor = tint
+        soundLabel.removeFromSuperview()
+        content.addSubview(soundLabel)
+        soundLabel.sizeToFit()
+
         let button = UIButton(type: .system)
         button.tintColor = tint
         button.setPreferredSymbolConfiguration(
             UIImage.SymbolConfiguration(pointSize: isPad ? 40 : 28, weight: .regular), forImageIn: .normal)
-        let side: CGFloat = isPad ? 56 : 40
-        // Left-align with the switch, vertically centered on it.
-        button.frame = CGRect(x: sw.frame.minX, y: sw.frame.midY - side / 2, width: side, height: side)
         button.addTarget(self, action: #selector(toggleSound), for: .touchUpInside)
-        sw.isHidden = true
-        parent.addSubview(button)
+        content.addSubview(button)
+
+        let totalW = soundLabel.frame.width + gap + side
+        let startX = (base.width - totalW) / 2
+        soundLabel.frame = CGRect(x: startX, y: rowY + (side - soundLabel.frame.height) / 2,
+                                  width: soundLabel.frame.width, height: soundLabel.frame.height)
+        button.frame = CGRect(x: startX + soundLabel.frame.width + gap, y: rowY, width: side, height: side)
+
         soundButton = button
         updateSoundButton()
     }
@@ -306,12 +363,13 @@ class SettingsModalViewController: UIViewController {
 
     @IBAction @objc func settingsDone(_ sender: Any) {
         guard isDirty else { return }
+        // Grade is saved on the active student's profile; sound stays app-wide.
+        if let id = ProfileStore.shared.activeProfileID {
+            ProfileStore.shared.setGrade(Int32(gradeLevel), for: id)
+        }
         let docs = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         let path = (docs as NSString).appendingPathComponent(kFileAppSettings)
-        let dict: NSDictionary = [
-            kSettingsKeyGradeLevel: NSNumber(value: gradeLevel),
-            kSettingsKeyPlaySound: NSNumber(value: playSoundInApplication)
-        ]
+        let dict: NSDictionary = [kSettingsKeyPlaySound: NSNumber(value: playSoundInApplication)]
         dict.write(toFile: path, atomically: true)
         KidsTimeFunAppState.sharedState().readSettings()
     }

@@ -338,6 +338,9 @@
 		CC0000001000000000000037 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000014 /* ResultViewController.swift */; };
 		CC0000001000000000000091 /* BeltProgressStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000090 /* BeltProgressStore.swift */; };
 		CC0000001000000000000093 /* AdaptiveDrill.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000092 /* AdaptiveDrill.swift */; };
+		CC0000001000000000000095 /* ProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000094 /* ProfileStore.swift */; };
+		CC0000001000000000000097 /* ProfileSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000096 /* ProfileSelectViewController.swift */; };
+		CC0000001000000000000099 /* AddProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000098 /* AddProfileViewController.swift */; };
 		CC0000001000000000000040 /* SetClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000017 /* SetClockView.swift */; };
 		CC0000001000000000000041 /* SetTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000018 /* SetTimeViewController.swift */; };
 		CC0000001000000000000042 /* SettingsModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000019 /* SettingsModalViewController.swift */; };
@@ -686,6 +689,9 @@
 		CC0000001000000000000014 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		CC0000001000000000000090 /* BeltProgressStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeltProgressStore.swift; sourceTree = "<group>"; };
 		CC0000001000000000000092 /* AdaptiveDrill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveDrill.swift; sourceTree = "<group>"; };
+		CC0000001000000000000094 /* ProfileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStore.swift; sourceTree = "<group>"; };
+		CC0000001000000000000096 /* ProfileSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSelectViewController.swift; sourceTree = "<group>"; };
+		CC0000001000000000000098 /* AddProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfileViewController.swift; sourceTree = "<group>"; };
 		CC0000001000000000000017 /* SetClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetClockView.swift; sourceTree = "<group>"; };
 		CC0000001000000000000018 /* SetTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimeViewController.swift; sourceTree = "<group>"; };
 		CC0000001000000000000019 /* SettingsModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModalViewController.swift; sourceTree = "<group>"; };
@@ -746,6 +752,9 @@
 				CC0000001000000000000014 /* ResultViewController.swift */,
 				CC0000001000000000000090 /* BeltProgressStore.swift */,
 				CC0000001000000000000092 /* AdaptiveDrill.swift */,
+				CC0000001000000000000094 /* ProfileStore.swift */,
+				CC0000001000000000000096 /* ProfileSelectViewController.swift */,
+				CC0000001000000000000098 /* AddProfileViewController.swift */,
 				CC0000001000000000000017 /* SetClockView.swift */,
 				CC0000001000000000000018 /* SetTimeViewController.swift */,
 				CC0000001000000000000019 /* SettingsModalViewController.swift */,
@@ -1624,6 +1633,9 @@
 				CC0000001000000000000037 /* ResultViewController.swift in Sources */,
 				CC0000001000000000000091 /* BeltProgressStore.swift in Sources */,
 				CC0000001000000000000093 /* AdaptiveDrill.swift in Sources */,
+				CC0000001000000000000095 /* ProfileStore.swift in Sources */,
+				CC0000001000000000000097 /* ProfileSelectViewController.swift in Sources */,
+				CC0000001000000000000099 /* AddProfileViewController.swift in Sources */,
 				CC0000001000000000000040 /* SetClockView.swift in Sources */,
 				CC0000001000000000000041 /* SetTimeViewController.swift in Sources */,
 				CC0000001000000000000042 /* SettingsModalViewController.swift in Sources */,
