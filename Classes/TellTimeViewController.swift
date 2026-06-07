@@ -145,14 +145,14 @@ class TellTimeViewController: BaseViewController {
             rightOrWrong2?.image = UIImage(named: "Right"); rightOrWrong2?.isHidden = false
             AudioPlayer.getInstance().playCorrectWrong(true)
             ktfAnnounce("Correct!")
-            Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(rightAnswer), userInfo: nil, repeats: false)
+            Timer.scheduledTimer(timeInterval: activityType == kActTypeTimed ? 0.5 : 1.5, target: self, selector: #selector(rightAnswer), userInfo: nil, repeats: false)
         } else {
             isRight = false; wrongCounter += 1
             rightOrWrong2?.image = UIImage(named: "Wrong"); rightOrWrong.image = UIImage(named: "TryAgain")
             AudioPlayer.getInstance().playCorrectWrong(false)
             ktfAnnounce("Not quite, try again.")
             rightOrWrong2?.isHidden = true; rightOrWrong.isHidden = false
-            Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(wrongAnswer), userInfo: nil, repeats: false)
+            Timer.scheduledTimer(timeInterval: activityType == kActTypeTimed ? 1.2 : 1.5, target: self, selector: #selector(wrongAnswer), userInfo: nil, repeats: false)
         }
     }
 

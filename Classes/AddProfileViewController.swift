@@ -48,6 +48,7 @@ class AddProfileViewController: UIViewController, UICollectionViewDataSource, UI
         collection.backgroundColor = .clear
         collection.dataSource = self
         collection.delegate = self
+        collection.keyboardDismissMode = .onDrag   // swipe the grid to dismiss the keyboard
         collection.register(AvatarCell.self, forCellWithReuseIdentifier: "a")
         collection.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(collection)
@@ -67,10 +68,9 @@ class AddProfileViewController: UIViewController, UICollectionViewDataSource, UI
         ])
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        nameField.becomeFirstResponder()
-    }
+    // Note: we deliberately do NOT auto-focus the name field, so all avatars are
+    // visible on open and the keyboard doesn't cover them. The child taps the name
+    // field when ready (and can swipe the grid to dismiss the keyboard).
 
     // MARK: - Save
 

@@ -50,11 +50,33 @@ class SettingsModalViewController: UIViewController {
 
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.tintColor = UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1)
+        let info = UIBarButtonItem(image: UIImage(systemName: "info.circle"), style: .plain, target: self, action: #selector(showHowItWorks))
+        info.accessibilityLabel = "How it works, for grown-ups"
+        navigationItem.rightBarButtonItem = info
 
         hideLegacyControls()
         installGradeSection()
         installSoundButton()
         addPrivacyLink()
+    }
+
+    @objc private func showHowItWorks() {
+        let msg = """
+        Kids Time Fun adapts to your child — it isn't random.
+
+        •  Grade level sets the difficulty: 1st = hours & half-hours, 2nd = quarter-hours, 3rd = five-minute times.
+
+        •  Belts are earned, not given. Your child passes rounds of questions to earn Yellow → Green → Red → Black, and each belt needs a higher score — so a belt means real, growing mastery.
+
+        •  Smart practice: the app starts with varied questions, then notices which times your child misses and gives more practice on exactly those — improving where it counts instead of repeating what's already easy.
+
+        •  Each child has their own profile, so progress is personal.
+
+        Everything stays on this device — no accounts, no ads, nothing collected.
+        """
+        let alert = UIAlertController(title: "How Kids Time Fun Works", message: msg, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Got it!", style: .default))
+        present(alert, animated: true)
     }
 
     // MARK: - Retire the old Questions / Minutes / Belt UI

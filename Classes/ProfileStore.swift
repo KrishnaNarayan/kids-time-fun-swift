@@ -25,9 +25,9 @@ final class ProfileStore {
     private(set) var profiles: [KTFProfile] = []
     private(set) var activeProfileID: String?
 
-    /// A friendly set of animal/face avatars to choose from (no image assets needed).
-    static let avatars = ["🦊","🐼","🐸","🦁","🐯","🐵","🐧","🦄","🐙","🐝","🦋","🐢",
-                          "🐶","🐱","🐰","🐨","🐷","🐮","🐔","🐳","🦒","🦓","🦉","🐝"]
+    /// 15 cheerful sky & nature avatars (no image assets, culturally neutral). Kept
+    /// to 15 so they all fit above the keyboard on iPhone.
+    static let avatars = ["☀️","🌙","⭐","🌈","☁️","⚡","🌊","🚀","🪐","🌍","🌸","🌻","🌷","🌳","🍀"]
 
     var activeProfile: KTFProfile? {
         guard let id = activeProfileID else { return nil }
