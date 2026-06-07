@@ -61,15 +61,29 @@ final class LegacyScalingView: UIView {
         super.layoutSubviews()
         guard baseSize.width > 0, baseSize.height > 0 else { return }
         let safe = bounds.inset(by: safeAreaInsets)
-        guard safe.width > 0, safe.height > 0 else { return }
-        let scale = min(safe.width / baseSize.width, safe.height / baseSize.height)
+        guard bounds.width > 0, bounds.height > 0 else { return }
+
+        // Always center on (and scale to) the FULL width. Some simulators/devices
+        // report a spurious horizontal safe-area inset in portrait, which used to
+        // shift the canvas left and shrink it, leaving a white strip down one edge.
+        let scale: CGFloat
+        let centerY: CGFloat
+        if topAligned {
+            // Menu: fill the full width and pin to the top of the safe area. On tall
+            // phones the canvas overflows the bottom (only decorative background is
+            // clipped); on wider tablets a bottom gap remains and is filled by the
+            // container's background color.
+            scale = bounds.width / baseSize.width
+            centerY = safe.minY + (baseSize.height * scale) / 2
+        } else {
+            // Other screens: aspect-fit within the safe height, vertically centered.
+            scale = min(bounds.width / baseSize.width, safe.height / baseSize.height)
+            centerY = safe.midY
+        }
         content.transform = .identity
         content.bounds = CGRect(origin: .zero, size: baseSize)
         content.transform = CGAffineTransform(scaleX: scale, y: scale)
-        // Use center (valid with a transform — setting frame is not) to position:
-        // horizontally centered, vertically centered or top-aligned.
-        let y = topAligned ? safe.minY + content.frame.height / 2 : safe.midY
-        content.center = CGPoint(x: safe.midX, y: y)
+        content.center = CGPoint(x: bounds.midX, y: centerY)
     }
 }
 
