@@ -76,6 +76,18 @@ class ProfileSelectViewController: UIViewController {
             stack.addArrangedSubview(hint)
         }
 
+        if editingProfiles {
+            let hint = UILabel()
+            hint.text = ProfileStore.shared.profiles.count > 1
+                ? "Tap a player to rename, or − to remove."
+                : "Tap a player to rename."
+            hint.textColor = .darkGray
+            hint.textAlignment = .center
+            hint.font = .systemFont(ofSize: 15)
+            hint.numberOfLines = 0
+            stack.addArrangedSubview(hint)
+        }
+
         for (i, p) in ProfileStore.shared.profiles.enumerated() {
             stack.addArrangedSubview(profileRow(p, index: i))
         }
@@ -120,7 +132,9 @@ class ProfileSelectViewController: UIViewController {
             name.centerYAnchor.constraint(equalTo: row.centerYAnchor),
         ])
 
-        if editingProfiles {
+        // Delete is offered only when more than one player exists — there's always at
+        // least one player, so the app never falls back to an empty "add a player" wall.
+        if editingProfiles && ProfileStore.shared.profiles.count > 1 {
             let del = UIButton(type: .system)
             del.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
             del.tintColor = .systemRed
@@ -159,8 +173,33 @@ class ProfileSelectViewController: UIViewController {
 
     @objc private func rowTapped(_ sender: UIButton) {
         guard ProfileStore.shared.profiles.indices.contains(sender.tag) else { return }
+        if editingProfiles {
+            // In Edit mode, tapping a player renames it (so the default "Player 1"
+            // can be personalized without forcing a name at first launch).
+            presentRename(for: sender.tag)
+            return
+        }
         ProfileStore.shared.setActive(ProfileStore.shared.profiles[sender.tag].id)
         dismiss(animated: true)
+    }
+
+    private func presentRename(for index: Int) {
+        guard ProfileStore.shared.profiles.indices.contains(index) else { return }
+        let p = ProfileStore.shared.profiles[index]
+        let alert = UIAlertController(title: "Rename Player",
+                                      message: "Enter a name for this player.", preferredStyle: .alert)
+        alert.addTextField {
+            $0.text = p.name
+            $0.placeholder = "Name"
+            $0.autocapitalizationType = .words
+            $0.clearButtonMode = .whileEditing
+        }
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Save", style: .default) { [weak self, weak alert] _ in
+            ProfileStore.shared.rename(p.id, to: alert?.textFields?.first?.text ?? "")
+            self?.rebuild()
+        })
+        present(alert, animated: true)
     }
 
     @objc private func addTapped() {

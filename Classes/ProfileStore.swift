@@ -63,6 +63,13 @@ final class ProfileStore {
         refreshDependentState()
     }
 
+    func rename(_ id: String, to newName: String) {
+        let trimmed = newName.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty, let i = profiles.firstIndex(where: { $0.id == id }) else { return }
+        profiles[i].name = trimmed
+        save()
+    }
+
     func setGrade(_ grade: Int32, for id: String) {
         guard let i = profiles.firstIndex(where: { $0.id == id }) else { return }
         profiles[i].gradeLevel = grade
@@ -130,7 +137,15 @@ final class ProfileStore {
     func migrateLegacyDataIfNeeded() {
         guard profiles.isEmpty else { return }
         let oldBelts = (documents as NSString).appendingPathComponent(kFileBeltProgress)
-        guard FileManager.default.fileExists(atPath: oldBelts) else { return }
+        guard FileManager.default.fileExists(atPath: oldBelts) else {
+            // Brand-new install — create a default player so the app opens straight
+            // to the menu instead of an empty "add a player" wall. The player can be
+            // renamed (or more players added) anytime from the player chip.
+            let p = KTFProfile(id: UUID().uuidString, name: "Player 1",
+                               avatar: Self.avatars.randomElement() ?? "☀️", gradeLevel: kGradeFirst)
+            profiles = [p]; activeProfileID = p.id; save()
+            return
+        }
 
         let settings = NSDictionary(contentsOfFile: (documents as NSString).appendingPathComponent(kFileAppSettings)) as? [String: Any] ?? [:]
         let grade = (settings[kSettingsKeyGradeLevel] as? NSNumber)?.int32Value ?? kGradeFirst

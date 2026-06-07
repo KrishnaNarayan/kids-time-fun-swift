@@ -20,6 +20,28 @@ func ktfSpokenTime(hours: Int, minutes: Int) -> String {
     return "\(h) \(m)"
 }
 
+extension UIImage {
+    /// The average color of the image's bottom row of pixels — used to extend a
+    /// scaled-down legacy background seamlessly into the gap beneath it.
+    func bottomEdgeColor() -> UIColor? {
+        guard let cg = cgImage else { return nil }
+        let h = cg.height
+        let strip = CGRect(x: 0, y: max(0, h - 2), width: cg.width, height: min(2, h))
+        guard let crop = cg.cropping(to: strip) else { return nil }
+        var pixel: [UInt8] = [0, 0, 0, 0]
+        let space = CGColorSpaceCreateDeviceRGB()
+        guard let ctx = CGContext(data: &pixel, width: 1, height: 1, bitsPerComponent: 8,
+                                  bytesPerRow: 4, space: space,
+                                  bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return nil }
+        ctx.interpolationQuality = .medium
+        ctx.draw(crop, in: CGRect(x: 0, y: 0, width: 1, height: 1))
+        let a = CGFloat(pixel[3]) / 255
+        guard a > 0 else { return nil }
+        return UIColor(red: CGFloat(pixel[0]) / 255, green: CGFloat(pixel[1]) / 255,
+                       blue: CGFloat(pixel[2]) / 255, alpha: a)
+    }
+}
+
 extension UIViewController {
     /// Speak a message via VoiceOver (no-op when VoiceOver is off).
     func ktfAnnounce(_ message: String) {
@@ -102,21 +124,31 @@ extension UIViewController {
         container.topAligned = topAligned
         container.content.frame = CGRect(origin: .zero, size: base)
 
-        // Full-screen aspect-fill backdrop using the screen's own background art, so
-        // the fixed-size canvas never leaves an empty band on taller iPad ratios.
-        // (The aspect-fit canvas still sits on top so no foreground content is
-        // cropped.) The largest image view in the XIB is the background.
+        // Fill the area the aspect-fit canvas can't cover so the fixed-size layout
+        // never leaves an empty band on taller device ratios. The largest image view
+        // in the XIB is the background art.
         let backgroundImage = view.subviews
             .compactMap { $0 as? UIImageView }
             .max { $0.bounds.width * $0.bounds.height < $1.bounds.width * $1.bounds.height }?
             .image
         if let backgroundImage {
-            let backdrop = UIImageView(image: backgroundImage)
-            backdrop.contentMode = .scaleAspectFill
-            backdrop.clipsToBounds = true
-            backdrop.frame = container.bounds
-            backdrop.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            container.addSubview(backdrop)
+            if topAligned {
+                // Top-aligned screens (the menu) scale by width and leave the gap
+                // *below* the content, where the art is a solid band (grass). Filling
+                // that gap with the art's actual bottom-edge color continues it
+                // seamlessly — an offset aspect-fill copy of the whole image instead
+                // produced a "floating" duplicate band with a visible seam.
+                container.backgroundColor = backgroundImage.bottomEdgeColor() ?? .white
+            } else {
+                // Centered screens have symmetric top/bottom gaps; an aspect-fill copy
+                // of the art behind the canvas fills them with matching scenery.
+                let backdrop = UIImageView(image: backgroundImage)
+                backdrop.contentMode = .scaleAspectFill
+                backdrop.clipsToBounds = true
+                backdrop.frame = container.bounds
+                backdrop.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                container.addSubview(backdrop)
+            }
         }
 
         for sub in view.subviews { container.content.addSubview(sub) }
