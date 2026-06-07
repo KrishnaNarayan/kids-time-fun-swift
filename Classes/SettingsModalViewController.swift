@@ -221,12 +221,16 @@ class SettingsModalViewController: UIViewController {
         return buttons
     }
 
-    /// Highlight the chosen button and mark it `.selected` for VoiceOver.
+    /// Highlight the chosen button and mark it `.selected` for VoiceOver. Unselected
+    /// buttons keep a light outline + fill so they still read as tappable choices.
     private func styleSelection(_ buttons: [UIButton], selected: Int) {
+        let tint = UIColor(red: 0.055, green: 0.478, blue: 0.996, alpha: 1)
         for (i, b) in buttons.enumerated() {
             let on = i == selected
-            b.layer.borderWidth = on ? 2 : 0
-            b.backgroundColor = on ? UIColor(red: 0.80, green: 0.90, blue: 1.0, alpha: 1) : .clear
+            b.layer.borderWidth = on ? 2 : 1
+            b.layer.borderColor = (on ? tint : UIColor(white: 0.78, alpha: 1)).cgColor
+            b.backgroundColor = on ? UIColor(red: 0.80, green: 0.90, blue: 1.0, alpha: 1)
+                                   : UIColor(white: 1.0, alpha: 0.85)
             b.accessibilityTraits = on ? [.button, .selected] : .button
         }
     }

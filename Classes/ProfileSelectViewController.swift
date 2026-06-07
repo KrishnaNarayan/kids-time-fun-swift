@@ -30,8 +30,10 @@ class ProfileSelectViewController: UIViewController {
         view.addSubview(scroll)
         scroll.addSubview(stack)
 
-        let isPad = UIDevice.current.userInterfaceIdiom == .pad
-        let side: CGFloat = isPad ? 120 : 24
+        // Centered, width-capped column so player rows aren't full-screen-wide on
+        // iPad (a card-like width reads much better than edge-to-edge).
+        let cap = stack.widthAnchor.constraint(equalToConstant: 460)
+        cap.priority = .defaultHigh
         NSLayoutConstraint.activate([
             scroll.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scroll.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -39,8 +41,10 @@ class ProfileSelectViewController: UIViewController {
             scroll.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             stack.topAnchor.constraint(equalTo: scroll.contentLayoutGuide.topAnchor, constant: 20),
             stack.bottomAnchor.constraint(equalTo: scroll.contentLayoutGuide.bottomAnchor, constant: -20),
-            stack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: side),
-            stack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -side),
+            stack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stack.leadingAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
+            stack.trailingAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
+            cap,
         ])
     }
 

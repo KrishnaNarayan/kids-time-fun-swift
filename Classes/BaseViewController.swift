@@ -101,6 +101,24 @@ extension UIViewController {
         container.baseSize = base
         container.topAligned = topAligned
         container.content.frame = CGRect(origin: .zero, size: base)
+
+        // Full-screen aspect-fill backdrop using the screen's own background art, so
+        // the fixed-size canvas never leaves an empty band on taller iPad ratios.
+        // (The aspect-fit canvas still sits on top so no foreground content is
+        // cropped.) The largest image view in the XIB is the background.
+        let backgroundImage = view.subviews
+            .compactMap { $0 as? UIImageView }
+            .max { $0.bounds.width * $0.bounds.height < $1.bounds.width * $1.bounds.height }?
+            .image
+        if let backgroundImage {
+            let backdrop = UIImageView(image: backgroundImage)
+            backdrop.contentMode = .scaleAspectFill
+            backdrop.clipsToBounds = true
+            backdrop.frame = container.bounds
+            backdrop.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            container.addSubview(backdrop)
+        }
+
         for sub in view.subviews { container.content.addSubview(sub) }
         container.addSubview(container.content)
         view.addSubview(container)

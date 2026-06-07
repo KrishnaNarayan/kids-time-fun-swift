@@ -13,12 +13,14 @@ class TopScoresActivitySelector: UIViewController, UITableViewDelegate, UITableV
     var activity: Int32 = 0
     private var displayGrade: Int32 = 0
 
+    // Mostly-opaque row colors so the white text + belt names stay legible over the
+    // sky/rainbow background (the old 0.50 alpha let the art bleed through).
     private let activityColors: [Int32: UIColor] = [
-        kActTellTime:    UIColor(red: 0.956, green: 0.423, blue: 0.109, alpha: 0.50),
-        kActSetTime:     UIColor(red: 0.408, green: 0.0,   blue: 0.972, alpha: 0.50),
-        kActTimeAfter:   UIColor(red: 0.984, green: 0.0,   blue: 0.972, alpha: 0.50),
-        kActTimeBefore:  UIColor(red: 0.043, green: 0.808, blue: 0.11,  alpha: 0.50),
-        kActElapsedTime: UIColor(red: 0.043, green: 0.349, blue: 0.976, alpha: 0.50)
+        kActTellTime:    UIColor(red: 0.956, green: 0.423, blue: 0.109, alpha: 0.92),
+        kActSetTime:     UIColor(red: 0.408, green: 0.0,   blue: 0.972, alpha: 0.92),
+        kActTimeAfter:   UIColor(red: 0.984, green: 0.0,   blue: 0.972, alpha: 0.92),
+        kActTimeBefore:  UIColor(red: 0.043, green: 0.808, blue: 0.11,  alpha: 0.92),
+        kActElapsedTime: UIColor(red: 0.043, green: 0.349, blue: 0.976, alpha: 0.92)
     ]
 
     private func activityName(_ a: Int32) -> String {
@@ -148,7 +150,8 @@ class TopScoresActivitySelector: UIViewController, UITableViewDelegate, UITableV
 
         let act = Int32(indexPath.row)
         if act == kActMixed {
-            cell.backgroundColor = UIColor(patternImage: UIImage(named: "MixedPattern")!)
+            // Solid teal (was a busy rainbow-stripe pattern that clashed with the rows).
+            cell.backgroundColor = UIColor(red: 0.0, green: 0.6, blue: 0.6, alpha: 0.92)
         } else {
             cell.backgroundColor = activityColors[act] ?? .clear
         }
