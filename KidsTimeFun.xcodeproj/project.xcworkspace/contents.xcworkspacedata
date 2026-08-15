@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:KTF-v26.0.xcodeproj">
+      location = "self:KidsTimeFun.xcodeproj">
    </FileRef>
 </Workspace>

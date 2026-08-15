@@ -15,7 +15,7 @@ iPad. Destined for the App Store (likely Kids Category).
 - **Display version / build:** `1.0` / `1` (fresh App Store listing under the
   `net.islandinnovation` bundle ID — a new app, not an update of the 2009
   `com.nscpartners.KidsTimeFun` listing, so versioning restarts at 1.0)
-- **Xcode project:** `KTF-v26.0.xcodeproj` (target `KidsTimeFun`)
+- **Xcode project:** `KidsTimeFun.xcodeproj` (target `KidsTimeFun`)
 - **Developer:** Island Innovation LLC
 - **Support / Privacy contact:** `info@islandinnovation.net`
 - **GitHub:** `KrishnaNarayan/kids-time-fun-swift` (remote: `git@github.com:...`)
@@ -48,11 +48,11 @@ iPad. Destined for the App Store (likely Kids Category).
 
 ## Build / run / verify
 ```sh
-xcodebuild -project KTF-v26.0.xcodeproj -target KidsTimeFun -sdk iphonesimulator \
+xcodebuild -project KidsTimeFun.xcodeproj -target KidsTimeFun -sdk iphonesimulator \
   -configuration Debug CODE_SIGNING_ALLOWED=NO BUILD_DIR=/tmp/ktf-sim-build clean build
 ```
 Then `simctl install` / `launch` and screenshot to verify. Test several iPhone **and**
-iPad sizes. Quit Xcode and reopen `KTF-v26.0.xcodeproj` (not any old `KTF-v5.2`).
+iPad sizes. Quit Xcode and reopen `KidsTimeFun.xcodeproj` (not any old `KTF-v5.2`).
 
 ## Conventions
 - End git commit messages with the standard `Co-Authored-By` line.
