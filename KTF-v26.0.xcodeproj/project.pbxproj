@@ -147,18 +147,6 @@
 		5183D43D195D0E85003E3156 /* Menu-PurpleButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5183D42F195D0E85003E3156 /* Menu-PurpleButton@2x.png */; };
 		5183D43E195D0E85003E3156 /* Menu-RedButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5183D430195D0E85003E3156 /* Menu-RedButton.png */; };
 		5183D43F195D0E85003E3156 /* Menu-RedButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5183D431195D0E85003E3156 /* Menu-RedButton@2x.png */; };
-		519AD08B1A01DC7B0014AB46 /* KTF-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 519AD0831A01DC7B0014AB46 /* KTF-120.png */; };
-		519AD08C1A01DC7B0014AB46 /* KCF-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 519AD0841A01DC7B0014AB46 /* KCF-120.png */; };
-		519AD08D1A01DC7B0014AB46 /* KMF-3-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 519AD0851A01DC7B0014AB46 /* KMF-3-120.png */; };
-		519AD08E1A01DC7B0014AB46 /* KMF-4-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 519AD0861A01DC7B0014AB46 /* KMF-4-120.png */; };
-		519AD08F1A01DC7B0014AB46 /* KMF-K-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 519AD0871A01DC7B0014AB46 /* KMF-K-120.png */; };
-		519AD0901A01DC7B0014AB46 /* KMF-1-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 519AD0881A01DC7B0014AB46 /* KMF-1-120.png */; };
-		519AD0911A01DC7B0014AB46 /* KMF-2-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 519AD0891A01DC7B0014AB46 /* KMF-2-120.png */; };
-		519AD0921A01DC7B0014AB46 /* KMF-5-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 519AD08A1A01DC7B0014AB46 /* KMF-5-120.png */; };
-		519AD0941A01DCD40014AB46 /* AppLaunchInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 519AD0931A01DCD40014AB46 /* AppLaunchInfo.plist */; };
-		519AD0A81A01DDC80014AB46 /* LaucherHZ@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 519AD0A51A01DDC80014AB46 /* LaucherHZ@3x.png */; };
-		519AD0A91A01DDC80014AB46 /* LaucherHZ.png in Resources */ = {isa = PBXBuildFile; fileRef = 519AD0A61A01DDC80014AB46 /* LaucherHZ.png */; };
-		519AD0AA1A01DDC80014AB46 /* LaucherHZ@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 519AD0A71A01DDC80014AB46 /* LaucherHZ@2x.png */; };
 		519D1BCF19621404000F7AF7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 519D1BCE19621404000F7AF7 /* Images.xcassets */; };
 		51A07C351960A9A5005577F4 /* TryAgain@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A07C321960A9A5005577F4 /* TryAgain@2x.png */; };
 		51A07C361960A9A5005577F4 /* GoodJob@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A07C331960A9A5005577F4 /* GoodJob@2x.png */; };
@@ -174,7 +162,6 @@
 		51F3700E195E2635006797B2 /* Main Menu Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51F3700C195E2635006797B2 /* Main Menu Background@2x.png */; };
 		51F3701D195E4CA7006797B2 /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = 51F3701B195E4CA7006797B2 /* Home.png */; };
 		51F3701E195E4CA7006797B2 /* Home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51F3701C195E4CA7006797B2 /* Home@2x.png */; };
-		5210D9DE13484F3500B54AB2 /* HelpView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5210D9DD13484F3500B54AB2 /* HelpView-iPad.xib */; };
 		524F3795135197A8005905D1 /* ResultView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524F3794135197A8005905D1 /* ResultView-iPad.xib */; };
 		527BE5301349CC93009DF756 /* ActivityView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527BE52F1349CC93009DF756 /* ActivityView-iPad.xib */; };
 		527BE54F1349D2CD009DF756 /* TellTimeView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527BE54E1349D2CD009DF756 /* TellTimeView-iPad.xib */; };
@@ -306,7 +293,6 @@
 		9B1DE2010FA78A5000DB7E9A /* SetTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B1DE2000FA78A5000DB7E9A /* SetTimeView.xib */; };
 		9B2143D20FADD62B00A1CF20 /* Separator.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B2143CE0FADD62B00A1CF20 /* Separator.png */; };
 		9B60CE110FB28DF6002ADA58 /* ResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B60CE100FB28DF6002ADA58 /* ResultView.xib */; };
-		9B90EE8F0F96C8E8002839FA /* HelpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B90EE8E0F96C8E8002839FA /* HelpView.xib */; };
 		9B90EE930F96C920002839FA /* TellTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B90EE920F96C920002839FA /* TellTimeView.xib */; };
 		9B93C9720FC1DDAB00043810 /* EqualTo40.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B93C9710FC1DDAB00043810 /* EqualTo40.png */; };
 		9B93CA990FC2259300043810 /* ElapsedTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B93CA980FC2259300043810 /* ElapsedTimeView.xib */; };
@@ -323,7 +309,6 @@
 		9BB3DB430F9BBE3500877016 /* ClockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BB3DB420F9BBE3500877016 /* ClockView.xib */; };
 		9BCE51600FAC90E800B7BC73 /* ActivityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE515F0FAC90E800B7BC73 /* ActivityView.xib */; };
 		9BCE518D0FAC945000B7BC73 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE518C0FAC945000B7BC73 /* QuartzCore.framework */; };
-		9BFA129F0FBA707400A2C057 /* TellAFriendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BFA129E0FBA707400A2C057 /* TellAFriendView.xib */; };
 		CC0000001000000000000002 /* KidsTimeFunAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000001 /* KidsTimeFunAppDelegate.swift */; };
 		CC0000001000000000000027 /* ActivityHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000004 /* ActivityHeaderView.swift */; };
 		CC0000001000000000000028 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000005 /* ActivityViewController.swift */; };
@@ -331,7 +316,6 @@
 		CC0000001000000000000030 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000007 /* BaseViewController.swift */; };
 		CC0000001000000000000031 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000008 /* ClockView.swift */; };
 		CC0000001000000000000032 /* ElapsedTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000009 /* ElapsedTimeViewController.swift */; };
-		CC0000001000000000000033 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000010 /* HelpViewController.swift */; };
 		CC0000001000000000000034 /* KidsTimeFunAppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000011 /* KidsTimeFunAppState.swift */; };
 		CC0000001000000000000035 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000012 /* MenuViewController.swift */; };
 		CC0000001000000000000036 /* RandomInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000013 /* RandomInteger.swift */; };
@@ -344,7 +328,6 @@
 		CC0000001000000000000040 /* SetClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000017 /* SetClockView.swift */; };
 		CC0000001000000000000041 /* SetTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000018 /* SetTimeViewController.swift */; };
 		CC0000001000000000000042 /* SettingsModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000019 /* SettingsModalViewController.swift */; };
-		CC0000001000000000000043 /* TellAFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000020 /* TellAFriendViewController.swift */; };
 		CC0000001000000000000044 /* TellTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000021 /* TellTimeViewController.swift */; };
 		CC0000001000000000000046 /* TopScoresActivitySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000023 /* TopScoresActivitySelector.swift */; };
 		CC0000001000000000000049 /* TransitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000026 /* TransitionView.swift */; };
@@ -495,18 +478,6 @@
 		5183D42F195D0E85003E3156 /* Menu-PurpleButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu-PurpleButton@2x.png"; sourceTree = "<group>"; };
 		5183D430195D0E85003E3156 /* Menu-RedButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu-RedButton.png"; sourceTree = "<group>"; };
 		5183D431195D0E85003E3156 /* Menu-RedButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu-RedButton@2x.png"; sourceTree = "<group>"; };
-		519AD0831A01DC7B0014AB46 /* KTF-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KTF-120.png"; sourceTree = "<group>"; };
-		519AD0841A01DC7B0014AB46 /* KCF-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KCF-120.png"; sourceTree = "<group>"; };
-		519AD0851A01DC7B0014AB46 /* KMF-3-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KMF-3-120.png"; sourceTree = "<group>"; };
-		519AD0861A01DC7B0014AB46 /* KMF-4-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KMF-4-120.png"; sourceTree = "<group>"; };
-		519AD0871A01DC7B0014AB46 /* KMF-K-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KMF-K-120.png"; sourceTree = "<group>"; };
-		519AD0881A01DC7B0014AB46 /* KMF-1-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KMF-1-120.png"; sourceTree = "<group>"; };
-		519AD0891A01DC7B0014AB46 /* KMF-2-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KMF-2-120.png"; sourceTree = "<group>"; };
-		519AD08A1A01DC7B0014AB46 /* KMF-5-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KMF-5-120.png"; sourceTree = "<group>"; };
-		519AD0931A01DCD40014AB46 /* AppLaunchInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppLaunchInfo.plist; sourceTree = "<group>"; };
-		519AD0A51A01DDC80014AB46 /* LaucherHZ@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaucherHZ@3x.png"; sourceTree = "<group>"; };
-		519AD0A61A01DDC80014AB46 /* LaucherHZ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaucherHZ.png; sourceTree = "<group>"; };
-		519AD0A71A01DDC80014AB46 /* LaucherHZ@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaucherHZ@2x.png"; sourceTree = "<group>"; };
 		519D1BCE19621404000F7AF7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		51A07C321960A9A5005577F4 /* TryAgain@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TryAgain@2x.png"; sourceTree = "<group>"; };
 		51A07C331960A9A5005577F4 /* GoodJob@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GoodJob@2x.png"; sourceTree = "<group>"; };
@@ -522,7 +493,6 @@
 		51F3700C195E2635006797B2 /* Main Menu Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Main Menu Background@2x.png"; sourceTree = "<group>"; };
 		51F3701B195E4CA7006797B2 /* Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home.png; sourceTree = "<group>"; };
 		51F3701C195E4CA7006797B2 /* Home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home@2x.png"; sourceTree = "<group>"; };
-		5210D9DD13484F3500B54AB2 /* HelpView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "HelpView-iPad.xib"; path = "Resources-iPad/HelpView-iPad.xib"; sourceTree = "<group>"; };
 		524F3794135197A8005905D1 /* ResultView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "ResultView-iPad.xib"; path = "Resources-iPad/ResultView-iPad.xib"; sourceTree = "<group>"; };
 		527BE52F1349CC93009DF756 /* ActivityView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "ActivityView-iPad.xib"; path = "Resources-iPad/ActivityView-iPad.xib"; sourceTree = "<group>"; };
 		527BE54E1349D2CD009DF756 /* TellTimeView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "TellTimeView-iPad.xib"; path = "Resources-iPad/TellTimeView-iPad.xib"; sourceTree = "<group>"; };
@@ -655,7 +625,6 @@
 		9B1DE2000FA78A5000DB7E9A /* SetTimeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetTimeView.xib; sourceTree = "<group>"; };
 		9B2143CE0FADD62B00A1CF20 /* Separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Separator.png; sourceTree = "<group>"; };
 		9B60CE100FB28DF6002ADA58 /* ResultView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultView.xib; sourceTree = "<group>"; };
-		9B90EE8E0F96C8E8002839FA /* HelpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpView.xib; sourceTree = "<group>"; };
 		9B90EE920F96C920002839FA /* TellTimeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TellTimeView.xib; sourceTree = "<group>"; };
 		9B93C9710FC1DDAB00043810 /* EqualTo40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EqualTo40.png; sourceTree = "<group>"; };
 		9B93CA980FC2259300043810 /* ElapsedTimeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ElapsedTimeView.xib; sourceTree = "<group>"; };
@@ -673,7 +642,6 @@
 		9BCE515F0FAC90E800B7BC73 /* ActivityView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityView.xib; sourceTree = "<group>"; };
 		9BCE518C0FAC945000B7BC73 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9BDD78DA0FB35D4300E04CA9 /* KidsTimeFunAppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KidsTimeFunAppConstants.h; path = ../KidsTimeFunAppConstants.h; sourceTree = "<group>"; };
-		9BFA129E0FBA707400A2C057 /* TellAFriendView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TellAFriendView.xib; sourceTree = "<group>"; };
 		CC0000001000000000000001 /* KidsTimeFunAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KidsTimeFunAppDelegate.swift; sourceTree = "<group>"; };
 		CC0000001000000000000003 /* KidsTimeFun-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KidsTimeFun-Bridging-Header.h"; sourceTree = "<group>"; };
 		CC0000001000000000000004 /* ActivityHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHeaderView.swift; sourceTree = "<group>"; };
@@ -682,7 +650,6 @@
 		CC0000001000000000000007 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CC0000001000000000000008 /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		CC0000001000000000000009 /* ElapsedTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElapsedTimeViewController.swift; sourceTree = "<group>"; };
-		CC0000001000000000000010 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		CC0000001000000000000011 /* KidsTimeFunAppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KidsTimeFunAppState.swift; sourceTree = "<group>"; };
 		CC0000001000000000000012 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		CC0000001000000000000013 /* RandomInteger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomInteger.swift; sourceTree = "<group>"; };
@@ -695,7 +662,6 @@
 		CC0000001000000000000017 /* SetClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetClockView.swift; sourceTree = "<group>"; };
 		CC0000001000000000000018 /* SetTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimeViewController.swift; sourceTree = "<group>"; };
 		CC0000001000000000000019 /* SettingsModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModalViewController.swift; sourceTree = "<group>"; };
-		CC0000001000000000000020 /* TellAFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TellAFriendViewController.swift; sourceTree = "<group>"; };
 		CC0000001000000000000021 /* TellTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TellTimeViewController.swift; sourceTree = "<group>"; };
 		CC0000001000000000000023 /* TopScoresActivitySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScoresActivitySelector.swift; sourceTree = "<group>"; };
 		CC0000001000000000000026 /* TransitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionView.swift; sourceTree = "<group>"; };
@@ -745,7 +711,6 @@
 				CC0000001000000000000007 /* BaseViewController.swift */,
 				CC0000001000000000000008 /* ClockView.swift */,
 				CC0000001000000000000009 /* ElapsedTimeViewController.swift */,
-				CC0000001000000000000010 /* HelpViewController.swift */,
 				CC0000001000000000000011 /* KidsTimeFunAppState.swift */,
 				CC0000001000000000000012 /* MenuViewController.swift */,
 				CC0000001000000000000013 /* RandomInteger.swift */,
@@ -758,7 +723,6 @@
 				CC0000001000000000000017 /* SetClockView.swift */,
 				CC0000001000000000000018 /* SetTimeViewController.swift */,
 				CC0000001000000000000019 /* SettingsModalViewController.swift */,
-				CC0000001000000000000020 /* TellAFriendViewController.swift */,
 				CC0000001000000000000021 /* TellTimeViewController.swift */,
 				CC0000001000000000000023 /* TopScoresActivitySelector.swift */,
 				CC0000001000000000000026 /* TransitionView.swift */,
@@ -925,14 +889,6 @@
 		519AD0821A01DC6D0014AB46 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				519AD0831A01DC7B0014AB46 /* KTF-120.png */,
-				519AD0841A01DC7B0014AB46 /* KCF-120.png */,
-				519AD0851A01DC7B0014AB46 /* KMF-3-120.png */,
-				519AD0861A01DC7B0014AB46 /* KMF-4-120.png */,
-				519AD0871A01DC7B0014AB46 /* KMF-K-120.png */,
-				519AD0881A01DC7B0014AB46 /* KMF-1-120.png */,
-				519AD0891A01DC7B0014AB46 /* KMF-2-120.png */,
-				519AD08A1A01DC7B0014AB46 /* KMF-5-120.png */,
 			);
 			name = Icons;
 			sourceTree = "<group>";
@@ -941,14 +897,12 @@
 			isa = PBXGroup;
 			children = (
 				9BB3DB420F9BBE3500877016 /* ClockView.xib */,
-				9BFA129E0FBA707400A2C057 /* TellAFriendView.xib */,
 				9BA5605A0FBE3EC9004A7C2F /* TopScoresActivitySelectorView.xib */,
 				9B93CA980FC2259300043810 /* ElapsedTimeView.xib */,
 				9B1DE2000FA78A5000DB7E9A /* SetTimeView.xib */,
 				9B60CE100FB28DF6002ADA58 /* ResultView.xib */,
 				9B90EE920F96C920002839FA /* TellTimeView.xib */,
 				9BCE515F0FAC90E800B7BC73 /* ActivityView.xib */,
-				9B90EE8E0F96C8E8002839FA /* HelpView.xib */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				9BA3E0B10F92E8E200E7ED9C /* MenuView.xib */,
 				9BA5626A0FBE730A004A7C2F /* SettingsModalView.xib */,
@@ -965,7 +919,6 @@
 				524F3794135197A8005905D1 /* ResultView-iPad.xib */,
 				527BE54E1349D2CD009DF756 /* TellTimeView-iPad.xib */,
 				527BE52F1349CC93009DF756 /* ActivityView-iPad.xib */,
-				5210D9DD13484F3500B54AB2 /* HelpView-iPad.xib */,
 				52E092451342E3770035F697 /* MainWindow-iPad.xib */,
 				52E092651342E61C0035F697 /* MenuView-iPad.xib */,
 				52E092701342E7AB0035F697 /* SettingsModalView-iPad.xib */,
@@ -1231,7 +1184,6 @@
 		9BB3DA050F9A56C400877016 /* PLIST Files */ = {
 			isa = PBXGroup;
 			children = (
-				519AD0931A01DCD40014AB46 /* AppLaunchInfo.plist */,
 				8D1107310486CEB800E47090 /* KidsTimeFun-Info.plist */,
 			);
 			name = "PLIST Files";
@@ -1240,9 +1192,6 @@
 		9BB3DABB0F9B883600877016 /* Background */ = {
 			isa = PBXGroup;
 			children = (
-				519AD0A51A01DDC80014AB46 /* LaucherHZ@3x.png */,
-				519AD0A61A01DDC80014AB46 /* LaucherHZ.png */,
-				519AD0A71A01DDC80014AB46 /* LaucherHZ@2x.png */,
 				51F3700B195E2635006797B2 /* Main Menu Background.png */,
 				51F3700C195E2635006797B2 /* Main Menu Background@2x.png */,
 			);
@@ -1311,7 +1260,6 @@
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				9BA3E0B20F92E8E200E7ED9C /* MenuView.xib in Resources */,
-				9B90EE8F0F96C8E8002839FA /* HelpView.xib in Resources */,
 				51A07C3E1960D63F005577F4 /* Timed@2x.png in Resources */,
 				9B90EE930F96C920002839FA /* TellTimeView.xib in Resources */,
 				9BB3DB430F9BBE3500877016 /* ClockView.xib in Resources */,
@@ -1320,7 +1268,6 @@
 				9B2143D20FADD62B00A1CF20 /* Separator.png in Resources */,
 				9B60CE110FB28DF6002ADA58 /* ResultView.xib in Resources */,
 				51F3700A195E1F10006797B2 /* Top Scores.png in Resources */,
-				9BFA129F0FBA707400A2C057 /* TellAFriendView.xib in Resources */,
 				9B9DF60D0FBB8AE800200B50 /* Right.png in Resources */,
 				9B9DF6100FBB8AE800200B50 /* Wrong.png in Resources */,
 				51F3701E195E4CA7006797B2 /* Home@2x.png in Resources */,
@@ -1329,7 +1276,6 @@
 				9B9DF6210FBB95A700200B50 /* Right40.png in Resources */,
 				9B9DF6240FBB95A700200B50 /* Wrong40.png in Resources */,
 				9BA5605B0FBE3EC9004A7C2F /* TopScoresActivitySelectorView.xib in Resources */,
-				519AD08E1A01DC7B0014AB46 /* KMF-4-120.png in Resources */,
 				5164FDB6195F85C200DD87DE /* Red Belt.png in Resources */,
 				9BA561D40FBE6543004A7C2F /* Numbered.png in Resources */,
 				51F3700D195E2635006797B2 /* Main Menu Background.png in Resources */,
@@ -1354,12 +1300,10 @@
 				5164FDC7195FB1D000DD87DE /* Wrong40@2x.png in Resources */,
 				6BE410C612EBC098001D7376 /* 1KCF72A.png in Resources */,
 				6BE410C712EBC098001D7376 /* 20KCF72A.png in Resources */,
-				519AD0A91A01DDC80014AB46 /* LaucherHZ.png in Resources */,
 				51A07C371960A9A5005577F4 /* TryAgain.png in Resources */,
 				51A07C3F1960D63F005577F4 /* Numbered@2x.png in Resources */,
 				51F3701D195E4CA7006797B2 /* Home.png in Resources */,
 				5183D43B195D0E85003E3156 /* Menu-PinkButton@2x.png in Resources */,
-				519AD08C1A01DC7B0014AB46 /* KCF-120.png in Resources */,
 				6BE410C812EBC098001D7376 /* 21KCF72A.png in Resources */,
 				6BE410C912EBC098001D7376 /* 22KCF72A.png in Resources */,
 				6BE410CA12EBC098001D7376 /* 23KCF72A.png in Resources */,
@@ -1375,7 +1319,6 @@
 				6BE410D312EBC098001D7376 /* 31KCF72A.png in Resources */,
 				5164FDAB195F7BCA00DD87DE /* RWTLabel@2x.png in Resources */,
 				6BE410D412EBC098001D7376 /* 32KCF72A.png in Resources */,
-				519AD0941A01DCD40014AB46 /* AppLaunchInfo.plist in Resources */,
 				6BE410D512EBC098001D7376 /* 33KCF72A.png in Resources */,
 				6BE410D612EBC098001D7376 /* 34KCF72A.png in Resources */,
 				6BE410D712EBC098001D7376 /* 35KCF72A.png in Resources */,
@@ -1385,12 +1328,10 @@
 				6BE410DB12EBC098001D7376 /* 39KCF72A.png in Resources */,
 				51A07C391960A9C7005577F4 /* GoodJob.png in Resources */,
 				6BE410DC12EBC098001D7376 /* 3KCF72A.png in Resources */,
-				519AD0901A01DC7B0014AB46 /* KMF-1-120.png in Resources */,
 				6BE410DD12EBC098001D7376 /* 40KCF72A.png in Resources */,
 				6BE410DE12EBC098001D7376 /* 41KCF72A.png in Resources */,
 				6BE410DF12EBC098001D7376 /* 42KCF72A.png in Resources */,
 				6BE410E012EBC098001D7376 /* 43KCF72A.png in Resources */,
-				519AD0911A01DC7B0014AB46 /* KMF-2-120.png in Resources */,
 				6BE410E112EBC098001D7376 /* 44KCF72A.png in Resources */,
 				6BE410E212EBC098001D7376 /* 45KCF72A.png in Resources */,
 				6BE410E312EBC098001D7376 /* 46KCF72A.png in Resources */,
@@ -1428,7 +1369,6 @@
 				6BE4110112EBC098001D7376 /* 73KCF72A.png in Resources */,
 				6BE4110212EBC098001D7376 /* 74KCF72A.png in Resources */,
 				6BE4110312EBC098001D7376 /* 75KCF72A.png in Resources */,
-				519AD0A81A01DDC80014AB46 /* LaucherHZ@3x.png in Resources */,
 				5164FDB7195F85C200DD87DE /* Green Belt@2x.png in Resources */,
 				6BE4110412EBC098001D7376 /* 76KCF72A.png in Resources */,
 				6BE4110512EBC098001D7376 /* 77KCF72A.png in Resources */,
@@ -1461,7 +1401,6 @@
 				6BE4111C12EBC098001D7376 /* 98KCF72A.png in Resources */,
 				6BE4111D12EBC098001D7376 /* 99KCF72A.png in Resources */,
 				5183D433195D0E85003E3156 /* Menu-BlueButton@2x.png in Resources */,
-				519AD08D1A01DC7B0014AB46 /* KMF-3-120.png in Resources */,
 				6BE4111E12EBC098001D7376 /* 9KCF72A.png in Resources */,
 				52C2F7A4133789CE008E0AB9 /* 1correct.mp3 in Resources */,
 				52C2F7A5133789CE008E0AB9 /* 1wrong.mp3 in Resources */,
@@ -1476,7 +1415,6 @@
 				52C2F7D9133789CE008E0AB9 /* 5wrong.mp3 in Resources */,
 				52C2F7DB133789CE008E0AB9 /* 6correct.mp3 in Resources */,
 				52C2F7DC133789CE008E0AB9 /* 6wrong.mp3 in Resources */,
-				519AD08B1A01DC7B0014AB46 /* KTF-120.png in Resources */,
 				52C2F7DE133789CE008E0AB9 /* 7correct.mp3 in Resources */,
 				52C2F7DF133789CE008E0AB9 /* 7wrong.mp3 in Resources */,
 				52C2F7E1133789CE008E0AB9 /* 8correct.mp3 in Resources */,
@@ -1492,10 +1430,7 @@
 				CC0000002000000000000004 /* PrivacyInfo.xcprivacy in Resources */,
 				52E092711342E7AB0035F697 /* SettingsModalView-iPad.xib in Resources */,
 				5164FDB8195F85C200DD87DE /* Yellow Belt@2x.png in Resources */,
-				519AD0921A01DC7B0014AB46 /* KMF-5-120.png in Resources */,
-				5210D9DE13484F3500B54AB2 /* HelpView-iPad.xib in Resources */,
 				527BE5301349CC93009DF756 /* ActivityView-iPad.xib in Resources */,
-				519AD08F1A01DC7B0014AB46 /* KMF-K-120.png in Resources */,
 				527BE54F1349D2CD009DF756 /* TellTimeView-iPad.xib in Resources */,
 				524F3795135197A8005905D1 /* ResultView-iPad.xib in Resources */,
 				52E5E0BA1351C09A00EBCBBE /* SetTimeView-iPad.xib in Resources */,
@@ -1510,7 +1445,6 @@
 				451C771C165377DC0068C5CC /* 12_noon_m.mp3 in Resources */,
 				451C771D165377DC0068C5CC /* 13_m.mp3 in Resources */,
 				451C771E165377DC0068C5CC /* 14_m.mp3 in Resources */,
-				519AD0AA1A01DDC80014AB46 /* LaucherHZ@2x.png in Resources */,
 				451C771F165377DC0068C5CC /* 15_m.mp3 in Resources */,
 				5144471B195F233000B66680 /* Clock Face.png in Resources */,
 				51A07C361960A9A5005577F4 /* GoodJob@2x.png in Resources */,
@@ -1626,7 +1560,6 @@
 				CC0000001000000000000030 /* BaseViewController.swift in Sources */,
 				CC0000001000000000000031 /* ClockView.swift in Sources */,
 				CC0000001000000000000032 /* ElapsedTimeViewController.swift in Sources */,
-				CC0000001000000000000033 /* HelpViewController.swift in Sources */,
 				CC0000001000000000000034 /* KidsTimeFunAppState.swift in Sources */,
 				CC0000001000000000000035 /* MenuViewController.swift in Sources */,
 				CC0000001000000000000036 /* RandomInteger.swift in Sources */,
@@ -1639,7 +1572,6 @@
 				CC0000001000000000000040 /* SetClockView.swift in Sources */,
 				CC0000001000000000000041 /* SetTimeViewController.swift in Sources */,
 				CC0000001000000000000042 /* SettingsModalViewController.swift in Sources */,
-				CC0000001000000000000043 /* TellAFriendViewController.swift in Sources */,
 				CC0000001000000000000044 /* TellTimeViewController.swift in Sources */,
 				CC0000001000000000000046 /* TopScoresActivitySelector.swift in Sources */,
 				CC0000001000000000000049 /* TransitionView.swift in Sources */,
