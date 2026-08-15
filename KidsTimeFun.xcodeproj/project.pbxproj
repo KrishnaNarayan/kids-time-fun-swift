@@ -320,17 +320,17 @@
 		CC0000001000000000000035 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000012 /* MenuViewController.swift */; };
 		CC0000001000000000000036 /* RandomInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000013 /* RandomInteger.swift */; };
 		CC0000001000000000000037 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000014 /* ResultViewController.swift */; };
-		CC0000001000000000000091 /* BeltProgressStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000090 /* BeltProgressStore.swift */; };
-		CC0000001000000000000093 /* AdaptiveDrill.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000092 /* AdaptiveDrill.swift */; };
-		CC0000001000000000000095 /* ProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000094 /* ProfileStore.swift */; };
-		CC0000001000000000000097 /* ProfileSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000096 /* ProfileSelectViewController.swift */; };
-		CC0000001000000000000099 /* AddProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000098 /* AddProfileViewController.swift */; };
 		CC0000001000000000000040 /* SetClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000017 /* SetClockView.swift */; };
 		CC0000001000000000000041 /* SetTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000018 /* SetTimeViewController.swift */; };
 		CC0000001000000000000042 /* SettingsModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000019 /* SettingsModalViewController.swift */; };
 		CC0000001000000000000044 /* TellTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000021 /* TellTimeViewController.swift */; };
 		CC0000001000000000000046 /* TopScoresActivitySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000023 /* TopScoresActivitySelector.swift */; };
 		CC0000001000000000000049 /* TransitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000026 /* TransitionView.swift */; };
+		CC0000001000000000000091 /* BeltProgressStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000090 /* BeltProgressStore.swift */; };
+		CC0000001000000000000093 /* AdaptiveDrill.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000092 /* AdaptiveDrill.swift */; };
+		CC0000001000000000000095 /* ProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000094 /* ProfileStore.swift */; };
+		CC0000001000000000000097 /* ProfileSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000096 /* ProfileSelectViewController.swift */; };
+		CC0000001000000000000099 /* AddProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000001000000000000098 /* AddProfileViewController.swift */; };
 		CC0000002000000000000002 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC0000002000000000000001 /* LaunchScreen.storyboard */; };
 		CC0000002000000000000004 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = CC0000002000000000000003 /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
@@ -654,17 +654,17 @@
 		CC0000001000000000000012 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		CC0000001000000000000013 /* RandomInteger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomInteger.swift; sourceTree = "<group>"; };
 		CC0000001000000000000014 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
-		CC0000001000000000000090 /* BeltProgressStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeltProgressStore.swift; sourceTree = "<group>"; };
-		CC0000001000000000000092 /* AdaptiveDrill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveDrill.swift; sourceTree = "<group>"; };
-		CC0000001000000000000094 /* ProfileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStore.swift; sourceTree = "<group>"; };
-		CC0000001000000000000096 /* ProfileSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSelectViewController.swift; sourceTree = "<group>"; };
-		CC0000001000000000000098 /* AddProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfileViewController.swift; sourceTree = "<group>"; };
 		CC0000001000000000000017 /* SetClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetClockView.swift; sourceTree = "<group>"; };
 		CC0000001000000000000018 /* SetTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimeViewController.swift; sourceTree = "<group>"; };
 		CC0000001000000000000019 /* SettingsModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModalViewController.swift; sourceTree = "<group>"; };
 		CC0000001000000000000021 /* TellTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TellTimeViewController.swift; sourceTree = "<group>"; };
 		CC0000001000000000000023 /* TopScoresActivitySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScoresActivitySelector.swift; sourceTree = "<group>"; };
 		CC0000001000000000000026 /* TransitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionView.swift; sourceTree = "<group>"; };
+		CC0000001000000000000090 /* BeltProgressStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeltProgressStore.swift; sourceTree = "<group>"; };
+		CC0000001000000000000092 /* AdaptiveDrill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveDrill.swift; sourceTree = "<group>"; };
+		CC0000001000000000000094 /* ProfileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStore.swift; sourceTree = "<group>"; };
+		CC0000001000000000000096 /* ProfileSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSelectViewController.swift; sourceTree = "<group>"; };
+		CC0000001000000000000098 /* AddProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfileViewController.swift; sourceTree = "<group>"; };
 		CC0000002000000000000001 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC0000002000000000000003 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1227,7 +1227,7 @@
 				LastUpgradeCheck = 0500;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
-						DevelopmentTeam = GA37A7JF84;
+						DevelopmentTeam = 9KMZF64YU8;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1589,7 +1589,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = GA37A7JF84;
+				DEVELOPMENT_TEAM = 9KMZF64YU8;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1615,7 +1615,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = GA37A7JF84;
+				DEVELOPMENT_TEAM = 9KMZF64YU8;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = KidsTimeFun_Prefix.pch;
@@ -1651,7 +1651,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = GA37A7JF84;
+				DEVELOPMENT_TEAM = 9KMZF64YU8;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = KidsTimeFun_Prefix.pch;
