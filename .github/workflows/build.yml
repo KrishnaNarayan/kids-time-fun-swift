@@ -1,0 +1,38 @@
+name: Build
+
+# Compiles the app for the iOS Simulator (no code signing) on every push to
+# master and every pull request targeting it. This is the "CI passes" gate.
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Simulator build (no signing)
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Show toolchain
+        run: |
+          xcodebuild -version
+          xcodebuild -showsdks | grep -i simulator || true
+
+      - name: Build
+        run: |
+          xcodebuild \
+            -project KTF-v26.0.xcodeproj \
+            -target KidsTimeFun \
+            -sdk iphonesimulator \
+            -configuration Debug \
+            CODE_SIGNING_ALLOWED=NO \
+            BUILD_DIR="$RUNNER_TEMP/ktf-sim-build" \
+            clean build
