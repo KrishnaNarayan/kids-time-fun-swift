@@ -52,7 +52,6 @@
 #define kScrRecordScore 7
 #define kScrTopScores 8
 #define kScrSettings 9
-#define kTellAFriend 10
 #define kScrHelp 11
 #define kScrAbout 12
 #define kScrTutorial 13
@@ -113,14 +112,12 @@
 #define kStrTimeBefore @"Time Before"
 #define kStrTimeAfter @"Time After"
 #define kStrElapsedTime @"Elapsed Time"
-#define kStrHelp @"More Fun Apps"
 #define kStrAbout @"About"
 #define kStrSettings @"Settings"
 #define kStrTutorial @"Tutorial"
 #define kStrResult @"Your Score"
 #define kStrTopScores @"Top Scores"
 #define kStrMixed @"Mixed"
-#define kStrTellAFriend @"Tell a Friend"
 #define kStrTopScoreMessage @"Congratulations! You have a new top score."
 #define kStrNoTopScoreMessage @"Try again to get a top score."
 #define kStrYourNameHereMessage @"Your name"
@@ -151,14 +148,12 @@
 # define kStrTimeBefore @ "Antes de Tiempo" 
 # define kStrTimeAfter @ "Time After" 
 # define kStrElapsedTime @ "Tiempo Transcurrido" 
-# define kStrHelp @ "More Fun Apps" 
 # define kStrAbout @ "Acerca de" 
 # define kStrSettings @ "Configuración" 
 # define kStrTutorial @ "Tutorial" 
 # define kStrResult @ "Su puntuación" 
 # define kStrTopScores @ "las calificaciones más altas" 
 # define kStrMixed @ "mixta" 
-# define kStrTellAFriend @ "Recomendar a un amigo" 
 # define kStrTopScoreMessage @ "¡Felicitaciones! Usted tiene una puntuación máxima nuevo". 
 # define kStrNoTopScoreMessage @ "Trate de nuevo para obtener una puntuación alta." 
 # define kStrYourNameHereMessage @ "Tu nombre" 
@@ -179,14 +174,12 @@
 # define kStrTimeBefore @ "Time Before" 
 # define kStrTimeAfter @ "Time After" 
 # define kStrElapsedTime @ "Temps écoulé" 
-# define kStrHelp @ "More Fun Apps" 
 # define kStrAbout @ "A propos" 
 # define kStrSettings @ "Paramètres" 
 # define kStrTutorial @ "Tutorial" 
 # define kStrResult @ "Your Score" 
 # define kStrTopScores @ "Les meilleurs selon nous" 
 # define kStrMixed @ "mixte" 
-# define kStrTellAFriend @ "Envoyer à un ami" 
 # define kStrTopScoreMessage @ "Félicitations, vous avez une note supérieure requis." 
 # define kStrNoTopScoreMessage @ "Essayez à nouveau d'obtenir un meilleur score." 
 # define kStrYourNameHereMessage @ "Votre nom" 
@@ -215,7 +208,6 @@
 //#define kNibTutorial @"HelpView"
 #define kNibTopScores @"TopScoresDetailView"
 #define kNibResult @"ResultView"
-#define kNibTellAFriend @"TellAFriendView"
 
 //Application iPad Nib files
 //#define kiPadNibMenu @"MenuView"
@@ -231,7 +223,6 @@
 //#define kiPadNibTutorial @"HelpView"
 #define kiPadNibTopScores @"TopScoresDetailView-iPad"
 #define kiPadNibResult @"ResultView-iPad"
-#define kiPadNibTellAFriend @"TellAFriendView-iPad"
 
 
 //Application Images

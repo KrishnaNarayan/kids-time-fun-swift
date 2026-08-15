@@ -11,7 +11,6 @@
                 <outlet property="choiceActivityType" destination="80" id="88"/>
                 <outlet property="clockView" destination="82" id="93"/>
                 <outlet property="elapsedTimeButton" destination="7" id="62"/>
-                <outlet property="helpVC" destination="115" id="116"/>
                 <outlet property="setTimeButton" destination="109" id="111"/>
                 <outlet property="settingsVC" destination="113" id="114"/>
                 <outlet property="tellTimeAfterButton" destination="8" id="18"/>
@@ -29,40 +28,6 @@
                 <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" fixedFrame="YES" image="Main Menu Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="5" userLabel="MenuBackgroundImageView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.0" colorSpace="calibratedRGB"/>
-                </imageView>
-                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LaucherHZ.png" translatesAutoresizingMaskIntoConstraints="NO" id="0cM-o4-PPL">
-                    <rect key="frame" x="20" y="393" width="280" height="50"/>
-                </imageView>
-                <button opaque="NO" alpha="0.89999997615814209" tag="704" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlB-fW-MX8">
-                    <rect key="frame" x="252" y="398" width="40" height="40"/>
-                    <state key="normal" image="66855BB8-C0ED-4417-A3CF-A9611CC0A205" backgroundImage="KMF-4-120.png"/>
-                    <connections>
-                        <action selector="launchApp:" destination="-1" eventType="touchUpInside" id="4K9-mu-j4p"/>
-                    </connections>
-                </button>
-                <button opaque="NO" alpha="0.89999997615814209" tag="701" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZR-7f-iBF">
-                    <rect key="frame" x="86" y="398" width="40" height="40"/>
-                    <state key="normal" backgroundImage="KMF-1-120.png"/>
-                    <connections>
-                        <action selector="launchApp:" destination="-1" eventType="touchUpInside" id="8Oa-cf-rIY"/>
-                    </connections>
-                </button>
-                <button opaque="NO" alpha="0.89999997615814209" tag="700" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQb-T1-egT">
-                    <rect key="frame" x="28" y="398" width="40" height="40"/>
-                    <state key="normal" backgroundImage="KMF-K-120.png"/>
-                    <connections>
-                        <action selector="launchApp:" destination="-1" eventType="touchUpInside" id="c3t-XU-rhR"/>
-                    </connections>
-                </button>
-                <button opaque="NO" alpha="0.89999997615814209" tag="702" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Msm-nH-RoQ">
-                    <rect key="frame" x="140" y="398" width="40" height="40"/>
-                    <state key="normal" image="F228FCB1-1FAE-4AF8-ACA0-C0B7379D6526" backgroundImage="KMF-2-120.png"/>
-                    <connections>
-                        <action selector="launchApp:" destination="-1" eventType="touchUpInside" id="cCu-OE-ttV"/>
-                    </connections>
-                </button>
-                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LaucherHZ.png" translatesAutoresizingMaskIntoConstraints="NO" id="CCj-24-HoH">
-                    <rect key="frame" x="20" y="442" width="280" height="50"/>
                 </imageView>
                 <view clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="82" customClass="ClockView">
                     <rect key="frame" x="80" y="68" width="160" height="160"/>
@@ -175,43 +140,11 @@
                         <action selector="setActivityType:" destination="-1" eventType="valueChanged" id="89"/>
                     </connections>
                 </segmentedControl>
-                <button opaque="NO" alpha="0.89999997615814209" tag="703" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sui-5h-9uR">
-                    <rect key="frame" x="195" y="398" width="40" height="40"/>
-                    <state key="normal" backgroundImage="KMF-3-120.png"/>
-                    <connections>
-                        <action selector="launchApp:" destination="-1" eventType="touchUpInside" id="fXL-37-sIj"/>
-                    </connections>
-                </button>
-                <button opaque="NO" alpha="0.89999997615814209" tag="705" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ni9-1R-gbL">
-                    <rect key="frame" x="86" y="446" width="40" height="40"/>
-                    <state key="normal" backgroundImage="KMF-5-120.png"/>
-                    <connections>
-                        <action selector="launchApp:" destination="-1" eventType="touchUpInside" id="SBP-1O-NNg"/>
-                    </connections>
-                </button>
-                <button opaque="NO" alpha="0.89999997615814209" tag="706" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhn-F5-0MK">
-                    <rect key="frame" x="140" y="447" width="40" height="40"/>
-                    <state key="normal" image="AF424C45-0781-43C2-BC12-66568655992C" backgroundImage="KTF-120.png"/>
-                    <connections>
-                        <action selector="launchApp:" destination="-1" eventType="touchUpInside" id="SrL-Sl-76N"/>
-                    </connections>
-                </button>
-                <button opaque="NO" alpha="0.89999997615814209" tag="707" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Seh-r2-0LU">
-                    <rect key="frame" x="195" y="446" width="40" height="40"/>
-                    <state key="normal" backgroundImage="KCF-120.png"/>
-                    <connections>
-                        <action selector="launchApp:" destination="-1" eventType="touchUpInside" id="2Xm-dR-OLR"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
         </view>
         <viewController title="Settings" nibName="SettingsModalView" id="113" customClass="SettingsModalViewController">
-            <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-        </viewController>
-        <viewController title="Help" nibName="HelpView" id="115" customClass="HelpViewController">
             <extendedEdge key="edgesForExtendedLayout" top="YES"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
         </viewController>
@@ -3258,15 +3191,6 @@ req16rjqverM6tDq1+rf6uzq8erz6vXq+usC6wXrCusS6xXrJ+sq6y8AAAAAAAACAQAAAAAAAABCAAAA
 AAAAAAAAAAAAAADrMQ
 </mutableData>
         </image>
-        <image name="KCF-120.png" width="120" height="120"/>
-        <image name="KMF-1-120.png" width="120" height="120"/>
-        <image name="KMF-2-120.png" width="120" height="120"/>
-        <image name="KMF-3-120.png" width="120" height="120"/>
-        <image name="KMF-4-120.png" width="120" height="120"/>
-        <image name="KMF-5-120.png" width="120" height="120"/>
-        <image name="KMF-K-120.png" width="120" height="120"/>
-        <image name="KTF-120.png" width="120" height="120"/>
-        <image name="LaucherHZ.png" width="288" height="50"/>
         <image name="Main Menu Background.png" width="644" height="1140"/>
         <image name="Menu-BlueButton.png" width="150" height="60"/>
         <image name="Menu-GreenButton.png" width="150" height="60"/>

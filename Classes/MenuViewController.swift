@@ -3,11 +3,10 @@
 // Copyright 2026 Island Innovation LLC.  All rights reserved.
 
 import UIKit
-import MessageUI
 import QuartzCore
 
 @objc(MenuViewController)
-class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class MenuViewController: UIViewController {
 
     @IBOutlet var tellTimeButton: UIButton?
     @IBOutlet var setTimeButton: UIButton?
@@ -16,8 +15,6 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
     @IBOutlet var tellTimeAfterButton: UIButton?
     @IBOutlet var tellTimeBeforeButton: UIButton?
     @IBOutlet var topScoresButton: UIButton?
-    @IBOutlet var helpButton: UIButton?
-    @IBOutlet var tellAFriendButton: UIButton?
     @IBOutlet var choiceActivityType: UISegmentedControl!
     @IBOutlet var clockView: ClockView!
     @IBOutlet var logoImageView: UIImageView?
@@ -25,12 +22,10 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
     @IBOutlet var clipArtView: TransitionView?
     @IBOutlet var topScoresActVC: TopScoresActivitySelector!
     @IBOutlet var settingsVC: SettingsModalViewController!
-    @IBOutlet var helpVC: HelpViewController!
     @IBOutlet var activityVC: ActivityViewController!
 
     private var clockTimer: Timer?
     private var clipArtTimer: Timer?
-    private var message: String = ""
     private let playerChip = UIButton(type: .system)
     private static var didPresentPickerThisLaunch = false
 
@@ -57,11 +52,6 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
         backBtn.accessibilityLabel = "Home"
         navigationItem.backBarButtonItem = backBtn
 
-        // Hide defunct app-launcher buttons (tags 700–706)
-        for tag in 700...707 {
-            view.viewWithTag(tag)?.isHidden = true
-        }
-
         // The Questions/Minutes selector is gone — round count and timing are now
         // decided by the belt-progression engine, not chosen on the main screen.
         choiceActivityType.isHidden = true
@@ -72,8 +62,7 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
             (tellTimeButton, "Tell Time"), (setTimeButton, "Set the Time"),
             (elapsedTimeButton, "Elapsed Time"), (mixedModeButton, "Mixed Practice"),
             (tellTimeAfterButton, "Time After"), (tellTimeBeforeButton, "Time Before"),
-            (topScoresButton, "Top Scores"), (helpButton, "Help"),
-            (tellAFriendButton, "Tell a Friend")
+            (topScoresButton, "Top Scores")
         ]
         for (button, label) in buttonLabels { button?.accessibilityLabel = label }
         clipArtImageView?.isAccessibilityElement = false
@@ -195,18 +184,6 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
         navigationController?.pushViewController(topScoresActVC, animated: true)
     }
 
-    @IBAction func helpButtonPressed(_ sender: Any) {
-        navigationController?.pushViewController(helpVC, animated: true)
-    }
-
-    @IBAction func tellAFriendButtonPressed(_ sender: Any) {
-        if MFMailComposeViewController.canSendMail() {
-            displayComposerSheet()
-        } else {
-            launchMailAppOnDevice()
-        }
-    }
-
     @IBAction func setActivityType(_ sender: UISegmentedControl) {
         KidsTimeFunAppState.sharedState().activityType = Int32(sender.selectedSegmentIndex)
     }
@@ -216,52 +193,5 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
         navigationController?.pushViewController(settingsVC, animated: true)
     }
 
-    @IBAction func launchApp(_ sender: UIButton) {
-        guard let path = Bundle.main.path(forResource: "AppLaunchInfo", ofType: "plist"),
-              let apps = NSArray(contentsOfFile: path) as? [[String: String]] else { return }
-        let idx = sender.tag - 700
-        guard idx >= 0 && idx < apps.count else { return }
-        let app = apps[idx]
-        guard let launchURLStr = app["AppLaunchURL"],
-              let storeURLStr = app["AppStoreURL"],
-              let launchURL = URL(string: launchURLStr),
-              let storeURL = URL(string: storeURLStr) else { return }
-        if UIApplication.shared.canOpenURL(launchURL) {
-            UIApplication.shared.open(launchURL)
-        } else {
-            UIApplication.shared.open(storeURL)
-        }
-    }
-
     @objc private func goHome() {}
-
-    func displayComposerSheet() {
-        let picker = MFMailComposeViewController()
-        picker.mailComposeDelegate = self
-        picker.setSubject("Kids Time Fun App")
-        picker.setMessageBody("Please try this really cool app:  http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=318350766", isHTML: false)
-        present(picker, animated: true)
-    }
-
-    func launchMailAppOnDevice() {
-        let base = "mailto:?subject=Learn To Tell Time--Kids iPhone/iPod/iPad App!&body=Please try this really cool app:  http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=318350766"
-        guard let url = URL(string: base) else { return }
-        UIApplication.shared.open(url)
-    }
-
-    func mailComposeController(_ controller: MFMailComposeViewController,
-                                didFinishWith result: MFMailComposeResult, error: Error?) {
-        switch result {
-        case .cancelled: message = "User cancelled"
-        case .saved:     message = "Your information saved successfully"
-        case .sent:      message = "Your friends were informed about this application"
-        case .failed:    message = "Sorry, I couldn't inform your friend. Try again"
-        default:         message = "Result: not sent"
-        }
-        dismiss(animated: true) {
-            let alert = UIAlertController(title: "Tell A Friend", message: self.message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
-            self.present(alert, animated: true)
-        }
-    }
 }
