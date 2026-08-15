@@ -12,7 +12,9 @@ iPad. Destined for the App Store (likely Kids Category).
 
 ## Identity
 - **Bundle ID:** `net.islandinnovation.KidsTimeFun`
-- **Display version / build:** `26.0` / `26.0`
+- **Display version / build:** `1.0` / `1` (fresh App Store listing under the
+  `net.islandinnovation` bundle ID — a new app, not an update of the 2009
+  `com.nscpartners.KidsTimeFun` listing, so versioning restarts at 1.0)
 - **Xcode project:** `KTF-v26.0.xcodeproj` (target `KidsTimeFun`)
 - **Developer:** Island Innovation LLC
 - **Support / Privacy contact:** `info@islandinnovation.net`
