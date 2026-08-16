@@ -1600,6 +1600,9 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = KidsTimeFun;
+				MARKETING_VERSION = 1.0;
+				CURRENT_PROJECT_VERSION = 1;
+				PRODUCT_BUNDLE_IDENTIFIER = net.islandinnovation.KidsTimeFun;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Classes/KidsTimeFun-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -1624,6 +1627,9 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = KidsTimeFun;
+				MARKETING_VERSION = 1.0;
+				CURRENT_PROJECT_VERSION = 1;
+				PRODUCT_BUNDLE_IDENTIFIER = net.islandinnovation.KidsTimeFun;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Classes/KidsTimeFun-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -1660,6 +1666,9 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = KidsTimeFun;
+				MARKETING_VERSION = 1.0;
+				CURRENT_PROJECT_VERSION = 1;
+				PRODUCT_BUNDLE_IDENTIFIER = net.islandinnovation.KidsTimeFun;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Classes/KidsTimeFun-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
